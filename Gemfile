@@ -39,6 +39,9 @@ end
 
 gem 'devise'
 
+gem 'seed-fu', git: 'https://github.com/mbleigh/seed-fu'
+gem 'seedbank'
+
 group :test, :development do
   gem 'pry'
   gem 'pry-doc'
