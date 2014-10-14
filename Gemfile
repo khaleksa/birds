@@ -38,6 +38,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'seed-fu', git: 'https://github.com/mbleigh/seed-fu'
 gem 'seedbank'
