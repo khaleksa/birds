@@ -47,7 +47,7 @@ group :test, :development do
   gem 'pry'
   gem 'pry-doc'
   gem 'pry-rails'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
 
   #gem 'factory_girl'
   #gem 'factory_girl_rails'

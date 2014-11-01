@@ -1,0 +1,3 @@
+class Family < Category
+
+end

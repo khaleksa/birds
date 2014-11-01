@@ -1,6 +1,6 @@
-class CreateBirds < ActiveRecord::Migration
+class CreateSpecies < ActiveRecord::Migration
   def change
-    create_table :birds do |t|
+    create_table :species do |t|
       t.string :name_ru
       t.string :name_lat
       t.string :name_en

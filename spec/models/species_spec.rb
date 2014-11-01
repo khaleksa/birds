@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Type do
+describe Species do
   pending "add some examples to (or delete) #{__FILE__}"
 end
