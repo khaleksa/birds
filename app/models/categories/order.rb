@@ -1,3 +1,3 @@
-class Order < Category
+class Categories::Order < Categories::Category
 
 end

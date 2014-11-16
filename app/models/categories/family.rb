@@ -1,3 +1,3 @@
-class Family < Category
+class Categories::Family < Categories::Category
 
 end
