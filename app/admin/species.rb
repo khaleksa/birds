@@ -1,5 +1,7 @@
 ActiveAdmin.register Species do
-  permit_params :name_ru, :name_en, :name_lat, :description, :distribution, :biology, :reference, :category_id
+  permit_params :name_ru, :name_en, :name_lat,
+                :description, :distribution, :biology, :reference,
+                :category_id, images_attributes: [:id, :image, :_destroy]
 
   filter :family
   filter :name_ru
@@ -31,6 +33,13 @@ ActiveAdmin.register Species do
       row :reference
       row :created_at
       row :updated_at
+      row :image do
+        species.images.each do |i|
+          div do
+            image_tag(i.image.url)
+          end
+        end
+      end
     end
   end
 
@@ -47,6 +56,13 @@ ActiveAdmin.register Species do
       f.input :distribution
       f.input :biology
       f.input :reference
+      f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.thumb.url)
+    end
+
+    f.inputs do
+      f.has_many :images, :allow_destroy => true, :heading => 'Images' do |cf|
+        cf.input :image, :hint => f.template.image_tag(cf.object.image.thumb.url)
+      end
     end
 
     f.actions

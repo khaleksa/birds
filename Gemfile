@@ -44,6 +44,8 @@ gem 'seed-fu', git: 'https://github.com/mbleigh/seed-fu'
 gem 'seedbank'
 
 gem 'closure_tree'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :test, :development do
   gem 'pry'
