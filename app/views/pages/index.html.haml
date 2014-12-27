@@ -1,7 +1,42 @@
-%h1
-  Hello Alex :)
-.authorization
-  - if current_user
-    = link_to 'logout', destroy_user_session_path, :method => :delete
-  - else
-    =link_to 'login', new_user_session_path
+= render 'shared/header'
+
+/ Portfolio Grid Section
+%section#portfolio
+  .container
+    .row
+      .col-sm-4.portfolio-item
+        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal1"}
+          .caption
+            .caption-content
+              %i.fa.fa-search-plus.fa-3x
+          %img.img-responsive{:alt => "", :src => "images/tmp/1.png"}
+      .col-sm-4.portfolio-item
+        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal2"}
+          .caption
+            .caption-content
+              %i.fa.fa-search-plus.fa-3x
+          %img.img-responsive{:alt => "", :src => "img/portfolio/cake.png"}
+      .col-sm-4.portfolio-item
+        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal3"}
+          .caption
+            .caption-content
+              %i.fa.fa-search-plus.fa-3x
+          %img.img-responsive{:alt => "", :src => "img/portfolio/circus.png"}
+      .col-sm-4.portfolio-item
+        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal4"}
+          .caption
+            .caption-content
+              %i.fa.fa-search-plus.fa-3x
+          %img.img-responsive{:alt => "", :src => "img/portfolio/game.png"}
+      .col-sm-4.portfolio-item
+        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal5"}
+          .caption
+            .caption-content
+              %i.fa.fa-search-plus.fa-3x
+          %img.img-responsive{:alt => "", :src => "img/portfolio/safe.png"}
+      .col-sm-4.portfolio-item
+        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal6"}
+          .caption
+            .caption-content
+              %i.fa.fa-search-plus.fa-3x
+          %img.img-responsive{:alt => "", :src => "img/portfolio/submarine.png"}
