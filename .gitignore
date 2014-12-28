@@ -15,6 +15,7 @@
 /tmp
 .idea/
 .DS_Store
+*~
 
 .idea/smarty.iml
 
