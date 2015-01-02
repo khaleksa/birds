@@ -20,7 +20,7 @@ ActiveAdmin.register Categories::Family do
     attributes_table do
       row :id
       row 'Отряд' do
-        family.parent.full_name
+        link_to family.parent.full_name, admin_categories_order_path(family.order)
       end
       row :name_ru
       row :name_lat

@@ -8,9 +8,22 @@ ru:
         other: "Семейства"
     attributes:
       categories/family:
+        parent: "Отряд"
         name_ru: "Русское имя"
         name_lat: "Латинское имя"
         name_en: "Английское имя"
         description: "Описание"
         created_at: "Дата создания"
         updated_at: "Дата изменения"
+    errors:
+      models:
+        categories/family:
+          attributes:
+            parent:
+              blank: "- Укажите отряд для данного семейства"
+            name_ru:
+              blank: "- Введите русское название семейства"
+            name_lat:
+              blank: "- Введите латинское название семейства"
+            name_en:
+              blank: "- Введите английское название семейства"

@@ -15,6 +15,9 @@ ActiveAdmin.register Species do
     column :name_ru
     column :name_lat
     column :name_en
+    column 'Родительский вид' do |species|
+      link_to(species.parent.try(:name_lat), admin_species_path(species.parent)) if species.parent.present?
+    end
     actions
   end
 
@@ -22,7 +25,17 @@ ActiveAdmin.register Species do
     attributes_table do
       row :id
       row 'Семейство' do
-        species.family.full_name
+        link_to species.family.full_name, admin_categories_family_path(species.family.id)
+      end
+      row :parent do
+        link_to(species.parent.name_lat, admin_species_path(species.parent.id)) if species.parent.present?
+      end
+      row :children do
+        species.sub_species.each do |ss|
+          div do
+            link_to ss.name_ru, admin_species_path(ss.id)
+          end
+        end
       end
       row :name_ru
       row :name_lat

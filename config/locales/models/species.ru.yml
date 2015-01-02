@@ -8,6 +8,8 @@ ru:
         other: "Виды"
     attributes:
       species:
+        parent: "Главный вид"
+        children: "Подвиды"
         name_ru: "Русское имя"
         name_lat: "Латинское имя"
         name_en: "Английское имя"

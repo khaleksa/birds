@@ -1,13 +1,13 @@
 # encoding: UTF-8
 
 Categories::Order.seed(:id,
-  {:id => 1, :name_ru => "Гагарообразные", :type => 'Categories::Order'},
-  {:id => 2, :name_ru => "Поганкообразные", :type => 'Categories::Order'},
-  {:id => 3, :name_ru => "Веслоногие", :type => 'Categories::Order'}
+  {:id => 1, :name_ru => "Гагарообразные", :name_en => "Gaviiformes", :name_lat => "Gaviiformes", :type => 'Categories::Order'},
+  {:id => 2, :name_ru => "Поганкообразные", :name_en => "Podicipediformes", :name_lat => "Podicipediformes",  :type => 'Categories::Order'},
+  {:id => 3, :name_ru => "Веслоногие", :name_en => "Pelecaniformes", :name_lat => "Pelecaniformes",  :type => 'Categories::Order'}
 )
 
 Categories::Family.seed(:id,
-  {:id => 4, :name_ru => "Гагаровые", :type => 'Categories::Family', :parent_id => 1},
-  {:id => 5, :name_ru => "Поганковые", :type => 'Categories::Family', :parent_id => 2},
-  {:id => 6, :name_ru => "Пеликановые", :type => 'Categories::Family', :parent_id => 3}
+  {:id => 4, :name_ru => "Гагаровые", :name_en => "Family Gaviidae", :name_lat => "Family Gaviidae", :type => 'Categories::Family', :parent_id => 1},
+  {:id => 5, :name_ru => "Поганковые", :name_en => "Podicipedidae", :name_lat => "Podicipedidae", :type => 'Categories::Family', :parent_id => 2},
+  {:id => 6, :name_ru => "Пеликановые", :name_en => "Pelecanidae", :name_lat => "Pelecanidae", :type => 'Categories::Family', :parent_id => 3}
 )
