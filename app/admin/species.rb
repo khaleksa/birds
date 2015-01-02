@@ -3,6 +3,8 @@ ActiveAdmin.register Species do
                 :description, :distribution, :biology, :reference,
                 :category_id, images_attributes: [:id, :image, :_destroy]
 
+  menu priority: 3
+
   filter :family
   filter :name_ru
   filter :name_lat
@@ -13,8 +15,6 @@ ActiveAdmin.register Species do
     column :name_ru
     column :name_lat
     column :name_en
-    column :created_at
-    column :updated_at
     actions
   end
 

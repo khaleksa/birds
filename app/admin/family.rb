@@ -1,6 +1,8 @@
 ActiveAdmin.register Categories::Family do
   permit_params :name_ru, :name_en, :name_lat, :description, :parent_id
 
+  menu priority: 2
+
   filter :parent,  :collection => proc { Categories::Category.orders }, :label => 'Отряд'
   filter :name_ru
   filter :name_lat
@@ -11,8 +13,6 @@ ActiveAdmin.register Categories::Family do
     column :name_ru
     column :name_lat
     column :name_en
-    column :created_at
-    column :updated_at
     actions
   end
 

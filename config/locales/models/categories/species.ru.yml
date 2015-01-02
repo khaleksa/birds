@@ -1,0 +1,20 @@
+ru:
+  activerecord:
+    models:
+      species:
+        one: "Вид"
+        few: "Видов"
+        many: "Видов"
+        other: "Виды"
+    attributes:
+      species:
+        name_ru: "Русское имя"
+        name_lat: "Латинское имя"
+        name_en: "Английское имя"
+        description: "Описание"
+        distribution: "Распространение"
+        biology: "Биология"
+        image: "Фото"
+        reference: "Источники информации"
+        created_at: "Дата создания"
+        updated_at: "Дата изменения"

@@ -1,6 +1,8 @@
 ActiveAdmin.register Categories::Order do
   permit_params :name_ru, :name_en, :name_lat, :description
 
+  menu priority: 1
+
   filter :name_ru
   filter :name_lat
   filter :name_en
@@ -10,8 +12,6 @@ ActiveAdmin.register Categories::Order do
     column :name_ru
     column :name_lat
     column :name_en
-    column :created_at
-    column :updated_at
     actions
   end
 

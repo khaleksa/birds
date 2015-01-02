@@ -1,0 +1,28 @@
+ru:
+  activerecord:
+    models:
+      user: &user_model
+        one: "Пользователя"
+        few: "Пользователя"
+        many: "Пользователи"
+        other: "Пользователи"
+      admin_user:
+        <<: *user_model
+    attributes:
+      user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        email: "Эл.почта"
+        roles: "Роли"
+        sign_in_count: "Количество входов"
+        last_sign_in_at: "Последний вход"
+        created_at: "Дата регистрации"
+        updated_at: "Дата изменения"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              incorrect_email: "введен в неверном формате"

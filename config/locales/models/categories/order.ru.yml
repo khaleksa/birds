@@ -1,0 +1,16 @@
+ru:
+  activerecord:
+    models:
+      categories/order:
+        one: "Отряд"
+        few: "Отрядов"
+        many: "Отрядов"
+        other: "Отряды"
+    attributes:
+      categories/order:
+        name_ru: "Русское имя"
+        name_lat: "Латинское имя"
+        name_en: "Английское имя"
+        description: "Описание"
+        created_at: "Дата создания"
+        updated_at: "Дата изменения"

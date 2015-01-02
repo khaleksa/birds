@@ -16,6 +16,7 @@
 .idea/
 .DS_Store
 *~
+.directory
 
 .idea/smarty.iml
 
@@ -28,5 +29,3 @@ db/structure.sql
 
 # Ignore rspec html reports
 /public/spec_results.html
-
-.directory
