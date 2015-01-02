@@ -20,3 +20,13 @@ ru:
         reference: "Источники информации"
         created_at: "Дата создания"
         updated_at: "Дата изменения"
+    errors:
+      models:
+        species:
+          attributes:
+            name_ru:
+              blank: "- Введите русское название вида"
+            name_lat:
+              blank: "- Введите латинское название вида"
+            name_en:
+              blank: "- Введите английское название вида"

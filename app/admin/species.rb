@@ -46,10 +46,10 @@ ActiveAdmin.register Species do
       row :reference
       row :created_at
       row :updated_at
-      row :image do
+      row :images do
         species.images.each do |i|
           div do
-            image_tag(i.image.url)
+            image_tag(i.image.thumb.url)
           end
         end
       end
@@ -69,7 +69,6 @@ ActiveAdmin.register Species do
       f.input :distribution
       f.input :biology
       f.input :reference
-      f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.thumb.url)
     end
 
     f.inputs do
