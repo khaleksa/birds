@@ -1,13 +1,22 @@
 Birds::Application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
+
+  root to: 'pages#index'
+
+  resource :categories, only: [:show]
+  resources :birds
+  # resource :birds, only: [:new, :create, :edit, :update] do
+  #   member do
+  #     post 'update_date' => 'birds#update_date'
+  #   end
+  # end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to: 'pages#index'
 
-  resource :categories, only: [:show]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

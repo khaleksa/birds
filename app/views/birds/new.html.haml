@@ -1,0 +1,7 @@
+.user-photo
+  = form_for @bird, url: birds_path(@bird)  do |form|
+    = image_tag @bird.photo_url, class: 'bird_photo_preview', style: 'width=200px; height=150px;'
+    = form.label :photo
+    = form.file_field :photo, class: 'photo_file'
+    = form.hidden_field :photo_cache
+    = form.submit

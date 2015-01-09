@@ -4,6 +4,12 @@
 %section#portfolio
   .container
     .row
+      .col-sm-12
+        %ul
+          -@birds.each do |bird|
+            %li
+              =link_to bird.id, edit_bird_path(bird)
+      %br
       .col-sm-4.portfolio-item
         %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal1"}
           .caption
