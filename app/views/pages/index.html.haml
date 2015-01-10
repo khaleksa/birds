@@ -1,48 +1,23 @@
-= render 'shared/header'
+.container.content
+  = render 'shared/nav_add_photo'
 
-/ Portfolio Grid Section
-%section#portfolio
-  .container
-    .row
-      .col-sm-12
-        %ul
-          -@birds.each do |bird|
-            %li
-              =link_to bird.id, edit_bird_path(bird)
-      %br
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal1"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          %img.img-responsive{:alt => "", :src => "images/tmp/1.png"}
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal2"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          %img.img-responsive{:alt => "", :src => "img/portfolio/cake.png"}
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal3"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          %img.img-responsive{:alt => "", :src => "img/portfolio/circus.png"}
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal4"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          %img.img-responsive{:alt => "", :src => "img/portfolio/game.png"}
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal5"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          %img.img-responsive{:alt => "", :src => "img/portfolio/safe.png"}
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal6"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          %img.img-responsive{:alt => "", :src => "img/portfolio/submarine.png"}
+  / Content BODY
+  .row.mtop40.home-img-container.row-sm
+    -@birds.each do |bird|
+      .col-sm-6.col-md-3.home-img-block
+        .head
+          .blck
+            =image_tag 'share/bird_logo.png'
+          .blck
+            =link_to bird.species.try(:name_ru), "#"
+        .body
+          =image_tag bird.photo.thumb
+        .foot
+          .blck
+            =image_tag 'share/user_logo.png', class: 'img-circle'
+          .blck
+            =link_to bird.user.full_name, '#'
+            %p=ldate(bird.timestamp, format: '%d %b %Y')
+
+  .row.acenter
+    %a.btn.btn-success.btn-xlg.sm-width-max Показать еще фотографии

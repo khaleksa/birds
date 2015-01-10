@@ -1,30 +1,32 @@
-/ Navigation
-%nav.navbar.navbar-default.navbar-fixed-top.navbar-main-top
+%nav.navbar.birds-nav.navbar-fixed-top
   .container
-    / Brand and toggle get grouped for better mobile display
-    .navbar-header.page-scroll
-      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
+    .navbar-header
+      / Navigation mobile
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Меню
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      =link_to 'Birds.uz', root_path, class: 'navbar-brand logo-title' #{:href => "#page-top"}
-    / Collect the nav links, forms, and other content for toggling
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav.navbar-left
-        %li.hidden
-          %a{:href => "#page-top"}
-        %li.page-scroll
-          = link_to 'Птицы', categories_path
-        %li.page-scroll
-          %a{:href => "#about"} Большой год
-        %li.page-scroll
-          %a{:href => "#contact"} На определение
-      %ul.nav.navbar-nav.navbar-right
-        %li.page-scroll
-          %a{:href => "#about"} Зарегистрировать
-        %li.page-scroll
-          - if current_user
-            = link_to 'Выход', destroy_user_session_path, :method => :delete
-          - else
-            =link_to 'Вход', new_user_session_path
+      / Logo
+      =link_to root_path, class: 'navbar-brand' do
+        =image_tag "navbar/logo.png", :alt => 'Birds.uz'
+    #navbar.collapse.navbar-collapse
+      / Menu Left
+      %ul.nav.navbar-nav
+        %li.active
+          =link_to 'Птицы', categories_path
+        %li
+          =link_to 'Большой год', "#"
+        %li
+          =link_to 'На определение', "#"
+      / Menu Right
+      .navbar-right
+        %ul.nav.navbar-nav.fright.mleft10
+          %li
+            .btn-signup
+              =link_to 'Зарегистрироваться', '#', class: 'btn btn-success'
+          %li
+            - if current_user
+              =link_to 'Выход', destroy_user_session_path, :method => :delete
+            - else
+              =link_to 'Вход', new_user_session_path
