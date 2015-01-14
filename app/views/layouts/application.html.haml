@@ -2,9 +2,9 @@
 %html
 %head
   %title Birds.uz
-  %meta{content: 'text/html; charset=utf-8', 'http-equiv' => 'Content-Type'}
-  %meta{content: 'IE=edge', 'http-equiv' => 'X-UA-Compatible'}
-  %meta{content: 'width=device-width, initial-scale=1', name: 'viewport'}
+  %meta{ 'http-equiv' => 'Content-Type', content: 'text/html; charset=utf-8' }
+  %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }
+  %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
 
   = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
 
@@ -15,7 +15,7 @@
 
   = csrf_meta_tags
 
-%body.bg-container
+%body{'onload' => "load()"}
   = render 'shared/navbar'
   = render 'shared/search'
 
@@ -23,9 +23,6 @@
   -#%p.alert= alert
 
   = yield
-
   = render 'shared/footer'
 
-  = javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
-  = javascript_include_tag 'libs/bootstrap'
   = javascript_include_tag "application", "data-turbolinks-track" => true

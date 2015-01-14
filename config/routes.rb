@@ -4,13 +4,16 @@ Birds::Application.routes.draw do
 
   root to: 'pages#index'
 
-  resource :categories, only: [:show]
-  resources :birds
-  # resource :birds, only: [:new, :create, :edit, :update] do
-  #   member do
-  #     post 'update_date' => 'birds#update_date'
-  #   end
-  # end
+  # resources :categories, only: [:show]
+  # resources :birds
+  resources :birds, only: [:new, :create, :edit, :update] do
+    member do
+      get 'edit_date' => 'birds#edit_date'
+      get 'edit_map' => 'birds#edit_map'
+      get 'edit_species' => 'birds#edit_species'
+      post 'publish' => 'birds#publish'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,15 +1,17 @@
 .bg-btm-container
   .container.content
+
     / Content TOP  PROGRESS BAR
     .row.top-row
       %h3 Добавить фотографию
       .progrees-bar-container
         / TOP
         .row.progrees-bar-top-icons
-          .col.col-md-2.step-active
-            .progress-bar-item.progress-top-round.progress-photo-ico
-              %i &nbsp;
-          .col.col-md-4
+          %a{:href => "#"}
+            .col.col-md-2.step-done
+              .progress-bar-item.progress-top-round.progress-photo-ico
+                %i &nbsp;
+          .col.col-md-4.step-active
             .progress-bar-item.progress-top-round.progress-calendar-ico
               %i &nbsp;
           .col.col-md-4
@@ -20,10 +22,10 @@
               %i &nbsp;
         / MDL
         .row.progrees-bar-middle-icons
-          .col.col-md-2.step-active
+          .col.col-md-2.step-done
             .progress-bar-item.dash
               \&nbsp;
-          .col.col-md-4
+          .col.col-md-4.step-active
             .progress-bar-item.dash
               \&nbsp;
           .col.col-md-4
@@ -32,15 +34,15 @@
           .col.col-md-2
             .progress-bar-item.dash
               \&nbsp;
-        / MDL
         / BTM
         .row.progrees-bar-bottom-icons
-          .col.col-md-2.step-active
-            .progress-bar-item.progress-btn-round
-              %i
+          .col.col-md-2.step-done
+            %a{:href => "#"}
+              .progress-bar-item.progress-btn-round
+                %i
             .progress-bar-item.dash.right-dash.big-dash
               \&nbsp;
-          .col.col-md-4
+          .col.col-md-4.step-active
             .progress-bar-item.dash.left-dash
               \&nbsp;
             .progress-bar-item.progress-btn-round
@@ -59,15 +61,15 @@
               \&nbsp;
             .progress-bar-item.progress-btn-round
               %i
-        / BTM
         / DESCR
         .row.progrees-bar-descr
-          .col.col-md-2.step-active
+          .col.col-md-2.step-done
             .descr
-              %p
-                Загрузите
-                %br фотографию
-          .col.col-md-4
+              %a{:href => "#"}
+                %p
+                  Загрузите
+                  %br фотографию
+          .col.col-md-4.step-active
             .descr
               %p
                 Укажите
@@ -82,20 +84,19 @@
               %p
                 Определите
                 %br вид птицы
-    / DESCR
 
-    / Content TOP PROGRESS BAR
     / Content TOP PROGRESS BAR - SMALLER DISPLAY
     .small-progrees-bar-container
+      %p.step-done
+        %a{:href => "#"}
+          %span.progress-bar-item.small-progress-bar-round-num
+            %i 1
+          %span.small-progress-bar-dash
+            %i.progress-bar-item &nbsp;
+          %span.progress-bar-item.progress-top-round.progress-photo-ico.small-progress-bar-round-icon
+            %i &nbsp;
+          %span.small-progress-bar-text Загрузите фотографию
       %p.step-active
-        %span.progress-bar-item.small-progress-bar-round-num
-          %i 1
-        %span.small-progress-bar-dash
-          %i.progress-bar-item &nbsp;
-        %span.progress-bar-item.progress-top-round.progress-photo-ico.small-progress-bar-round-icon
-          %i &nbsp;
-        %span.small-progress-bar-text Загрузите фотографию
-      %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 2
         %span.small-progress-bar-dash
@@ -119,29 +120,28 @@
         %span.progress-bar-item.progress-top-round.progress-check-ico.small-progress-bar-round-icon
           %i &nbsp;
         %span.small-progress-bar-text Определите вид птицы
-    / Content TOP PROGRESS BAR - SMALLER DISPLAY
 
     / Content BODY
     .row.mtop40.add-photo-container
       .col-md-9.col-sm-12
-        -#= form_for @bird, url: birds_path(@bird) do |form|
-        -#  .form-container
-        -#    %input.form-control.w65.m-w85{:disabled => "", :name => "pseudoimage", :type => "text"}
-        -#      = form.file_field :photo, class: 'mleft20 btn btn-success'
-        -#      -#%a.mleft20.btn.btn-success{:onclick => "browsebutton();"} Обзор...
-        -#      = form.submit 'Продолжить', class: 'mtop3 fright btn btn-info sm-display-none'
-        -#      -#%input{:name => "actualimage", :type => "file"}/
-        -#  = form.submit 'Продолжить', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
-        -#  -#%input.mtop3.m-h35.mbtm20.sm-width-max.btn.btn-info.display-sm-only.w{:type => "submit", :value => "Продолжить"}/
-        -#= image_tag "assets/img/m_pic_big.png", class: 'img-responsive bird_photo_preview'
+        = form_for @bird do |form|
+          .form-container
+            #datetimepicker5.input-group.date.w80.sm-width-max
+              = form.text_field :timestamp, 'data-date-format' => 'DD.MM.YYYY', 'class' => 'form-control'
+              %span.input-group-addon
+                %span.glyphicon.glyphicon-calendar{ 'aria-hidden' => 'true' }
 
-      .user-photo
-        = form_for @bird, url: birds_path(@bird)  do |form|
-          = image_tag @bird.photo_url, class: 'bird_photo_preview', style: 'width=200px; height=150px;'
-          = form.label :photo
-          = form.file_field :photo, class: 'photo_file'
-          = form.hidden_field :photo_cache
-          = form.submit
+            %input.fright.btn.btn-info.mtop-30.sm-display-none{:type => "submit", :value => "Продолжить"}
+          %input.mtop3.m-h35.mbtm20.sm-width-max.btn.btn-info.display-sm-only.w{:type => "submit", :value => "Продолжить"}
 
-      .col-md-3.sm-display-none
+      .col-md-3.acenter.sm-display-none
+        .row
+          =image_tag @bird.photo.small, class: 'img-responsive sm-centered'
+        .row.mtop10.add-photo-info
+          .col.col-md-4.aright
+            %p
+              %span.lbl Автор:
+          .col.col-md-8.aleft
+            %p
+              =link_to @bird.user.full_name, '#'
 

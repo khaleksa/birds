@@ -375,6 +375,25 @@ a.lnk-success {
     }
 }
 
+/*  Sticky Footer */
+/** {*/
+    /*margin: 0;*/
+/*}*/
+
+/*html,body{*/
+    /*height: 100%*/
+/*}*/
+/*.wrapper-content {*/
+    /*min-height: 100%;*/
+    /*height: auto !important;*/
+    /*height: 100%;*/
+    /*margin: 0 auto -73px;*/
+    /*padding-bottom: 73px;*/
+/*}*/
+/*.footer{*/
+    /*height: 73px;*/
+/*}*/
+
 .birds-nav, .footer {
     -webkit-box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.75);
@@ -433,7 +452,7 @@ a.navbar-brand {
 }
 .bg-btm-container
 {
-    background-image: url('../img/bg_btm.png');
+    background-image: url('share/bg_btm.png');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: bottom;
@@ -593,16 +612,16 @@ div.search-btn a.search:hover{
     display:block;
 }
 .progress-photo-ico > i {
-    background: url("../img/photo_ico.png") no-repeat center center;
+    background: url("bird/add/photo_ico.png") no-repeat center center;
 }
 .progress-calendar-ico > i {
-    background: url("../img/calendar_ico.png") no-repeat center center;
+    background: url("bird/add/calendar_ico.png") no-repeat center center;
 }
 .progress-tag-ico > i {
-    background: url("../img/tag_ico.png") no-repeat center center;
+    background: url("bird/add/tag_ico.png") no-repeat center center;
 }
 .progress-check-ico > i {
-    background: url("../img/check_ico.png") no-repeat center center;
+    background: url("bird/add/check_ico.png") no-repeat center center;
 }
 @media (max-width: 1079px) {
     .progrees-bar-container *{

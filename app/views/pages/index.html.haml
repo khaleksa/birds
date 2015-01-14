@@ -1,23 +1,26 @@
-.container.content
-  = render 'shared/nav_add_photo'
+.bg-container
+  .container.content
+    = render 'shared/nav_add_photo'
 
-  / Content BODY
-  .row.mtop40.home-img-container.row-sm
-    -@birds.each do |bird|
-      .col-sm-6.col-md-3.home-img-block
-        .head
-          .blck
-            =image_tag 'share/bird_logo.png'
-          .blck
-            =link_to bird.species.try(:name_ru), "#"
-        .body
-          =image_tag bird.photo.thumb
-        .foot
-          .blck
-            =image_tag 'share/user_logo.png', class: 'img-circle'
-          .blck
-            =link_to bird.user.full_name, '#'
-            %p=ldate(bird.timestamp, format: '%d %b %Y')
+    -@birds.each do |b|
+      =link_to b.species.name_ru, edit_bird_path(b)
 
-  .row.acenter
-    %a.btn.btn-success.btn-xlg.sm-width-max Показать еще фотографии
+    .row.mtop40.home-img-container.row-sm
+      -@birds.each do |bird|
+        .col-sm-6.col-md-3.home-img-block
+          .head
+            .blck
+              =image_tag 'share/bird_logo.png'
+            .blck
+              =link_to bird.species.try(:name_ru), "#"
+          .body
+            =image_tag bird.photo.thumb
+          .foot
+            .blck
+              =image_tag 'share/user_logo.png', class: 'img-circle'
+            .blck
+              =link_to bird.user.full_name, '#'
+              %p=ldate(bird.timestamp, format: '%d %b %Y')
+
+    .row.acenter
+      %a.btn.btn-success.btn-xlg.sm-width-max Показать еще фотографии

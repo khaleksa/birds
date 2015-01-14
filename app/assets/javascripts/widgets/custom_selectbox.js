@@ -1,4 +1,4 @@
-//Todo: refactoring, fix scroll on add bird form
+//Todo: refactoring, fix scroll on add bird  form
 function load() {
     jQuery.noConflict();
     enableSelectBoxes();

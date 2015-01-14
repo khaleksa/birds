@@ -1,4 +1,8 @@
 $(function() {
+    $('#datetimepicker5').datetimepicker({
+        pickTime: false
+    });
+
     $('#bird_photo').on('change', function(event) {
         var reader = new FileReader();
         reader.onload = function(file) {
@@ -30,22 +34,29 @@ $(function() {
         event.preventDefault();
     });
 
-    $("#submit_bird_timestamp").on('click', function(event){
-        alert('click on submit_bird_timestamp');
-        event.preventDefault();
-        //var dataSet = $(this).serialize();
-        $.ajax({
-            type: "POST",
-            url: $('.bird_edit_form').attr("action"),
-            //data: dataSet,
-            complete: function(){
-                alert("Sent!");
-            },
-            error: function(){
-                alert("Something went wrong!");
-            }
-        });
-        return false;
+    $(document).bind("ajaxSuccess", "form#bird_edit_form", function(event, xhr, settings) {
+        alert('success');
     });
+
+    $(document).bind("ajaxError", "form#bird_edit_form", function(event, jqxhr, settings, exception) {
+        alert('error');
+    });
+    //$("#submit_bird_timestamp").on('click', function(event){
+    //    alert('click on submit_bird_timestamp');
+    //    event.preventDefault();
+    //    //var dataSet = $(this).serialize();
+    //    $.ajax({
+    //        type: "POST",
+    //        url: $('.bird_edit_form').attr("action"),
+    //        //data: dataSet,
+    //        complete: function(){
+    //            alert("Sent!");
+    //        },
+    //        error: function(){
+    //            alert("Something went wrong!");
+    //        }
+    //    });
+    //    return false;
+    //});
 });
 

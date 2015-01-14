@@ -1,0 +1,169 @@
+.bg-btm-container
+  / Content
+  .container.content
+    / Content TOP  PROGRESS BAR
+    .row.top-row
+      %h3 Добавить фотографию
+      .progrees-bar-container
+        / TOP
+        .row.progrees-bar-top-icons
+          .col.col-md-2.step-done
+            %a{:href => "#"}
+              .progress-bar-item.progress-top-round.progress-photo-ico
+                %i &nbsp;
+          .col.col-md-4.step-done
+            %a{:href => "#"}
+              .progress-bar-item.progress-top-round.progress-calendar-ico
+                %i &nbsp;
+          .col.col-md-4.step-done
+            %a{:href => "#"}
+              .progress-bar-item.progress-top-round.progress-tag-ico
+                %i &nbsp;
+          .col.col-md-2.step-active
+            .progress-bar-item.progress-top-round.progress-check-ico
+              %i &nbsp;
+        / TOP
+        / MDL
+        .row.progrees-bar-middle-icons
+          .col.col-md-2.step-done
+            .progress-bar-item.dash
+              \&nbsp;
+          .col.col-md-4.step-done
+            .progress-bar-item.dash
+              \&nbsp;
+          .col.col-md-4.step-done
+            .progress-bar-item.dash
+              \&nbsp;
+          .col.col-md-2.step-active
+            .progress-bar-item.dash
+              \&nbsp;
+        / MDL
+        / BTM
+        .row.progrees-bar-bottom-icons
+          .col.col-md-2.step-done
+            %a{:href => "#"}
+              .progress-bar-item.progress-btn-round
+                %i
+            .progress-bar-item.dash.right-dash.big-dash
+              \&nbsp;
+          .col.col-md-4.step-done
+            .progress-bar-item.dash.left-dash
+              \&nbsp;
+            %a{:href => "#"}
+              .progress-bar-item.progress-btn-round
+                %i
+            .progress-bar-item.dash.right-dash
+              \&nbsp;
+          .col.col-md-4.step-done
+            .progress-bar-item.dash.left-dash
+              \&nbsp;
+            %a{:href => "#"}
+              .progress-bar-item.progress-btn-round
+                %i
+            .progress-bar-item.dash.right-dash
+              \&nbsp;
+          .col.col-md-2.step-active
+            .progress-bar-item.dash.left-dash.big-dash
+              \&nbsp;
+            .progress-bar-item.progress-btn-round
+              %i
+        / BTM
+        / DESCR
+        .row.progrees-bar-descr
+          .col.col-md-2.step-done
+            .descr
+              %a{:href => "#"}
+                %p
+                  Загрузите
+                  %br фотографию
+          .col.col-md-4.step-active
+            .descr
+              %a{:href => "#"}
+                %p
+                  Укажите
+                  %br дату съемки
+          .col.col-md-4
+            .descr
+              %a{:href => "#"}
+                %p
+                  Укажите
+                  %br место съемки
+          .col.col-md-2
+            .descr
+              %p
+                Определите
+                %br вид птицы
+    / DESCR
+    / Content TOP PROGRESS BAR
+    / Content TOP PROGRESS BAR - SMALLER DISPLAY
+    .small-progrees-bar-container
+      %p.step-done
+        %a{:href => "#"}
+          %span.progress-bar-item.small-progress-bar-round-num
+            %i 1
+          %span.small-progress-bar-dash
+            %i.progress-bar-item &nbsp;
+          %span.progress-bar-item.progress-top-round.progress-photo-ico.small-progress-bar-round-icon
+            %i &nbsp;
+          %span.small-progress-bar-text Загрузите фотографию
+      %p.step-done
+        %a{:href => "#"}
+          %span.progress-bar-item.small-progress-bar-round-num
+            %i 2
+          %span.small-progress-bar-dash
+            %i.progress-bar-item &nbsp;
+          %span.progress-bar-item.progress-top-round.progress-calendar-ico.small-progress-bar-round-icon
+            %i &nbsp;
+          %span.small-progress-bar-text Укажите дату съемки
+      %p.step-done
+        %a{:href => "#"}
+          %span.progress-bar-item.small-progress-bar-round-num
+            %i 3
+          %span.small-progress-bar-dash
+            %i.progress-bar-item &nbsp;
+          %span.progress-bar-item.progress-top-round.progress-tag-ico.small-progress-bar-round-icon
+            %i &nbsp;
+          %span.small-progress-bar-text Укажите место съемки
+      %p.step-active
+        %span.progress-bar-item.small-progress-bar-round-num
+          %i 4
+        %span.small-progress-bar-dash
+          %i.progress-bar-item &nbsp;
+        %span.progress-bar-item.progress-top-round.progress-check-ico.small-progress-bar-round-icon
+          %i &nbsp;
+        %span.small-progress-bar-text Определите вид птицы
+    / Content TOP PROGRESS BAR - SMALLER DISPLAY
+
+    / Content BODY
+    .row.mtop40.add-photo-container
+      .col-md-9.col-sm-12
+        = form_for @bird, url: publish_bird_url(@bird), method: 'post'  do |form|
+          .form-container
+            #selectBird.selectBox.sm-width-max
+              %span.selected.m-w94 На определение
+              %span.selectArrow.m-p-abs &nbsp;
+              %ul.selectOptions.m-w98
+                #scrollbar_track
+                  #scrollbar_handle
+                #scrollbar_content.drop-dow-scroll
+                  - @species.each do |sp|
+                    %li.selectOption= sp.name_ru
+            %input{:name => "bird", :type => "hidden", :value => ""}/
+            %input.fright.btn.btn-info.sm-display-none{:type => "submit", :value => "Опубликовать фотографию"}/
+          %input.mtop3.m-h35.mbtm20.sm-width-max.btn.btn-info.display-sm-only{:type => "submit", :value => "Опубликовать фотографию"}/
+
+      .col-md-3.acenter.sm-display-none
+        .row
+          =image_tag @bird.photo.small, class: 'img-responsive sm-centered'
+        .row.mtop10.add-photo-info
+          .col.col-md-4.aright
+            %p
+              %span.lbl Автор:
+            %p
+              %span.lbl Дата:
+            %p
+              %span.lbl Место:
+          .col.col-md-8.aleft
+            %p=link_to @bird.user.full_name, '#'
+            %p=@bird.timestamp
+            %p=@bird.address

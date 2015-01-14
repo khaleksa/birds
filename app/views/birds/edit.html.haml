@@ -1,42 +1,45 @@
-.edit_menu
-  =link_to 'Дата', '', id: 'show_bird_timestamp'
-  =link_to 'Карта', '', id: 'show_bird_map'
-  =link_to 'Вид', '', id: 'show_bird_species'
-  %br
-  %br
-.bird_edit_form
-  = form_for @bird, id: 'bird_edit_form'  do |form|
-    .date-block{ class: @bird.timestamp.blank? ? 'active' : '' }
-      = form.label :timestamp
-      = form.text_field :timestamp
-    .map-block{ class: @bird.latitude.blank? ? 'active' : '' }
-      = form.label :latitude
-      = form.text_field :latitude
-    .species-block{ class: @bird.species.blank? ? 'active' : '' }
-      = form.label :species
-      = form.text_field :species
-    = form.submit id: 'submit_bird_timestamp'
+.bg-btm-container
+  .container.content
 
-  -#.map_block
-  -#  = form_for @bird, url: edit_birds_path(@bird), remote: true do |form|
-  -#    = form.label :latitude
-  -#    = form.text_field :latitude
-  -#    = form.submit
-  -#
-  -#.species_block
-  -#  = form_for @bird, url: edit_birds_path(@bird)  do |form|
-  -#    = form.label :species
-  -#    = form.text_field :species
-  -#    = form.submit
+    .edit_menu
+      =link_to 'Дата', '', id: 'show_bird_timestamp'
+      =link_to 'Карта', '', id: 'show_bird_map'
+      =link_to 'Вид', '', id: 'show_bird_species'
+      %br
+      %br
+    .bird_edit_form
+      = form_for @bird, id: 'bird_edit_form', remote: true, format: :json  do |form|
+        .date-block{ class: @bird.timestamp.blank? ? 'active' : '' }
+          = form.label :timestamp
+          = form.text_field :timestamp
+        .map-block{ class: @bird.latitude.blank? ? 'active' : '' }
+          = form.label :latitude
+          = form.text_field :latitude
+        .species-block{ class: @bird.species.blank? ? 'active' : '' }
+          = form.label :species
+          = form.text_field :species
+        = form.submit id: 'submit_bird_timestamp'
 
-    = form_for @bird, id: 'bird_edit_date'  do |form|
-      -if @bird.timestamp.blank?
-        = form.label :timestamp
-        = form.text_field :timestamp
-      -elsif @bird.latitude.blank?
-        = form.label :latitude
-        = form.text_field :latitude
-      -else
-        = form.label :species
-        = form.text_field :species
-      = form.submit id: 'submit_bird_timestamp'
+      -#.map_block
+      -#  = form_for @bird, url: edit_birds_path(@bird), remote: true do |form|
+      -#    = form.label :latitude
+      -#    = form.text_field :latitude
+      -#    = form.submit
+      -#
+      -#.species_block
+      -#  = form_for @bird, url: edit_birds_path(@bird)  do |form|
+      -#    = form.label :species
+      -#    = form.text_field :species
+      -#    = form.submit
+
+        = form_for @bird, id: 'bird_edit_date'  do |form|
+          -if @bird.timestamp.blank?
+            = form.label :timestamp
+            = form.text_field :timestamp
+          -elsif @bird.latitude.blank?
+            = form.label :latitude
+            = form.text_field :latitude
+          -else
+            = form.label :species
+            = form.text_field :species
+          = form.submit id: 'submit_bird_timestamp'
