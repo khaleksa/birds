@@ -4,8 +4,11 @@ Birds::Application.routes.draw do
 
   root to: 'pages#index'
 
-  # resources :categories, only: [:show]
-  # resources :birds
+  resource :pages, path: '', only: [] do
+    get :big_year
+  end
+
+
   resources :birds, only: [:new, :create, :edit, :update] do
     member do
       get 'edit_date' => 'birds#edit_date'

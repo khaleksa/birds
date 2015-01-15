@@ -1,0 +1,49 @@
+.bg-btm-container
+  .container.content
+    / Content BODY
+    .row.big-year-container.mtop20.content-container
+      .col-sm-12.col.col-md-8.pright15
+        .row.big-year-text
+          %h4 Большой год
+          %p
+            %i Суть конкурса проста - побеждает тот, кто в срок с 1 января по 31 декабря 2014 года сфотографирует наибольшее число видов на территории нашей страны..
+          %p
+            Меньше и гораздо стройнее сизого голубя, примерно с обыкновенную горлицу. Верх тела и сложенных крыльев песочного цвета, голова и грудь серовато-рыжие, с приятным розовым оттенком. От обыкновенной и большой горлиц отличается отсутствием темных пестрин на спине и кроющих крыла, верх однотонный, подкрылья светлые; на шее сзади изящное узкое черное полукольцо в белом ободке. Белый цвет на хвосте занимает около или более трети площади рулевых, а не выглядит только кромкой. Отчетливого полового
+            %a{:href => "#"} диморфизма
+            нет, самки окрашены чуть более блекло.
+          %p Меньше и гораздо стройнее сизого голубя, примерно с обыкновенную горлицу. Верх тела и сложенных крыльев песочного цвета, голова и грудь серовато-рыжие, с приятным розовым оттенком.
+
+        .row.big-year-participants.mtop20.m-mbtm20
+          %h5 Список участников большого года [#{@stat.big_year_users_count}]
+          .row
+            - col_count = member_column_count(User.big_year_members.count)
+            - index = 0
+            - start = 0
+            - count_per_colunn = User.big_year_members.count / col_count
+            - col_count.times do
+              .col.col-md-4
+                - @stat.big_year_users(Time.zone.now.year, count_per_colunn, start).each do |user|
+                  .row.city-participant
+                    .participant-left-blck
+                      %p
+                        -index += 1
+                        ="#{index}."
+                        %img.img-circle{:align => "right", :src => "assets/img/profile.png"}/
+                    .participant-right-blck
+                      =link_to "#{user['first_name']} #{user['last_name']}", '#'
+                      %p= "#{user['species_count']} видов"
+              - start += count_per_colunn
+
+      .col-sm-12.m-no-float.col.col-md-4.fright
+        %h5 Список видов в Большом городе [#{@species_list.size}]
+        .row.bird-list.scroll-container
+          #scrollbar_track
+            #scrollbar_handle
+          #scrollbar_content
+            %ol
+              -@species_list.each do |species|
+                %li
+                  =link_to species.name_ru, '#'
+
+
+    =render 'shared/nav_add_photo'
