@@ -1,6 +1,26 @@
 after :roles do
   User.seed(:id,
     { :id =>1, :email => 'user@example.com', :password => '111' },
-    { :id =>2, :email => 'admin@example.com', :password => '111', :roles => [Role.find_by_name('admin'), Role.find_by_name('expert')] }
+    { :id =>2, :email => 'admin@example.com', :password => '111', :roles => [Role.find_by_name('admin'), Role.find_by_name('expert')] },
+    { :id =>3, :email => '3@example.com', :password => '111', :big_year => false },
+    { :id =>4, :email => '4@example.com', :password => '111' },
+    { :id =>5, :email => '5@example.com', :password => '111' },
+    { :id =>6, :email => '6@example.com', :password => '111' },
+    { :id =>7, :email => '7@example.com', :password => '111' },
+    { :id =>8, :email => '8@example.com', :password => '111' },
+    { :id =>9, :email => '9@example.com', :password => '111' },
+    { :id =>10, :email => '10@example.com', :password => '111' },
+    { :id =>11, :email => '11@example.com', :password => '111' },
+    { :id =>12, :email => '12@example.com', :password => '111' },
+    { :id =>13, :email => '13@example.com', :password => '111' },
+    { :id =>14, :email => '14@example.com', :password => '111' },
+    { :id =>15, :email => '15@example.com', :password => '111' },
+    { :id =>16, :email => '16@example.com', :password => '111' },
+    { :id =>17, :email => '17@example.com', :password => '111' },
+    { :id =>18, :email => '18@example.com', :password => '111' },
+    { :id =>19, :email => '19@example.com', :password => '111' },
+    { :id =>20, :email => '20@example.com', :password => '111' },
+    { :id =>21, :email => '21@example.com', :password => '111' },
+    { :id =>22, :email => '22@example.com', :password => '111' }
   )
 end
