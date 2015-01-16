@@ -1,0 +1,85 @@
+.bg-btm-container
+  .container.content
+    .row.bird-descr-container.mtop20.content-container
+      .col.col-md-8.col-sm-12
+        .row.bird-photo-title
+          %h3= @species.name_ru
+          %p
+            %i= @species.name_lat
+          %p= @species.name_en
+
+        -if @species.images.any?
+          #media_block.row.bird-photo-img
+            =image_tag @main_image.image.url, class: 'img-responsive'
+          .row.add-comment-form-container
+            .row.add-comment-form
+              %p#photo_descr_text= @main_image.description
+            .row.photo-info-dinamic
+              %p
+                %a#photo_profile_lnk{:href => "#"}= @main_image.author
+                - if @main_image.date.present?
+                  |
+                  %span#photo_date= @main_image.date
+                - if @main_image.address.present?
+                  |
+                  %span#photo_place= @main_image.address
+
+      .col-sm-12.col.col-md-4.fright.m-no-float
+        .row.bird-photo-btn
+          =link_to 'Все встречи с видом', '#', class: 'btn btn-info sm-display-none'
+
+        -if @species.images.size > 1
+          #thumb_container.row.bird-photo-tumbs
+            - @species.images.limit(8).each do |image|
+              .col-sm-4.col.col-md-6
+                = image_tag image.image.url, 'class' => 'img-responsive', 'data-author' => image.author, 'data-date' => image.date, 'data-descr' => image.description, 'data-place' => image.address
+
+        / FOR SMALLER DISPLAYS
+        .row.bird-photo-btn.p0
+          =link_to 'Все встречи с видом', '#', class: 'btn btn-info display-sm-only mbtm20'
+
+        .row.bird-info-blck.block-science
+          .row.info-block-head
+            %p Научная классификация
+          .row.info-block-body
+            %p
+              %span.lbl> Отряд:
+              = @species.family.order.name_ru
+              %br
+                %span.lbl> Семейство:
+                = @species.family.name_ru
+                %br
+                  %span.lbl> Вид:
+                  = @species.name_ru
+                  %br
+        - if @species.status.present?
+          .row.bird-info-blck.block-status
+            .row.info-block-head
+              %p Охранный статус
+            .row.info-block-body
+              %p= @species.status
+
+      .col-sm-12.col.col-md-8
+        .row.bird-photo-description
+          .row.bird-description
+            %p
+              %h5 Описание
+            %p= @species.description
+
+            - if @species.description.present?
+              %p
+                %h5 Распространение
+              %p= @species.distribution
+
+            - if @species.biology.present?
+              %p
+                %h5 Биология
+              %p= @species.biology
+
+            - if @species.reference.present?
+              %p
+                %h5 Источники информации
+              %p
+                %i= @species.reference
+
+    = render 'shared/nav_add_photo'

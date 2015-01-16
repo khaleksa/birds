@@ -13,4 +13,8 @@ class Species < ActiveRecord::Base
   def sub_species
     Species.where(parent_id: id)
   end
+
+  def default_image
+    images.detect { |image| image.default } || images.first
+  end
 end

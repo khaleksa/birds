@@ -8,6 +8,7 @@ Birds::Application.routes.draw do
     get :big_year
   end
 
+  resources :species, only: [:index, :show]
 
   resources :birds, only: [:new, :create, :edit, :update] do
     member do

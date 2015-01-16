@@ -881,7 +881,7 @@ div.search-btn a.search:hover{
     left: 55px;
     width: 58px;
     height: 19px;
-    background: url('../img/bg_arrow_up.png');
+    background: url('species/bg_arrow_up.png');
 }
 .add-comment-form-container .add-comment-form p {
     margin-bottom:0;
