@@ -1,7 +1,8 @@
 ActiveAdmin.register Species do
   permit_params :name_ru, :name_en, :name_lat,
                 :description, :distribution, :biology, :reference,
-                :category_id, images_attributes: [:id, :image, :_destroy]
+                :category_id, :status, :show_map,
+                images_attributes: [:id, :image, :_destroy, :description, :author, :date, :address, :default]
 
   menu priority: 3
 
@@ -40,10 +41,12 @@ ActiveAdmin.register Species do
       row :name_ru
       row :name_lat
       row :name_en
+      row :status
       row :description
       row :distribution
       row :biology
       row :reference
+      row :show_map
       row :created_at
       row :updated_at
       row :images do
@@ -65,15 +68,22 @@ ActiveAdmin.register Species do
       f.input :name_ru
       f.input :name_lat
       f.input :name_en
+      f.input :status
       f.input :description
       f.input :distribution
       f.input :biology
       f.input :reference
+      f.input :show_map
     end
 
     f.inputs do
       f.has_many :images, :allow_destroy => true, :heading => 'Images' do |cf|
         cf.input :image, :hint => f.template.image_tag(cf.object.image.thumb.url)
+        cf.input :date, :as => :datepicker
+        cf.input :description
+        cf.input :author
+        cf.input :address
+        cf.input :default
       end
     end
 
