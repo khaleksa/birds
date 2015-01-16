@@ -10,7 +10,7 @@ Birds::Application.routes.draw do
 
   resources :species, only: [:index, :show]
 
-  resources :birds, only: [:new, :create, :edit, :update] do
+  resources :birds, except: [:index] do
     member do
       get 'edit_date' => 'birds#edit_date'
       get 'edit_map' => 'birds#edit_map'

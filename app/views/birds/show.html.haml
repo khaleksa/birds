@@ -1,0 +1,101 @@
+.bg-btm-container
+  .container.content
+    / Content BODY
+    .row.bird-photo-container.mtop20.content-container
+      .row
+        .col-sm-12.col.col-md-8
+          .row.bird-photo-title
+            %h3= @bird.species.name_ru
+            %p
+              %i= @bird.species.name_lat
+            %p= @bird.species.name_en
+          .row.bird-photo-img
+            =image_tag @bird.photo.url, class: 'img-responsive'
+
+        .col.col-md-4.fright.col-sm-12.m-no-float
+          -#.row.bird-photo-social
+            %a.social-lnk.fb
+              %span
+            %a.social-lnk.tw
+              %span
+            %a.social-lnk.vk
+              %span
+            %a.social-lnk.ok
+              %span
+            %a.social-lnk.gp
+              %span
+            %a.social-lnk.pi
+              %span
+
+          .row.bird-photo-map
+            #map_canvas{:style => "width:100%; height:300px;"}
+
+          .row.bird-photo-descr
+            .row.descr-container
+              .col.col-md-3.aright
+                %p
+                  %span.lbl Автор:
+                %p
+                  %span.lbl Дата:
+                %p
+                  %span.lbl Место:
+              .col.col-md-9
+                %p
+                  =link_to @bird.user.full_name, '#'
+                %p= @bird.timestamp
+                %p= @bird.address
+
+          .row.bird-photo-btns
+            =link_to 'Общая информация о виде', species_path(@bird.species), class: 'btn btn-success'
+            =link_to 'Все встречи с видом', '#', class: 'btn btn-info'
+
+      .row
+        .col.col-md-8.col-sm-12
+          .row.bird-photo-comments
+            %h4 Комментарии
+            .row.comments-container
+              .row.comment-row
+                .image-holder
+                  %img.img-circle{:src => "assets/img/profile.png"}/
+                .comment-holder
+                  %p.row-link
+                    %a{:href => "#"} Мария Иванова
+                  %p.row-comment Сфотографировала горлицу ранним утром. Сразу нашла где она сидит по громкому голосу
+              .row.comment-row
+                .image-holder
+                  %img.img-circle{:src => "assets/img/profile.png"}/
+                .comment-holder
+                  %p.row-link
+                    %a{:href => "#"} Саша Петров
+                  %p.row-comment Отличная фотография
+              .row.comment-row
+                .image-holder
+                  %img.img-circle{:src => "assets/img/profile.png"}/
+                .comment-holder
+                  %p.row-link
+                    %a{:href => "#"} Дима Васечкин
+                  %p.row-comment Спасибо Маша! Теперь я знаю где мне найти кольчатую горлицу)
+              .row.comment-row
+                .image-holder
+                  %img.img-circle{:src => "assets/img/profile.png"}/
+                .comment-holder
+                  %p.row-link
+                    %a{:href => "#"} Мария Иванова
+                  %p.row-comment Дима, беги быстрее! А то улетит!
+
+            .row.add-comment-form-container
+              .row.add-comment-form
+                -if current_user
+                  %form
+                    %textarea.form-control.w80.sm-width-max{:name => "comment"}
+                    %input.btn.btn-success.fright.sm-center.sm-mtop10{:type => "submit", :value => "Добавить"}
+                -else
+                  %p
+                    Только зарегестрированные пользователи могут оставлять комментарии.
+                    %br
+                      =link_to 'Зарегистрируйтесь', new_user_registration_path
+                      или
+                      = succeed '.' do
+                        =link_to 'войдите', new_user_session_path, class: 'lnk-success'
+
+    = render 'shared/nav_add_photo'

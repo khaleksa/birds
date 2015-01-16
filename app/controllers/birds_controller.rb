@@ -1,6 +1,10 @@
 #TODO: rewrite, use ajax
 class BirdsController < ApplicationController
 
+  def show
+    @bird = Bird.find(params[:id])
+  end
+
   def new
     redirect_to new_user_session_path unless current_user
     @bird = Bird.new
