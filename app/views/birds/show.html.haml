@@ -54,41 +54,21 @@
           .row.bird-photo-comments
             %h4 Комментарии
             .row.comments-container
-              .row.comment-row
-                .image-holder
-                  %img.img-circle{:src => "assets/img/profile.png"}/
-                .comment-holder
-                  %p.row-link
-                    %a{:href => "#"} Мария Иванова
-                  %p.row-comment Сфотографировала горлицу ранним утром. Сразу нашла где она сидит по громкому голосу
-              .row.comment-row
-                .image-holder
-                  %img.img-circle{:src => "assets/img/profile.png"}/
-                .comment-holder
-                  %p.row-link
-                    %a{:href => "#"} Саша Петров
-                  %p.row-comment Отличная фотография
-              .row.comment-row
-                .image-holder
-                  %img.img-circle{:src => "assets/img/profile.png"}/
-                .comment-holder
-                  %p.row-link
-                    %a{:href => "#"} Дима Васечкин
-                  %p.row-comment Спасибо Маша! Теперь я знаю где мне найти кольчатую горлицу)
-              .row.comment-row
-                .image-holder
-                  %img.img-circle{:src => "assets/img/profile.png"}/
-                .comment-holder
-                  %p.row-link
-                    %a{:href => "#"} Мария Иванова
-                  %p.row-comment Дима, беги быстрее! А то улетит!
+              - @comments.each do |comment|
+                .row.comment-row
+                  .image-holder
+                    %img.img-circle{:src => "assets/img/profile.png"}/
+                  .comment-holder
+                    %p.row-link
+                      =link_to comment.user.full_name, '#'
+                    %p.row-comment= comment.text
 
             .row.add-comment-form-container
               .row.add-comment-form
                 -if current_user
-                  %form
-                    %textarea.form-control.w80.sm-width-max{:name => "comment"}
-                    %input.btn.btn-success.fright.sm-center.sm-mtop10{:type => "submit", :value => "Добавить"}
+                  =form_for :comment, url: comments_path, html: { id: 'form-add-comment', data: { bird_id: @bird.id, user_name: current_user.try(:full_name) } } do |form|
+                    = form.text_area :text, class: 'form-control w80 sm-width-max comment-text'
+                    = form.submit 'Добавить', id: 'add-comment', class: 'btn btn-success fright sm-center sm-mtop10'
                 -else
                   %p
                     Только зарегестрированные пользователи могут оставлять комментарии.

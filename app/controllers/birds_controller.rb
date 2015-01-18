@@ -2,7 +2,9 @@
 class BirdsController < ApplicationController
 
   def show
-    @bird = Bird.find(params[:id])
+    bird_id = params[:id]
+    @bird = Bird.find(bird_id)
+    @comments = Comment.bird_comments(bird_id)
   end
 
   def new
