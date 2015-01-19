@@ -1,15 +1,10 @@
 $(function() {
-    $('#thumb_container .img-responsive').on('click', function(e) {
-        alert('hi');
+    $('.thumb_container .img-responsive').on('click', function(event) {
+        image = $(event.target)
+        $('.bird-photo-img .img-responsive').attr('src', image.data('src'));
+        $('#photo_descr_text').text(image.data('description'));
+        $('#photo_profile_lnk').text(image.data('author'));
+        $('#photo_date').text(image.data('date'));
+        $('#photo_place').text(image.data('place'));
     });
 });
-
-jQuery(function($) {
-    $('.goods-img .image_link').on('click', function() {
-        $('.goods-img .image_link').removeClass('state-selected');
-        $(this).addClass('state-selected');
-
-        $('.goods-img .product_image').attr('src', $(this).data('url'));
-    });
-});
-

@@ -6,6 +6,6 @@ class SpeciesController < ApplicationController
   def show
     species_id = params[:id]
     @species = Species.find(species_id)
-    @main_image = @species.default_image
+    @default_image = @species.default_image
   end
 end

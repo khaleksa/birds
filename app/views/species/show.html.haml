@@ -10,29 +10,33 @@
 
         -if @species.images.any?
           #media_block.row.bird-photo-img
-            =image_tag @main_image.image.url, class: 'img-responsive'
+            =image_tag @default_image.image.url, class: 'img-responsive'
           .row.add-comment-form-container
             .row.add-comment-form
-              %p#photo_descr_text= @main_image.description
+              %p#photo_descr_text= @default_image.description
             .row.photo-info-dinamic
               %p
-                %a#photo_profile_lnk{:href => "#"}= @main_image.author
-                - if @main_image.date.present?
+                %a#photo_profile_lnk{:href => "#"}= @default_image.author
+                - if @default_image.date.present?
                   |
-                  %span#photo_date= @main_image.date
-                - if @main_image.address.present?
+                  %span#photo_date= @default_image.date
+                - if @default_image.address.present?
                   |
-                  %span#photo_place= @main_image.address
+                  %span#photo_place= @default_image.address
 
       .col-sm-12.col.col-md-4.fright.m-no-float
         .row.bird-photo-btn
           =link_to 'Все встречи с видом', '#', class: 'btn btn-info sm-display-none'
 
         -if @species.images.size > 1
-          #thumb_container.row.bird-photo-tumbs
+          .thumb_container.row.bird-photo-tumbs
             - @species.images.limit(8).each do |image|
               .col-sm-4.col.col-md-6
-                = image_tag image.image.url, 'class' => 'img-responsive', 'data-author' => image.author, 'data-date' => image.date, 'data-descr' => image.description, 'data-place' => image.address
+                = image_tag image.image.small.url, 'class' => 'img-responsive', 'data' => { 'src' => image.image.url,
+                                                                                            'author' => image.author,
+                                                                                            'date' => image.date,
+                                                                                            'description' => image.description,
+                                                                                            'place' => image.address }
 
         / FOR SMALLER DISPLAYS
         .row.bird-photo-btn.p0

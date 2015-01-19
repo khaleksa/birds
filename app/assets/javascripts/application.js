@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require_tree ./libs
 //= require ./pages/comment
+//= require ./pages/species
 //= require_self
