@@ -43,7 +43,7 @@
             %ol
               -@species_list.each do |species|
                 %li
-                  =link_to species.name_ru, '#'
+                  =link_to species.name_ru, species_path(species)
 
 
     =render 'shared/nav_add_photo'

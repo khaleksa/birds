@@ -11,6 +11,8 @@ class Bird < ActiveRecord::Base
 
   validates_presence_of :user_id
 
+  scope :published, ->() { where(:published => true) }
+
   def can_publish?
     photo.present? && timestamp.present? && species.present? && address_valid?
   end

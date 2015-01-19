@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
 
+  #TODO: pagination?!
   def index
-    @birds = Bird.where('photo IS NOT NULL').order(:created_at).limit(8) #todo
+    @birds = Bird.published.order(created_at: :desc).limit(8)
   end
 
   def big_year

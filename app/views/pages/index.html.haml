@@ -2,19 +2,17 @@
   .container.content
     = render 'shared/nav_add_photo'
 
-    -@birds.each do |b|
-      =link_to b.species.name_ru, edit_bird_path(b)
-
     .row.mtop40.home-img-container.row-sm
       -@birds.each do |bird|
         .col-sm-6.col-md-3.home-img-block
           .head
             .blck
               =image_tag 'share/bird_logo.png'
-            .blck
-              =link_to bird.species.try(:name_ru), "#"
+            - if bird.species.present?
+              .blck
+                =link_to bird.species.name_ru, species_path(bird.species)
           .body
-            =image_tag bird.photo.thumb
+            =image_tag bird.photo.small.url
           .foot
             .blck
               =image_tag 'share/user_logo.png', class: 'img-circle'
