@@ -1,0 +1,74 @@
+.bg-btm-container
+  .container.content
+    .row.login-registration-container.mtop20.content-container
+      %h3.acenter.mbtm20 Регистрация
+      .col.col-md-7.col-sm-12.fcenter
+        .reg-form-cntainer
+          .row
+            .col-md-3.col-sm-3.lbl-container
+              %label{:for => "fname"} Имя:
+            .col-md-6.col-sm-6.input-container
+              %input.form-control{:name => "fname", :type => "text"}
+            .col-md-3.col-sm-3.str-container
+              %span.req *
+          .row
+            .col-md-3.col-sm-3.lbl-container
+              %label{:for => "lname"} Фамилия:
+            .col-md-6.col-sm-6.input-container
+              %input.form-control{:name => "lname", :type => "text"}
+            .col-md-3.col-sm-3.str-container
+              %span.req *
+          .row
+            .col-md-3.col-sm-3.lbl-container
+              %label{:for => "email"} E-mail:
+            .col-md-6.col-sm-6.input-container
+              %input.form-control{:name => "email", :type => "email"}
+            .col-md-3.col-sm-3.str-container
+              %span.req *
+          .row
+            .col-md-3.col-sm-3.lbl-container
+              %label{:for => "pwrd"} Пароль:
+            .col-md-6.col-sm-6.input-container
+              %input.form-control{:name => "pwrd", :type => "password"}
+            .col-md-3.col-sm-3.str-container
+              %span.req *
+          .row
+            .col-md-3.col-sm-3.lbl-container
+              %label{:for => "pwrd"} Фото профиля:
+            .col-md-6.col-sm-6.input-container
+              %input.form-control.sm-display-none{:disabled => "", :name => "pseudoimage", :type => "text"}
+                .input-group.display-sm-only
+                  %input.form-control{:disabled => "", :name => "pseudoimage", :type => "text"}/
+                  %span.input-group-addon{:onclick => "browsebutton();"}
+                    %span.glyphicon ...
+                %input{:name => "actualimage", :type => "file"}/
+            .col-md-3.col-sm-3.str-container
+              %a.mleft10.btn.btn-success.sm-display-none{:onclick => "browsebutton();"} Обзор...
+          .row
+            .col-md-3.col-sm-3.lbl-container
+              \&nbsp;
+            .col-md-6.col-sm-6.input-container
+              %label.myCheckbox
+                %input{:name => "participate", :type => "checkbox"}/
+                %span
+              %label{:for => "participate"} Я хочу участвовать в Большом городе
+            .col-md-3.col-sm-3.str-container
+              \&nbsp;
+          .row
+            .col-md-3.col-sm-3.lbl-container
+              \&nbsp;
+            .col-md-6.col-sm-6.input-container
+              %input.mtop10.w100p.btn-lg.btn.btn-info{:type => "submit", :value => "Зарегистрироваться"}/
+            .col-md-3.col-sm-3.str-container
+              \&nbsp;
+          .row
+            .col-md-3.col-sm-3.lbl-container
+              \&nbsp;
+            .col-md-6.col-sm-6.input-container
+              %a.fb-login{:href => "#"} Вход с помощью Facebook
+            .col-md-3.col-sm-3.str-container
+              \&nbsp;
+
+    / Content FOOT
+    .row.top-row.acenter
+      %p.sm-display-none.info-color.mtop50 Мы грантируем конфиденциальность данных, которые вы предоставляете нам при регистрации
