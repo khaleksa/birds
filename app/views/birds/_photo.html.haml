@@ -1,0 +1,15 @@
+.col-sm-6.col-md-3.home-img-block
+  .head
+    .blck
+      =image_tag 'share/bird_logo.png'
+    - if bird.species.present?
+      .blck
+        =link_to bird.species.name_ru, species_path(bird.species)
+  .body
+    =image_tag bird.photo.small.url
+  .foot
+    .blck
+      =image_tag 'share/user_logo.png', class: 'img-circle'
+    .blck
+      -#=link_to bird.user.full_name, '#'
+      %p=ldate(bird.timestamp, format: '%d %b %Y')

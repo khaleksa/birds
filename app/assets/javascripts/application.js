@@ -16,4 +16,5 @@
 //= require_tree ./libs
 //= require ./pages/comment
 //= require ./pages/species
+//= require ./pages/show_birds
 //= require_self

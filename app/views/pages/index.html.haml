@@ -3,22 +3,7 @@
     = render 'shared/nav_add_photo'
 
     .row.mtop40.home-img-container.row-sm
-      -@birds.each do |bird|
-        .col-sm-6.col-md-3.home-img-block
-          .head
-            .blck
-              =image_tag 'share/bird_logo.png'
-            - if bird.species.present?
-              .blck
-                =link_to bird.species.name_ru, species_path(bird.species)
-          .body
-            =image_tag bird.photo.small.url
-          .foot
-            .blck
-              =image_tag 'share/user_logo.png', class: 'img-circle'
-            .blck
-              -#=link_to bird.user.full_name, '#'
-              %p=ldate(bird.timestamp, format: '%d %b %Y')
+      = render partial: 'birds/photo', collection: @birds, as: :bird
 
     .row.acenter
-      %a.btn.btn-success.btn-xlg.sm-width-max Показать еще фотографии
+      =link_to 'Показать еще фотографии', root_path, data: {count: 8}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'
