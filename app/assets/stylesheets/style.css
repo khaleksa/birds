@@ -166,6 +166,9 @@ a.lnk-success {
 .mtop3 {
     margin-top:3px !important;
 }
+.mtop4 {
+    margin-top:4px !important;
+}
 .mtop-7 {
     margin-top:-7px !important;
 }
@@ -341,6 +344,14 @@ a.navbar-brand {
         padding-left:10px !important;
     }
 
+    .mm-mtop0 {
+        margin-top:0 !important;
+    }
+
+    ul.selectOptions.w220 {
+        width:210px !important;
+    }
+
 }
 
 
@@ -363,7 +374,10 @@ a.navbar-brand {
         margin-top:0 !important;
         border-radius: 0;
         margin-left: -15px;
-        padding-left: 15px;
+        padding-left: 20px;
+    }
+    .navbar-right ul.nav > li > a {
+        padding-left: 20px !important;
     }
     .navbar-right a.btn:hover, .navbar-right a.profile-lnk:hover {
         background:#9bc24d;
@@ -669,6 +683,9 @@ a.navbar-brand {
     .input-group.display-sm-only {
         display:inline-table !important;
     }
+    .reg-form-cntainer.login-form .row {
+        margin-bottom: 20px !important;
+    }
 
     /* profile */
     .profile-stat-data {
@@ -703,8 +720,8 @@ a.navbar-brand {
         background:url('../img/menu_down.png') no-repeat;
         width:12px;
         content: ' ';
-        height:7px;
-        line-height:7px;
+        height:10px;
+        line-height:12px;
         position: relative;
         top: 1px;
         display: inline-block;
@@ -1423,13 +1440,11 @@ a.delete-comment-lnk:hover {
 }
 .img-container-blck > div.head > div:last-child {
     padding-left:10px;
-    font-weight:bold;
+    font-weight:normal;
     color:#4d4d4d;
     font-size: 11.5px;
 }
-.img-container-blck > div.head > div:first-child {
-    max-width:30px !important;
-}
+
 .map-tag i {
     width:25px;
     height:30px;
@@ -1497,7 +1512,9 @@ a.delete-comment-lnk:hover {
     display:inline-table;
     margin-top: -8px;
 }
-
+.map-img-container .map-img-block .body img{
+    max-width:163px !important;
+}
 
 
 /* SEARCH */
@@ -1593,17 +1610,17 @@ a.delete-comment-lnk:hover {
     height:30px !important;
 }
 .reg-form-cntainer {
-    background: url('../img/reg_bg.png') no-repeat #edf2f0 ;
+    background: url('reg_login/reg_bg.png') no-repeat #edf2f0 ;
     width:600px;
 
     padding:30px 0 10px 0;
 }
 .login-form{
-    background: url('../img/login_bg.png') no-repeat #edf2f0 !important;
+    background: url('reg_login/login_bg.png') no-repeat #edf2f0 !important;
     width:454px !important;
     margin:0 auto !important;
     min-height:300px;
-    padding:30px 10px;
+    padding:30px 10px 0;
 }
 .lbl-container {
     text-align:right;
