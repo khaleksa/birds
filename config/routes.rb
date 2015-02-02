@@ -6,6 +6,7 @@ Birds::Application.routes.draw do
 
   resource :pages, path: '', only: [] do
     get :big_year
+    get :about
   end
 
   resources :species, only: [:index, :show]

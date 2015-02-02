@@ -18,4 +18,10 @@ class PagesController < ApplicationController
     @stat = Stats::Counts.new
     @species_list = @stat.big_year_species
   end
+
+  def about
+    @users_count = User.count
+    @species_count = Stats::Counts.new.birds_species_count
+    @birds_count = Bird.count
+  end
 end

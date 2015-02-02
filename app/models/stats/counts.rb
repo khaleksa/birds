@@ -47,4 +47,7 @@ class Stats::Counts
       .order('species.name_ru')
   end
 
+  def birds_species_count
+    Species.joins(:birds).where(birds: {published: true}).select(:id).distinct.count
+  end
 end
