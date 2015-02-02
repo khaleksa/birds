@@ -17,4 +17,18 @@ class Species < ActiveRecord::Base
   def default_image
     images.detect { |image| image.default } || images.first
   end
+
+  def full_name
+    result = ''
+
+    names = [name_ru, name_en, name_lat].compact.reject(&:empty?)
+    names.each_with_index do |name, index|
+      result += ' (' if index == 1
+      result += ' | ' if index == 2
+      result += name
+    end
+    result += ')' if names.size > 1
+
+    result
+  end
 end

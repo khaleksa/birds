@@ -1,5 +1,5 @@
 ActiveAdmin.register Categories::Order do
-  permit_params :name_ru, :name_en, :name_lat, :description
+  permit_params :name_ru, :name_en, :name_lat, :description, :image, :position
 
   menu priority: 1
 
@@ -9,6 +9,7 @@ ActiveAdmin.register Categories::Order do
 
   index do
     column :id
+    column :position
     column :name_ru
     column :name_lat
     column :name_en
@@ -18,6 +19,7 @@ ActiveAdmin.register Categories::Order do
   show do |order|
     attributes_table do
       row :id
+      row :position
       row :name_ru
       row :name_lat
       row :name_en
@@ -27,6 +29,11 @@ ActiveAdmin.register Categories::Order do
           link_to family.parent.full_name, admin_categories_family_path(family.id)
         end
       end
+      row :image do
+        div do
+          image_tag(order.image.url)
+        end
+      end
       row :created_at
       row :updated_at
     end
@@ -34,10 +41,14 @@ ActiveAdmin.register Categories::Order do
 
   form do |f|
     f.inputs do
+      f.input :position
       f.input :name_ru
       f.input :name_lat
       f.input :name_en
       f.input :description
+    end
+    f.inputs do
+      f.input :image, :hint => f.template.image_tag(f.object.image.url)
     end
 
     f.actions

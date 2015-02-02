@@ -1,9 +1,9 @@
 # encoding: UTF-8
 
 Categories::Order.seed(:id,
-  {:id => 1, :name_ru => "Гагарообразные", :name_en => "Gaviiformes", :name_lat => "Gaviiformes", :type => 'Categories::Order'},
-  {:id => 2, :name_ru => "Поганкообразные", :name_en => "Podicipediformes", :name_lat => "Podicipediformes",  :type => 'Categories::Order'},
-  {:id => 3, :name_ru => "Веслоногие", :name_en => "Pelecaniformes", :name_lat => "Pelecaniformes",  :type => 'Categories::Order'}
+  {:id => 1, :name_ru => "Гагарообразные", :name_en => "Gaviiformes", :name_lat => "Gaviiformes", :type => 'Categories::Order', :position => 1},
+  {:id => 2, :name_ru => "Поганкообразные", :name_en => "Podicipediformes", :name_lat => "Podicipediformes",  :type => 'Categories::Order', :position => 2},
+  {:id => 3, :name_ru => "Веслоногие", :name_en => "Pelecaniformes", :name_lat => "Pelecaniformes",  :type => 'Categories::Order', :position => 3}
 )
 
 Categories::Family.seed(:id,

@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
-  def show
-    @orders = Categories::Order.all
+  def index
+    @orders = Categories::Order.order(:position).all
   end
 end

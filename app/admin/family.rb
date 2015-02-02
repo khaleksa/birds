@@ -1,5 +1,5 @@
 ActiveAdmin.register Categories::Family do
-  permit_params :name_ru, :name_en, :name_lat, :description, :parent_id
+  permit_params :name_ru, :name_en, :name_lat, :description, :parent_id, :position
 
   menu priority: 2
 
@@ -10,6 +10,7 @@ ActiveAdmin.register Categories::Family do
 
   index do
     column :id
+    column :position
     column :name_ru
     column :name_lat
     column :name_en
@@ -22,6 +23,7 @@ ActiveAdmin.register Categories::Family do
       row 'Отряд' do
         link_to family.parent.full_name, admin_categories_order_path(family.order)
       end
+      row :position
       row :name_ru
       row :name_lat
       row :name_en
@@ -34,6 +36,7 @@ ActiveAdmin.register Categories::Family do
   form do |f|
     f.inputs 'Отряд' do
       f.input :parent, as: :select, collection: Categories::Category.orders
+      f.input :position
     end
 
     f.inputs do

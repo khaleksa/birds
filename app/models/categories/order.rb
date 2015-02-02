@@ -1,6 +1,6 @@
 class Categories::Order < Categories::Category
 
   def families
-    children.order(:name_ru)
+    children.order(:position)
   end
 end

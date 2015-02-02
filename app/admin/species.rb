@@ -1,7 +1,7 @@
 ActiveAdmin.register Species do
   permit_params :name_ru, :name_en, :name_lat,
                 :description, :distribution, :biology, :reference,
-                :category_id, :status, :show_map,
+                :category_id, :status, :show_map, :position,
                 images_attributes: [:id, :image, :_destroy, :description, :author, :date, :address, :default]
 
   menu priority: 3
@@ -28,6 +28,7 @@ ActiveAdmin.register Species do
       row 'Семейство' do
         link_to species.family.full_name, admin_categories_family_path(species.family.id)
       end
+      row :position
       row :parent do
         link_to(species.parent.name_lat, admin_species_path(species.parent.id)) if species.parent.present?
       end
@@ -62,6 +63,7 @@ ActiveAdmin.register Species do
   form do |f|
     f.inputs 'Семейство' do
       f.input :family, as: :select, collection: Categories::Category.families
+      f.input :position
     end
 
     f.inputs do

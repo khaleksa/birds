@@ -29,3 +29,5 @@ db/structure.sql
 
 # Ignore rspec html reports
 /public/spec_results.html
+
+/public/uploads/*

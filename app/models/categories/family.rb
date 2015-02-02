@@ -6,4 +6,8 @@ class Categories::Family < Categories::Category
   def order
     parent
   end
+
+  def main_species
+    species.where('parent_id IS NULL').order(:position)
+  end
 end

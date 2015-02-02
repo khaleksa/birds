@@ -4,6 +4,8 @@ class Categories::Category < ActiveRecord::Base
 
   acts_as_tree :order => 'name_ru'
 
+  mount_uploader :image, CategoryUploader
+
   scope :orders, -> { where(type: 'Categories::Order') }
   scope :families, -> { where(type: 'Categories::Family') }
 
