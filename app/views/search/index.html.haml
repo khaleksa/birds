@@ -1,0 +1,16 @@
+.bg-btm-container
+  / Content
+  .container.content
+    / Content BODY
+    .row.big-year-container.mtop20.content-container
+      .col-sm-12.col.col-md-7
+        %h3 Поиск
+        .row.search-form-container.mtop20
+          .row.form-container
+            =form_tag '/search', method: :post, remote: :true do
+              = text_field_tag :text, nil, class: 'form-control w80 sm-width-max', autofocus: true, placeholder: 'название вида'
+              = submit_tag 'Найти', class: 'btn btn-success fright sm-center sm-mtop10 w15 m-mtop20'
+
+        .row.search-results.mtop20.m-mbtm20.pleft20
+
+    =render 'shared/nav_add_photo'
