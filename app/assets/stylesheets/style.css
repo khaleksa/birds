@@ -62,6 +62,9 @@ a.link:hover {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
 }
+.w70p {
+    width:70px;
+}
 .w80 {
     width:80%;
 }
@@ -246,7 +249,7 @@ ol li:before {
     color:#94846e;
 }
 .g-pencil{
-    background:url('../img/pencil.png') no-repeat 50% 50%;
+    background:url('profile/pencil.png') no-repeat 50% 50%;
     cursor:pointer;
 }
 .d-inline-table {
@@ -1730,6 +1733,9 @@ a.delete-comment-lnk:hover {
 .profile-container .blocks-content .profile-block-container.active-block {
     display:block;
 }
+.profile-block-container label {
+    font-weight: normal;
+}
 .profile-container .sub-nav-pils a span {
     padding:10px 20px;
     display:block;
@@ -1742,7 +1748,7 @@ a.delete-comment-lnk:hover {
 }
 .profile-container .sub-nav-pils a.active, .profile-container .sub-nav-pils a:hover {
     color:#4d4d4d;
-    background: url('../img/bg_arrow_down.png') no-repeat bottom 0 right 50%;
+    background: url('share/bg_arrow_down.png') no-repeat bottom 0 right 50%;
     text-decoration:none !important;
 }
 .profile-container .sub-nav-pils a.active span, .profile-container .sub-nav-pils a:hover span {
@@ -1760,6 +1766,12 @@ a.delete-comment-lnk:hover {
 .profile-info-block label {
     line-height: 30px;
 }
+
+.profile-info-block .input-group{
+    border-bottom: 1px solid #9d9e98;
+    margin-left: 20px;
+}
+
 .profile-info-block #subscribe_data label {
     line-height: 16px;
 }

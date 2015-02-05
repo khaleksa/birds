@@ -26,6 +26,8 @@ gem 'closure_tree'
 gem 'carrierwave'
 gem 'mini_magick'
 
+gem 'best_in_place'
+
 group :test, :development do
   gem 'pry'
   gem 'pry-doc'

@@ -13,8 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require best_in_place
+
 //= require_tree ./libs
 //= require ./pages/comment
 //= require ./pages/species
 //= require ./pages/show_birds
+//= require ./pages/profile
+
 //= require_self
+
+
+$(".best_in_place").best_in_place();

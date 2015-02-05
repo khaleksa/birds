@@ -1,6 +1,21 @@
 Birds::Application.routes.draw do
   ActiveAdmin.routes(self)
-  devise_for :users
+
+  devise_for :users,
+             :controllers => { registrations: 'users' },
+             path: '/user',
+             skip: :registrations
+
+  devise_scope :user do
+    post 'user', to: 'users#create', as: :user_registration
+    get 'user/sign_up', to: 'users#new', as: :new_user_registration
+    put 'user/change_password', to: 'users#change_password'
+    get 'user/unregister', to: 'users#unregister', as: :user_unregister
+  end
+
+  resource :user, only: []  do
+    resource :profile, only: [:show, :update]
+  end
 
   root to: 'pages#index'
 
