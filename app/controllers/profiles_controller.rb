@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   end
   
   def update
-    binding.pry
+    # binding.pry
     current_user.update_attributes editable_params
 
     respond_to do |format|

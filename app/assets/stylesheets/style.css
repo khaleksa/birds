@@ -717,10 +717,10 @@ a.navbar-brand {
         cursor:pointer;
     }
     .mobile-blocks-nav a.active:before {
-        background:url('../img/menu_up.png') no-repeat;
+        background:url('profile/menu_up.png') no-repeat;
     }
     .mobile-blocks-nav a:before {
-        background:url('../img/menu_down.png') no-repeat;
+        background:url('profile/menu_down.png') no-repeat;
         width:12px;
         content: ' ';
         height:10px;

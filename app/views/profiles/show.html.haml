@@ -6,7 +6,7 @@
       .row.profile-info-block
         .col-md-3.col-sm-5.profile-user-data
           %h4
-            %img.img-circle{:src => "assets/img/profile_big.png"}/
+            =image_tag current_user.avatar.thumb.url, class: 'img img-circle'
             =current_user.full_name
         .col-md-3.col-sm-12.profile-stat-data
           %p
@@ -31,35 +31,37 @@
       .row.blocks-content
         .block-holder
           .mobile-blocks-nav
-            %a.active{"data-view" => "block1", :onclick => "openBlock(this);"}
+            %a.active{"data-view" => "block1"}
               %span Профиль
           #block1.active-block.row.profile-block-container.profile-info-block
             .col-md-7.col-sm-12.mtop20
               .row
-                %form#profile_data
-                  .col-md-4.col-sm-12.m-acenter
-                    %img.img-circle{:src => "assets/img/profile_empty.png"}/
-                    %a.link.d-block.change-image{:onclick => "browsebutton();"} Изменить фотографию
-                    %input{:name => "actualimage", :type => "file"}/
-                    %input{:disabled => "", :name => "pseudoimage", :type => "hidden"}
-                  .col-md-8.col-sm-12
-                    .form-container.m-mtop20.m-acenter
-                      .row.mbtm15.user-info-section
-                        %label.w70p.aright{:for => "fname"} Имя:
-                        .input-group.d-inline-table.w220
-                          = best_in_place current_user, :first_name, as: :input, path: user_profile_path
-                          %span.input-group-addon.g-pencil
-                            %span.glyphicon &nbsp;
-                      .row.mbtm15
-                        %label.w70p.aright{:for => "lname"} Фамилия:
-                        .input-group.d-inline-table.w220
-                          = best_in_place current_user, :last_name, as: :input, path: user_profile_path
-                          %span.input-group-addon.g-pencil
-                            %span.glyphicon &nbsp;
-                      .row
-                        %label.w70p.aright{:for => "email"} E-mail:
-                        .input-group.d-inline-table.w220
-                          = current_user.email
+                .col-md-4.col-sm-12.m-acenter
+                  = form_for current_user, url: user_profile_path, id: 'profile_data'  do |form|
+                    =image_tag current_user.avatar.url, class: 'img img-circle'
+                    = label_tag :avatar, 'Изменить фотографию', class: 'link d-block change-image', id: 'change-avatar'
+                    .hidden{ style: 'display:none'}
+                      = form.file_field :avatar, role: 'avatar', id: 'avatar-file-field'
+                      = form.hidden_field :avatar_cache
+
+                .col-md-8.col-sm-12
+                  .form-container.m-mtop20.m-acenter
+                    .row.mbtm15.user-info-section
+                      %label.w70p.aright{:for => "fname"} Имя:
+                      .input-group.d-inline-table.w220
+                        = best_in_place current_user, :first_name, as: :input, path: user_profile_path
+                        %span.input-group-addon.g-pencil
+                          %span.glyphicon &nbsp;
+                    .row.mbtm15
+                      %label.w70p.aright{:for => "lname"} Фамилия:
+                      .input-group.d-inline-table.w220
+                        = best_in_place current_user, :last_name, as: :input, path: user_profile_path
+                        %span.input-group-addon.g-pencil
+                          %span.glyphicon &nbsp;
+                    .row
+                      %label.w70p.aright{:for => "email"} E-mail:
+                      .input-group.d-inline-table.w220
+                        = current_user.email
 
               .row
                 %h5.m-acenter Изменить пароль
@@ -82,31 +84,29 @@
                     .row.mbtm15
                       %label.myCheckbox
                         = form.check_box :big_year
-                        -#%input{:name => "participate", :type => "checkbox"}/
                         %span
                       %label{:for => "participate"}
                         Да, Я хочу участвовать в
                         =link_to 'Большом Годе', big_year_pages_path
                   =form.submit 'Изменить', class: 'btn btn-info w345 btn-lg-spec sm-width-max'
-                  -#%input.btn.btn-info.w345.btn-lg-spec.sm-width-max{:type => "submit", :value => "Изменить подписки"}/
 
         .block-holder
           .mobile-blocks-nav
-            %a{"data-view" => "block2", :onclick => "openBlock(this);"}
+            %a{"data-view" => "block2"}
               %span Фотографии [134]
           #block2.row.profile-block-container.profile-photos-block
             ФОТОГРАФИИ
 
         .block-holder
           .mobile-blocks-nav
-            %a{"data-view" => "block3", :onclick => "openBlock(this);"}
+            %a{"data-view" => "block3"}
               %span Виды [134]
           #block3.row.profile-block-container.profile-birds-block
             ВИДЫ
 
         .block-holder
           .mobile-blocks-nav
-            %a{"data-view" => "block4", :onclick => "openBlock(this);"}
+            %a{"data-view" => "block4"}
               %span Комментарии [2034]
           #block4.row.profile-block-container.profile-comments-block
             .row.scroll-container
@@ -177,7 +177,7 @@
 
         .block-holder.last
           .mobile-blocks-nav
-            %a{"data-view" => "block5", :onclick => "openBlock(this);"}
+            %a{"data-view" => "block5"}
               %span Карта встреч
           #block5.row.profile-block-container.profile-map-block
             КАРТА ВСТРЕЧ
