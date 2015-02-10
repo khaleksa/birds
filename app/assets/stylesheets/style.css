@@ -1708,7 +1708,7 @@ a.delete-comment-lnk:hover {
 }
 .profile-stat-data p {
     color:#94846e;
-    font-size:11px;
+    font-size:14px;
 
 }
 .profile-stat-data a {
@@ -1755,7 +1755,7 @@ a.delete-comment-lnk:hover {
     background:#f7f7ed;
 }
 .change-image {
-    font-size:12px;
+    font-size:14px;
     margin-top:10px;
     cursor:pointer;
 }

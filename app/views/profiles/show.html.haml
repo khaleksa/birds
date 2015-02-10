@@ -10,11 +10,11 @@
             =current_user.full_name
         .col-md-3.col-sm-12.profile-stat-data
           %p
-            50 видов в
-            %a{:href => "#"} Большом городе
+            ? видов в
+            =link_to 'Большом Годе', big_year_pages_path
             %br
-              10-я в
-              %a{:href => "#"} рейтинге Большого города
+              ?-я в рейтинге
+              =link_to 'Большого Года', big_year_pages_path
 
       .row.sub-nav-pils.mtop20.sm-display-none
         %a.active.profile-menu{"data-view" => "block1"}
@@ -64,7 +64,7 @@
                         = current_user.email
 
               .row
-                %h5.m-acenter Изменить пароль
+                %h4.m-acenter Изменить пароль
                 =form_for current_user, url: user_change_password_path, id: 'password_data', method: :put do |form|
                   .form-container.m-mtop20.m-acenter
                     .row.mbtm15
@@ -78,7 +78,7 @@
                   %input.btn.btn-info.w345.btn-lg-spec.sm-width-max{:type => "submit", :value => "Изменить пароль"}/
 
               .row.mtop20
-                %h5.m-acenter Большой Год
+                %h4.m-acenter Большой Год
                 = form_for current_user, url: user_profile_path, method: :put, id: 'subscribe_data' do |form|
                   .form-container.m-mtop20.pleft30.m-pleft90
                     .row.mbtm15

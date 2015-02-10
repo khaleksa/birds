@@ -22,7 +22,7 @@
             - count_per_colunn = User.big_year_members.count / col_count
             - col_count.times do
               .col.col-md-4
-                - @stat.big_year_users(Time.zone.now.year, count_per_colunn, start).each do |user|
+                - @stat.big_year_users_species_count(Time.zone.now.year, count_per_colunn, start).each do |user|
                   .row.city-participant
                     .participant-left-blck
                       %p
