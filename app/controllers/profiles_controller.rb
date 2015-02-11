@@ -2,6 +2,9 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!
 
   def show
+    stat = Stats::Counts.new
+    @species_count = stat.big_year_user_species_count(current_user.id, Time.zone.now.year)
+    @rating = stat.big_year_user_rating(current_user.id)
   end
   
   def update

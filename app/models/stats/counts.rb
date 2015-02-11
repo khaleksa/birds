@@ -34,34 +34,19 @@ class Stats::Counts
     User.connection.select_all(sql)
   end
 
-  # def big_year_user_species_count(user_id, year = Time.zone.now.year)
-  #   sql = ActiveRecord::Base.send(:sanitize_sql_array, ["
-  #       SELECT
-  #         count(t.species_id) species_count
-  #       FROM (
-  #         SELECT b.species_id
-  #         FROM users u
-  #          INNER JOIN birds b ON b.user_id = u.id
-  #         WHERE (u.big_year = 'true') AND
-  #               (b.published = 'true') AND
-  #               (EXTRACT(year FROM b.timestamp) = 2015) AND
-  #               (u.id = ?)
-  #         GROUP BY u.id, b.species_id
-  #            ) t
-  #       GROUP BY t.user_id
-  #     ",
-  #                                                       year
-  #                                                    ])
-  #
-  #   User.connection.select_one(sql)
-  # end
-  # def birds_species_count1(user_id)
-  #   return 0 unless User.find(user_id).big_year
-  #   Species.joins(:birds, :users).where(birds: {published: true}).where(users: {id: user_id}).where().select(:id).distinct.count
-  # end
+  def big_year_user_species_count(user_id, year = Time.zone.now.year)
+    Bird.where(user_id: user_id).where("EXTRACT(year FROM timestamp) = ?", year).select(:species_id).distinct(:species_id).size
+  end
 
   def big_year_users_count
     User.where(big_year: true).size
+  end
+
+  #TODO: add params validation, check when user doesn't have any photo
+  def big_year_user_rating(user_id, year = Time.zone.now.year)
+    return 0 unless User.find(user_id).big_year # ???
+    index = big_year_users_species_count(year).find_index { |user| user['user_id'].to_i == user_id }
+    index ? index + 1 : 0
   end
 
   def big_year_species(year = Time.zone.now.year)

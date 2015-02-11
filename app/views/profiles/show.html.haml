@@ -10,23 +10,25 @@
             =current_user.full_name
         .col-md-3.col-sm-12.profile-stat-data
           %p
-            ? видов в
+            ? Количество видов в
             =link_to 'Большом Годе', big_year_pages_path
+            #{@species_count}
             %br
-              ?-я в рейтинге
+              ? В рейтинге
               =link_to 'Большого Года', big_year_pages_path
+              #{@rating}
 
       .row.sub-nav-pils.mtop20.sm-display-none
         %a.active.profile-menu{"data-view" => "block1"}
           %span Профиль
         %a.profile-menu{"data-view" => "block2"}
-          %span Фотографии [134]
+          %span Фотографии [?]
         %a.profile-menu{"data-view" => "block3"}
-          %span Виды [55]
+          %span Виды [#{@species_count}]
         %a.profile-menu{"data-view" => "block4"}
-          %span Комментарии [2048]
+          %span Комментарии [?]
         %a.profile-menu{"data-view" => "block5"}
-          %span Карта встреч
+          %span Карта встреч ?
 
       .row.blocks-content
         .block-holder
