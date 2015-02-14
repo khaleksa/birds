@@ -20,6 +20,7 @@
 //= require ./pages/species
 //= require ./pages/show_birds
 //= require ./pages/profile
+//= require ./pages/common
 
 //= require_self
 

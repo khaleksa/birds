@@ -191,7 +191,7 @@ a.lnk-success {
     display:none !important;
 }
 .bg-container{ /*home page */
-    background-image: url('share/main_bg.png');
+    background-image: asset-data-url('share/main_bg.png');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: top;
@@ -199,7 +199,7 @@ a.lnk-success {
 }
 .bg-btm-container /*other pages */
 {
-    background-image: url('share/bg_btm.png');
+    background-image: asset-data-url('share/bg_btm.png');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: bottom;
@@ -249,7 +249,7 @@ ol li:before {
     color:#94846e;
 }
 .g-pencil{
-    background:url('profile/pencil.png') no-repeat 50% 50%;
+    background: asset-data-url('profile/pencil.png') no-repeat 50% 50%;
     cursor:pointer;
 }
 .d-inline-table {
@@ -717,10 +717,10 @@ a.navbar-brand {
         cursor:pointer;
     }
     .mobile-blocks-nav a.active:before {
-        background:url('profile/menu_up.png') no-repeat;
+        background:asset-data-url('profile/menu_up.png') no-repeat;
     }
     .mobile-blocks-nav a:before {
-        background:url('profile/menu_down.png') no-repeat;
+        background:asset-data-url('profile/menu_down.png') no-repeat;
         width:12px;
         content: ' ';
         height:10px;
@@ -897,16 +897,16 @@ div.search-btn a.search:hover{
     display:block;
 }
 .progress-photo-ico > i {
-    background: url("bird/add/photo_ico.png") no-repeat center center;
+    background: asset-data-url("bird/add/photo_ico.png") no-repeat center center;
 }
 .progress-calendar-ico > i {
-    background: url("bird/add/calendar_ico.png") no-repeat center center;
+    background: asset-data-url("bird/add/calendar_ico.png") no-repeat center center;
 }
 .progress-tag-ico > i {
-    background: url("bird/add/tag_ico.png") no-repeat center center;
+    background: asset-data-url("bird/add/tag_ico.png") no-repeat center center;
 }
 .progress-check-ico > i {
-    background: url("bird/add/check_ico.png") no-repeat center center;
+    background: asset-data-url("bird/add/check_ico.png") no-repeat center center;
 }
 .progrees-bar-middle-icons .dash  {
     width:8px;
@@ -1148,7 +1148,7 @@ div.search-btn a.search:hover{
     top: 40px;
     width: 19px;
     height: 58px;
-    background: url('share/bg_arrow_left.png');
+    background: asset-data-url('share/bg_arrow_left.png');
 }
 .add-comment-form-container .add-comment-form:before {
     content: "";
@@ -1158,7 +1158,7 @@ div.search-btn a.search:hover{
     left: 55px;
     width: 58px;
     height: 19px;
-    background: url('share/bg_arrow_up.png');
+    background: asset-data-url('share/bg_arrow_up.png');
 }
 .add-comment-form-container .add-comment-form p {
     margin-bottom:0;
@@ -1458,7 +1458,7 @@ a.delete-comment-lnk:hover {
     color:#fff;
     font-style:normal;
     font-size:16px;
-    background:url('map/map_tag.png') no-repeat center 0;
+    background:asset-data-url('map/map_tag.png') no-repeat center 0;
 }
 .map-bird-info p{
     margin-bottom:0 !important;
@@ -1613,13 +1613,13 @@ a.delete-comment-lnk:hover {
     height:30px !important;
 }
 .reg-form-cntainer {
-    background: url('reg_login/reg_bg.png') no-repeat #edf2f0 ;
+    background: asset-data-url('reg_login/reg_bg.png') no-repeat #edf2f0 ;
     width:600px;
 
     padding:30px 0 10px 0;
 }
 .login-form{
-    background: url('reg_login/login_bg.png') no-repeat #edf2f0 !important;
+    background: asset-data-url('reg_login/login_bg.png') no-repeat #edf2f0 !important;
     width:454px !important;
     margin:0 auto !important;
     min-height:300px;
@@ -1748,7 +1748,7 @@ a.delete-comment-lnk:hover {
 }
 .profile-container .sub-nav-pils a.active, .profile-container .sub-nav-pils a:hover {
     color:#4d4d4d;
-    background: url('share/bg_arrow_down.png') no-repeat bottom 0 right 50%;
+    background: asset-data-url('share/bg_arrow_down.png') no-repeat bottom 0 right 50%;
     text-decoration:none !important;
 }
 .profile-container .sub-nav-pils a.active span, .profile-container .sub-nav-pils a:hover span {
