@@ -23,18 +23,17 @@
                 = f.password_field :password, autocomplete: "off", class: 'form-control'
               .col-md-2.col-sm-2.str-container
                 %span.req *
-            .row
+            .row.mbtm20
               .col-md-2.col-sm-2.lbl-container
                 \&nbsp;
-              .col-md-8.col-sm-8.input-container
+              .col-md-8.col-sm-8.input-container.acenter
                 = f.submit 'Войти', class: 'mtop10 mm-mtop0 w100p btn-lg btn btn-info'
-              .col-md-2.col-sm-2.str-container
-                \&nbsp;
+                =link_to 'У меня нет аккаунта', new_user_registration_path
 
-            .row.mtop40.mm-mtop0
+            .row.mtop10.mm-mtop0
               .col-md-2.col-sm-2.lbl-container
                 \&nbsp;
               .col-md-8.col-sm-8.input-container
-                %a.fb-login{:href => "#"} Вход с помощью Facebook
+                %a.fb-login{:href => "#"} Вход через Facebook
               .col-md-2.col-sm-2.str-container
                 \&nbsp;

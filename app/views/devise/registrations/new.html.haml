@@ -58,19 +58,17 @@
                 %label{:for => "participate"} Я хочу участвовать в Большом городе
               .col-md-3.col-sm-3.str-container
                 \&nbsp;
-            .row
+            .row.acenter
               .col-md-3.col-sm-3.lbl-container
                 \&nbsp;
               .col-md-6.col-sm-6.input-container
                 = f.submit "Зарегистрироваться", class: 'mtop10 w100p btn-lg btn btn-info'
-              .col-md-3.col-sm-3.str-container
-                \&nbsp;
-
-            -#.row
+                =link_to 'У меня уже есть аккаунт', new_user_session_path
+            .row
               .col-md-3.col-sm-3.lbl-container
                 \&nbsp;
               .col-md-6.col-sm-6.input-container
-                %a.fb-login{:href => "#"} Вход с помощью Facebook
+                %a.fb-login{:href => "#"} Вход через Facebook
               .col-md-3.col-sm-3.str-container
                 \&nbsp;
 

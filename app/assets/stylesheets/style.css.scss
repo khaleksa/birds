@@ -1666,7 +1666,7 @@ a.delete-comment-lnk:hover {
     line-height:34px;
     vertical-align:middle;
     padding-left:40px;
-    background:url('../img/fb_reg_logo.png') no-repeat;
+    background:asset-data-url('reg_login/fb_reg_logo.png') no-repeat;
     display:block;
 }
 @media (max-width: 767px) {
