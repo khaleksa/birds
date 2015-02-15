@@ -3,5 +3,5 @@ class Image < ActiveRecord::Base
 
   validates_presence_of :image, :species
 
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, SpeciesUploader
 end

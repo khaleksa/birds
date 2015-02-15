@@ -11,7 +11,7 @@
         -if @species.images.any?
           #media_block.row.bird-photo-img
             =link_to @default_image.image.url, id: 'fancybox_single_image', title: @default_image.description do
-              =image_tag @default_image.image.url, class: 'img-responsive'
+              =image_tag @default_image.image.small.url, class: 'img-responsive'
           .row.add-comment-form-container
             .row.add-comment-form
               %p#photo_descr_text= @default_image.description
@@ -33,7 +33,8 @@
           .thumb_container.row.bird-photo-tumbs
             - @species.images.limit(8).each do |image|
               .col-sm-4.col.col-md-6
-                = image_tag image.image.small.url, 'class' => 'img-responsive', 'data' => { 'src' => image.image.url,
+                = image_tag image.image.thumb.url, 'class' => 'img-responsive', 'data' => { 'src-small' => image.image.small.url,
+                                                                                            'src-large' => image.image.url,
                                                                                             'author' => image.author,
                                                                                             'date' => image.date,
                                                                                             'description' => image.description,
