@@ -12,6 +12,7 @@ class SpeciesUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   process :resize_to_fill => [1024, 768]
+  process :quality => 80
 
   # Create different versions of your uploaded files:
   version :small do
