@@ -1,6 +1,6 @@
 .bg-btm-container
   .container.content
-    .row.bird-descr-container.mtop20.content-container
+    .row.bird-descr-container.mtop20.mbtm20.content-container
       .col.col-md-8.col-sm-12
         .row.bird-photo-title
           %h3= @species.name_ru
@@ -72,7 +72,7 @@
               %h5 Описание
             %p= @species.description
 
-            - if @species.description.present?
+            - if @species.distribution.present?
               %p
                 %h5 Распространение
               %p= @species.distribution
@@ -81,6 +81,13 @@
               %p
                 %h5 Биология
               %p= @species.biology
+
+            - if @species.sub_species.present?
+              %p.bird-sub-species
+                %ol
+                  %h5 Подвиды
+                  -@species.sub_species.each do |sp|
+                    %li=link_to sp.full_name, species_path(sp)
 
             - if @species.reference.present?
               %p
