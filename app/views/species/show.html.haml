@@ -10,7 +10,8 @@
 
         -if @species.images.any?
           #media_block.row.bird-photo-img
-            =image_tag @default_image.image.url, class: 'img-responsive'
+            =link_to @default_image.image.url, id: 'fancybox_single_image', title: @default_image.description do
+              =image_tag @default_image.image.url, class: 'img-responsive'
           .row.add-comment-form-container
             .row.add-comment-form
               %p#photo_descr_text= @default_image.description
