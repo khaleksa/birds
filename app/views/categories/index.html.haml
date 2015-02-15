@@ -2,7 +2,7 @@
   / Content
   .container.content
     / Content BODY
-    .row.big-year-container.mtop20.content-container
+    .row.big-year-container.mtop20.mbtm20.content-container
       .col-sm-12.col.col-md-12
         %h3 Список видов птиц Узбекистана
         .row.birds-list-container.mtop20
@@ -21,3 +21,5 @@
                           %i= family.name_ru
                         - family.main_species.each do |species|
                           %li=link_to species.full_name, species_path(species)
+
+    =render 'shared/nav_add_photo'
