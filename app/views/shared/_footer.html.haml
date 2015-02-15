@@ -2,11 +2,15 @@
   .container
     .fleft
       %p
-        =image_tag "navbar/bird_white.png", :align => "left"
+        =link_to root_path do
+          =image_tag "navbar/bird_white.png", :align => "left"
         Все парава на опубликованные на сайте материалы принадлежат их авторам
-        %br Birds.uz &copy; 2014
+        %br
+          =link_to 'Birds.uz', root_path
+          &copy;
+          =Time.zone.now.year
     .fright
       %p.aright
         =link_to 'О проекте', about_pages_path
         %br
-          =link_to 'info@birds.uz', "#"
+          =mail_to 'khalex@bk.ru', 'khalex@bk.ru'
