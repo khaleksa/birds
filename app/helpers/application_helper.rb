@@ -15,4 +15,9 @@ module ApplicationHelper
       link_to(name, options, html_options, &block)
     end
   end
+
+  def date_format(date)
+    return '' unless date.present?
+    date.strftime('%d/%m/%Y')
+  end
 end

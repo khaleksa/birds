@@ -1,0 +1,19 @@
+.row
+  =image_tag bird.photo.small, class: 'img-responsive sm-centered mbtm15'
+
+  .row.add-photo-info
+    .col.col-md-4.aright
+      %p
+        %span.lbl Автор:
+    .col.col-md-8.aleft
+      %p
+        =link_to bird.user.full_name, user_profile_path(current_user)
+
+  -if bird.timestamp.present?
+    .row.add-photo-info
+      .col.col-md-4.aright
+        %p
+          %span.lbl Дата:
+      .col.col-md-8.aleft
+        %p
+          =date_format(bird.timestamp)

@@ -126,8 +126,8 @@
       .col-md-9.col-sm-12
         = form_for @bird do |form|
           .form-container
-            #datetimepicker5.input-group.date.w80.sm-width-max
-              = form.text_field :timestamp, 'data-date-format' => 'DD.MM.YYYY', 'class' => 'form-control'
+            #bird-datetime-group.input-group.date.w80.sm-width-max
+              = form.text_field :timestamp, 'value' => date_format(@bird.timestamp), 'data-date-format' => 'DD/MM/YYYY', 'class' => 'form-control photo-date-input'
               %span.input-group-addon
                 %span.glyphicon.glyphicon-calendar{ 'aria-hidden' => 'true' }
 
@@ -135,13 +135,4 @@
           %input.mtop3.m-h35.mbtm20.sm-width-max.btn.btn-info.display-sm-only.w{:type => "submit", :value => "Продолжить"}
 
       .col-md-3.acenter.sm-display-none
-        .row
-          =image_tag @bird.photo.small, class: 'img-responsive sm-centered'
-        .row.mtop10.add-photo-info
-          .col.col-md-4.aright
-            %p
-              %span.lbl Автор:
-          .col.col-md-8.aleft
-            %p
-              =link_to @bird.user.full_name, '#'
-
+        =render 'birds/photo_info', bird: @bird

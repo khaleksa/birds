@@ -1,5 +1,8 @@
 #TODO: rewrite, use ajax
 class BirdsController < ApplicationController
+  before_filter :authenticate_user!, except: [:show, :new]
+
+  DATE_FORMAT = ''
 
   def show
     bird_id = params[:id]
@@ -13,6 +16,7 @@ class BirdsController < ApplicationController
   end
 
   def create
+    binding.pry
     permit_params = bird_params(params)
     if permit_params[:photo].blank?
       redirect_to :back
@@ -30,23 +34,16 @@ class BirdsController < ApplicationController
     end
   end
 
-  def edit
-    binding.pry
-    @bird = Bird.find(params[:id])
-  end
-
   def edit_date
-    # binding.pry
     @bird = Bird.find(params[:id])
   end
 
   def edit_map
-    binding.pry
     @bird = Bird.find(params[:id])
   end
 
   def edit_species
-    # binding.pry
+    binding.pry
     @bird = Bird.find(params[:id])
     @species = Species.all.order(:name_ru)
   end
