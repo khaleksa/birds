@@ -124,24 +124,14 @@
     / Content BODY
     .row.mtop40.add-photo-container
       .col-md-9.col-sm-12
-        -#= form_for @bird, url: birds_path(@bird) do |form|
-        -#  .form-container
-        -#    %input.form-control.w65.m-w85{:disabled => "", :name => "pseudoimage", :type => "text"}
-        -#      = form.file_field :photo, class: 'mleft20 btn btn-success'
-        -#      -#%a.mleft20.btn.btn-success{:onclick => "browsebutton();"} Обзор...
-        -#      = form.submit 'Продолжить', class: 'mtop3 fright btn btn-info sm-display-none'
-        -#      -#%input{:name => "actualimage", :type => "file"}/
-        -#  = form.submit 'Продолжить', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
-        -#  -#%input.mtop3.m-h35.mbtm20.sm-width-max.btn.btn-info.display-sm-only.w{:type => "submit", :value => "Продолжить"}/
-        -#= image_tag "assets/img/m_pic_big.png", class: 'img-responsive bird_photo_preview'
-
-      .user-photo
-        = form_for @bird, url: birds_path(@bird)  do |form|
-          = image_tag @bird.photo_url, class: 'bird_photo_preview', style: 'width=200px; height=150px;'
-          = form.label :photo
-          = form.file_field :photo, class: 'photo_file'
-          = form.hidden_field :photo_cache
-          = form.submit
-
+        = form_for @bird, url: birds_path(@bird) do |form|
+          .form-container
+            %input.form-control.w65.m-w85{:disabled => "", :id => "set-bird-photo-path", :type => "text"}
+            =link_to 'Обзор...', '#', class: 'mleft20 btn btn-success', id: 'set-bird-photo'
+            .hidden{ style: 'display:none'}
+              = form.file_field :photo, id: 'bird-photo-field'
+              = form.hidden_field :photo_cache
+            =form.submit 'Продолжить', class: 'mtop4 fright btn btn-info sm-display-none'
+          = form.submit 'Продолжить', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
+          = image_tag @bird.photo_url, class: 'img-responsive', id: 'set-bird-photo-preview'
       .col-md-3.sm-display-none
-
