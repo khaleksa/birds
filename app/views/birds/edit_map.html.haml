@@ -1,5 +1,4 @@
 %script{:src => "https://maps.googleapis.com/maps/api/js", :type => "text/javascript"}
-%script{:src => "https://maps.googleapis.com/maps/api/js?libraries=visualization", :type => "text/javascript"}
 
 .bg-btm-container
   / Content
@@ -157,14 +156,4 @@
           %input.mtop3.m-h35.mbtm20.sm-width-max.btn.btn-info.display-sm-only.w{:type => "submit", :value => "Продолжить"}/
 
       .sm-display-none.col-md-3.acenter
-        .row
-          =image_tag @bird.photo.small, class: 'img-responsive sm-centered'
-        .row.mtop10.add-photo-info
-          .col.col-md-4.aright
-            %p
-              %span.lbl Автор:
-            %p
-              %span.lbl Дата:
-          .col.col-md-8.aleft
-            %p=link_to @bird.user.full_name, '#'
-            %p=@bird.timestamp
+        =render 'birds/photo_info', bird: @bird

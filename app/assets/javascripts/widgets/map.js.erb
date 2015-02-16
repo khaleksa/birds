@@ -1,0 +1,50 @@
+$(function() {
+    var bird_add_map;
+    var markers = [];
+    var icon_image = "<%= image_path('map/map_tag.png') %>";
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    function initialize() {
+        var mapOptions = {
+            center: { lat: 41.27, lng: 69.23},
+            zoom: 8
+        };
+
+        bird_add_map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+        google.maps.event.addListener(bird_add_map, "click", function(event) {
+            placeLanLng(event.latLng);
+            placeMarker(event.latLng);
+        });
+    }
+
+    function placeMarker(latLng) {
+        clearMarkers();
+
+        var marker = new google.maps.Marker({
+            position: latLng,
+            map: bird_add_map,
+            icon: icon_image
+        });
+
+        markers.push(marker);
+    }
+
+    // Deletes all markers in the array by removing references to them
+    function clearMarkers() {
+        if (markers) {
+            for (i in markers) {
+                markers[i].setMap(null);
+            }
+            markers.length = 0;
+        }
+    }
+
+    function placeLanLng(latLng) {
+        $('.add-photo-container #bird_latitude').val(latLng.lat());
+        $('.add-photo-container #bird_longitude').val(latLng.lng());
+    }
+
+});
+
