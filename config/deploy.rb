@@ -2,7 +2,6 @@
 lock '3.1.0'
 
 set :application, 'birds'
-set :repo_url, 'git@github.com:khaleksa/birds.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
@@ -12,15 +11,16 @@ set :deploy_to, '/home/deploys/birds'
 
 # Default value for :scm is :git
 # set :scm, :git
+set :repo_url, 'git@github.com:khaleksa/birds.git'
 
 # Default value for :format is :pretty
-# set :format, :pretty
+set :format, :pretty
 
 # Default value for :log_level is :debug
 # set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
 
 # Default value for :linked_files is []
 set :linked_files, %w{config/database.yml}
