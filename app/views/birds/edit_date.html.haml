@@ -131,8 +131,8 @@
               %span.input-group-addon
                 %span.glyphicon.glyphicon-calendar{ 'aria-hidden' => 'true' }
 
-            %input.fright.btn.btn-info.mtop-30.sm-display-none{:type => "submit", :value => "Продолжить"}
-          %input.mtop3.m-h35.mbtm20.sm-width-max.btn.btn-info.display-sm-only.w{:type => "submit", :value => "Продолжить"}
+            =form.submit 'Продолжить', class: 'fright btn btn-info mtop-30 sm-display-none'
+          =form.submit 'Продолжить', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
 
       .col-md-3.acenter.sm-display-none
         =render 'birds/photo_info', bird: @bird

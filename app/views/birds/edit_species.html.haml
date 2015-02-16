@@ -134,36 +134,29 @@
         %span.small-progress-bar-text Определите вид птицы
     / Content TOP PROGRESS BAR - SMALLER DISPLAY
 
-    / Content BODY
     .row.mtop40.add-photo-container
       .col-md-9.col-sm-12
-        = form_for @bird, url: publish_bird_url(@bird), method: 'post'  do |form|
+        = form_for @bird do |form|
           .form-container
-            #selectBird.selectBox.sm-width-max
-              %span.selected.m-w94 На определение
-              %span.selectArrow.m-p-abs &nbsp;
-              %ul.selectOptions.m-w98
-                #scrollbar_track
-                  #scrollbar_handle
-                #scrollbar_content.drop-dow-scroll
-                  - @species.each do |sp|
-                    %li.selectOption= sp.name_ru
-            %input{:name => "bird", :type => "hidden", :value => ""}/
-            %input.fright.btn.btn-info.sm-display-none{:type => "submit", :value => "Опубликовать фотографию"}/
-          %input.mtop3.m-h35.mbtm20.sm-width-max.btn.btn-info.display-sm-only{:type => "submit", :value => "Опубликовать фотографию"}/
+            #selectBird.selectBox.sm-width-max.dropdown
+              %button#dropdownMenu.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown", :type => "button"}
+                Выберете вид птицы
+                %span.caret
+              %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
+                -@families.each_with_index do |family, index|
+                  %li{:role => "presentation"}
+                    -unless index == 0
+                      .div-contain
+                        .divider
+                    %dt
+                      %span.text=family.name_ru
+                  -family.main_species.each do |sp|
+                    %li{:role => "presentation"}
+                      =link_to sp.name_ru, '#', role: 'menuitem', class: 'species-item', tabindex: '-1', data: {id: sp.id}
+            .hidden{ style: 'display:none'}
+              =form.text_field :species_id, id: 'set-bird-species-id', value: ''
+            =form.submit 'Опубликовать фотографию', class: 'fright btn btn-info sm-display-none'
+            =form.submit 'Опубликовать фотографию', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only'
 
       .col-md-3.acenter.sm-display-none
-        .row
-          =image_tag @bird.photo.small, class: 'img-responsive sm-centered'
-        .row.mtop10.add-photo-info
-          .col.col-md-4.aright
-            %p
-              %span.lbl Автор:
-            %p
-              %span.lbl Дата:
-            %p
-              %span.lbl Место:
-          .col.col-md-8.aleft
-            %p=link_to @bird.user.full_name, '#'
-            %p=@bird.timestamp
-            %p=@bird.address
+        =render 'birds/photo_info', bird: @bird

@@ -2,8 +2,6 @@
 class BirdsController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :new]
 
-  DATE_FORMAT = ''
-
   def show
     bird_id = params[:id]
     @bird = Bird.find(bird_id)
@@ -16,8 +14,7 @@ class BirdsController < ApplicationController
   end
 
   def create
-    binding.pry
-    permit_params = bird_params(params)
+    permit_params = bird_params
     if permit_params[:photo].blank?
       redirect_to :back
       return
@@ -43,22 +40,22 @@ class BirdsController < ApplicationController
   end
 
   def edit_species
-    binding.pry
     @bird = Bird.find(params[:id])
-    @species = Species.all.order(:name_ru)
+    @families = Categories::Family.all.order(:position)
   end
 
   def update
-    binding.pry
     @bird = Bird.find(params[:id])
 
     respond_to do |format|
-      binding.pry
-      if @bird.update_attributes(bird_params(params))
-        binding.pry
+      if @bird.update_attributes(bird_params)
+        if @bird.can_publish?
+          @bird.publish!
+          return redirect_to :root
+        end
+
         format.html do
           redirect_to action: next_edit_action(@bird), id: @bird.id
-          # redirect_to action: :edit, id: @bird.id
         end
         format.js   {}
         format.json { render json: @bird, status: :accepted, location: @bird }
@@ -71,14 +68,16 @@ class BirdsController < ApplicationController
   end
 
   def publish
-
-    redirect_to :root
+    if @bird.update_attributes(bird_params)
+      redirect_to :root
+    else
+      redirect_to :back
+    end
   end
 
   private
-  #TODO: add species
-  def bird_params(params)
-    params.require(:bird).permit(:photo, :photo_cache, :timestamp, :latitude, :longitude, :address)
+  def bird_params
+    params.require(:bird).permit(:photo, :photo_cache, :timestamp, :latitude, :longitude, :address, :species_id)
   end
 
   def next_edit_action(bird)

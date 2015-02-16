@@ -1032,6 +1032,25 @@ div.search-btn a.search:hover{
     float:right;
     padding:0;
 }
+.add-photo-container .selectBox{
+  width: 430px;
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  text-align: left;
+  line-height: 30px;
+  clear: both;
+  color: #555;
+  margin-left: 5px;
+}
+.add-photo-container #dropdownMenu{
+  width: 100%;
+}
+.add-photo-container ul.dropdown-menu{
+  width: 100%;
+  padding: 10px;
+}
+
 @media (max-width: 550px) {
     .form-container .fright, .bird-photo-container .fright {
         float:none !important;

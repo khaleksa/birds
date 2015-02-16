@@ -1,4 +1,6 @@
 %script{:src => "https://maps.googleapis.com/maps/api/js", :type => "text/javascript"}
+-#=content_for :javascript_includes do
+-#  = javascript_include_tag 'widgets/map'
 
 .bg-btm-container
   / Content
@@ -152,8 +154,8 @@
               Название места съемки:
               -#%input.form-control.w50.mleft10.m-w73{:name => "place", :type => "text"}/
               =form.text_field :address, class: 'form-control w50 mleft10 m-w73'
-            %input.fright.btn.btn-info.sm-display-none{:type => "submit", :value => "Продолжить"}/
-          %input.mtop3.m-h35.mbtm20.sm-width-max.btn.btn-info.display-sm-only.w{:type => "submit", :value => "Продолжить"}/
+            =form.submit 'Продолжить', class: 'fright btn btn-info sm-display-none'
+          =form.submit 'Продолжить', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
 
       .sm-display-none.col-md-3.acenter
         =render 'birds/photo_info', bird: @bird

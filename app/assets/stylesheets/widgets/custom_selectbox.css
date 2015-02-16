@@ -1,95 +1,95 @@
-div.selectBox {
-    position: relative;
-    display: inline-block;
-    cursor: default;
-    text-align: left;
-    line-height: 30px;
-    clear: both;
-    color: #555;
-    margin-left: 5px;
-}
-span.selectArrow, span.selected {
-    position: relative;
-    float: left;
-    height: 30px;
-    z-index: 1;
-}
-span.selectArrow {
-	background: url('selectbox/select_btn.png') no-repeat;
-	width:30px;
-}
-span.selectArrow:hover {
-	background: url('selectbox/select_btn_hover.png') no-repeat;
-	width:30px;
-}
+/*div.selectBox {*/
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*cursor: default;*/
+    /*text-align: left;*/
+    /*line-height: 30px;*/
+    /*clear: both;*/
+    /*color: #555;*/
+    /*margin-left: 5px;*/
+/*}*/
+/*span.selectArrow, span.selected {*/
+    /*position: relative;*/
+    /*float: left;*/
+    /*height: 30px;*/
+    /*z-index: 1;*/
+/*}*/
+/*span.selectArrow {*/
+	/*background: url('selectbox/select_btn.png') no-repeat;*/
+	/*width:30px;*/
+/*}*/
+/*span.selectArrow:hover {*/
+	/*background: url('selectbox/select_btn_hover.png') no-repeat;*/
+	/*width:30px;*/
+/*}*/
 
-span.selected {
-    text-indent: 10px;
-    border-right: none;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-    background: #ffffff;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    background: #ffffff;
-}
-ul.selectOptions {
-    position: absolute;
-    top: 28px;
-    left: 0;
-    border: 1px solid #eee;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    overflow: hidden;
-    background: #ffffff;
-    padding-top: 2px;
-    margin: 0;
-    list-style: none inside none;
-    padding-left: 0;
+/*span.selected {*/
+    /*text-indent: 10px;*/
+    /*border-right: none;*/
+    /*border-top-left-radius: 2px;*/
+    /*border-bottom-left-radius: 2px;*/
+    /*background: #ffffff;*/
+    /*overflow: hidden;*/
+    /*font-family: Arial, sans-serif;*/
+    /*font-size: 12px;*/
+    /*background: #ffffff;*/
+/*}*/
+/*ul.selectOptions {*/
+    /*position: absolute;*/
+    /*top: 28px;*/
+    /*left: 0;*/
+    /*border: 1px solid #eee;*/
+    /*border-bottom-right-radius: 5px;*/
+    /*border-bottom-left-radius: 5px;*/
+    /*overflow: hidden;*/
+    /*background: #ffffff;*/
+    /*padding-top: 2px;*/
+    /*margin: 0;*/
+    /*list-style: none inside none;*/
+    /*padding-left: 0;*/
 
-}
-li.selectOption {
-    display: block;
-    line-height: 20px;
-    padding: 5px 0 5px 10px;
-    font-size: 12px;
-    font-family: arial, sans-serif;
-    list-style: none;
-    margin: 0;
-    background-color: #fff;
-    cursor:pointer;
-}
-li.selectOption:hover{
-	color:#6bcbca
-}
-.selectArrow {
-	cursor:pointer;
-}
-.selectArrow img {
-	border:none !important;
-	margin-top: -3px;
-}
-#selectDay span.selected, #selectDay ul.selectOptions{
-	width:40px;
-}
-#selectMonth span.selected, #selectMonth ul.selectOptions{
-	width:100px;
-}
-#selectYear span.selected, #selectYear ul.selectOptions{
-	width:70px;
-}
-#selectBird span.selected {
-	width:400px;
-}
-#selectBird ul.selectOptions{
-	width:430px;
-}
-#selectMonth, #selectYear {
-	margin-left:20px;
-}
-@media (max-width: 767px) {
-.selectArrow {
-	margin-left:-10px;
-}
-}
+/*}*/
+/*li.selectOption {*/
+    /*display: block;*/
+    /*line-height: 20px;*/
+    /*padding: 5px 0 5px 10px;*/
+    /*font-size: 12px;*/
+    /*font-family: arial, sans-serif;*/
+    /*list-style: none;*/
+    /*margin: 0;*/
+    /*background-color: #fff;*/
+    /*cursor:pointer;*/
+/*}*/
+/*li.selectOption:hover{*/
+	/*color:#6bcbca*/
+/*}*/
+/*.selectArrow {*/
+	/*cursor:pointer;*/
+/*}*/
+/*.selectArrow img {*/
+	/*border:none !important;*/
+	/*margin-top: -3px;*/
+/*}*/
+/*#selectDay span.selected, #selectDay ul.selectOptions{*/
+	/*width:40px;*/
+/*}*/
+/*#selectMonth span.selected, #selectMonth ul.selectOptions{*/
+	/*width:100px;*/
+/*}*/
+/*#selectYear span.selected, #selectYear ul.selectOptions{*/
+	/*width:70px;*/
+/*}*/
+/*#selectBird span.selected {*/
+	/*width:400px;*/
+/*}*/
+/*#selectBird ul.selectOptions{*/
+	/*width:430px;*/
+/*}*/
+/*#selectMonth, #selectYear {*/
+	/*margin-left:20px;*/
+/*}*/
+/*@media (max-width: 767px) {*/
+/*.selectArrow {*/
+	/*margin-left:-10px;*/
+/*}*/
+/*}*/

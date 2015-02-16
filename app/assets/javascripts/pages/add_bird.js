@@ -16,9 +16,16 @@ $(function() {
         $('#set-bird-photo-path').val(photo.name);
     })
 
-    //*** Edit photo's date ***
+    //*** Photo's date ***
     $('#bird-datetime-group').datetimepicker(function() {
         pickTime: false;
+    })
+
+    //*** Bird's species ***
+    $('.add-photo-container .species-item').on('click', function(event) {
+        $('#set-bird-species-id').val($(this).data('id'));
+        $('.add-photo-container #dropdownMenu').text($(this).text());
+        event.preventDefault();
     })
 
 });

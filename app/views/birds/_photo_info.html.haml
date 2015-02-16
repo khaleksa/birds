@@ -17,3 +17,12 @@
       .col.col-md-8.aleft
         %p
           =date_format(bird.timestamp)
+
+  -if bird.address_valid?
+    .row.add-photo-info
+      .col.col-md-4.aright
+        %p
+          %span.lbl Место:
+      .col.col-md-8.aleft
+        %p
+          =bird.address_string

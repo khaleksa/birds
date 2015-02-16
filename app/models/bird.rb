@@ -20,4 +20,12 @@ class Bird < ActiveRecord::Base
   def address_valid?
     latitude.present? && longitude.present?
   end
+
+  def address_string
+    address.present? ? address : "#{latitude}; #{longitude}"
+  end
+
+  def publish!
+    update_attribute(:published, true)
+  end
 end
