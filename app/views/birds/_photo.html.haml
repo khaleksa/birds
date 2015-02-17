@@ -6,7 +6,8 @@
       .blck
         =link_to bird.species.name_ru, species_path(bird.species)
   .body
-    =image_tag bird.photo.small.url
+    =link_to bird_path(bird) do
+      =image_tag bird.photo.small.url
   .foot
     .blck
       =image_tag bird.user.avatar.thumb.url, class: 'img-circle'
