@@ -2,7 +2,7 @@
 class BirdsController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :new]
 
-  layout 'map', only: [:edit_map]
+  layout 'map', only: [:edit_map, :show]
 
   def show
     bird_id = params[:id]

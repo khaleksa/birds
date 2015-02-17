@@ -6,17 +6,31 @@ $(function() {
     google.maps.event.addDomListener(window, 'load', initialize);
 
     function initialize() {
-        var mapOptions = {
-            center: { lat: 41.27, lng: 69.23},
-            zoom: 8
-        };
+        var map_element = $('#map_canvas');
+        var edit_mode = map_element.data('edit');
 
-        bird_add_map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        if (edit_mode) {
+            var mapOptions = {
+                center: { lat: 41.27, lng: 69.23},
+                zoom: 8
+            };
 
-        google.maps.event.addListener(bird_add_map, "click", function(event) {
-            placeLanLng(event.latLng);
-            placeMarker(event.latLng);
-        });
+            bird_add_map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+            google.maps.event.addListener(bird_add_map, "click", function (event) {
+                placeLanLng(event.latLng);
+                placeMarker(event.latLng);
+            });
+        } else {
+            var latitude = map_element.data('lat');
+            var longitude = map_element.data('lng');
+            var mapOptions = {
+                center: { lat: latitude, lng: longitude},
+                zoom: 8
+            };
+            bird_add_map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+            placeMarker({lat: latitude, lng: longitude});
+        }
     }
 
     function placeMarker(latLng) {

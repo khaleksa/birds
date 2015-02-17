@@ -13,22 +13,16 @@
             =image_tag @bird.photo.url, class: 'img-responsive'
 
         .col.col-md-4.fright.col-sm-12.m-no-float
-          -#.row.bird-photo-social
+          .row.bird-photo-social
             %a.social-lnk.fb
               %span
             %a.social-lnk.tw
               %span
             %a.social-lnk.vk
               %span
-            %a.social-lnk.ok
-              %span
-            %a.social-lnk.gp
-              %span
-            %a.social-lnk.pi
-              %span
 
           .row.bird-photo-map
-            #map_canvas{:style => "width:100%; height:300px;"}
+            #map_canvas{:style => "width:100%; height:300px;", :data => {edit: 'false', lat: @bird.latitude, lng: @bird.longitude}}
 
           .row.bird-photo-descr
             .row.descr-container
@@ -41,9 +35,9 @@
                   %span.lbl Место:
               .col.col-md-9
                 %p
-                  =link_to @bird.user.full_name, '#'
-                %p= @bird.timestamp
-                %p= @bird.address
+                  =link_to @bird.user.full_name, user_profile_path(@bird.user)
+                %p= date_format(@bird.timestamp)
+                %p= @bird.address_string
 
           .row.bird-photo-btns
             =link_to 'Общая информация о виде', species_path(@bird.species), class: 'btn btn-success'

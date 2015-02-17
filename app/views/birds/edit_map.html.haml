@@ -144,7 +144,7 @@
               Долгота:
               =form.text_field :longitude, class: 'form-control w20 mleft10'
           .row.map-container
-            #map_canvas{:style => "width:100%; height:350px"}
+            #map_canvas{ :style => "width:100%; height:350px", :data => { edit: 'true' } }
           .row.form-container.mtop20
             %span
               Название места съемки:
