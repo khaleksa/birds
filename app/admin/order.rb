@@ -1,5 +1,5 @@
 ActiveAdmin.register Categories::Order do
-  permit_params :name_ru, :name_en, :name_lat, :description, :image, :position
+  permit_params :name_ru, :name_en, :name_lat, :name_uz, :description, :image, :position
 
   menu priority: 1
 
@@ -23,6 +23,7 @@ ActiveAdmin.register Categories::Order do
       row :name_ru
       row :name_lat
       row :name_en
+      row :name_uz
       row :description
       row :children do # TODO: check it
         order.families.each do |family|
@@ -45,6 +46,7 @@ ActiveAdmin.register Categories::Order do
       f.input :name_ru
       f.input :name_lat
       f.input :name_en
+      f.input :name_uz
       f.input :description
     end
     f.inputs do

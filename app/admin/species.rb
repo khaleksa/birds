@@ -1,7 +1,7 @@
 ActiveAdmin.register Species do
-  permit_params :name_ru, :name_en, :name_lat,
+  permit_params :name_ru, :name_en, :name_lat, :name_uz,
                 :description, :distribution, :biology, :reference,
-                :category_id, :status, :show_map, :position,
+                :category_id, :status, :show_map, :position, :parent_id, :single_subspecies,
                 images_attributes: [:id, :image, :_destroy, :description, :author, :date, :address, :default]
 
   menu priority: 3
@@ -24,7 +24,6 @@ ActiveAdmin.register Species do
 
   show do |species|
     attributes_table do
-      row :id
       row 'Семейство' do
         link_to species.family.full_name, admin_categories_family_path(species.family.id)
       end
@@ -42,11 +41,13 @@ ActiveAdmin.register Species do
       row :name_ru
       row :name_lat
       row :name_en
+      row :name_uz
       row :status
       row :description
       row :distribution
       row :biology
       row :reference
+      row :single_subspecies
       row :show_map
       row :created_at
       row :updated_at
@@ -61,20 +62,23 @@ ActiveAdmin.register Species do
   end
 
   form do |f|
-    f.inputs 'Семейство' do
+    f.inputs 'Классификация' do
       f.input :family, as: :select, collection: Categories::Category.families
       f.input :position
+      f.input :parent
     end
 
-    f.inputs do
+    f.inputs 'Описание вида' do
       f.input :name_ru
       f.input :name_lat
       f.input :name_en
+      f.input :name_uz
       f.input :status
       f.input :description
       f.input :distribution
       f.input :biology
       f.input :reference
+      f.input :single_subspecies
       f.input :show_map
     end
 

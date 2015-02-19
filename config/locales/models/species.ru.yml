@@ -8,15 +8,21 @@ ru:
         other: "Виды"
     attributes:
       species:
-        parent: "Главный вид"
+        family: "Семейство"
+        position: "Порядковый номер"
+        parent: "Родительский вид"
         children: "Подвиды"
         name_ru: "Русское имя"
         name_lat: "Латинское имя"
         name_en: "Английское имя"
+        name_uz: "Узбекское имя"
+        status: "Статус"
         description: "Описание"
         distribution: "Распространение"
         biology: "Биология"
         image: "Фото"
+        show_map: "Публичная карта"
+        single_subspecies: "Единственный подвид"
         reference: "Источники информации"
         created_at: "Дата создания"
         updated_at: "Дата изменения"
@@ -30,3 +36,5 @@ ru:
               blank: "- Введите латинское название вида"
             name_en:
               blank: "- Введите английское название вида"
+            name_uz:
+              blank: "- Введите узбекское название вида"
