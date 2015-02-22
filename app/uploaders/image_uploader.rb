@@ -25,8 +25,26 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :resize_to_fit => [700, 524]
+  process :resize_to_fill => [700, 524]
   process :quality => 80
+  # process :watermark
+
+  # def watermark
+  #   manipulate! do |img|
+  #     binding.pry
+  #     logo = MiniMagick::Image.from_file(Rails.root + 'public/images/asd.png')
+  #     # logo = Magick::Image.read("#{Rails.root}/app/assets/images/watermark.png").first
+  #     img = img.composite(logo, Magick::NorthWestGravity, 15, 0, Magick::OverCompositeOp)
+  #   end
+  # end
+  # def watermark
+  #   manipulate! do |img|
+  #     binding.pry
+  #     img = img.composite(MiniMagick::Image.open(Rails.root + 'public/images/asd.png'), "jpg") do |c|
+  #       c.gravity "SouthEast"
+  #     end
+  #   end
+  # end
 
   #
   # def scale(width, height)
@@ -35,11 +53,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :small do
-    process :resize_to_fit => [256, 192]
+    process :resize_to_fill => [256, 192]
   end
 
   version :thumb do
-    process :resize_to_fit => [154, 116]
+    process :resize_to_fill => [154, 116]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
