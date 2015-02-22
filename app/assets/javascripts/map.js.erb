@@ -1,7 +1,6 @@
 $(function() {
     var bird_add_map;
     var markers = [];
-    var icon_image = "<%= image_path('map/map_tag.png') %>";
 
     google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -40,7 +39,6 @@ $(function() {
         var marker = new google.maps.Marker({
             position: latLng,
             map: bird_add_map,
-            icon: icon_image
         });
 
         markers.push(marker);
