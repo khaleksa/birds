@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   actions :all, :except => [:destroy, :edit]
-  menu priority: 4
+  menu priority: 5
   filter :email
 
   index do
