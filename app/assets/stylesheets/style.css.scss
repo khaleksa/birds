@@ -1,6 +1,6 @@
 /* FONTS */
-@import 'https://fonts.googleapis.com/css?family=Ubuntu:200,400,300,700';
-@import 'https://fonts.googleapis.com/css?family=Ubuntu:100,200,300,400,600';
+//@import 'https://fonts.googleapis.com/css?family=Ubuntu:200,400,300,700';
+//@import 'https://fonts.googleapis.com/css?family=Ubuntu:100,200,300,400,600';
 
 
 /* GENERAL */
@@ -191,7 +191,7 @@ a.lnk-success {
     display:none !important;
 }
 .bg-container{ /*home page */
-    background-image: asset-data-url('share/main_bg.png');
+    background-image: asset-data-url('share/main_bg.jpg');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: top;
@@ -199,7 +199,7 @@ a.lnk-success {
 }
 .bg-btm-container /*other pages */
 {
-    background-image: asset-data-url('share/bg_btm.png');
+    background-image: asset-data-url('share/bg_btm.jpg');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: bottom;
@@ -1633,13 +1633,13 @@ a.delete-comment-lnk:hover {
     height:30px !important;
 }
 .reg-form-cntainer {
-    background: asset-data-url('reg_login/reg_bg.png') no-repeat #edf2f0 ;
+    background: asset-data-url('reg_login/reg_bg.jpg') no-repeat #edf2f0 ;
     width:600px;
 
     padding:30px 0 10px 0;
 }
 .login-form{
-    background: asset-data-url('reg_login/login_bg.png') no-repeat #edf2f0 !important;
+    background: asset-data-url('reg_login/login_bg.jpg') no-repeat #edf2f0 !important;
     width:454px !important;
     margin:0 auto !important;
     min-height:300px;
