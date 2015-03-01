@@ -6,8 +6,8 @@
       .row.profile-info-block
         .col-md-3.col-sm-5.profile-user-data
           %h4
-            =image_tag current_user.avatar.thumb.url, class: 'img img-circle'
-            =current_user.full_name
+            =image_tag @user.avatar.thumb.url, class: 'img img-circle'
+            =@user.full_name
         .col-md-3.col-sm-12.profile-stat-data
           %p
             ? Количество видов в
@@ -19,8 +19,9 @@
               #{@rating}
 
       .row.sub-nav-pils.mtop20.sm-display-none
-        %a.active.profile-menu{"data-view" => "block1"}
-          %span Профиль
+        -if @user == current_user
+          %a.active.profile-menu{"data-view" => "block1"}
+            %span Профиль
         %a.profile-menu{"data-view" => "block2"}
           %span Фотографии [?]
         %a.profile-menu{"data-view" => "block3"}
@@ -31,66 +32,67 @@
           %span Карта встреч ?
 
       .row.blocks-content
-        .block-holder
-          .mobile-blocks-nav
-            %a.active{"data-view" => "block1"}
-              %span Профиль
-          #block1.active-block.row.profile-block-container.profile-info-block
-            .col-md-7.col-sm-12.mtop20
-              .row
-                .col-md-4.col-sm-12.m-acenter
-                  = form_for current_user, url: user_profile_path, id: 'profile_data'  do |form|
-                    =image_tag current_user.avatar.url, class: 'img img-circle'
-                    = label_tag :avatar, 'Изменить фотографию', class: 'link d-block change-image', id: 'change-avatar'
-                    .hidden{ style: 'display:none'}
-                      = form.file_field :avatar, role: 'avatar', id: 'avatar-file-field'
-                      = form.hidden_field :avatar_cache
+        -if @user == current_user
+          .block-holder
+            .mobile-blocks-nav
+              %a.active{"data-view" => "block1"}
+                %span Профиль
+            #block1.active-block.row.profile-block-container.profile-info-block
+              .col-md-7.col-sm-12.mtop20
+                .row
+                  .col-md-4.col-sm-12.m-acenter
+                    = form_for current_user, url: profile_path(current_user.id), id: 'profile_data'  do |form|
+                      =image_tag current_user.avatar.url, class: 'img img-circle'
+                      = label_tag :avatar, 'Изменить фотографию', class: 'link d-block change-image', id: 'change-avatar'
+                      .hidden{ style: 'display:none'}
+                        = form.file_field :avatar, role: 'aprofile_pathvatar', id: 'avatar-file-field'
+                        = form.hidden_field :avatar_cache
 
-                .col-md-8.col-sm-12
-                  .form-container.m-mtop20.m-acenter
-                    .row.mbtm15.user-info-section
-                      %label.w70p.aright{:for => "fname"} Имя:
-                      .input-group.d-inline-table.w220
-                        = best_in_place current_user, :first_name, as: :input, path: user_profile_path
-                        %span.input-group-addon.g-pencil
-                          %span.glyphicon &nbsp;
-                    .row.mbtm15
-                      %label.w70p.aright{:for => "lname"} Фамилия:
-                      .input-group.d-inline-table.w220
-                        = best_in_place current_user, :last_name, as: :input, path: user_profile_path
-                        %span.input-group-addon.g-pencil
-                          %span.glyphicon &nbsp;
-                    .row
-                      %label.w70p.aright{:for => "email"} E-mail:
-                      .input-group.d-inline-table.w220
-                        = current_user.email
+                  .col-md-8.col-sm-12
+                    .form-container.m-mtop20.m-acenter
+                      .row.mbtm15.user-info-section
+                        %label.w70p.aright{:for => "fname"} Имя:
+                        .input-group.d-inline-table.w220
+                          = best_in_place current_user, :first_name, as: :input, path: profile_path(current_user.id)
+                          %span.input-group-addon.g-pencil
+                            %span.glyphicon &nbsp;
+                      .row.mbtm15
+                        %label.w70p.aright{:for => "lname"} Фамилия:
+                        .input-group.d-inline-table.w220
+                          = best_in_place current_user, :last_name, as: :input, path: profile_path(current_user.id)
+                          %span.input-group-addon.g-pencil
+                            %span.glyphicon &nbsp;
+                      .row
+                        %label.w70p.aright{:for => "email"} E-mail:
+                        .input-group.d-inline-table.w220
+                          = current_user.email
 
-              .row
-                %h4.m-acenter Изменить пароль
-                =form_for current_user, url: user_change_password_path, id: 'password_data', method: :put do |form|
-                  .form-container.m-mtop20.m-acenter
-                    .row.mbtm15
-                      %label.w130.aright Новый пароль:
-                      = form.password_field :password, class: 'form-control w190 d-inline-block', placeholder: 'Пароль'
-                      %span.req *
-                    .row
-                      %label.w130.aright Пароль еще раз:
-                      = form.password_field :password_confirmation, class: 'form-control w190 d-inline-block', placeholder: 'Пароль'
-                      %span.req *
-                  %input.btn.btn-info.w345.btn-lg-spec.sm-width-max{:type => "submit", :value => "Изменить пароль"}/
+                .row
+                  %h4.m-acenter Изменить пароль
+                  =form_for current_user, url: user_change_password_path, id: 'password_data', method: :put do |form|
+                    .form-container.m-mtop20.m-acenter
+                      .row.mbtm15
+                        %label.w130.aright Новый пароль:
+                        = form.password_field :password, class: 'form-control w190 d-inline-block', placeholder: 'Пароль'
+                        %span.req *
+                      .row
+                        %label.w130.aright Пароль еще раз:
+                        = form.password_field :password_confirmation, class: 'form-control w190 d-inline-block', placeholder: 'Пароль'
+                        %span.req *
+                    %input.btn.btn-info.w345.btn-lg-spec.sm-width-max{:type => "submit", :value => "Изменить пароль"}/
 
-              .row.mtop20
-                %h4.m-acenter Большой Год
-                = form_for current_user, url: user_profile_path, method: :put, id: 'subscribe_data' do |form|
-                  .form-container.m-mtop20.pleft30.m-pleft90
-                    .row.mbtm15
-                      %label.myCheckbox
-                        = form.check_box :big_year
-                        %span
-                      %label{:for => "participate"}
-                        Да, Я хочу участвовать в
-                        =link_to 'Большом Годе', big_year_pages_path
-                  =form.submit 'Изменить', class: 'btn btn-info w345 btn-lg-spec sm-width-max'
+                .row.mtop20
+                  %h4.m-acenter Большой Год
+                  = form_for current_user, url: profile_path(current_user.id), method: :put, id: 'subscribe_data' do |form|
+                    .form-container.m-mtop20.pleft30.m-pleft90
+                      .row.mbtm15
+                        %label.myCheckbox
+                          = form.check_box :big_year
+                          %span
+                        %label{:for => "participate"}
+                          Да, Я хочу участвовать в
+                          =link_to 'Большом Годе', big_year_pages_path
+                    =form.submit 'Изменить', class: 'btn btn-info w345 btn-lg-spec sm-width-max'
 
         .block-holder
           .mobile-blocks-nav

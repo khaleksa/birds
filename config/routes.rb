@@ -13,9 +13,7 @@ Birds::Application.routes.draw do
     get 'user/unregister', to: 'users#unregister', as: :user_unregister
   end
 
-  resource :user, only: []  do
-    resource :profile, only: [:show, :update]
-  end
+  resources :profiles, only: [:show, :update]
 
   root to: 'pages#index'
 

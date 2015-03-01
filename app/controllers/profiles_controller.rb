@@ -2,13 +2,13 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!
 
   def show
+    @user = User.find(params[:id])
     stat = Stats::Counts.new
-    @species_count = stat.big_year_user_species_count(current_user.id, Time.zone.now.year)
-    @rating = stat.big_year_user_rating(current_user.id)
+    @species_count = stat.big_year_user_species_count(@user.id, Time.zone.now.year)
+    @rating = stat.big_year_user_rating(@user.id)
   end
   
   def update
-    # binding.pry
     current_user.update_attributes editable_params
 
     respond_to do |format|
