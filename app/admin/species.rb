@@ -23,6 +23,10 @@ ActiveAdmin.register Species do
   end
 
   show do |species|
+    div do
+      link_to 'Как это выглядит на birds.uz', species_path(species.id)
+    end
+
     attributes_table do
       row 'Семейство' do
         link_to species.family.full_name, admin_categories_family_path(species.family.id)
