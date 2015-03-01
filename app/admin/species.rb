@@ -82,7 +82,7 @@ ActiveAdmin.register Species do
       f.input :show_map
     end
 
-    f.inputs do
+    f.inputs 'Фото' do
       f.has_many :images, :allow_destroy => true, :heading => 'Images' do |cf|
         cf.input :image, :hint => f.template.image_tag(cf.object.image.thumb.url)
         cf.input :date, :as => :datepicker
@@ -91,7 +91,7 @@ ActiveAdmin.register Species do
         cf.input :address
         cf.input :default
       end
-    end
+    end if f.object.persisted?
 
     f.actions
   end
