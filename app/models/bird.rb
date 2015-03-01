@@ -2,10 +2,7 @@ class Bird < ActiveRecord::Base
   belongs_to :user
   belongs_to :species
 
-  has_many :comments
-
-  # has_many :photos, dependent: :destroy
-  # accepts_nested_attributes_for :photos, allow_destroy: true
+  has_many :comments, dependent: :destroy
 
   mount_uploader :photo, ImageUploader
 
