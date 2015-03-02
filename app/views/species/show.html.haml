@@ -7,6 +7,10 @@
           %p
             %i= @species.name_lat
           %p= @species.name_en
+        -if @species.single_subspecies
+          .row.mbtm15
+            В Узбекистане обитает подвид -
+            =@species.sub_species.first.full_name
 
         -if @species.images.any?
           #media_block.row.bird-photo-img
@@ -24,6 +28,37 @@
                 - if @default_image.address.present?
                   |
                   %span#photo_place= @default_image.address
+
+        .row
+          .col-sm-12.col.col-md-12
+            .row.bird-photo-description
+              .row.bird-description
+                %p
+                  %h5 Описание
+                %p= @species.description
+
+                - if @species.distribution.present?
+                  %p
+                    %h5 Распространение
+                  %p= @species.distribution
+
+                - if @species.biology.present?
+                  %p
+                    %h5 Биология
+                  %p= @species.biology
+
+                - if @species.sub_species.present? && !@species.single_subspecies
+                  %p.bird-sub-species
+                    %ol
+                      %h5 Подвиды
+                      -@species.sub_species.each do |sp|
+                        %li=link_to sp.full_name, species_path(sp)
+
+                - if @species.reference.present?
+                  %p
+                    %h5 Источники информации
+                  %p
+                    %i= @species.reference
 
       .col-sm-12.col.col-md-4.fright.m-no-float
         .row.bird-photo-btn
@@ -64,35 +99,5 @@
               %p Охранный статус
             .row.info-block-body
               %p= @species.status
-
-      .col-sm-12.col.col-md-8
-        .row.bird-photo-description
-          .row.bird-description
-            %p
-              %h5 Описание
-            %p= @species.description
-
-            - if @species.distribution.present?
-              %p
-                %h5 Распространение
-              %p= @species.distribution
-
-            - if @species.biology.present?
-              %p
-                %h5 Биология
-              %p= @species.biology
-
-            - if @species.sub_species.present?
-              %p.bird-sub-species
-                %ol
-                  %h5 Подвиды
-                  -@species.sub_species.each do |sp|
-                    %li=link_to sp.full_name, species_path(sp)
-
-            - if @species.reference.present?
-              %p
-                %h5 Источники информации
-              %p
-                %i= @species.reference
 
     = render 'shared/nav_add_photo'

@@ -13,6 +13,7 @@ ActiveAdmin.register Species do
 
   index do
     column :id
+    column :position
     column :name_ru
     column :name_lat
     column :name_en
