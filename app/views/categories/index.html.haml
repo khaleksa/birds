@@ -14,11 +14,11 @@
                   .row.birds-class-list-container
                     .col.col-md-2.col-sm-3.birds-class-img
                       =image_tag order.image.url
-                    -order.families.each do |family|
-                      .col.col-md-10.col-sm-9.birds-class-list
+                    .col.col-md-10.col-sm-9.birds-class-list
+                      -order.families.each do |family|
                         %span.birds-class-subtitle
                           %i= family.name_ru
-                        - family.main_species.each do |species|
+                        -#- family.main_species.each do |species|
                           %li=link_to species.full_name, species_path(species)
 
     =render 'shared/nav_add_photo'
