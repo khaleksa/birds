@@ -56,7 +56,7 @@
                 = @species.family.name_ru
                 %br
                   %span.lbl> Вид:
-                  = @species.name_ru
+                  = @species.default_name
                   %br
         - if @species.status.present?
           .row.bird-info-blck.block-status

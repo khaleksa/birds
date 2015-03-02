@@ -8,15 +8,14 @@
         .row.birds-list-container.mtop20
           %ol
             .row
-              .col.col-md-8.col-sm-12
-
+              .col.col-md-12.col-sm-12
                 -@orders.each do |order|
                   .row.birds-class-title-container= order.name_ru
                   .row.birds-class-list-container
-                    .col.col-md-3.col-sm-3.birds-class-img
+                    .col.col-md-2.col-sm-3.birds-class-img
                       =image_tag order.image.url
                     -order.families.each do |family|
-                      .col.col-md-9.col-sm-9.birds-class-list
+                      .col.col-md-10.col-sm-9.birds-class-list
                         %span.birds-class-subtitle
                           %i= family.name_ru
                         - family.main_species.each do |species|

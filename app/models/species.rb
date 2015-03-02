@@ -8,7 +8,7 @@ class Species < ActiveRecord::Base
 
   has_many :birds
 
-  validates_presence_of :name_ru, :name_lat, :name_en, :name_uz
+  validates_presence_of :name_lat
 
   def sub_species
     Species.where(parent_id: id)
@@ -16,6 +16,10 @@ class Species < ActiveRecord::Base
 
   def default_image
     images.detect { |image| image.default } || images.first
+  end
+
+  def default_name
+    name_ru.present? ? name_ru : name_lat
   end
 
   def full_name
