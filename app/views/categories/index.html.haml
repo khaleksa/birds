@@ -18,7 +18,7 @@
                       -order.families.each do |family|
                         %span.birds-class-subtitle
                           %i= family.name_ru
-                        -#- family.main_species.each do |species|
+                        - family.main_species.each do |species|
                           %li=link_to species.full_name, species_path(species)
 
     =render 'shared/nav_add_photo'
