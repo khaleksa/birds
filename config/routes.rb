@@ -29,7 +29,7 @@ Birds::Application.routes.draw do
       get 'edit_date' => 'birds#edit_date'
       get 'edit_map' => 'birds#edit_map'
       get 'edit_species' => 'birds#edit_species'
-      post 'publish' => 'birds#publish'
+      get 'publish' => 'birds#publish'
     end
   end
 

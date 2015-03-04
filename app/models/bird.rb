@@ -11,7 +11,7 @@ class Bird < ActiveRecord::Base
   scope :published, ->() { where(:published => true) }
 
   def can_publish?
-    photo.present? && timestamp.present? && species.present? && address_valid?
+    photo.present? && timestamp.present? && address_valid?
   end
 
   def address_valid?

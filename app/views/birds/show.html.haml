@@ -48,7 +48,7 @@
           .row.bird-photo-comments
             %h4 Комментарии
             .row.comments-container
-              - @comments.each do |comment|
+              - @bird.comments.each do |comment|
                 .row.comment-row
                   .image-holder
                     %img.img-circle{:src => "assets/img/profile.png"}/

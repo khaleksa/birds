@@ -23,7 +23,7 @@ $(function() {
 
     //*** Bird's species ***
     $('.add-photo-container .species-item').on('click', function(event) {
-        $('#set-bird-species-id').val($(this).data('id'));
+        $('#bird-species-id').val($(this).data('id'));
         $('.add-photo-container #dropdownMenu').text($(this).text());
         event.preventDefault();
     })
