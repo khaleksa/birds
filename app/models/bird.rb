@@ -9,6 +9,12 @@ class Bird < ActiveRecord::Base
   validates_presence_of :user_id
 
   scope :published, ->() { where(:published => true) }
+  scope :known, ->() { where('species_id IS NOT NULL') }
+  scope :unknown, ->() { where('species_id IS NULL') }
+
+  def unknown?
+    species_id.blank?
+  end
 
   def can_publish?
     photo.present? && timestamp.present? && address_valid?

@@ -5,10 +5,14 @@
       .row
         .col-sm-12.col.col-md-8
           .row.bird-photo-title
-            %h3= @bird.species.name_ru
-            %p
-              %i= @bird.species.name_lat
-            %p= @bird.species.name_en
+            -if @bird.unknown?
+              %h3.mbtm15
+                На определение
+            -else
+              %h3= @bird.species.name_ru
+              %p
+                %i= @bird.species.name_lat
+              %p= @bird.species.name_en
           .row.bird-photo-img
             =image_tag @bird.photo.url, class: 'img-responsive'
 
@@ -40,7 +44,8 @@
                 %p= @bird.address_string
 
           .row.bird-photo-btns
-            =link_to 'Общая информация о виде', species_path(@bird.species), class: 'btn btn-success'
+            -unless @bird.unknown?
+              =link_to 'Общая информация о виде', species_path(@bird.species), class: 'btn btn-success'
             =link_to 'Все встречи с видом', '#', class: 'btn btn-info'
 
       .row
