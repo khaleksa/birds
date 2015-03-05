@@ -11,7 +11,7 @@ class Categories::Category < ActiveRecord::Base
   def full_name
     result = ''
 
-    names = [name_ru, name_en, name_lat, name_uz].compact.reject(&:empty?)
+    names = [name_ru, name_lat, name_uz, name_en].compact.reject(&:empty?)
     names.each_with_index do |name, index|
       result += ' (' if index == 1
       result += ' | ' if [2, 3].include?(index)

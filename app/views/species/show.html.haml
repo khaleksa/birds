@@ -3,10 +3,16 @@
     .row.bird-descr-container.mtop20.mbtm20.content-container
       .col.col-md-8.col-sm-12
         .row.bird-photo-title
-          %h3= @species.name_ru
-          %p
-            %i= @species.name_lat
-          %p= @species.name_en
+          -if @species.name_ru.blank?
+            %h3= @species.name_lat
+          -else
+            %h3= @species.name_ru
+            %p
+              %i= @species.name_lat
+            %p= @species.name_uz
+            %p
+              %i= @species.name_en
+
         -if @species.single_subspecies
           .row.mbtm15
             В Узбекистане обитает подвид -
@@ -35,17 +41,17 @@
               .row.bird-description
                 %p
                   %h5 Описание
-                %p= @species.description
+                %p= @species.description.html_safe
 
                 - if @species.distribution.present?
                   %p
                     %h5 Распространение
-                  %p= @species.distribution
+                  %p= @species.distribution.html_safe
 
                 - if @species.biology.present?
                   %p
                     %h5 Биология
-                  %p= @species.biology
+                  %p= @species.biology.html_safe
 
                 - if @species.sub_species.present? && !@species.single_subspecies
                   %p.bird-sub-species
@@ -58,7 +64,7 @@
                   %p
                     %h5 Источники информации
                   %p
-                    %i= @species.reference
+                    %i= @species.reference.html_safe
 
       .col-sm-12.col.col-md-4.fright.m-no-float
         .row.bird-photo-btn
