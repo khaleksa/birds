@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   def index
     #TODO: Birds published change from boolean to datetime
     @birds = Bird.published.known.order(created_at: :desc).limit(8)
-    #TODO: refactoring
+
     offset = params[:count]
     @birds = @birds.offset(offset.to_i) if offset
     @total_count = @birds.size + offset.to_i
@@ -22,9 +22,18 @@ class PagesController < ApplicationController
     @species_list = @stat.big_year_species
   end
 
+  #TODO: dry
   def unknowns
     @birds = Bird.published.unknown.order(created_at: :desc).limit(8)
-    #TODO: add show more
+
+    offset = params[:count]
+    @birds = @birds.offset(offset.to_i) if offset
+    @total_count = @birds.size + offset.to_i
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def about

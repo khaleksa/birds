@@ -5,6 +5,5 @@
     .row.mtop40.home-img-container.row-sm
       = render partial: 'birds/photo', collection: @birds, as: :bird
 
-    -if @birds.size > PagesController::PHOTO_COUNT_PER_PAGE
-      .row.acenter
-        =link_to 'Показать еще фотографии', root_path, data: {count: 8}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'
+    .row.acenter
+      =link_to 'Показать еще фотографии', root_path, data: {count: PagesController::PHOTO_COUNT_PER_PAGE}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'

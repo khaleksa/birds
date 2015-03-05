@@ -61,7 +61,6 @@ class BirdsController < ApplicationController
     end
   end
 
-  #TODO
   def publish
     @bird = Bird.find(params[:id])
     @bird.publish! if @bird.can_publish?
@@ -71,8 +70,7 @@ class BirdsController < ApplicationController
       @bird.update_attributes(species_id: species_id)
       return redirect_to :root
     else
-      #TODO: unknown page
-      return redirect_to profile_path(current_user)
+      return redirect_to unknowns_pages_path
     end
   end
 

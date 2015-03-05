@@ -22,7 +22,7 @@
 //= require ./pages/add_bird
 //= require ./pages/comment
 //= require ./pages/species
-//= require ./pages/show_birds
+//= require ./pages/show_more_birds.js
 //= require ./pages/profile
 //= require ./pages/common
 

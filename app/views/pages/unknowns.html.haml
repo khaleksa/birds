@@ -8,9 +8,9 @@
     .row.mtop10.home-img-container.row-sm
       = render partial: 'birds/photo_unknown', collection: @birds, as: :bird
 
-    -if @birds.size > PagesController::PHOTO_COUNT_PER_PAGE
-      / Content FOOT SHOW MORE
-      .row.acenter
-        %a.btn.btn-success.btn-xlg.sm-width-max Показать еще фотографии
+    / Content FOOT SHOW MORE
+    .row.acenter
+      =link_to 'Показать еще фотографии', unknowns_pages_path, data: {count: PagesController::PHOTO_COUNT_PER_PAGE}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'
+
 
     =render 'shared/nav_add_photo'
