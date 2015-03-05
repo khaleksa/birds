@@ -56,16 +56,19 @@
               - @bird.comments.each do |comment|
                 .row.comment-row
                   .image-holder
-                    %img.img-circle{:src => "assets/img/profile.png"}/
+                    =image_tag comment.user.avatar.thumb.url, class: 'img-circle'
                   .comment-holder
                     %p.row-link
-                      =link_to comment.user.full_name, '#'
+                      =link_to comment.user.full_name, profile_path(comment.user)
                     %p.row-comment= comment.text
 
             .row.add-comment-form-container
               .row.add-comment-form
                 -if current_user
-                  =form_for :comment, url: comments_path, html: { id: 'form-add-comment', data: { bird_id: @bird.id, user_name: current_user.try(:full_name) } } do |form|
+                  =form_for :comment, url: comments_path, html: { id: 'form-add-comment', data: { bird_id: @bird.id,
+                                                                                                  user_name: current_user.try(:full_name),
+                                                                                                  user_profile: profile_path(current_user),
+                                                                                                  user_avatar: current_user.avatar.thumb.url } } do |form|
                     = form.text_area :text, class: 'form-control w80 sm-width-max comment-text'
                     = form.submit 'Добавить', id: 'add-comment', class: 'btn btn-success fright sm-center sm-mtop10'
                 -else

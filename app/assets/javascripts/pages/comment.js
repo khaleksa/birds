@@ -16,10 +16,10 @@ $(function() {
                     comment_html =
                         "<div class='row comment-row'>" +
                             "<div class='image-holder'>" +
-                                "<img src='assets/img/profile.png' class='img-circle' />" +
+                                "<img src='" + form.data('user-avatar') + "' class='img-circle' />" +
                             "</div>" +
                             "<div class='comment-holder'>" +
-                                "<p class='row-link'><a href='#'>" + form.data('user-name') + "</a></p>" +
+                                "<p class='row-link'><a href='" +form.data('user-profile') + "'>" + form.data('user-name') + "</a></p>" +
                                 "<p class='row-comment'>" + comment_text + "</p>" +
                             "</div>" +
                             "<div class='delete-comment-container'>" +
