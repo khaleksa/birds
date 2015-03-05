@@ -10,6 +10,9 @@ class Species < ActiveRecord::Base
 
   validates_presence_of :name_lat
 
+  scope :main, -> { where('parent_id IS NULL') }
+  scope :ordered, -> { order('lower(name_ru)') }
+
   def sub_species
     Species.where(parent_id: id)
   end

@@ -70,7 +70,7 @@ ActiveAdmin.register Species do
     f.inputs 'Классификация' do
       f.input :family, as: :select, collection: Categories::Category.families
       f.input :position
-      f.input :parent
+      f.input :parent, as: :select, collection: Species.main.ordered
     end
 
     f.inputs 'Описание вида' do
