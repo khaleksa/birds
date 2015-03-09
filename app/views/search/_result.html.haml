@@ -2,4 +2,4 @@
   %ol
     -@species.each do |sp|
       %li
-        =link_to "#{sp.name_ru} | #{sp.name_en} | #{sp.name_lat}", species_path(sp)
+        =link_to "#{sp.name_ru} | #{sp.name_en} | #{sp.name_lat}", species_path(sp), data: {id: sp.id}

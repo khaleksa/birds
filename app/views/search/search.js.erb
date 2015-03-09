@@ -1,1 +1,8 @@
 $('.search-results').empty().append("<%= escape_javascript( render partial: 'search/result' ) %>");
+
+//*** Bird's species: set species id from search result to form ***
+$('.add-photo-container .search-results a').on('click', function(event) {
+    $(this).closest('.add-photo-container').find('span.selected-species').text($(this).text());
+    $('#bird-species-id').val($(this).data('id'));
+    event.preventDefault();
+})

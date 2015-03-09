@@ -4,7 +4,6 @@ class SearchController < ApplicationController
 
   end
 
-  #TODO: change searching - ransack gem?
   def search
     if params[:text].present?
       search_text = '%' + params[:text].to_s.downcase + '%'
