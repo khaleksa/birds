@@ -13,6 +13,10 @@ class Species < ActiveRecord::Base
   scope :main, -> { where('parent_id IS NULL') }
   scope :ordered, -> { order('lower(name_ru)') }
 
+  def active_link?
+    description.present?
+  end
+
   def sub_species
     Species.where(parent_id: id)
   end
