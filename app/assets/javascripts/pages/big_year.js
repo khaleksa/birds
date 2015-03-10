@@ -1,5 +1,5 @@
 $(function() {
-    $('.profile-menu, .profile-container .mobile-blocks-nav a').on('click', function(event) {
+    $('.big-year-menu, .big-year-container .mobile-blocks-nav a').on('click', function(event) {
         event.preventDefault();
 
         var is_active_block = $(this).hasClass('active');
@@ -11,7 +11,7 @@ $(function() {
 
         $(".mobile-blocks-nav a").removeClass("active");
         $(".sub-nav-pils a").removeClass("active");
-        $(".blocks-content .profile-block-container").removeClass("active-block");
+        $(".blocks-content .big-year-block-container").removeClass("active-block");
 
         if (!is_active_block) {
             show_block = $(this).data('view');

@@ -120,14 +120,14 @@ a.lnk-success {
 .fleft {
     float:left !important;
 }
+.mtop-30 {
+    margin-top:-30px !important;
+}
 .mtop10 {
     margin-top:10px !important;
 }
-.mleft10 {
-    margin-left:10px !important;
-}
-.mleft20 {
-    margin-left:20px !important;
+.mtop20 {
+    margin-top:20px !important;
 }
 .mtop40 {
     margin-top:40px !important;
@@ -135,20 +135,23 @@ a.lnk-success {
 .mtop50 {
     margin-top:50px !important;
 }
-.mtop20 {
-    margin-top:20px !important;
-}
-.mtop-30 {
-    margin-top:-30px !important;
-}
 .mtop165 {
     margin-top:165px !important;
+}
+.mleft10 {
+    margin-left:10px !important;
+}
+.mleft20 {
+    margin-left:20px !important;
+}
+.mbtm15 {
+    margin-bottom:15px !important;
 }
 .mbtm20 {
     margin-bottom:20px !important;
 }
-.mbtm15 {
-    margin-bottom:15px !important;
+.mright20 {
+  margin-right:20px !important;
 }
 .acenter {
     text-align:center !important;
@@ -1389,37 +1392,40 @@ a.delete-comment-lnk:hover {
 .big-year-text a:hover{
     text-decoration:none;
 }
-.row.scroll-container {
-    position:relative;
-}
-.bird-list ol li a {
-    color:#4d4d4d !important;
-}
-.bird-list ol li a:hover {
-    color:#6bcbca !important;
-    text-decoration:none !important;
-}
-.scroll-container ol {
-    counter-reset: item;
-    margin-left: 0;
-    padding-left: 0;
-}
-.scroll-container li {
-    display: block;
-    margin-bottom: 0;
 
-}
-.scroll-container li:before {
-    display: inline-block;
-    content: counter(item)".";
-    counter-increment: item;
-    margin-left:0;
+.big-year-container .sub-nav-pils a {
+    display:inline-block;
+    color:#94846e;
+    padding-bottom:17px;
+    cursor:pointer;
+    font-size:19px;
     margin-right:5px;
-    font-size:13px;
 }
+.big-year-container .blocks-content .big-year-block-container {
+    display:none;
+}
+.big-year-container .blocks-content .big-year-block-container.active-block {
+    display:block;
+}
+.big-year-container label {
+    font-weight: normal;
+}
+.big-year-container .sub-nav-pils a span {
+  padding:10px 20px;
+  display:block;
+}
+.big-year-container .sub-nav-pils a.active, .big-year-container .sub-nav-pils a:hover {
+  color:#4d4d4d;
+  background: asset-data-url('share/bg_arrow_down.png') no-repeat bottom 0 right 50%;
+  text-decoration:none !important;
+}
+.big-year-container .sub-nav-pils a.active span, .big-year-container .sub-nav-pils a:hover span {
+  background:#f7f7ed;
+}
+
 .city-participant .participant-left-blck {
     display:inline-block;
-    width:75px;
+    width:58px;
     float:left;
     text-align: right;
     font-size:12px !important;

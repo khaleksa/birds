@@ -25,6 +25,7 @@
 //= require ./pages/show_more_birds.js
 //= require ./pages/profile
 //= require ./pages/common
+//= require ./pages/big_year
 
 //= require_self
 

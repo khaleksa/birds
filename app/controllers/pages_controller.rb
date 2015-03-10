@@ -19,6 +19,7 @@ class PagesController < ApplicationController
 
   def big_year
     @stat = Stats::Counts.new
+    @user_list = @stat.big_year_users_species_count
     @species_list = @stat.big_year_species
   end
 
