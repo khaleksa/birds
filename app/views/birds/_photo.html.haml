@@ -14,3 +14,18 @@
     .blck
       =link_to bird.user.full_name, profile_path(bird.user)
       %p=date_format(bird.timestamp)
+  .comments
+    .last
+      .comment-part
+        - comments_size = bird.comments.count
+        - if comments_size.zero?
+          = link_to 'Оставить комментарий', '#'
+        - else
+          = render partial: 'comments/preview', comment: bird.comments.order(created_at: :desc).first
+    .more
+      = link_to '#' do
+        - if comments_size > 1
+          Еще комментарии:
+        - else
+          Комментарии:
+        = bird.comments.count

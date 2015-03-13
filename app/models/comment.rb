@@ -4,6 +4,6 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :user_id, :bird_id, :text
 
-  scope :bird_comments, ->(bird_id) { Comment.where(bird_id: bird_id).order(created_at: :desc) }
+  scope :bird_comments, ->(bird_id) { where(bird_id: bird_id).order(created_at: :desc) }
 
 end

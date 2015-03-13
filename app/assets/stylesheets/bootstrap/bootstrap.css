@@ -1388,8 +1388,6 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -3943,7 +3941,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   height: 50px;
-  padding: 10px 15px;
+  padding: 2px 15px;
   font-size: 18px;
   line-height: 20px;
 }

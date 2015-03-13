@@ -2,8 +2,52 @@
   .container.content
     = render 'shared/nav_add_photo'
 
-    .row.mtop40.home-img-container.row-sm
-      = render partial: 'birds/photo', collection: @birds, as: :bird
+    - @birds.each_slice(4) do |row|
+      .row.mtop40.home-img-container.row-sm
+        = render partial: 'birds/photo', collection: row, as: :bird
 
     .row.acenter
       =link_to 'Показать еще фотографии', root_path, data: {count: PagesController::PHOTO_COUNT_PER_PAGE}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'
+
+  .posters
+    .row.container
+      .col.col-md-4
+        .help-menu-item
+          .icon= image_tag "menus/birdwatch.png"
+          %p
+            Стань
+            = link_to 'Бердвочером', '#'
+            и открой для себя мир птиц!
+      .col.col-md-4
+        .help-menu-item
+          .icon= image_tag "menus/tracks.png"
+          %p
+            Внеси свой вклад в изучение и сохранение
+            = link_to 'птиц Узбекистана', '#'
+            !
+      .col.col-md-4
+        .help-menu-item
+          .icon= image_tag "menus/photo.png"
+          %p
+            Фотографируй и принимай участие в
+            = link_to 'Большом годе', '#'
+            !
+
+  .bottom-links
+    .row
+      .col.col-md-6
+        .links-list.pull-right
+          %p Полезное
+          %ul
+            %li= link_to 'Список видов', '#'
+            %li= link_to 'На определение', '#'
+            %li= link_to 'Поиск', '#'
+            %li= link_to 'Правила наблюдения за птицами', '#'
+      .col.col-md-6
+        .links-list.pull-left
+          %p О сайте
+          %ul
+            %li= link_to 'О проекте', '#'
+            %li= link_to 'Большой Год', '#'
+            %li= link_to 'Люди', '#'
+            %li= link_to 'Написать нам', '#'
