@@ -1,5 +1,5 @@
 $(function() {
-    $( "#add-comment" ).on( "click", function(event) {
+    $("#add-comment").on( "click", function(event) {
         event.preventDefault();
         var $this = $(this);
 
@@ -30,5 +30,19 @@ $(function() {
                 }
             }
         );
+    });
+
+    $('.profile-comments-block .delete-comment-lnk').on('click', function(event) {
+        event.preventDefault();
+        var $this = $(this);
+        var comment_id = $this.data('id');
+
+        $.ajax({
+            url: '/comments/' + comment_id,
+            type: 'DELETE',
+            success: function(result) {
+                $this.closest('.row .comment-row').remove();
+            }
+        });
     });
 });

@@ -37,7 +37,7 @@ Birds::Application.routes.draw do
 
   resources :categories, only: [:index]
 
-  resources :comments, only: [:create]
+  resources :comments, only: [:create, :destroy]
 
   resource :search, path: '', only: [] do
     get 'search' => 'search#index'

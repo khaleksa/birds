@@ -1,0 +1,24 @@
+.row
+  / Content BODY PICTURES
+  .row.mtop40.map-img-container.row-sm
+    -@birds.each_with_index do |bird, index|
+      .col-sm-6.col-md-2.map-img-block.xs-align-center.img-container-blck
+        .head
+          .blck
+            %i= index + 1
+          .blck
+            = bird.species ? bird.species.name_ru : 'Вид не определен'
+        .body
+          =link_to bird_path(bird) do
+            = image_tag bird.photo.thumb.url, class: 'img-responsive'
+        .foot
+          .blck
+            %p.bird-info-left
+              = date_format(bird.timestamp)
+            -if @user.id == current_user.id
+              %p.bird-info-right
+                = link_to 'edit', edit_species_bird_path(bird)
+
+  / Content FOOT MORE PHOTO BTN
+  -#.row.acenter
+  -#  %a.btn.btn-success.btn-xlg.sm-width-max Показать еще фотографии

@@ -1276,11 +1276,11 @@ a.delete-comment-lnk {
     width: 24px;
     height: 19px;
     display: block;
-    background:url('../img/delete_comment_lnk.png') no-repeat;
+    background:asset-data-url('comment/delete_comment_lnk.png') no-repeat;
     cursor:pointer;
 }
 a.delete-comment-lnk:hover {
-    background:url('../img/delete_comment_lnk_hover.png') no-repeat;;
+    background:asset-data-url('comment/delete_comment_lnk_hover.png') no-repeat;;
 }
 .bird-descr-container .bird-photo-btn {
 
@@ -1827,7 +1827,11 @@ a.delete-comment-lnk:hover {
     padding-right:40px;
 }
 .profile-comments-block .comments-container .comment-row {
-    margin-bottom:15px;
+    height: 28px;
+    border-bottom: 1px solid #9d9e98;
+    margin-top:6px;
+    margin-bottom:6px;
+    padding-top: 5px;
 }
 .profile-comments-block #scrollbar_content {
     height:410px !important;
