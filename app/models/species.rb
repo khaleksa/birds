@@ -14,7 +14,7 @@ class Species < ActiveRecord::Base
   scope :ordered, -> { order('lower(name_ru)') }
 
   def active_link?
-    description.present?
+    description.present? || images.any?
   end
 
   def sub_species

@@ -1,0 +1,16 @@
+.bg-btm-container
+  .container.content
+    %h2
+      Бедвочеры
+
+    %ol
+      -@users.each do |user|
+        %li
+          .user-left-block
+            %p
+              %img.img-circle{:align => 'left', :src => user.avatar.thumb.url}
+          .user-right-block
+            =link_to user.full_name, profile_path(user.id)
+            %p= "#{user.birds.size} фотографий"
+
+    =render 'shared/nav_add_photo'

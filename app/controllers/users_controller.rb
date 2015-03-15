@@ -4,6 +4,10 @@ class UsersController < Devise::RegistrationsController
   end
   before_filter :configure_permitted_parameters, :only => [:create]
 
+  def index
+    @users = User.includes(:birds).all
+  end
+
   def create
     super
 
