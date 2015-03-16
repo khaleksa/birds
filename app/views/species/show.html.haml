@@ -13,7 +13,7 @@
             %p
               %i= @species.name_en
 
-        -if @species.single_subspecies
+        -if @species.single_subspecies && @species.sub_species.present?
           .row.mbtm15
             В Узбекистане обитает подвид -
             =@species.sub_species.first.full_name
