@@ -39,7 +39,7 @@ class PagesController < ApplicationController
 
   def about
     @users_count = User.count
-    @species_count = Stats::Counts.new.birds_species_count
+    @species_count = Stats::Counts.new.total_seen_species_count
     @birds_count = Bird.count
   end
 end

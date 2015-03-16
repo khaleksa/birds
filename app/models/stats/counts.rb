@@ -1,6 +1,7 @@
 class Stats::Counts
   #TODO: write tests for all methods!!!
 
+  # Users-participants of BigYear with the number of species in Big Year (species_count)
   def big_year_users_species_count(year = Time.zone.now.year)
     sql = ActiveRecord::Base.send(:sanitize_sql_array, ["
       SELECT users.*, t2.species_count
@@ -31,7 +32,9 @@ class Stats::Counts
     User.find_by_sql(sql)
   end
 
+  # The amount of user's species in BigYear for some year
   def big_year_user_species_count(user_id, year = Time.zone.now.year)
+    return 0 unless User.find(user_id).big_year
     Bird.where(user_id: user_id).where("EXTRACT(year FROM timestamp) = ?", year).select(:species_id).distinct(:species_id).size
   end
 
@@ -46,6 +49,7 @@ class Stats::Counts
     index ? index + 1 : 0
   end
 
+  # Total amount of species met by users - participants of Big Year during some year
   def big_year_species(year = Time.zone.now.year)
     Species.joins(birds: :user)
       .where(birds: { :published => 'true' })
@@ -55,7 +59,13 @@ class Stats::Counts
       .order('species.name_ru')
   end
 
-  def birds_species_count
+  # Total amount of species met by all users
+  def total_seen_species_count
     Species.joins(:birds).where(birds: {published: true}).select(:id).distinct.count
+  end
+
+  # Total amount of species met by some user
+  def user_species(user_id)
+    Species.joins(:birds).where(birds: {published: true, user_id: user_id}).distinct.order(:name_ru)
   end
 end
