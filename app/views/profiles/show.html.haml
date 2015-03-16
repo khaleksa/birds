@@ -2,7 +2,7 @@
   / Content
   .container.content
     / Content BODY
-    .row.profile-container.mtop20.content-container
+    .row.profile-container.mtop20.mbtm40.content-container
       .row.profile-info-block
         .col-md-3.col-sm-5.profile-user-data
           %h4
@@ -24,9 +24,9 @@
         %a.profile-menu{"data-view" => "block2"}
           %span Виды [#{@species.size}]
         %a.profile-menu{"data-view" => "block3"}
-          %span Фотографии [#{@birds.size}]
+          %span Фотографии [#{@birds.total_count}]
         %a.profile-menu{"data-view" => "block4"}
-          %span Комментарии [#{@comments.size}]
+          %span Комментарии [#{@comments.total_count}]
 
       .row.blocks-content
         -if @user == current_user
@@ -46,16 +46,24 @@
         .block-holder
           .mobile-blocks-nav
             %a{"data-view" => "block3"}
-              %span Фотографии [#{@birds.size}]
+              %span Фотографии [#{@birds.total_count}]
           #block3.row.profile-block-container.profile-birds-block.mtop20
-            =render 'birds'
+            .row
+              .row.row-sm.birds-container
+                =render 'birds'
+              .birds-pagination.pagination-block
+                =paginate @birds, :remote => true, :param_name => 'page_birds'
 
         .block-holder
           .mobile-blocks-nav
             %a{"data-view" => "block4"}
               %span Комментарии
-              %span [#{@comments.size}]
+              %span [#{@comments.total_count}]
           #block4.row.profile-block-container.profile-comments-block.mtop20
-            =render 'comments'
+            .row
+              .comments-container
+                =render 'comments'
+              .comments-pagination.pagination-block
+                =paginate @comments, :remote => true, :param_name => 'page_comments'
 
-    = render 'shared/nav_add_photo'
+    =render 'shared/nav_add_photo'

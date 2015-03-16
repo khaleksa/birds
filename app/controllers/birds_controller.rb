@@ -55,7 +55,7 @@ class BirdsController < ApplicationController
         format.js   {}
         format.json { render json: @bird, status: :accepted, location: @bird }
       else
-        format.html {redirect_to action: :edit, id: @bird.id}
+        format.html { redirect_to action: :edit, id: @bird.id }
         format.json { render json: @bird.errors, status: :unprocessable_entity }
       end
     end

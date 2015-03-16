@@ -9,8 +9,14 @@ class ProfilesController < ApplicationController
     @big_year_rating = stat.big_year_user_rating(@user.id)
     @species = stat.user_species(@user.id)
 
-    @birds = Bird.includes(:species).where(user_id: @user.id).order(timestamp: :desc)
-    @comments = Comment.where(user_id: @user.id).order(created_at: :desc)
+    #TODO: separate pagination of birds and comments
+    @birds = Bird.includes(:species).where(user_id: @user.id).order(timestamp: :desc).page(params[:page_birds]).per(18)
+    @comments = Comment.where(user_id: @user.id).order(created_at: :desc).page(params[:page_comments]).per(15)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def update
