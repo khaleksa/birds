@@ -321,6 +321,16 @@ a.navbar-brand {
 }
 
 /* HELP BOTTOM MENUS */
+
+@media screen and (max-width: 1080px) {
+  .bg-container .posters {
+    display: none;
+  }
+  .bg-container .bottom-links {
+    display: none;
+  }
+}
+
 .posters {
     background-color: #f7f7ed;
     height: 240px;
