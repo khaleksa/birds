@@ -8,7 +8,7 @@ class Species < ActiveRecord::Base
 
   has_many :birds
 
-  validates_presence_of :name_lat, :category_id
+  validates_presence_of :name_lat, :family
 
   scope :main, -> { where('parent_id IS NULL') }
   scope :ordered, -> { order('lower(name_ru)') }
