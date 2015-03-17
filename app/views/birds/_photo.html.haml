@@ -4,7 +4,7 @@
       =image_tag 'share/bird_logo.png'
     - if bird.species.present?
       .blck
-        =link_to bird.species.name_ru, species_path(bird.species)
+        =link_to bird.species.name_ru, bird_path(bird)
   .body
     =link_to bird_path(bird) do
       =image_tag bird.photo.small.url
@@ -19,13 +19,11 @@
       .comment-part
         - comments_size = bird.comments.count
         - if comments_size.zero?
-          = link_to 'Оставить комментарий', '#'
+          = link_to 'Оставить комментарий', bird_path(bird)
         - else
-          = render partial: 'comments/preview', comment: bird.comments.order(created_at: :desc).first
+          = render partial: 'comments/preview', locals: { bird: bird }
     .more
-      = link_to '#' do
-        - if comments_size > 1
-          Еще комментарии:
-        - else
-          Комментарии:
-        = bird.comments.count
+      - if comments_size > 1
+        =link_to "Еще комментарии: #{bird.comments.count}", bird_path(bird)
+      - else
+        Комментарии: 0

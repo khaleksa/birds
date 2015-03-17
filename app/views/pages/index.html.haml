@@ -23,31 +23,31 @@
           .icon= image_tag "menus/tracks.png"
           %p
             Внеси свой вклад в изучение и сохранение
-            = link_to 'птиц Узбекистана', '#'
+            = link_to 'птиц Узбекистана', about_pages_path
             !
       .col.col-md-4
         .help-menu-item
           .icon= image_tag "menus/photo.png"
           %p
             Фотографируй и принимай участие в
-            = link_to 'Большом годе', '#'
+            = link_to 'Большом годе', big_year_pages_path
             !
 
   .bottom-links
     .row
       .col.col-md-6
         .links-list.pull-right
-          %p Полезное
+          %p Птицы
           %ul
-            %li= link_to 'Список видов', '#'
-            %li= link_to 'На определение', '#'
-            %li= link_to 'Поиск', '#'
+            %li= link_to 'Список видов', categories_path
+            %li= link_to 'Поиск', search_search_path
             %li= link_to 'Правила наблюдения за птицами', '#'
+            %li= link_to 'Большой Год', big_year_pages_path
+            %li= link_to 'На определение', unknowns_pages_path
       .col.col-md-6
         .links-list.pull-left
-          %p О сайте
+          %p Birds.uz
           %ul
-            %li= link_to 'О проекте', '#'
-            %li= link_to 'Большой Год', '#'
-            %li= link_to 'Люди', '#'
+            %li= link_to 'О проекте', about_pages_path
+            %li= link_to 'Наши пользователи', '#'
             %li= link_to 'Написать нам', '#'

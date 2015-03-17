@@ -1,0 +1,8 @@
+- comment = bird.comments.order(created_at: :desc).first
+-if comment.present?
+  .comment-text
+    -if comment.text.size > PagesController::COMMENT_MAX_LENGTH
+      = comment.text.to_s.slice(0, PagesController::COMMENT_MAX_LENGTH)
+      =link_to '...', bird_path(bird)
+    -else
+      = comment.text

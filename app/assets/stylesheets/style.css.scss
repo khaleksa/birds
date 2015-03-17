@@ -38,19 +38,7 @@ a.link:hover {
     color:#90b444;
     text-decoration:none;
 }
-.home-img-container .col-md-3 {
-    min-width:256px;
-    max-width:256px;
-    padding:0 !important;
-    padding: 0 !important;
-    margin: 0 9px 25px;
-    &:first-child {
-        margin-left: 0;
-    }
-    &:last-child {
-        margin-right: 0;
-    }
-}
+
 .col-sm-12 {
     padding:0 !important;
 }
@@ -364,7 +352,7 @@ a.navbar-brand {
     margin: 55px 0 60px;
     .links-list {
         p {
-            margin-bottom: 1px;
+            margin-bottom: 4px;
         }
         ul {
             list-style: none;
@@ -868,7 +856,20 @@ div.search-btn a.search:hover{
 
 
 
-/* homepage  and birds_photo_unknown*/
+/* homepage and birds_photo_unknown*/
+.home-img-container .col-md-3 {
+  min-width:256px;
+  max-width:256px;
+  padding:0 !important;
+  padding: 0 !important;
+  margin: 0 9px 25px;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
 .home-img-block > div, .img-container-blck > div {
     display:table;
     overflow:hidden;
