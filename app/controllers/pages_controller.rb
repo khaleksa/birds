@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   PHOTO_COUNT_PER_PAGE = 8
-  COMMENT_MAX_LENGTH = 40
+  COMMENT_MAX_LENGTH = 74
 
   #TODO: write test
   def index

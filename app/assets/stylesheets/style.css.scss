@@ -308,9 +308,10 @@ a.navbar-brand {
     font-size:16px;
 }
 .navbar a.profile-lnk  span{
-    color:#fff;
-    text-decoration:underline !important;
-    font-size: 13px;
+  color:#fff;
+  text-decoration:underline !important;
+  font-size: 13px;
+  padding-left: 3px;
 }
 .navbar a.profile-lnk:hover span, .navbar a.profile-lnk:hover{
     color:#fff;
@@ -353,6 +354,9 @@ a.navbar-brand {
                 font-size: 18px;
                 text-decoration: underline;
                 color: #94846e;
+                &:hover {
+                  text-decoration: none;
+                }
             }
         }
     }
@@ -898,9 +902,9 @@ div.search-btn a.search:hover{
 }
 
 .home-img-block > div.foot, .img-container-blck > div.foot {
-    min-height:60px;
+    min-height:54px;
     max-height:60px;
-    height:60px;
+    height:54px;
 }
 .home-img-block > div.foot p, a {
     font-size: 12px;
@@ -931,23 +935,26 @@ div.search-btn a.search:hover{
 /* birds comments on home */
 .home-img-block {
     .comments {
+        font-size: 12px;
         .last {
-            padding: 2px 0;
-            border-top: 1px solid #f7f7ed;
-            border-bottom: 1px solid #f7f7ed;
-            height: 50px;
+            border-top: 1px solid #9d9e98;
+            border-bottom: 1px solid #9d9e98;
+            height: 44px;
             .comment-part {
                 display: table-cell;
                 height: 40px;
                 vertical-align: middle;
             }
         }
-        .more a {
+        .more {
+          padding-top: 3px;
+          a {
             color: #4d4d4d;
             &:hover {
-                text-decoration: none;
-                color: #6bcbca;
+              text-decoration: none;
+              color: #6bcbca;
             }
+          }
         }
     }
 }
