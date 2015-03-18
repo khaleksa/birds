@@ -33,9 +33,9 @@
                   %p
                     %span.lbl Место:
                 .col.col-md-11
-                  %p= @default_image.author
-                  %p= date_format(@default_image.date)
-                  %p= @default_image.address
+                  %p#photo_author= @default_image.author
+                  %p#photo_date= date_format(@default_image.date)
+                  %p#photo_place= @default_image.address
             .row.photo-info-dinamic
               %p#photo_descr_text= @default_image.description
 
