@@ -4,7 +4,7 @@
       .col-md-4.col-sm-12.m-acenter
         = form_for current_user, url: profile_path(current_user.id), id: 'profile_data'  do |form|
           =image_tag current_user.avatar.url, class: 'img img-circle'
-          = label_tag :avatar, 'Изменть фотографию', class: 'link d-block change-image', id: 'change-avatar'
+          = label_tag :avatar, 'Изменить фотографию', class: 'link d-block change-image', id: 'change-avatar'
           .hidden{ style: 'display:none'}
             = form.file_field :avatar, role: 'aprofile_pathvatar', id: 'avatar-file-field'
             = form.hidden_field :avatar_cache
