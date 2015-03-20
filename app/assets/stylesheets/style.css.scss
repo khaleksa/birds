@@ -1938,6 +1938,9 @@ a.delete-comment-lnk:hover {
       line-height:12px;
       position:absolute;
       right:35px;
+      &.without-delete{
+        right:12px;
+      }
     }
     .comments-container {
       .delete-comment-container {

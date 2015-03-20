@@ -3,7 +3,7 @@
     .comment-holder
       = link_to bird_path(comment.bird_id) do
         %p.row-comment= short_comment_text(comment, 90)
-    .comment-time-container
+    .comment-time-container{:class => ('without-delete' unless @user.id == current_user.id)}
       = date_format(comment.created_at)
     -if @user.id == current_user.id
       .delete-comment-container
