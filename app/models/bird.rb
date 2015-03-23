@@ -9,6 +9,7 @@ class Bird < ActiveRecord::Base
   validates_presence_of :user_id
 
   scope :published, ->() { where(:published => true) }
+  scope :unpublished, ->() { where(:published => false) }
   scope :known, ->() { where('species_id IS NOT NULL') }
   scope :unknown, ->() { where('species_id IS NULL') }
 

@@ -248,7 +248,7 @@ ol li:before {
     color:#94846e;
 }
 .g-pencil{
-    background: asset-data-url('profile/pencil.png') no-repeat 50% 50%;
+    background: asset-data-url('share/edit/pencil.png') no-repeat 50% 50%;
     cursor:pointer;
 }
 .d-inline-table {
@@ -1380,11 +1380,11 @@ a.delete-comment-lnk {
     width: 24px;
     height: 19px;
     display: block;
-    background:asset-data-url('comment/delete_comment_lnk.png') no-repeat;
+    background:asset-data-url('share/edit/delete_icon.png') no-repeat;
     cursor:pointer;
 }
 a.delete-comment-lnk:hover {
-    background:asset-data-url('comment/delete_comment_lnk_hover.png') no-repeat;;
+    background:asset-data-url('share/edit/delete_icon_hover.png') no-repeat;;
 }
 .bird-descr-container .bird-photo-btn {
     padding-top:40px;
@@ -1571,7 +1571,6 @@ a.delete-comment-lnk:hover {
     height: 50px ;
 }
 .img-container-blck > div.head > div:last-child {
-    padding-left:10px;
     font-weight:normal;
     color:#4d4d4d;
     font-size: 11.5px;
@@ -1900,6 +1899,12 @@ a.delete-comment-lnk:hover {
         text-decoration:none;
       }
     }
+    .profile-user-icons {
+      padding: 12px 0 0 20px !important;
+      img {
+        margin: 8px
+      }
+    }
   }
 
   .blocks-content .profile-block-container {
@@ -1956,6 +1961,40 @@ a.delete-comment-lnk:hover {
         margin-bottom:6px;
         padding-top: 5px;
       }
+    }
+  }
+
+  .profile-birds-block, .profile-drafts-block {
+    a.delete_user_bird {
+      position:absolute;
+      display: block;
+      left:76%;
+      top:33%;
+      width: 24px;
+      height: 19px;
+      background:asset-data-url('share/edit/delete_icon.png') no-repeat;
+      opacity: 0.8;
+      cursor:pointer;
+    }
+    a.delete_user_bird:hover {
+      background:asset-data-url('share/edit/delete_icon_hover.png') no-repeat;
+      opacity: 1;
+    }
+
+    a.edit_user_bird {
+      position:absolute;
+      display: block;
+      left:76%;
+      top:87%;
+      width: 24px;
+      height: 19px;
+      background:asset-data-url('share/edit/edit-pen.png') no-repeat;
+      opacity: 0.8;
+      cursor:pointer;
+    }
+    a.edit_user_bird:hover {
+      background:asset-data-url('share/edit/edit-pen-hover.png') no-repeat;
+      opacity: 1;
     }
   }
 }
