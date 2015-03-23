@@ -15,13 +15,13 @@
             %label.w70p.aright{:for => "fname"} Имя:
             .input-group.d-inline-table.w220
               = best_in_place current_user, :first_name, as: :input, path: profile_path(current_user.id)
-              %span.input-group-addon.g-pencil
+              %span.input-group-addon.g-pencil{ title: 'Редактировать' }
                 %span.glyphicon &nbsp;
           .row.mbtm15
             %label.w70p.aright{:for => "lname"} Фамилия:
             .input-group.d-inline-table.w220
               = best_in_place current_user, :last_name, as: :input, path: profile_path(current_user.id)
-              %span.input-group-addon.g-pencil
+              %span.input-group-addon.g-pencil{ title: 'Редактировать' }
                 %span.glyphicon &nbsp;
           .row
             %label.w70p.aright{:for => "email"} E-mail:

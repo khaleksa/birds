@@ -24,9 +24,17 @@ module ApplicationHelper
   #TODO: add method to cut text without word breaking
   def short_comment_text(comment, max_size)
     if comment.text.size > max_size
-      return "#{comment.text.to_s.slice(0, max_size)}..."
+      return comment.text.to_s.slice(0, max_size)
     else
       return comment.text
     end
+  end
+
+  def author_comment_text(comment, max_size)
+    author_size = comment.user.full_name.size
+    text_size = max_size - author_size
+    text = text_size > 0 ? ": #{short_comment_text(comment, text_size)}" : ''
+    author = author_size > max_size ? "#{comment.user.full_name.slice(0, max_size)}" : comment.user.full_name
+    "#{author}#{text}"
   end
 end
