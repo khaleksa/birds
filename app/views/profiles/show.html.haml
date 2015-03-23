@@ -48,7 +48,7 @@
           .mobile-blocks-nav
             %a{"data-view" => "block2"}
               %span Виды [#{@species.size}]
-          #block2.row.profile-block-container.profile-photos-block.mtop20
+          #block2.row.profile-block-container.profile-species-block.mtop20{ :class => ('active-block' unless @user.current?(current_user)) }
             =render 'species'
 
         .block-holder
