@@ -242,7 +242,7 @@ ol li:before {
     counter-increment: item;
     margin-left:0;
     margin-right:5px;
-    font-size:16px;
+    font-size:14px;
 }
 .info-color {
     color:#94846e;
@@ -393,6 +393,15 @@ a.navbar-brand {
 }
 
 
+/* Categories List */
+.birds-class-list-container {
+    .birds-class-list {
+        li a {
+            font-size: 14px;
+        }
+    }
+}
+
 
 /* Adaptive layout */
 @media (max-width: 767px) {
@@ -487,7 +496,7 @@ a.navbar-brand {
     }
     .small-progrees-bar-container a, .small-progrees-bar-container a:hover {
         text-decoration:none !important;
-        color:#333;
+        color:#4d4d4d;
     }
     .add-photo-info .col-md-4 {
         width:33.33333333% !important;
@@ -911,6 +920,7 @@ div.search-btn a.search:hover{
 }
 .home-img-block > div.foot p {
     margin:0 ;
+    color: #94846e;
 }
 .home-img-block > div.head > div:first-child, .home-img-block > div.foot > div:first-child {
     padding:0 10px;
@@ -936,9 +946,10 @@ div.search-btn a.search:hover{
 .home-img-block {
     .comments {
         font-size: 12px;
+        color: #4d4d4d;
         .last {
-            border-top: 1px solid #9d9e98;
-            border-bottom: 1px solid #9d9e98;
+            border-top: 1px solid #e5e5da;
+            border-bottom: 1px solid #e5e5da;
             height: 44px;
             .comment-part {
                 display: table-cell;
@@ -1104,7 +1115,7 @@ div.search-btn a.search:hover{
     text-align: center;
     font-size: 14px;
     line-height: 15px;
-    color: #333;
+    color: #4d4d4d;
     text-decoration:none;
 }
 .progrees-bar-descr .descr a:hover {
@@ -1230,11 +1241,15 @@ div.search-btn a.search:hover{
     padding-top:10px;
     padding-left:20px;
 }
+.comments-container .comment-holder a {
+    color: #4d4d4d;
+    &:hover {
+        text-decoration: none;
+        color: #6bcbca;
+    }
+}
 .comments-container .comment-holder p {
     margin-bottom:0;
-}
-.comments-container .comment-holder p.row-comment {
-    color:#94846e;
 }
 .comments-container .comment-holder {
     padding-left:10px;
@@ -1923,6 +1938,10 @@ a.delete-comment-lnk:hover {
     }
   }
 
+  .profile-species-block li a {
+    font-size: 14px;
+  }
+
   .blocks-content .profile-block-container {
     display:none;
     &.active-block {
@@ -1962,6 +1981,7 @@ a.delete-comment-lnk:hover {
       line-height:12px;
       position:absolute;
       right:35px;
+      color: #94846e;
       &.without-delete{
         right:12px;
       }
@@ -1972,7 +1992,7 @@ a.delete-comment-lnk:hover {
       }
       .comment-row {
         height: 30px;
-        border-bottom: 1px solid #9d9e98;
+        border-bottom: 1px solid #e5e5da;
         margin-top:6px;
         margin-bottom:6px;
         padding-top: 5px;
