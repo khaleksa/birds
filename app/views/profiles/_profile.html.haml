@@ -4,7 +4,7 @@
       .col-md-4.col-sm-12.m-acenter
         = form_for current_user, url: profile_path(current_user.id), id: 'profile_data'  do |form|
           =image_tag current_user.avatar.url, class: 'img img-circle'
-          = label_tag :avatar, 'Изменть фотографию', class: 'link d-block change-image', id: 'change-avatar'
+          = label_tag :avatar, 'Изменить фотографию', class: 'link d-block change-image', id: 'change-avatar'
           .hidden{ style: 'display:none'}
             = form.file_field :avatar, role: 'aprofile_pathvatar', id: 'avatar-file-field'
             = form.hidden_field :avatar_cache
@@ -15,13 +15,13 @@
             %label.w70p.aright{:for => "fname"} Имя:
             .input-group.d-inline-table.w220
               = best_in_place current_user, :first_name, as: :input, path: profile_path(current_user.id)
-              %span.input-group-addon.g-pencil
+              %span.input-group-addon.g-pencil{ title: 'Редактировать' }
                 %span.glyphicon &nbsp;
           .row.mbtm15
             %label.w70p.aright{:for => "lname"} Фамилия:
             .input-group.d-inline-table.w220
               = best_in_place current_user, :last_name, as: :input, path: profile_path(current_user.id)
-              %span.input-group-addon.g-pencil
+              %span.input-group-addon.g-pencil{ title: 'Редактировать' }
                 %span.glyphicon &nbsp;
           .row
             %label.w70p.aright{:for => "email"} E-mail:

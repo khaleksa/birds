@@ -8,10 +8,16 @@ class Species < ActiveRecord::Base
 
   has_many :birds
 
-  validates_presence_of :name_lat
+  validates_presence_of :name_lat, :family
 
   scope :main, -> { where('parent_id IS NULL') }
   scope :ordered, -> { order('lower(name_ru)') }
+  scope :by_name, -> (name) {
+    where("(lower(name_ru) like ?) OR
+           (lower(name_en) like ?) OR
+           (lower(name_lat) like ?) OR
+           (lower(name_uz) like ?)", name, name, name, name)
+  }
 
   def active_link?
     description.present? || images.any?

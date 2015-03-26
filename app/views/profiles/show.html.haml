@@ -8,28 +8,36 @@
           %h4
             =image_tag @user.avatar.thumb.url, class: 'img img-circle'
             =@user.full_name
-        .col-md-3.col-sm-12.profile-stat-data
-          -if @user.big_year
+        -if @user.big_year
+          .col-md-3.col-sm-12.profile-stat-data
             %p
               Количество видов в
               =link_to "Большом Годе - #{@big_year_species_count}", big_year_pages_path
               %br
                 В рейтинге
                 =link_to "Большого Года - #{@big_year_rating}", big_year_pages_path
+        .col-md-3.col-sm-12.profile-user-icons
+          -if @user.big_year
+            =image_tag 'user/icon-2015.png'
+          -if @user.expert?
+            =image_tag 'user/icon-expert.png'
 
       .row.sub-nav-pils.mtop20.sm-display-none
-        -if @user == current_user
+        -if @user.current?(current_user)
           %a.active.profile-menu{"data-view" => "block1"}
             %span Профиль
         %a.profile-menu{"data-view" => "block2"}
           %span Виды [#{@species.size}]
         %a.profile-menu{"data-view" => "block3"}
           %span Фотографии [#{@birds.total_count}]
-        %a.profile-menu{"data-view" => "block4"}
+        -if @user.current?(current_user)
+          %a.profile-menu{"data-view" => "block4"}
+            %span Черновики [#{@drafts.size}]
+        %a.profile-menu{"data-view" => "block5"}
           %span Комментарии [#{@comments.total_count}]
 
       .row.blocks-content
-        -if @user == current_user
+        -if @user.current?(current_user)
           .block-holder
             .mobile-blocks-nav
               %a.active{"data-view" => "block1"}
@@ -40,7 +48,7 @@
           .mobile-blocks-nav
             %a{"data-view" => "block2"}
               %span Виды [#{@species.size}]
-          #block2.row.profile-block-container.profile-photos-block.mtop20
+          #block2.row.profile-block-container.profile-species-block.mtop20{ :class => ('active-block' unless @user.current?(current_user)) }
             =render 'species'
 
         .block-holder
@@ -50,16 +58,26 @@
           #block3.row.profile-block-container.profile-birds-block.mtop20
             .row
               .row.row-sm.birds-container
-                =render 'birds'
+                =render partial: 'bird', collection: @birds, as: :bird
               .birds-pagination.pagination-block
                 =paginate @birds, :remote => true, :param_name => 'page_birds'
 
+        -if @user.current?(current_user)
+          .block-holder
+            .mobile-blocks-nav
+              %a{"data-view" => "block4"}
+                %span Черновики [#{@drafts.size}]
+            #block4.row.profile-block-container.profile-drafts-block.mtop20
+              .row
+                .row.row-sm.birds-container
+                  =render partial: 'bird', collection: @drafts, as: :bird
+
         .block-holder
           .mobile-blocks-nav
-            %a{"data-view" => "block4"}
+            %a{"data-view" => "block5"}
               %span Комментарии
               %span [#{@comments.total_count}]
-          #block4.row.profile-block-container.profile-comments-block.mtop20
+          #block5.row.profile-block-container.profile-comments-block.mtop20
             .row
               .comments-container
                 =render 'comments'

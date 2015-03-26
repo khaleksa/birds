@@ -72,12 +72,12 @@
             .descr
               %p
                 Укажите
-                %br дату съемки
+                %br дату встречи
           .col.col-md-4
             .descr
               %p
                 Укажите
-                %br место съемки
+                %br место встречи
           .col.col-md-2
             .descr
               %p
@@ -102,7 +102,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-calendar-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Укажите дату съемки
+        %span.small-progress-bar-text Укажите дату встречи
       %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 3
@@ -110,7 +110,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-tag-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Укажите место съемки
+        %span.small-progress-bar-text Укажите место встречи
       %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 4
@@ -125,8 +125,10 @@
       .col-md-9.col-sm-12
         = form_for @bird do |form|
           .form-container
+            .action-description
+              Укажите дату встречи птицы
             #bird-datetime-group.input-group.date.w80.sm-width-max
-              = form.text_field :timestamp, 'value' => date_format(@bird.timestamp), 'data-date-format' => 'DD/MM/YYYY', 'class' => 'form-control photo-date-input'
+              = form.text_field :timestamp, 'value' => date_format(@bird.timestamp), 'data-date-format' => 'DD/MM/YYYY', 'class' => 'form-control photo-date-input', placeholder: 'DD/MM/YYYY'
               %span.input-group-addon
                 %span.glyphicon.glyphicon-calendar{ 'aria-hidden' => 'true' }
 

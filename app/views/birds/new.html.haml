@@ -71,12 +71,12 @@
             .descr
               %p
                 Укажите
-                %br дату съемки
+                %br дату встречи
           .col.col-md-4
             .descr
               %p
                 Укажите
-                %br место съемки
+                %br место встречи
           .col.col-md-2
             .descr
               %p
@@ -102,7 +102,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-calendar-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Укажите дату съемки
+        %span.small-progress-bar-text Укажите дату встречи
       %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 3
@@ -110,7 +110,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-tag-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Укажите место съемки
+        %span.small-progress-bar-text Укажите место встречи
       %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 4
@@ -126,12 +126,16 @@
       .col-md-9.col-sm-12
         = form_for @bird, url: birds_path(@bird) do |form|
           .form-container
+            .action-description
+              Нажмите кнопку "Обзор..." чтобы указать путь к фотографии
             %input.form-control.w65.m-w85{:disabled => "", :id => "set-bird-photo-path", :type => "text"}
             =link_to 'Обзор...', '#', class: 'mleft20 btn btn-success', id: 'set-bird-photo'
             .hidden{ style: 'display:none'}
               = form.file_field :photo, id: 'bird-photo-field'
               = form.hidden_field :photo_cache
             =form.submit 'Продолжить', class: 'mtop4 fright btn btn-info sm-display-none'
+            .good-photo-condition
+              * Чтобы ваша фотография правильно отображалась на сайте, ее стороны должны быть пропорциальны 700x524
           = form.submit 'Продолжить', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
           = image_tag @bird.photo_url, class: 'img-responsive', id: 'set-bird-photo-preview'
       .col-md-3.sm-display-none

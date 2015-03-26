@@ -5,15 +5,23 @@ class SearchController < ApplicationController
   end
 
   def search
-    if params[:text].present?
-      search_text = '%' + params[:text].to_s.downcase + '%'
-      @species = Species
-                   .where("(lower(name_ru) like ?) OR (lower(name_en) like ?) OR (lower(name_lat) like ?) OR (lower(name_uz) like ?)", search_text, search_text, search_text, search_text)
-                   .order(:name_ru).all
-    end
-
+    return if params[:text].blank?
+    @species = Species.by_name(sanitize_text(params[:text])).order(:name_ru).all
     respond_to do |format|
       format.js
     end
+  end
+
+  def search_main_species
+    return if params[:text].blank?
+    @species = Species.by_name(sanitize_text(params[:text])).main.order(:name_ru).all
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  private
+  def sanitize_text(text)
+    '%' + text.to_s.downcase + '%'
   end
 end

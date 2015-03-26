@@ -74,6 +74,12 @@ class BirdsController < ApplicationController
     end
   end
 
+  #TODO: is it safe???
+  def destroy
+    Bird.destroy(params[:id])
+    render json: { success: true }
+  end
+
   private
   def bird_params
     params.require(:bird).permit(:photo, :photo_cache, :timestamp, :latitude, :longitude, :address, :species_id)

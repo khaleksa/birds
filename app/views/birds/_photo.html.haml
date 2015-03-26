@@ -17,7 +17,7 @@
   .comments
     .last
       .comment-part
-        - comments_size = bird.comments.count
+        - comments_size = bird.comments.size
         - if comments_size.zero?
           = link_to 'Оставить комментарий', bird_path(bird)
         - else
@@ -26,4 +26,4 @@
       - if comments_size > 1
         =link_to "Еще комментарии: #{bird.comments.count}", bird_path(bird)
       - else
-        Комментарии: 0
+        Комментарии: #{comments_size}

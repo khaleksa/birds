@@ -20,4 +20,13 @@ module ApplicationHelper
     return '' unless date.present?
     date.strftime('%d/%m/%Y')
   end
+
+  #TODO: add method to cut text without word breaking
+  def short_comment_text(comment, max_size)
+    if comment.text.size > max_size
+      return comment.text.to_s.slice(0, max_size)
+    else
+      return comment.text
+    end
+  end
 end

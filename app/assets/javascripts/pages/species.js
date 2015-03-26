@@ -9,7 +9,7 @@ $(function() {
         main_image_parent.attr('title', image.data('description'))
 
         $('#photo_descr_text').text(image.data('description'));
-        $('#photo_profile_lnk').text(image.data('author'));
+        $('#photo_author').text(image.data('author'));
         $('#photo_date').text(image.data('date'));
         $('#photo_place').text(image.data('place'));
     });
