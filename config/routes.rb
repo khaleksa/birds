@@ -42,6 +42,7 @@ Birds::Application.routes.draw do
   resource :search, path: '', only: [] do
     get 'search' => 'search#index'
     post 'search' => 'search#search'
+    post 'main_species' => 'search#search_main_species'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

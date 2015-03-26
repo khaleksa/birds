@@ -1,8 +1,10 @@
-$('.search-description').empty();
+$('.search-results').empty().append("<%= escape_javascript( render partial: 'search/result' ) %>");
+
 <% if @species.size > 0 %>
     $('.search-results').empty().append("<%= escape_javascript( render partial: 'search/result' ) %>");
+    $('.search-description').empty().append('Чтобы выбрать из найденного списка нужный вид, кликните по нему один раз.');
 <% else %>
-    $('.search-description').append('К сожалению, по вашему запросу ничего не найдено');
+    $('.search-description').empty().append('К сожалению, по вашему запросу ничего не найдено');
 <% end %>
 
 //*** Bird's species: set species id from search result to form ***

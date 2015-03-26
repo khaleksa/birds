@@ -134,7 +134,7 @@
               = form.file_field :photo, id: 'bird-photo-field'
               = form.hidden_field :photo_cache
             =form.submit 'Продолжить', class: 'mtop4 fright btn btn-info sm-display-none'
-            .condition-description
+            .good-photo-condition
               * Чтобы ваша фотография правильно отображалась на сайте, ее стороны должны быть пропорциальны 700x524
           = form.submit 'Продолжить', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
           = image_tag @bird.photo_url, class: 'img-responsive', id: 'set-bird-photo-preview'
