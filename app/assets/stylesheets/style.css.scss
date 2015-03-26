@@ -1116,51 +1116,61 @@ div.search-btn a.search:hover{
 .progrees-bar-descr > div:last-child > div {
     float:right;
 }
-.add-photo-container {
-    min-height:700px;
-}
-.form-container { /* also uses for add comment form block, search block, profile form blocks */
-    padding:25px 20px;
-    width:100%;
-    background-color:#f7f7ed;
-    margin-bottom:20px;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-}
 .add-photo-container  img, .bird-photo-img img{
-    border:1px solid #94846e;
+  border:1px solid #94846e;
 }
-.add-photo-container .col-md-9 {
+.add-photo-container {
+  min-height:700px;
+
+  .col-md-9 {
     max-width: 705px;
     padding: 0;
-}
-.add-photo-container .col-md-3 {
+  }
+  .col-md-3 {
     float:right;
     padding:0;
+  }
+  .selectBox{
+    width: 430px;
+    position: relative;
+    display: inline-block;
+    cursor: default;
+    text-align: left;
+    line-height: 30px;
+    clear: both;
+    color: #555;
+    margin-left: 5px;
+  }
+  #dropdownMenu{
+    width: 100%;
+  }
+  ul.dropdown-menu{
+    width: 100%;
+    padding: 10px;
+  }
+  .selected-spe.photo-condition-textcies {
+    margin-left: 20px;
+    font-style: italic;
+    border-bottom: 1px solid #9d9e98;
+  }
+  .action-description {
+    padding: 5px 0 15px 5px;
+  }
+  .condition-description {
+    padding: 15px 5px 0 5px;
+    font-size: 11px;
+    color: #94846e;
+  }
 }
-.add-photo-container .selectBox{
-  width: 430px;
-  position: relative;
-  display: inline-block;
-  cursor: default;
-  text-align: left;
-  line-height: 30px;
-  clear: both;
-  color: #555;
-  margin-left: 5px;
-}
-.add-photo-container #dropdownMenu{
-  width: 100%;
-}
-.add-photo-container ul.dropdown-menu{
-  width: 100%;
-  padding: 10px;
-}
-.add-photo-container .selected-species {
-  margin-left: 20px;
-  font-style: italic;
-  border-bottom: 1px solid #9d9e98;
+
+.form-container { /* also uses for add comment form block, search block, profile form blocks */
+  padding:25px 20px;
+  width:100%;
+  background-color:#f7f7ed;
+  margin-bottom:20px;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
 }
 
 @media (max-width: 550px) {

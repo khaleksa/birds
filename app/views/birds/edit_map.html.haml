@@ -78,12 +78,12 @@
               =link_to edit_date_bird_path(@bird) do
                 %p
                   Укажите
-                  %br дату съемки
+                  %br дату встречи
           .col.col-md-4.step-active
             .descr
               %p
                 Укажите
-                %br место съемки
+                %br место встречи
           .col.col-md-2
             .descr
               %p
@@ -111,7 +111,7 @@
             %i.progress-bar-item &nbsp;
           %span.progress-bar-item.progress-top-round.progress-calendar-ico.small-progress-bar-round-icon
             %i &nbsp;
-          %span.small-progress-bar-text Укажите дату съемки
+          %span.small-progress-bar-text Укажите дату встречи
       %p.step-active
         %span.progress-bar-item.small-progress-bar-round-num
           %i 3
@@ -119,7 +119,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-tag-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Укажите место съемки
+        %span.small-progress-bar-text Укажите место встречи
       %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 4
@@ -135,7 +135,7 @@
       .col-sm-12.col-md-9
         = form_for @bird do |form|
           .row.form-container.m-acenter
-            %p Введите координаты точки съемки или щелчком укажите точку съемки на карте:
+            %p Введите координаты места встречи или щелчком мыши укажите место на карте:
             %span.m-d-block
               Широта:
               =form.text_field :latitude, class: 'form-control w20 mleft10'
@@ -146,8 +146,7 @@
             #map_canvas{ :style => "width:100%; height:350px", :data => { edit: 'true' } }
           .row.form-container.mtop20
             %span
-              Название места съемки:
-              -#%input.form-control.w50.mleft10.m-w73{:name => "place", :type => "text"}/
+              Название места встречи:
               =form.text_field :address, class: 'form-control w50 mleft10 m-w73'
             =form.submit 'Продолжить', class: 'fright btn btn-info sm-display-none'
           =form.submit 'Продолжить', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
