@@ -25,9 +25,15 @@
             %a.social-lnk.vk
               %span
 
-          .row.bird-photo-map
-            #map_canvas{:style => "width:100%; height:300px;", :data => {edit: 'false', lat: @bird.latitude, lng: @bird.longitude}}
-
+          .row.bird-photo-map{ :class => ('hide-bird-photo-map' unless @bird.species.show_map) }
+            -if @bird.species.show_map
+              #map_canvas{:style => "width:100%; height:300px;", :data => {edit: 'false', lat: @bird.latitude, lng: @bird.longitude}}
+            -else
+              =image_tag 'map/empty_map.jpg'
+              .empty_map_description
+                Вид имеет охранный статус,
+                %br
+                карта доступна только экспертам
           .row.bird-photo-descr
             .row.descr-container
               .col.col-md-3.aright

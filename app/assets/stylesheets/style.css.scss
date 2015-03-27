@@ -651,8 +651,11 @@ a.navbar-brand {
         padding-top:10px !important;
     }
     .bird-photo-map {
-        width:50%;
-        margin:0 auto;
+      width:50%;
+      margin:0 auto;
+    }
+    .hide-bird-photo-map {
+      display: none;
     }
     .descr-container .col-md-9 {
         width:54% !important;
@@ -1390,7 +1393,16 @@ div.search-btn a.search:hover{
     background:asset-data-url('social/pi.png') no-repeat 50% 50%;
 }
 .bird-photo-map {
-    padding-top:10px;
+  position: relative;
+  padding-top:10px;
+  width: 100%; /* for IE 6 */
+  .empty_map_description {
+    position:absolute;
+    display: block;
+    left:70px;
+    top:136px;
+    color:#94846e;
+  }
 }
 .bird-photo-btns a{
     width:100%;
