@@ -15,9 +15,8 @@ class CommentsController < ApplicationController
     render json: { success: comment.persisted? }
   end
 
-  #TODO: is it safe???
   def destroy
-    Comment.destroy(params[:id])
-    render json: { success: true }
+    deleted_comment = Comment.destroy(params[:id])
+    render json: { success: deleted_comment.present? }
   end
 end

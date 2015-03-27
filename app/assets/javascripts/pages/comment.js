@@ -15,16 +15,13 @@ $(function() {
                 if (response.success) {
                     comment_html =
                         "<div class='row comment-row'>" +
-                            "<div class='image-holder'>" +
+                            "<div class='col-md-1 image-holder'>" +
                                 "<img src='" + form.data('user-avatar') + "' class='img-circle' />" +
                             "</div>" +
-                            "<div class='comment-holder'>" +
+                            "<div class='col-md-10 comment-holder'>" +
                                 "<p class='row-link'><a href='" +form.data('user-profile') + "'>" + form.data('user-name') + "</a></p>" +
                                 "<p class='row-comment'>" + comment_text + "</p>" +
-                            "</div>" +
-                            "<div class='delete-comment-container'>" +
-                                "<a class='delete-comment-lnk' onclick='deleteComment(this);' ></a>" +
-                            "</div>" +
+                            "</div>"
                         "</div>";
                     $this.closest('.bird-photo-comments').find('.comments-container').append($(comment_html));
                 }
@@ -32,7 +29,7 @@ $(function() {
         );
     });
 
-    $('.profile-comments-block .delete-comment-lnk').on('click', function(event) {
+    $('.delete-comment-lnk').on('click', function(event) {
         event.preventDefault();
         var $this = $(this);
         var comment_id = $this.data('id');

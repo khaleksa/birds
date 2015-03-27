@@ -55,12 +55,15 @@
             .row.comments-container
               - @bird.comments.each do |comment|
                 .row.comment-row
-                  .image-holder
+                  .col-md-1.image-holder
                     =image_tag comment.user.avatar.thumb.url, class: 'img-circle'
-                  .comment-holder
+                  .col-md-10.comment-holder
                     %p.row-link
                       =link_to comment.user.full_name, profile_path(comment.user)
                     %p.row-comment= comment.text
+                  -if comment.user.id == current_user.id
+                    .col-md-1.delete-comment-container
+                      =link_to '', '#', class: 'delete-comment-lnk', data: { id: comment.id }
 
             .row.add-comment-form-container
               .row.add-comment-form

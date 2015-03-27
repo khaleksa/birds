@@ -1401,11 +1401,6 @@ div.search-btn a.search:hover{
 .comments-container > div.row {
     position:relative;
 }
-.comments-container .delete-comment-container {
-    position:absolute;
-    right:0;
-    top: 15px
-}
 a.delete-comment-lnk {
     color: #fff;
     width: 24px;
@@ -1997,6 +1992,11 @@ a.delete-comment-lnk:hover {
         margin-bottom:6px;
         padding-top: 5px;
       }
+      .delete-comment-container {
+        position:absolute;
+        right:0;
+        top: 15px
+      }
     }
   }
 
@@ -2021,7 +2021,7 @@ a.delete-comment-lnk:hover {
       position:absolute;
       display: block;
       left:76%;
-      top:87%;
+      top:87.5%;
       width: 24px;
       height: 19px;
       background:asset-data-url('share/edit/edit-pen.png') no-repeat;
