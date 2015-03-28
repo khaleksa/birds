@@ -1,6 +1,7 @@
 class Bird < ActiveRecord::Base
   belongs_to :user
   belongs_to :species
+  belongs_to :expert, class_name: 'User'
 
   has_many :comments, dependent: :destroy
 
@@ -31,5 +32,9 @@ class Bird < ActiveRecord::Base
 
   def publish!
     update_attribute(:published, true)
+  end
+
+  def need_approve?
+    !user.expert? && expert.blank?
   end
 end

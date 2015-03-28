@@ -74,10 +74,15 @@ class BirdsController < ApplicationController
     end
   end
 
-  #TODO: is it safe???
   def destroy
-    Bird.destroy(params[:id])
-    render json: { success: true }
+    deleted_bird = Bird.destroy(params[:id])
+    render json: { success: deleted_bird.present? }
+  end
+
+  def approve
+    bird = Bird.find(params[:id]) if current_user.expert?
+    result = bird.present? ? bird.update(expert_id: current_user.id) : false
+    render json: { success: result }
   end
 
   private

@@ -32,6 +32,7 @@ Birds::Application.routes.draw do
       get 'edit_map' => 'birds#edit_map'
       get 'edit_species' => 'birds#edit_species'
       get 'publish' => 'birds#publish'
+      post 'approve' => 'birds#approve'
     end
   end
 
