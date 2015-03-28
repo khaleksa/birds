@@ -53,7 +53,7 @@
             -unless @bird.unknown?
               =link_to 'Общая информация о виде', species_path(@bird.species), class: 'btn btn-success'
             =link_to 'Все встречи с видом', '#', class: 'btn btn-info'
-            -if @bird.need_approve? && current_user.expert?
+            -if @bird.need_approve? && current_user.try(:expert?)
               =link_to 'Подтвердить', '#', class: 'btn btn-success confirm-species', data: { id: @bird.id }
 
       .row

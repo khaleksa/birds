@@ -9,10 +9,13 @@ class Bird < ActiveRecord::Base
 
   validates_presence_of :user_id
 
+  before_create :set_expert
+
   scope :published, ->() { where(:published => true) }
   scope :unpublished, ->() { where(:published => false) }
   scope :known, ->() { where('species_id IS NOT NULL') }
   scope :unknown, ->() { where('species_id IS NULL') }
+  scope :approved, ->() { where('expert_id IS NOT NULL') }
 
   def unknown?
     species_id.blank?
@@ -36,5 +39,12 @@ class Bird < ActiveRecord::Base
 
   def need_approve?
     !user.expert? && expert.blank?
+  end
+
+  private
+  #Set expert_id for bird of expert user
+  def set_expert
+    return unless user.expert?
+    self.expert = user
   end
 end

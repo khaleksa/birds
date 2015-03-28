@@ -18,7 +18,9 @@ class Stats::Counts
               FROM users u
               LEFT JOIN birds b ON (b.user_id = u.id) AND
                                    (b.published = 'true') AND
-                                   (EXTRACT(YEAR FROM b.timestamp) = ?)
+                                   (b.species_id IS NOT NULL) AND
+                                   (EXTRACT(YEAR FROM b.timestamp) = ?) AND
+                                   (b.expert_id IS NOT NULL)
               WHERE (u.big_year IS TRUE)
               GROUP BY u.id, b.species_id
           ) t1 ON u.id = t1.user_id
@@ -35,7 +37,11 @@ class Stats::Counts
   # The amount of user's species in BigYear for some year
   def big_year_user_species_count(user_id, year = Time.zone.now.year)
     return 0 unless User.find(user_id).big_year
-    Bird.where(user_id: user_id).where("EXTRACT(year FROM timestamp) = ?", year).select(:species_id).distinct(:species_id).size
+    Bird.published.known.approved
+        .where(user_id: user_id)
+        .where("EXTRACT(year FROM timestamp) = ?", year)
+        .select(:species_id).distinct(:species_id)
+        .size
   end
 
   def big_year_users_count
@@ -52,7 +58,7 @@ class Stats::Counts
   # Total amount of species met by users - participants of Big Year during some year
   def big_year_species(year = Time.zone.now.year)
     Species.joins(birds: :user)
-      .where(birds: { :published => 'true' })
+      .where("(birds.published = 'true') AND (birds.species_id IS NOT NULL) AND (birds.expert_id IS NOT NULL)")
       .where(users: { :big_year => 'true' })
       .where('EXTRACT(year FROM birds.timestamp) = ?', year)
       .distinct('species.id')
@@ -61,11 +67,14 @@ class Stats::Counts
 
   # Total amount of species met by all users
   def total_seen_species_count
-    Species.joins(:birds).where(birds: {published: true}).select(:id).distinct.count
+    Species.joins(:birds).where("(birds.published = 'true') AND (birds.expert_id IS NOT NULL)").select(:id).distinct.count
   end
 
   # Total amount of species met by some user
   def user_species(user_id)
-    Species.joins(:birds).where(birds: {published: true, user_id: user_id}).distinct.order(:name_ru)
+    Species.joins(:birds)
+        .where(birds: {published: true, user_id: user_id})
+        .where("birds.expert_id IS NOT NULL")
+        .distinct.order(:name_ru)
   end
 end
