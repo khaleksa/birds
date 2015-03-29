@@ -24,7 +24,9 @@ Birds::Application.routes.draw do
     get :unknowns
   end
 
-  resources :species, only: [:index, :show]
+  resources :species, only: [:index, :show] do
+    get :map
+  end
 
   resources :birds, except: [:index] do
     member do

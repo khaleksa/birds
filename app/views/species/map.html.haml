@@ -1,0 +1,28 @@
+.bg-btm-container
+  / Content
+  .container.content
+    / Content TOP
+    .row.top-row
+      .col-md-7.col-sm-12.map-bird-info.m-pleft30p
+        %h4 Все встречи с видом
+        %p= @species.name_ru
+        %p
+          %i= @species.name_lat
+        %p= @species.name_en
+      .col-md-5.col-sm-12.aright
+        = link_to 'Общая информация о виде', species_path(@species), class: 'btn btn-success btn-xlg sm-width-max mtop50 m-mtop20'
+
+    / Content BODY MAP
+    #map_canvas.row.top-row.gmap-big.mtop20
+
+    / Content BODY PICTURES
+    .row.mtop40.map-img-container.row-sm
+      -@birds.each_with_index do |bird, index|
+        =render partial: 'species/bird', locals: { bird: bird, index: index + 1 }
+
+    / Content FOOT MORE PHOTO BTN
+    .row.acenter
+      %a.btn.btn-success.btn-xlg.sm-width-max Показать еще фотографии
+
+
+    =render 'shared/nav_add_photo'
