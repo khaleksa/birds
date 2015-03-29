@@ -1,16 +1,31 @@
 .bg-btm-container
   .container.content
-    %h2
-      Бедвочеры
+    .row.users-container.mtop20
+      .row.users-text.mbtm20
+        %h4 Бедвочеры
+        %p
+          %i
+            На нашем сайте зарегистрировано пользователей - #{@users.size},
+            из них участников
+            =link_to 'Большого Года -', big_year_pages_path
+            #{@big_year_users_count}
+      .row
+        .users-list-title.mbtm15
+          Список участников сайта birds.uz
 
-    %ol
-      -@users.each do |user|
-        %li
-          .user-left-block
-            %p
-              %img.img-circle{:align => 'left', :src => user.avatar.thumb.url}
-          .user-right-block
-            =link_to user.full_name, profile_path(user.id)
-            %p= "#{user.birds.size} фотографий"
+        - index = 1
+        - @users.each do |user|
+          .row.user-block
+            .col-md-1.user-left-blck
+              %p
+                ="#{index}."
+                =image_tag user.avatar.thumb.url, class: 'img-circle', align: 'right'
+                -index += 1
+            .col-md-2.user-right-blck
+              =link_to user.full_name, profile_path(user.id)
+              %p= "Всего фотографий #{user.birds.size}"
+            .col-md-2.user-right-blck1
+              -if user.big_year
+                =image_tag 'user/icon-2015.png'
 
     =render 'shared/nav_add_photo'

@@ -1517,74 +1517,89 @@ a.delete-comment-lnk:hover {
 }
 
 
+
+
 /* big year */
-.big-year-text i {
-    color:#94846e;
-}
-.big-year-text p {
-    margin-bottom:5px;
-    font-size:14px;
-    text-align:justify;
-}
-.big-year-text a{
-    color:#90b444;
-    text-decoration:underline;
-}
-.big-year-text a:hover{
-    text-decoration:none;
-}
+.big-year-container {
+  .big-year-text {
+    i {
+      color:#94846e;
+    }
+    p {
+      margin-bottom:5px;
+      font-size:14px;
+      text-align:justify;
+    }
+    a{
+      color:#90b444;
+      text-decoration:underline;
+    }
+    a:hover{
+      text-decoration:none;
+    }
+  }
 
-.big-year-container .sub-nav-pils a {
-    display:inline-block;
-    color:#94846e;
-    padding-bottom:17px;
-    cursor:pointer;
-    font-size:19px;
-    margin-right:5px;
-}
-.big-year-container .blocks-content .big-year-block-container {
-    display:none;
-}
-.big-year-container .blocks-content .big-year-block-container.active-block {
-    display:block;
-}
-.big-year-container label {
+  .blocks-content {
+    .big-year-block-container {
+      display:none;
+    }
+    .big-year-block-container.active-block {
+      display:block;
+    }
+  }
+
+  label {
     font-weight: normal;
-}
-.big-year-container .sub-nav-pils a span {
-  padding:10px 20px;
-  display:block;
-}
-.big-year-container .sub-nav-pils a.active, .big-year-container .sub-nav-pils a:hover {
-  color:#4d4d4d;
-  background: asset-data-url('share/bg_arrow_down.png') no-repeat bottom 0 right 50%;
-  text-decoration:none !important;
-}
-.big-year-container .sub-nav-pils a.active span, .big-year-container .sub-nav-pils a:hover span {
-  background:#f7f7ed;
+  }
+
+  .sub-nav-pils{
+    a {
+      display:inline-block;
+      color:#94846e;
+      padding-bottom:17px;
+      cursor:pointer;
+      font-size:19px;
+      margin-right:5px;
+    }
+    a span {
+      padding:10px 20px;
+      display:block;
+    }
+    a.active, a:hover {
+      color:#4d4d4d;
+      background: asset-data-url('share/bg_arrow_down.png') no-repeat bottom 0 right 50%;
+      text-decoration:none !important;
+    }
+    a.active span, a:hover span {
+      background:#f7f7ed;
+    }
+  }
+
+  .city-participant{
+    .participant-left-blck {
+      display: inline-block;
+      width: 70px;
+      float: left;
+      text-align: right;
+      font-size: 12px !important;
+    }
+    .participant-left-blck img {
+      margin-left: 10px;
+    }
+    .participant-right-blck {
+      display: inline-block;
+      float: left;
+      padding-left: 10px;
+      font-size: 12px !important;
+      color: #94846e;
+    }
+  }
+  .big-year-participants .col-md-4 {
+    padding-left: 0px;
+    padding-right: 15px;
+  }
 }
 
-.city-participant .participant-left-blck {
-    display:inline-block;
-    width:58px;
-    float:left;
-    text-align: right;
-    font-size:12px !important;
-}
-.city-participant .participant-left-blck img {
-    margin-left:10px;
-}
-.city-participant .participant-right-blck {
-    display:inline-block;
-    float:left;
-    padding-left:10px;
-    font-size:12px !important;
-    color:#94846e;
-}
-.big-year-participants .col-md-4 {
-    padding-left:0px;
-    padding-right:15px;
-}
 
 /* birds map */
 .map-img-container .col-md-2 {
@@ -2050,4 +2065,29 @@ a.delete-comment-lnk:hover {
 
 .mobile-blocks-nav {
     display:none;
+}
+
+
+
+
+/* People */
+.users-container {
+  .users-text {
+    i {
+      color: #94846e;
+    }
+    p {
+      margin-bottom: 5px;
+      font-size: 14px;
+      text-align: justify;
+    }
+    a {
+      font-size: 14px;
+      color: #94846e;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }

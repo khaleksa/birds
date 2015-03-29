@@ -6,6 +6,7 @@ class UsersController < Devise::RegistrationsController
 
   def index
     @users = User.includes(:birds).all
+    @big_year_users_count = Stats::Counts.new.big_year_users_count
   end
 
   def create
