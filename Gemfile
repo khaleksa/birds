@@ -14,6 +14,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'seed-fu', git: 'https://github.com/mbleigh/seed-fu'
