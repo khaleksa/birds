@@ -72,22 +72,21 @@
         .row.progrees-bar-descr
           .col.col-md-2.step-done
             .descr
-              %a{:href => "#"}
-                %p
-                  Загрузите
-                  %br фотографию
+              %p
+                Загрузите
+                %br фотографию
           .col.col-md-4.step-active
             .descr
-              %a{:href => "#"}
+              =link_to edit_date_bird_path(@bird) do
                 %p
                   Укажите
-                  %br дату съемки
+                  %br дату встречи
           .col.col-md-4
             .descr
-              %a{:href => "#"}
+              =link_to edit_map_bird_path(@bird) do
                 %p
                   Укажите
-                  %br место съемки
+                  %br место встречи
           .col.col-md-2
             .descr
               %p
@@ -114,7 +113,7 @@
             %i.progress-bar-item &nbsp;
           %span.progress-bar-item.progress-top-round.progress-calendar-ico.small-progress-bar-round-icon
             %i &nbsp;
-          %span.small-progress-bar-text Укажите дату съемки
+          %span.small-progress-bar-text Укажите дату встречи
       %p.step-done
         %a{:href => "#"}
           %span.progress-bar-item.small-progress-bar-round-num
@@ -123,7 +122,7 @@
             %i.progress-bar-item &nbsp;
           %span.progress-bar-item.progress-top-round.progress-tag-ico.small-progress-bar-round-icon
             %i &nbsp;
-          %span.small-progress-bar-text Укажите место съемки
+          %span.small-progress-bar-text Укажите место встречи
       %p.step-active
         %span.progress-bar-item.small-progress-bar-round-num
           %i 4
@@ -136,27 +135,27 @@
 
     .row.mtop40.add-photo-container
       .col-md-9.col-sm-12
-        = form_for @bird do |form|
-          .form-container
-            #selectBird.selectBox.sm-width-max.dropdown
-              %button#dropdownMenu.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown", :type => "button"}
-                Выберете вид птицы
-                %span.caret
-              %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
-                -@families.each_with_index do |family, index|
-                  %li{:role => "presentation"}
-                    -unless index == 0
-                      .div-contain
-                        .divider
-                    %dt
-                      %span.text=family.name_ru
-                  -family.main_species.each do |sp|
-                    %li{:role => "presentation"}
-                      =link_to sp.name_ru, '#', role: 'menuitem', class: 'species-item', tabindex: '-1', data: {id: sp.id}
-            .hidden{ style: 'display:none'}
-              =form.text_field :species_id, id: 'set-bird-species-id', value: ''
-            =form.submit 'Опубликовать фотографию', class: 'fright btn btn-info sm-display-none'
-            =form.submit 'Опубликовать фотографию', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only'
+        .form-container
+          .row.mbtm20
+            .col-md-9.col-sm-12
+              %span
+                Вид:
+              %span.selected-species
+                не определен
+            .col-md-3
+              =form_tag publish_bird_path, method: :get do
+                .hidden{ style: 'display:none'}
+                  =text_field_tag 'bird-species-id'
+                =submit_tag 'Опубликовать', class: 'fright btn btn-info sm-display-none'
+                =submit_tag 'Опубликовать', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only'
+
+          =form_tag '/main_species', method: :post, remote: :true do
+            = text_field_tag :text, nil, class: 'form-control w80 sm-width-max', autofocus: true, placeholder: 'Название вида'
+            = submit_tag 'Найти', class: 'btn btn-success fright sm-center sm-mtop10 w15 m-mtop20'
+            .search-description
+              * Если Вам известен вид, введите ключевые слова из его названия и нажмите по кнопке "Найти"
+
+          .row.search-results.mtop20.m-mbtm20.pleft20
 
       .col-md-3.acenter.sm-display-none
         =render 'birds/photo_info', bird: @bird

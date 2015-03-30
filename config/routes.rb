@@ -7,41 +7,45 @@ Birds::Application.routes.draw do
              skip: :registrations
 
   devise_scope :user do
+    get 'users', to: 'users#index'
     post 'user', to: 'users#create', as: :user_registration
     get 'user/sign_up', to: 'users#new', as: :new_user_registration
     put 'user/change_password', to: 'users#change_password'
     get 'user/unregister', to: 'users#unregister', as: :user_unregister
   end
 
-  resource :user, only: []  do
-    resource :profile, only: [:show, :update]
-  end
+  resources :profiles, only: [:show, :update]
 
   root to: 'pages#index'
 
   resource :pages, path: '', only: [] do
     get :big_year
     get :about
+    get :unknowns
   end
 
-  resources :species, only: [:index, :show]
+  resources :species, only: [:index, :show] do
+    get :map
+  end
 
   resources :birds, except: [:index] do
     member do
       get 'edit_date' => 'birds#edit_date'
       get 'edit_map' => 'birds#edit_map'
       get 'edit_species' => 'birds#edit_species'
-      post 'publish' => 'birds#publish'
+      get 'publish' => 'birds#publish'
+      post 'approve' => 'birds#approve'
     end
   end
 
   resources :categories, only: [:index]
 
-  resources :comments, only: [:create]
+  resources :comments, only: [:create, :destroy]
 
   resource :search, path: '', only: [] do
     get 'search' => 'search#index'
     post 'search' => 'search#search'
+    post 'main_species' => 'search#search_main_species'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

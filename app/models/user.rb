@@ -22,4 +22,16 @@ class User < ActiveRecord::Base
   def self.species_count
     User.sel
   end
+
+  def has_role?(role)
+    roles.map(&:name).map(&:downcase).include? role.to_s.downcase
+  end
+
+  def current?(current_user)
+    id == current_user.id
+  end
+
+  def expert?
+    has_role?(:expert)
+  end
 end

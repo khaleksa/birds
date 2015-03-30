@@ -1,0 +1,6 @@
+.row
+  %ol
+    -@species.each do |species|
+      %li
+        =link_to species_path(species) do
+          %span= species.full_name

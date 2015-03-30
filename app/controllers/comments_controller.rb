@@ -14,4 +14,9 @@ class CommentsController < ApplicationController
 
     render json: { success: comment.persisted? }
   end
+
+  def destroy
+    deleted_comment = Comment.destroy(params[:id])
+    render json: { success: deleted_comment.present? }
+  end
 end

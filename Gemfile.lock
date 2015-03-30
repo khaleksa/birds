@@ -306,6 +306,7 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari
   mini_magick
   omniauth
   omniauth-facebook

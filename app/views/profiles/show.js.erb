@@ -1,0 +1,5 @@
+$('.profile-birds-block .birds-container').empty().append("<%= escape_javascript( render partial: 'profiles/birds' ) %>");
+$('.profile-birds-block .birds-pagination').html('<%= escape_javascript(paginate(@birds, :remote => true, :param_name => 'page_birds').to_s) %>');
+
+$('.comments-container').empty().append("<%= escape_javascript( render partial: 'profiles/comments' ) %>");
+$('.comments-pagination').html('<%= escape_javascript(paginate(@comments, :remote => true, :param_name => 'page_comments').to_s) %>');

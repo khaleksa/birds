@@ -1,17 +1,14 @@
 #TODO: rewrite, use ajax
 class BirdsController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :new]
+  before_filter :authenticate_user!, except: [:show]
 
   layout 'map', only: [:edit_map, :show]
 
   def show
-    bird_id = params[:id]
-    @bird = Bird.find(bird_id)
-    @comments = Comment.bird_comments(bird_id)
+    @bird = Bird.find(params[:id])
   end
 
   def new
-    redirect_to new_user_session_path unless current_user
     @bird = Bird.new
   end
 
@@ -51,30 +48,41 @@ class BirdsController < ApplicationController
 
     respond_to do |format|
       if @bird.update_attributes(bird_params)
-        if @bird.can_publish?
-          @bird.publish!
-          return redirect_to :root
-        end
-
         format.html do
           redirect_to action: next_edit_action(@bird), id: @bird.id
         end
+
         format.js   {}
         format.json { render json: @bird, status: :accepted, location: @bird }
       else
-        binding.pry
-        format.html {redirect_to action: :edit, id: @bird.id}
+        format.html { redirect_to action: :edit, id: @bird.id }
         format.json { render json: @bird.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def publish
-    if @bird.update_attributes(bird_params)
-      redirect_to :root
+    @bird = Bird.find(params[:id])
+    @bird.publish! if @bird.can_publish?
+
+    species_id = params['bird-species-id'].to_i
+    if species_id > 0
+      @bird.update_attributes(species_id: species_id)
+      return redirect_to :root
     else
-      redirect_to :back
+      return redirect_to unknowns_pages_path
     end
+  end
+
+  def destroy
+    deleted_bird = Bird.destroy(params[:id])
+    render json: { success: deleted_bird.present? }
+  end
+
+  def approve
+    bird = Bird.find(params[:id]) if current_user.expert?
+    result = bird.present? ? bird.update(expert_id: current_user.id) : false
+    render json: { success: result }
   end
 
   private

@@ -2,8 +2,50 @@
   .container.content
     = render 'shared/nav_add_photo'
 
-    .row.mtop40.home-img-container.row-sm
-      = render partial: 'birds/photo', collection: @birds, as: :bird
+    .mtop40.home-img-container
+      - @birds.each_slice(4) do |row|
+        .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
 
     .row.acenter
-      =link_to 'Показать еще фотографии', root_path, data: {count: 8}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'
+      =link_to 'Показать еще фотографии', root_path, data: {count: PagesController::PHOTO_COUNT_PER_PAGE}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'
+
+  .posters
+    .row.container
+      .col.col-md-4
+        .help-menu-item
+          .icon= image_tag "menus/birdwatch.png"
+          %p
+            Стань
+            = link_to 'бёрдвочером', '#'
+            и открой для себя мир птиц!
+      .col.col-md-4
+        .help-menu-item
+          .icon= image_tag "menus/tracks.png"
+          %p
+            = link_to 'Внеси свой вклад', about_pages_path
+            в изучение и сохранение птиц Узбекистана!
+      .col.col-md-4
+        .help-menu-item
+          .icon= image_tag "menus/photo.png"
+          %p
+            Фотографируй и принимай участие в
+            = link_to 'Большом годе!', big_year_pages_path
+
+  .bottom-links
+    .row
+      .col.col-md-6
+        .links-list.pull-right
+          %p Птицы
+          %ul
+            %li= link_to 'Список видов', categories_path
+            %li= link_to 'Поиск', search_search_path
+            %li= link_to 'Правила наблюдения за птицами', '#'
+            %li= link_to 'Большой Год', big_year_pages_path
+            %li= link_to 'На определение', unknowns_pages_path
+      .col.col-md-6
+        .links-list.pull-left
+          %p Кто мы
+          %ul
+            %li= link_to 'О проекте', about_pages_path
+            %li= link_to 'Наши пользователи', users_path
+            %li= mail_to 'khalex@bk.ru', 'Написать нам'

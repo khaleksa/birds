@@ -1,5 +1,5 @@
 $(function() {
-    $('.profile-menu, .mobile-blocks-nav a').on('click', function(event) {
+    $('.profile-menu, .profile-container .mobile-blocks-nav a').on('click', function(event) {
         event.preventDefault();
 
         var is_active_block = $(this).hasClass('active');
@@ -31,5 +31,22 @@ $(function() {
 
     $('#avatar-file-field').on('change', function(event) {
         $(this).closest('form').submit();
+    })
+
+    $('.delete_user_bird').on('click', function(event) {
+        event.preventDefault();
+        var $this = $(this);
+
+        var result = confirm("Вы действительно хотите удалить фотографию?");
+        if (result) {
+            var bird_id = $this.data('id');
+            $.ajax({
+                url: '/birds/' + bird_id,
+                type: 'DELETE',
+                success: function(result) {
+                    $this.closest('.profile-bird-container').remove();
+                }
+            });
+        }
     })
 });

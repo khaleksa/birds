@@ -1,0 +1,2 @@
+$('.home-img-container').append("<%= escape_javascript( render partial: 'birds/photo_unknown', collection: @birds, as: :bird ) %>");
+$('#show-more-photo').data('count', <%= @total_count %>);

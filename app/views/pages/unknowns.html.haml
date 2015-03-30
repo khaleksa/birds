@@ -1,0 +1,16 @@
+.bg-btm-container
+  .container.content
+    / Content TOP
+    .row.top-row
+      %h3.m-acenter На определение
+
+    / Content BODY
+    .row.mtop10.home-img-container.row-sm
+      = render partial: 'birds/photo_unknown', collection: @birds, as: :bird
+
+    / Content FOOT SHOW MORE
+    .row.acenter
+      =link_to 'Показать еще фотографии', unknowns_pages_path, data: {count: PagesController::PHOTO_COUNT_PER_PAGE}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'
+
+
+    =render 'shared/nav_add_photo'

@@ -13,6 +13,7 @@ ActiveAdmin.register Species do
 
   index do
     column :id
+    column :position
     column :name_ru
     column :name_lat
     column :name_en
@@ -23,6 +24,10 @@ ActiveAdmin.register Species do
   end
 
   show do |species|
+    div do
+      link_to 'Как это выглядит на birds.uz', species_path(species.id)
+    end
+
     attributes_table do
       row 'Семейство' do
         link_to species.family.full_name, admin_categories_family_path(species.family.id)
@@ -65,7 +70,7 @@ ActiveAdmin.register Species do
     f.inputs 'Классификация' do
       f.input :family, as: :select, collection: Categories::Category.families
       f.input :position
-      f.input :parent
+      f.input :parent, as: :select, collection: Species.main.ordered
     end
 
     f.inputs 'Описание вида' do
@@ -82,7 +87,7 @@ ActiveAdmin.register Species do
       f.input :show_map
     end
 
-    f.inputs do
+    f.inputs 'Фото' do
       f.has_many :images, :allow_destroy => true, :heading => 'Images' do |cf|
         cf.input :image, :hint => f.template.image_tag(cf.object.image.thumb.url)
         cf.input :date, :as => :datepicker
@@ -91,7 +96,7 @@ ActiveAdmin.register Species do
         cf.input :address
         cf.input :default
       end
-    end
+    end if f.object.persisted?
 
     f.actions
   end

@@ -4,6 +4,11 @@ class UsersController < Devise::RegistrationsController
   end
   before_filter :configure_permitted_parameters, :only => [:create]
 
+  def index
+    @users = User.includes(:birds).all
+    @big_year_users_count = Stats::Counts.new.big_year_users_count
+  end
+
   def create
     super
 

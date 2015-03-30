@@ -3,10 +3,20 @@
     .row.bird-descr-container.mtop20.mbtm20.content-container
       .col.col-md-8.col-sm-12
         .row.bird-photo-title
-          %h3= @species.name_ru
-          %p
-            %i= @species.name_lat
-          %p= @species.name_en
+          -if @species.name_ru.blank?
+            %h3= @species.name_lat
+          -else
+            %h3= @species.name_ru
+            %p
+              %i= @species.name_lat
+            %p= @species.name_uz
+            %p
+              %i= @species.name_en
+
+        -if @species.single_subspecies && @species.sub_species.present?
+          .row.mbtm15
+            В Узбекистане обитает подвид -
+            =@species.sub_species.first.full_name
 
         -if @species.images.any?
           #media_block.row.bird-photo-img
@@ -14,20 +24,55 @@
               =image_tag @default_image.image.small.url, class: 'img-responsive'
           .row.add-comment-form-container
             .row.add-comment-form
-              %p#photo_descr_text= @default_image.description
-            .row.photo-info-dinamic
               %p
-                %a#photo_profile_lnk{:href => "#"}= @default_image.author
-                - if @default_image.date.present?
-                  |
-                  %span#photo_date= @default_image.date
-                - if @default_image.address.present?
-                  |
-                  %span#photo_place= @default_image.address
+                .col.col-md-1.aright
+                  %p
+                    %span.lbl Автор:
+                  %p
+                    %span.lbl Дата:
+                  %p
+                    %span.lbl Место:
+                .col.col-md-11
+                  %p#photo_author= @default_image.author
+                  %p#photo_date= date_format(@default_image.date)
+                  %p#photo_place= @default_image.address
+            .row.photo-info-dinamic
+              %p#photo_descr_text= @default_image.description
+
+        .row
+          .col-sm-12.col.col-md-12
+            .row.bird-photo-description
+              .row.bird-description
+                %p
+                  %h5 Описание
+                %p= @species.description.html_safe
+
+                - if @species.distribution.present?
+                  %p
+                    %h5 Распространение
+                  %p= @species.distribution.html_safe
+
+                - if @species.biology.present?
+                  %p
+                    %h5 Биология
+                  %p= @species.biology.html_safe
+
+                - if @species.sub_species.present? && !@species.single_subspecies
+                  %p.bird-sub-species
+                    %ol
+                      %h5 Подвиды
+                      -@species.sub_species.each do |sp|
+                        %li=link_to sp.full_name, species_path(sp)
+
+                - if @species.reference.present?
+                  %p
+                    %h5 Источники информации
+                  %p
+                    %i= @species.reference.html_safe
 
       .col-sm-12.col.col-md-4.fright.m-no-float
         .row.bird-photo-btn
-          =link_to 'Все встречи с видом', '#', class: 'btn btn-info sm-display-none'
+          =link_to 'Все встречи с видом', species_map_path(@species), class: 'btn btn-info sm-display-none'
 
         -if @species.images.size > 1
           .thumb_container.row.bird-photo-tumbs
@@ -56,43 +101,13 @@
                 = @species.family.name_ru
                 %br
                   %span.lbl> Вид:
-                  = @species.name_ru
-                  %br
+                  = @species.default_name
+
         - if @species.status.present?
           .row.bird-info-blck.block-status
             .row.info-block-head
               %p Охранный статус
             .row.info-block-body
               %p= @species.status
-
-      .col-sm-12.col.col-md-8
-        .row.bird-photo-description
-          .row.bird-description
-            %p
-              %h5 Описание
-            %p= @species.description
-
-            - if @species.distribution.present?
-              %p
-                %h5 Распространение
-              %p= @species.distribution
-
-            - if @species.biology.present?
-              %p
-                %h5 Биология
-              %p= @species.biology
-
-            - if @species.sub_species.present?
-              %p.bird-sub-species
-                %ol
-                  %h5 Подвиды
-                  -@species.sub_species.each do |sp|
-                    %li=link_to sp.full_name, species_path(sp)
-
-            - if @species.reference.present?
-              %p
-                %h5 Источники информации
-              %p
-                %i= @species.reference
 
     = render 'shared/nav_add_photo'

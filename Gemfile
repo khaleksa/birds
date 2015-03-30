@@ -26,6 +26,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'best_in_place'
+gem 'kaminari'
 
 group :test, :development do
   gem 'pry'

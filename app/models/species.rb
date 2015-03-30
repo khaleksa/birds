@@ -8,7 +8,20 @@ class Species < ActiveRecord::Base
 
   has_many :birds
 
-  validates_presence_of :name_ru, :name_lat, :name_en, :name_uz
+  validates_presence_of :name_lat, :family
+
+  scope :main, -> { where('parent_id IS NULL') }
+  scope :ordered, -> { order('lower(name_ru)') }
+  scope :by_name, -> (name) {
+    where("(lower(name_ru) like ?) OR
+           (lower(name_en) like ?) OR
+           (lower(name_lat) like ?) OR
+           (lower(name_uz) like ?)", name, name, name, name)
+  }
+
+  def active_link?
+    description.present? || images.any?
+  end
 
   def sub_species
     Species.where(parent_id: id)
@@ -18,10 +31,14 @@ class Species < ActiveRecord::Base
     images.detect { |image| image.default } || images.first
   end
 
+  def default_name
+    name_ru.present? ? name_ru : name_lat
+  end
+
   def full_name
     result = ''
 
-    names = [name_ru, name_en, name_lat, name_uz].compact.reject(&:empty?)
+    names = [name_ru, name_lat, name_uz, name_en].compact.reject(&:empty?)
     names.each_with_index do |name, index|
       result += ' (' if index == 1
       result += ' | ' if [2, 3].include?(index)

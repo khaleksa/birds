@@ -16,15 +16,8 @@
 //= require best_in_place
 
 //= require_tree ./libs
-
 //= require ./widgets/datetime_picker
-
-//= require ./pages/add_bird
-//= require ./pages/comment
-//= require ./pages/species
-//= require ./pages/show_birds
-//= require ./pages/profile
-//= require ./pages/common
+//= require_tree ./pages
 
 //= require_self
 
