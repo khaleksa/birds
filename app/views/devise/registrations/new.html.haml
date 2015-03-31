@@ -35,18 +35,6 @@
                 = f.password_field :password, autocomplete: "off", class: 'form-control'
               .col-md-3.col-sm-3.str-container
                 %span.req *
-            -#.row
-              .col-md-3.col-sm-3.lbl-container
-                %label{:for => "pwrd"} Фото профиля:
-              .col-md-6.col-sm-6.input-container
-                %input.form-control.sm-display-none{:disabled => "", :name => "pseudoimage", :type => "text"}
-                  .input-group.display-sm-only
-                    %input.form-control{:disabled => "", :name => "pseudoimage", :type => "text"}/
-                    %span.input-group-addon{:onclick => "browsebutton();"}
-                      %span.glyphicon ...
-                  %input{:name => "actualimage", :type => "file"}/
-              .col-md-3.col-sm-3.str-container
-                %a.mleft10.btn.btn-success.sm-display-none{:onclick => "browsebutton();"} Обзор...
             .row
               .col-md-3.col-sm-3.lbl-container
                 \&nbsp;
@@ -55,7 +43,7 @@
                   = f.check_box :big_year
                   -#%input{:name => "participate", :type => "checkbox"}/
                   %span
-                %label{:for => "participate"} Я хочу участвовать в Большом городе
+                %label{:for => "participate"} Я хочу участвовать в Большом Годе
               .col-md-3.col-sm-3.str-container
                 \&nbsp;
             .row.acenter
@@ -68,10 +56,10 @@
               .col-md-3.col-sm-3.lbl-container
                 \&nbsp;
               .col-md-6.col-sm-6.input-container
-                %a.fb-login{:href => "#"} Вход через Facebook
+                =link_to 'Регистрация через Facebook', user_omniauth_authorize_path(:facebook), class: 'fb-login'
               .col-md-3.col-sm-3.str-container
                 \&nbsp;
 
     / Content FOOT
     .row.top-row.acenter
-      %p.sm-display-none.info-color.mtop50 Мы грантируем конфиденциальность данных, которые вы предоставляете нам при регистрации
+      %p.sm-display-none.info-color.mtop50 Мы гарантируем конфиденциальность данных, которые вы предоставляете нам при регистрации

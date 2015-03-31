@@ -44,7 +44,7 @@
                     -index += 1
                 .participant-right-blck
                   =link_to user.full_name, profile_path(user.id)
-                  %p= "Всего видов #{user.species_count}"
+                  %p= "Всего видов: #{user.species_count}"
 
         .block-holder
           .mobile-blocks-nav
@@ -54,7 +54,7 @@
             .row.bird-list.scroll-container
               %ol
                 -@species_list.each do |species|
-                  %li=link_to species.name_ru, species_path(species)
+                  %li=link_to species.full_name, species_path(species)
 
         .block-holder
           .mobile-blocks-nav

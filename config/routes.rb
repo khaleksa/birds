@@ -2,7 +2,8 @@ Birds::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users,
-             :controllers => { registrations: 'users' },
+             :controllers => { registrations: 'users',
+                               omniauth_callbacks: 'users/omniauth_callbacks' },
              path: '/user',
              skip: :registrations
 

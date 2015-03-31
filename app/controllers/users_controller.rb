@@ -5,25 +5,12 @@ class UsersController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters, :only => [:create]
 
   def index
-    @users = User.includes(:birds).all
+    @users = User.includes(:birds).all.order(:last_name)
     @big_year_users_count = Stats::Counts.new.big_year_users_count
   end
 
   def create
     super
-
-    # if omniauth_registration? || verify_recaptcha
-    #   super do |user|10px
-    #     session[:instruction] = true
-    #     @tracking_manager.register(:registration, user)
-    #   end
-    # else
-    #   build_resource(sign_up_params)
-    #   clean_up_passwords(resource)
-    #   flash.now[:alert] = I18n.t('signup.errors.recaptcha')
-    #   flash.delete :recaptcha_error
-    #   render :new
-    # end
   end
 
   def change_password

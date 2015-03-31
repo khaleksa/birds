@@ -27,24 +27,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   process :resize_to_fill => [700, 524]
   process :quality => 80
-  # process :watermark
-
-  # def watermark
-  #   manipulate! do |img|
-  #     binding.pry
-  #     logo = MiniMagick::Image.from_file(Rails.root + 'public/images/asd.png')
-  #     # logo = Magick::Image.read("#{Rails.root}/app/assets/images/watermark.png").first
-  #     img = img.composite(logo, Magick::NorthWestGravity, 15, 0, Magick::OverCompositeOp)
-  #   end
-  # end
-  # def watermark
-  #   manipulate! do |img|
-  #     binding.pry
-  #     img = img.composite(MiniMagick::Image.open(Rails.root + 'public/images/asd.png'), "jpg") do |c|
-  #       c.gravity "SouthEast"
-  #     end
-  #   end
-  # end
 
   #
   # def scale(width, height)

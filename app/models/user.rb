@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable
 
   mount_uploader :avatar, AvatarUploader
 
@@ -12,15 +13,12 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :email
   validates_presence_of :email, :first_name, :last_name
+  validates :password, presence: true, if: :password_required?
 
   scope :big_year_members, ->() { where(big_year: true) }
 
   def full_name
-    "#{first_name} #{last_name}"
-  end
-
-  def self.species_count
-    User.sel
+    "#{last_name} #{first_name}"
   end
 
   def has_role?(role)
@@ -33,5 +31,23 @@ class User < ActiveRecord::Base
 
   def expert?
     has_role?(:expert)
+  end
+
+  def self.from_omniauth(auth)
+    provider = auth[:social_accounts_attributes][:provider]
+    uid = auth[:social_accounts_attributes][:uid]
+    where(provider: provider, uid: uid).first_or_create do |user|
+      user.provider = provider
+      user.uid = uid
+      user.email = auth[:email]
+      user.first_name = auth[:first_name]
+      user.last_name = auth[:last_name]
+    end
+  end
+
+  private
+  # super call contains (!persisted? || password.present? || password_confirmation.present?)
+  def password_required?
+    super && provider.blank? && uid.blank?
   end
 end
