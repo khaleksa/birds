@@ -43,4 +43,8 @@ class PagesController < ApplicationController
     @species_count = Stats::Counts.new.total_seen_species_count
     @birds_count = Bird.count
   end
+
+  def birding_rules
+
+  end
 end

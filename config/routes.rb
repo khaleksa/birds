@@ -23,6 +23,7 @@ Birds::Application.routes.draw do
     get :big_year
     get :about
     get :unknowns
+    get :birding_rules
   end
 
   resources :species, only: [:index, :show] do
