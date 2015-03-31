@@ -29,4 +29,9 @@ module ApplicationHelper
       return comment.text
     end
   end
+
+  def short_comment_text_dots(comment, max_size)
+    text = short_comment_text(comment, max_size)
+    comment.text.size > text.length ? text + '...' : text
+  end
 end
