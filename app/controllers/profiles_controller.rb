@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
     @species = stat.user_species(@user.id)
 
     #TODO: separate pagination of birds and comments
-    @birds = Bird.includes(:species).published.where(user_id: @user.id).order(timestamp: :desc).page(params[:page_birds]).per(18)
+    @birds = Bird.includes(:species).published.where(user_id: @user.id).order(timestamp: :desc).page(params[:page_birds]).per(2)
     @drafts = Bird.includes(:species).unpublished.where(user_id: @user.id).order(timestamp: :desc)
     @comments = Comment.where(user_id: @user.id).order(created_at: :desc).page(params[:page_comments]).per(15)
 
