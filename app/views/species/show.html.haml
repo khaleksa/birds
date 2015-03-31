@@ -72,7 +72,8 @@
 
       .col-sm-12.col.col-md-4.fright.m-no-float
         .row.bird-photo-btn
-          =link_to 'Все встречи с видом', species_map_path(@species), class: 'btn btn-info sm-display-none'
+          -#=link_to 'Все встречи с видом', species_map_path(@species), class: 'btn btn-info sm-display-none'
+          =link_to 'Все встречи с видом', '#', class: 'btn btn-info sm-display-none'
 
         -if @species.images.size > 1
           .thumb_container.row.bird-photo-tumbs
@@ -86,7 +87,7 @@
                                                                                             'place' => image.address }
 
         / FOR SMALLER DISPLAYS
-        .row.bird-photo-btn.p0
+        -#.row.bird-photo-btn.p0
           =link_to 'Все встречи с видом', '#', class: 'btn btn-info display-sm-only mbtm20'
 
         .row.bird-info-blck.block-science

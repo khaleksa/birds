@@ -1,10 +1,23 @@
-.col-sm-6.col-md-3.home-img-block.img-container-blck
-  .body
+.col-sm-6.col-md-3.home-img-block
+  .body.mtop10
     =link_to bird_path(bird) do
-      =image_tag bird.photo.small.url, class: 'img-responsive'
+      =image_tag bird.photo.small.url
   .foot
     .blck
       =image_tag bird.user.avatar.thumb.url, class: 'img-circle'
     .blck
       =link_to bird.user.full_name, profile_path(bird.user)
       %p=date_format(bird.timestamp)
+  .comments
+    .last
+      .comment-part
+        - comments_size = bird.comments.size
+        - if comments_size.zero?
+          = link_to 'Оставить комментарий', bird_path(bird)
+        - else
+          = render partial: 'comments/preview', locals: { bird: bird }
+    .more
+      - if comments_size > 1
+        =link_to "Еще комментарии: #{bird.comments.count}", bird_path(bird)
+      - else
+        Комментарии: #{comments_size}
