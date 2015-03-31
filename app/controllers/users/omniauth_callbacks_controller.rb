@@ -12,7 +12,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       user = User.where(email: auth[:email]).first
       if user.present?
-        account.update_attribute(:user, user)
         sign_in_and_redirect user, event: :authentication
       else
         continue_signup(auth)
