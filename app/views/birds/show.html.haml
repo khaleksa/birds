@@ -69,7 +69,7 @@
                     %p.row-link
                       =link_to comment.user.full_name, profile_path(comment.user)
                     %p.row-comment= comment.text
-                  -if comment.user.id == current_user.id
+                  -if current_user && (current_user.id == comment.user.id)
                     .col-md-1.delete-comment-container
                       =link_to '', '#', class: 'delete-comment-lnk', data: { id: comment.id }
 

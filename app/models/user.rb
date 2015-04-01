@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :roles
   has_many :birds
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates_uniqueness_of :email
   validates_presence_of :email, :first_name, :last_name
@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def current?(current_user)
-    id == current_user.id
+    current_user && (current_user.id == id)
   end
 
   def expert?
