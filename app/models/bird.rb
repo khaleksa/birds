@@ -42,6 +42,11 @@ class Bird < ActiveRecord::Base
     !user.expert? && expert.blank?
   end
 
+  def show_map_for(user)
+    return true if species.blank? || species.try(:show_map)
+    return (user.try(:expert?) ? true : false)
+  end
+
   private
   #Set expert_id for bird of expert user
   def set_expert

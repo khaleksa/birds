@@ -25,8 +25,8 @@
             %a.social-lnk.vk
               %span
 
-          .row.bird-photo-map{ :class => ('hide-bird-photo-map' if @bird.species.present? && !@bird.species.show_map) }
-            -if @bird.species.blank? || @bird.species.show_map
+          .row.bird-photo-map{ :class => ('hide-bird-photo-map' unless @bird.show_map_for(current_user)) }
+            -if @bird.show_map_for(current_user)
               #map_canvas{:style => "width:100%; height:300px;", :data => {edit: 'false', lat: @bird.latitude, lng: @bird.longitude}}
             -else
               =image_tag 'map/empty_map.jpg'
@@ -47,7 +47,8 @@
                 %p
                   =link_to @bird.user.full_name, profile_path(@bird.user)
                 %p= date_format(@bird.timestamp)
-                %p= @bird.address_string
+                -if @bird.show_map_for(current_user)
+                  %p= @bird.address_string
 
           .row.bird-photo-btns
             -unless @bird.unknown?
