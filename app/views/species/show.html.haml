@@ -82,7 +82,7 @@
                 = image_tag image.image.thumb.url, 'class' => 'img-responsive', 'data' => { 'src-small' => image.image.small.url,
                                                                                             'src-large' => image.image.url,
                                                                                             'author' => image.author,
-                                                                                            'date' => image.date,
+                                                                                            'date' => date_format(image.date),
                                                                                             'description' => image.description,
                                                                                             'place' => image.address }
 
