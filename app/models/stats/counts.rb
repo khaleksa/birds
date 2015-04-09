@@ -77,4 +77,21 @@ class Stats::Counts
         .where("birds.expert_id IS NOT NULL")
         .distinct.order(:name_ru)
   end
+
+  #List of all users and the number of their photos(published & confirmed)
+  def users_birds
+    sql = "SELECT u.*, ub.birds_count
+            FROM users u
+            LEFT JOIN (
+                SELECT
+                  b.user_id,
+                  count(b.id) AS birds_count
+                FROM birds b
+                WHERE (b.published = 'true') AND (b.expert_id IS NOT NULL)
+                GROUP BY b.user_id
+                ) ub on ub.user_id = u.id
+            ORDER BY u.last_name"
+
+    User.find_by_sql(sql)
+  end
 end
