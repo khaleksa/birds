@@ -1,0 +1,12 @@
+.bg-btm-container
+  .container.content
+    / Content TOP
+    .row.top-row
+      %h3.m-acenter Одобрить
+
+    / Content BODY
+    .mtop40.home-img-container
+      - @birds.each_slice(4) do |row|
+        .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
+
+    =render 'shared/nav_add_photo'

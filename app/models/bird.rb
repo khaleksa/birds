@@ -15,6 +15,7 @@ class Bird < ActiveRecord::Base
   scope :unpublished, ->() { where(:published => false) }
   scope :known, ->() { where('species_id IS NOT NULL') }
   scope :unknown, ->() { where('species_id IS NULL') }
+  scope :unconfirmed, ->() { where('expert_id IS NULL') }
   scope :approved, ->() { where('expert_id IS NOT NULL') }
   scope :by_species, ->(species_id) { where(:species_id => species_id) }
 

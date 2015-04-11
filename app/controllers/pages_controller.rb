@@ -38,6 +38,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def approve
+    @birds = Bird.published.known.unconfirmed.order(created_at: :desc)
+  end
+
   def about
     @users_count = User.count
     @species_count = Stats::Counts.new.total_seen_species_count
