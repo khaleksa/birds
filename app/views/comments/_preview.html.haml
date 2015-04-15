@@ -1,4 +1,4 @@
-- comment = bird.comments.order(created_at: :desc).first
+- comment = bird.comments.last
 -if comment.present?
   .comment-text
     = link_to comment.user.full_name, profile_path(comment.user)

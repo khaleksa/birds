@@ -63,12 +63,16 @@
             %h4 Комментарии
             .row.comments-container
               - @bird.comments.each do |comment|
-                .row.comment-row
+                .row.comment-row.mbtm15
                   .col-md-1.image-holder
                     =image_tag comment.user.avatar.thumb.url, class: 'img-circle'
                   .col-md-10.comment-holder
                     %p.row-link
-                      =link_to comment.user.full_name, profile_path(comment.user)
+                      .row
+                        .col-md-9
+                          =link_to comment.user.full_name, profile_path(comment.user)
+                        .col-md-3.comment-timestamp
+                          =datetime_format(comment.created_at)
                     %p.row-comment= comment.text
                   -if current_user && (current_user.id == comment.user.id)
                     .col-md-1.delete-comment-container

@@ -1257,7 +1257,9 @@ div.search-btn a.search:hover{
 .comments-container .comment-holder {
     padding-left:10px;
     font-size: 12px;
-    padding-right: 30px;
+    .comment-timestamp {
+      text-align: right;
+    }
 }
 .comments-container .row {
     margin-bottom:10px;

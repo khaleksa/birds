@@ -21,6 +21,11 @@ module ApplicationHelper
     date.strftime('%d/%m/%Y')
   end
 
+  def datetime_format(date)
+    return '' unless date.present?
+    date.strftime('%d/%m/%Y %H:%M')
+  end
+
   #TODO: add method to cut text without word breaking
   def short_comment_text(comment, max_size)
     if comment.text.size > max_size

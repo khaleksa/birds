@@ -3,7 +3,7 @@ class Bird < ActiveRecord::Base
   belongs_to :species
   belongs_to :expert, class_name: 'User'
 
-  has_many :comments, dependent: :destroy
+  has_many :comments, -> { order "created_at" }, dependent: :destroy
 
   mount_uploader :photo, ImageUploader
 
