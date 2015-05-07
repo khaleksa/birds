@@ -18,12 +18,12 @@
 
   = csrf_meta_tags
 
-%body
-  = render 'shared/navbar'
-  = render 'shared/search'
+%body{ :class => ('none-background' if hide_body_backgroud?) }
+  #wrap
+    = render 'shared/navbar'
+    = render 'shared/search'
 
-  = yield
-
+    = yield
   = render 'shared/footer'
 
   = javascript_include_tag 'application', 'data-turbolinks-track' => true

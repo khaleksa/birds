@@ -8,5 +8,3 @@
     .mtop40.home-img-container
       - @birds.each_slice(4) do |row|
         .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
-
-    =render 'shared/nav_add_photo'

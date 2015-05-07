@@ -20,5 +20,3 @@
                           %i= family.name_ru
                         - family.main_species.each do |species|
                           %li= species.active_link? ? link_to(species.full_name, species_path(species)) : species.full_name
-
-    =render 'shared/nav_add_photo'

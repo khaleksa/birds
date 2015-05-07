@@ -198,15 +198,15 @@ a.lnk-success {
 }
 .bg-btm-container /*other pages */
 {
-    background-image: asset-data-url('share/bg_btm.jpg');
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: bottom;
-    background-size: 100% auto;
+//    background-image: asset-data-url('share/bg_btm.jpg');
+//    background-repeat: no-repeat;
+//    background-attachment: scroll;
+//    background-position: bottom;
+//    background-size: 100% auto;
 }
 .content {
     padding-bottom:50px;
-    margin-top:60px ;
+    padding-top:60px ;
 }
 .content-container, .container.content{
     min-height:420px;
@@ -259,6 +259,26 @@ ol li:before {
 }
 
 
+html {
+  height: 100%;
+  body {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 275px;
+    background: asset-data-url('share/bg_btm.jpg') no-repeat center bottom;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+  }
+  body.none-background {
+    background: none;
+    padding-bottom: 75px;
+    .footer {
+      .top-row {
+        display: none;
+      }
+    }
+  }
+}
 
 
 
@@ -273,7 +293,7 @@ ol li:before {
 .navbar {
     border-radius:0 !important;
 }
-.birds-nav, .footer {
+.birds-nav, .footer-inner {
     -webkit-box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.75);
@@ -435,6 +455,11 @@ a.navbar-brand {
 
 @media (max-width: 1079px) {
 
+  html {
+    body {
+      padding-bottom: 200px;
+    }
+  }
     /*navigation */
     .navbar-fixed-top {
         position: relative !important;
@@ -824,26 +849,46 @@ a.navbar-brand {
 
 /*footer*/
 .footer {
-    background-color:#94846e;
-    padding:20px 0;
-}
-.footer p {
-    color:#fff;
-    font-size:12px;
-    line-height:15px;
-    margin-bottom:0;
-}
-.footer img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  .footer-inner {
+    background-color: #94846e;
+    padding: 20px 0;
+  }
+  .top-row {
+    padding-bottom: 60px;
+  }
+  p {
+    color: white;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 0;
+  }
+  img {
     margin: -5px 15px 0 0;
-}
-.footer a {
-    color:#fff !important;
-    font-size:12px;
-    line-height:15px;
-    text-decoration:underline !important;
-}
-.footer a:hover {
-    text-decoration:none !important;
+  }
+  a {
+    color: white;
+    font-size: 12px;
+    line-height: 15px;
+    text-decoration: underline;
+
+    &.btn-add-photo{
+      width: 300px;
+      height: 44px;
+      line-height: 25px;
+      font-size: 20px;
+      text-decoration: none;
+      margin-top: 15px;
+    }
+    &:hover {
+      text-decoration: none;
+      color: white;
+    }
+  }
 }
 
 
