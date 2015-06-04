@@ -39,8 +39,8 @@ ActiveAdmin.register Bird do
   form do |f|
     f.inputs do
       f.input :timestamp, as: :datepicker
-      f.input :species
-      f.input :user
+      f.input :species, as: :select, collection: Species.all.order(:name_ru)
+      f.input :user, as: :select, collection: User.all.order(:last_name)
       f.input :latitude
       f.input :longitude
       f.input :address
