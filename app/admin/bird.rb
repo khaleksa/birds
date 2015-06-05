@@ -3,10 +3,11 @@ ActiveAdmin.register Bird do
 
   menu priority: 4
 
-  filter :species
-  filter :user
+  filter :species, :collection => proc { Species.order(:name_ru) }, :label => 'Вид'
+  filter :user, :collection => proc { User.order(:last_name) }, :label => 'Бёрдвотчеров'
 
   index do
+    column :id
     column :timestamp
     column :species do |bird|
       link_to(bird.species.name_ru, admin_species_path(bird.species)) if bird.species.present?
