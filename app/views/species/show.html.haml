@@ -72,8 +72,7 @@
 
       .col-sm-12.col.col-md-4.fright.m-no-float
         .row.bird-photo-btn
-          -#=link_to 'Все встречи с видом', species_map_path(@species), class: 'btn btn-info sm-display-none'
-          =link_to 'Все встречи с видом', '#', class: 'btn btn-info sm-display-none'
+          =link_to 'Все встречи с видом', map_index_path(species_id: @species.id), class: 'btn btn-info sm-display-none'
 
         -if @species.images.size > 1
           .thumb_container.row.bird-photo-tumbs

@@ -1,0 +1,65 @@
+.container.content
+  / Content TOP
+  .row.top-row
+    .col-md-7.col-sm-12.map-bird-info.m-pleft30p
+      %h4 Все встречи с видом
+      %p= @species.name_ru
+      %p
+        %i= @species.name_lat
+      %p= @species.name_en
+      %p
+        %i= @species.name_uz
+    .col-md-5.col-sm-12.aright
+      =link_to 'Общая информация о виде', species_path(@species), class: 'btn btn-success btn-xlg sm-width-max mtop50 m-mtop20'
+
+  / Content BODY MAP
+  #map_canvas.row.top-row.gmap-big.mtop20
+
+  / Content BODY FORM
+  -#.row.add-comment-form-container
+  -#  %form
+  -#    .row.add-comment-form.no-arrow.map-form
+  -#      .col.col-md-7.col-sm-12
+  -#        .col.col-md-3.col-sm-12.m-pleft250.mm-pleft10
+  -#          %label.myCheckbox
+  -#            %input{:name => "all", :type => "checkbox"}/
+  -#            %span
+  -#          %label{:for => "all"} Все встречи
+  -#        .col.col-md-9.col-sm-12.m-mtop20.m-pleft90.mm-pleft0
+  -#          %label{:for => "date_start"} Дата встречи с видом:
+  -#          #datetimepicker1.input-group.date
+  -#            %input.form-control{"data-date-format" => "D/M/YYYY", :type => "text"}/
+  -#            %span.input-group-addon
+  -#              %span.glyphicon.glyphicon-calendar{"aria-hidden" => "true"}
+  -#          %label{:for => "date_end"} -
+  -#          #datetimepicker2.input-group.date
+  -#            %input.form-control{"data-date-format" => "D/M/YYYY", :type => "text"}/
+  -#            %span.input-group-addon
+  -#              %span.glyphicon.glyphicon-calendar{"aria-hidden" => "true"}
+  -#      .col.col-md-5.col-sm-12
+  -#        .col.col-md-9.col-sm-12.m-pleft180.mm-pleft0.m-mtop10
+  -#          %label{:for => "date_start"} Автор:
+  -#          #selectAuth.selectBox.mtop-7
+  -#            %span.selected.w190 Все
+  -#            %span.selectArrow.m-p-abs &nbsp;
+  -#            %ul.selectOptions.w220
+  -#              #scrollbar_track
+  -#                #scrollbar_handle
+  -#              #scrollbar_content.drop-dow-scroll
+  -#                %li.selectOption Птица
+  -#                %li.selectOption Птица1
+  -#                %li.selectOption Птица2
+  -#                %li.selectOption Птица3
+  -#                %li.selectOption Птица10
+  -#                %li.selectOption Птица11
+  -#                %li.selectOption Птица12
+  -#          %input{:name => "auth", :type => "hidden", :value => ""}/
+  -#        .col.col-md-3.col-sm-12.m-mtop10
+
+  / Content BODY PICTURES
+  .row.mtop40.map-img-container.row-sm
+    =render partial: 'bird', collection: @birds, as: :bird
+
+  / Content FOOT MORE PHOTO BTN
+  .row.acenter
+    %a.btn.btn-success.btn-xlg.sm-width-max Показать еще фотографии

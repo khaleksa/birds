@@ -1,0 +1,12 @@
+.col-sm-6.col-md-2.map-img-block.xs-align-center.img-container-blck
+  .head
+    .blck.map-tag
+      %i 1
+    .blck
+      = bird.address
+  .body
+    = image_tag bird.photo.thumb.url, class: 'img-responsive'
+  .foot
+    .blck
+      =link_to bird.user.full_name.slice(0, 28), profile_path(bird.user)
+      %p=date_format(bird.timestamp)

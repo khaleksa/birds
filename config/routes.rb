@@ -31,6 +31,8 @@ Birds::Application.routes.draw do
     get :map
   end
 
+  resources :map, only: [:index]
+
   resources :birds, except: [:index] do
     member do
       get 'edit_date' => 'birds#edit_date'

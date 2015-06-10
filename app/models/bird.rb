@@ -48,6 +48,10 @@ class Bird < ActiveRecord::Base
     return (user.try(:expert?) ? true : false)
   end
 
+  def species_name_ru
+    self.species ? self.species.name_ru : 'Вид не определен'
+  end
+
   private
   #Set expert_id for bird of expert user
   def set_expert
