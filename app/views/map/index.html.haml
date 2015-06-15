@@ -13,7 +13,7 @@
       =link_to 'Общая информация о виде', species_path(@species), class: 'btn btn-success btn-xlg sm-width-max mtop50 m-mtop20'
 
   / Content BODY MAP
-  #map_canvas.row.top-row.gmap-big.mtop20
+  #map_canvas.row.top-row.gmap-big.mtop20{ :data => { markers: 'true' } }
 
   / Content BODY FORM
   -#.row.add-comment-form-container
