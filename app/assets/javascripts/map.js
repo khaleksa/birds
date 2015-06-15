@@ -46,17 +46,21 @@ gmap.initInfoWindow = function() {
 gmap.placeMarkerWithInfo = function(data) {
     var contentString =
         '<div id="map_content" class="map-content">'+
-        '<div class="map_left"><img class="img-responsive" src="' + data.image_url + '" /></div>'+
+        '<div class="map_left">' +
+            '<a href="' + data.bird_url + '">' +
+                '<img class="img-responsive" src="' + data.image_url + '" /></div>' +
+            '</a>' +
         '<div class="map_right">' +
-        '<a href="' + data.author_link + '">' + data.author + '</a>' +
-        '<p>' + data.timestamp + '</p>' +
-        '<p>' + data.address + '</p>' +
+            '<a href="' + data.author_url + '">' + data.author + '</a>' +
+            '<p>' + data.timestamp + '</p>' +
+            '<p>' + data.address + '</p>' +
         '</div></div>';
 
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(data.lat, data.lng),
         map: this.map,
-        content: contentString
+        content: contentString,
+        bird_id: data.bird_id
     });
     this.markers.push(marker);
 
@@ -66,6 +70,20 @@ gmap.placeMarkerWithInfo = function(data) {
         $this.infowindow.open($this.map, this);
     });
 }
+
+gmap.bounceMarker = function(bird_id) {
+    for (i in this.markers) {
+        marker = this.markers[i];
+        if (marker.bird_id == bird_id) {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(function(){ marker.setAnimation(null); }, 3000);
+        }
+        else {
+            marker.setAnimation(null);
+        }
+    }
+}
+
 
 $(document).ready(function() {
     var map_element = $('#map_canvas');
@@ -101,5 +119,9 @@ $(document).ready(function() {
         $('.add-photo-container #bird_latitude').val(latLng.lat());
         $('.add-photo-container #bird_longitude').val(latLng.lng());
     }
+
+    $('.map-tag').click(function() {
+        gmap.bounceMarker($(this).data('bird-id'));
+    })
 
 });

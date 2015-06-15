@@ -58,7 +58,8 @@
 
   / Content BODY PICTURES
   .row.mtop40.map-img-container.row-sm
-    =render partial: 'bird', collection: @birds, as: :bird
+    -@birds.each_with_index do |bird, index|
+      =render partial: 'bird', locals: { bird: bird, number: index + 1}
 
   / Content FOOT MORE PHOTO BTN
   .row.acenter

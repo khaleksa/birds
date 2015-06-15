@@ -1676,17 +1676,20 @@ a.delete-comment-lnk:hover {
     font-size: 11.5px;
 }
 
-.map-tag i {
-    width:25px;
-    height:30px;
-    line-height:25px;
-    vertical-align:middle;
-    text-align:center;
-    display:block;
-    color:#fff;
-    font-style:normal;
-    font-size:16px;
+.map-tag {
+  cursor:pointer;
+  i {
+    width: 25px;
+    height: 30px;
+    line-height: 25px;
+    vertical-align: middle;
+    text-align: center;
+    display: block;
+    color: #fff;
+    font-style: normal;
+    font-size: 16px;
     background: url('map/map_tag.png') no-repeat center 0;
+  }
 }
 .map-bird-info p{
     margin-bottom:0 !important;
@@ -1710,24 +1713,30 @@ a.delete-comment-lnk:hover {
     width:30px;
     font-size:15px
 }
+
+/* Info window of google maps marker */
 .map-content  {
-    display:block;
-    padding:5px 0;
-    min-width:250px;
+  display: block;
+  padding: 5px 0;
+  min-width: 154px;
+  min-height: 192px;
+
+  div {
+    &.map_left {
+      max-width: 154px;
+    }
+
+    &.map_right {
+      font-size: 11px;
+      padding: 10px 0 10px 0;
+    }
+
+    &.map_right p {
+      margin: 0;
+    }
+  }
 }
-.map-content > div {
-    display:inline-block;
-}
-.map-content > div.map_left {
-    max-width:55px;
-}
-.map-content > div.map_right {
-    font-size:11px;
-    padding-left:10px;
-}
-.map-content > div.map_right p {
-    margin:0;
-}
+
 .add-comment-form.map-form {
     padding:25px 20px 12px 20px !important;
 }
