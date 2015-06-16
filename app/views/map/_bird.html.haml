@@ -1,9 +1,9 @@
 .col-sm-6.col-md-2.map-img-block.xs-align-center.img-container-blck
-  .head
-    .blck.map-tag{data: {bird_id: "#{bird.id}"} }
+  .head.map-adr-tag{data: {bird_id: "#{bird.id}"} }
+    .blck.map-tag
       %i= number
     .blck
-      = bird.address
+      = bird.address_string
   .body
     =link_to bird_path(bird) do
       = image_tag bird.photo.thumb.url, class: 'img-responsive'

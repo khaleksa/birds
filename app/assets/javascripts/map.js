@@ -16,6 +16,7 @@ gmap.init = function(selector, latLng, zoom) {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     this.map = new google.maps.Map($(selector)[0], mapOptions);
+    this.bounds = new google.maps.LatLngBounds();
 }
 
 gmap.placeMarker = function(latLng) {
@@ -46,18 +47,19 @@ gmap.initInfoWindow = function() {
 gmap.placeMarkerWithInfo = function(data) {
     var contentString =
         '<div id="map_content" class="map-content">'+
-        '<div class="map_left">' +
+        '<div class="map_image">' +
             '<a href="' + data.bird_url + '">' +
                 '<img class="img-responsive" src="' + data.image_url + '" /></div>' +
             '</a>' +
-        '<div class="map_right">' +
+        '<div class="map_text">' +
             '<a href="' + data.author_url + '">' + data.author + '</a>' +
             '<p>' + data.timestamp + '</p>' +
             '<p>' + data.address + '</p>' +
         '</div></div>';
 
+    var point = new google.maps.LatLng(data.lat, data.lng);
     var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(data.lat, data.lng),
+        position: point,
         map: this.map,
         content: contentString,
         bird_id: data.bird_id
@@ -69,6 +71,8 @@ gmap.placeMarkerWithInfo = function(data) {
         $this.infowindow.setContent(this.content);
         $this.infowindow.open($this.map, this);
     });
+
+    this.bounds.extend(point);
 }
 
 gmap.bounceMarker = function(bird_id) {
@@ -84,6 +88,9 @@ gmap.bounceMarker = function(bird_id) {
     }
 }
 
+gmap.fitMapBounce = function() {
+    this.map.fitBounds(this.bounds);
+}
 
 $(document).ready(function() {
     var map_element = $('#map_canvas');
@@ -97,6 +104,7 @@ $(document).ready(function() {
             for (i in data) {
                 gmap.placeMarkerWithInfo(data[i]);
             }
+            gmap.fitMapBounce();
         });
     } else {
         if (edit_mode) {
@@ -120,7 +128,7 @@ $(document).ready(function() {
         $('.add-photo-container #bird_longitude').val(latLng.lng());
     }
 
-    $('.map-tag').click(function() {
+    $('.map-adr-tag').click(function() {
         gmap.bounceMarker($(this).data('bird-id'));
     })
 
