@@ -86,8 +86,8 @@
                                                                                             'place' => image.address }
 
         / FOR SMALLER DISPLAYS
-        -#.row.bird-photo-btn.p0
-          =link_to 'Все встречи с видом', '#', class: 'btn btn-info display-sm-only mbtm20'
+        .row.bird-photo-btn.p0
+          =link_to 'Все встречи с видом', map_index_path(species_id: @species.id), class: 'btn btn-info display-sm-only mbtm20'
 
         .row.bird-info-blck.block-science
           .row.info-block-head

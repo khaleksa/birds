@@ -28,7 +28,7 @@ Birds::Application.routes.draw do
   end
 
   resources :species, only: [:index, :show] do
-    get :map
+
   end
 
   resources :map, only: [:index]

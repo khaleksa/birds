@@ -4,7 +4,7 @@ class MapController < ApplicationController
 
   def index
     @species = Species.find(params[:species_id])
-    @birds = @species.birds
+    @birds = @species.birds.approved
 
     respond_to do |format|
       format.html

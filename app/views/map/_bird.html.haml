@@ -3,7 +3,7 @@
     .blck.map-tag
       %i= number
     .blck
-      = bird.address_string
+      = bird.address_string.to_s.slice(0, 38)
   .body
     =link_to bird_path(bird) do
       = image_tag bird.photo.thumb.url, class: 'img-responsive'
