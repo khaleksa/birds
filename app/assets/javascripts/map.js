@@ -26,7 +26,7 @@ gmap.placeMarker = function(latLng) {
     });
 
     this.markers.push(marker);
-    marker
+    return marker;
 }
 
 gmap.clearMarkers = function() {
@@ -39,7 +39,7 @@ gmap.clearMarkers = function() {
 }
 
 gmap.initInfoWindow = function() {
-    this.infowindow =  new google.maps.InfoWindow({
+    this.infowindow = new google.maps.InfoWindow({
         content: ""
     })
 }
@@ -66,7 +66,7 @@ gmap.placeMarkerWithInfo = function(data) {
     });
     this.markers.push(marker);
 
-    $this = this;
+    var $this = this;
     google.maps.event.addListener(marker, 'click', function () {
         $this.infowindow.setContent(this.content);
         $this.infowindow.open($this.map, this);
@@ -77,7 +77,7 @@ gmap.placeMarkerWithInfo = function(data) {
 
 gmap.bounceMarker = function(bird_id) {
     for (i in this.markers) {
-        marker = this.markers[i];
+        var marker = this.markers[i];
         if (marker.bird_id == bird_id) {
             marker.setAnimation(google.maps.Animation.BOUNCE);
             setTimeout(function(){ marker.setAnimation(null); }, 3000);
