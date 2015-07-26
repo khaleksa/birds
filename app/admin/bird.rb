@@ -3,6 +3,7 @@ ActiveAdmin.register Bird do
 
   menu priority: 4
 
+  filter :id
   filter :species, :collection => proc { Species.order(:name_ru) }, :label => 'Вид'
   filter :user, :collection => proc { User.order(:last_name) }, :label => 'Бёрдвотчеров'
 
@@ -23,6 +24,9 @@ ActiveAdmin.register Bird do
       row :timestamp
       row :species
       row :user
+      row :expert do
+        link_to bird.expert.full_name, profile_path(bird.expert) if bird.expert.present?
+      end
       row :latitude
       row :longitude
       row :address
