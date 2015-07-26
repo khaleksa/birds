@@ -13,7 +13,7 @@
       =link_to 'Общая информация о виде', species_path(@species), class: 'btn btn-success btn-xlg sm-width-max mtop50 m-mtop20'
 
   / Content BODY MAP
-  #map_canvas.row.top-row.gmap-big.mtop20{ :data => { markers: 'true', url: "#{map_index_url(species_id: @species.id)}"} }
+  #map_canvas.row.top-row.gmap-big.mtop20{ :data => { markers: 'true', url: "#{map_index_url(@map_url_params)}"} }
 
   / Content BODY FORM
   -#.row.add-comment-form-container
@@ -58,6 +58,6 @@
 
   / Content BODY PICTURES
   .row.mtop40.map-img-container.row-sm
-    -@birds.each_with_index do |bird, index|
+    -@species_birds.each_with_index do |bird, index|
       =render partial: 'bird', locals: { bird: bird, number: index + 1}
 

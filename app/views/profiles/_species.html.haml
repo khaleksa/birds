@@ -2,5 +2,5 @@
   %ol
     -@species.each do |species|
       %li
-        =link_to species_path(species) do
+        =link_to map_index_path(species_id: species.id, user_id: user_id) do
           %span= species.full_name

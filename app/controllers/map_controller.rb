@@ -4,11 +4,18 @@ class MapController < ApplicationController
 
   def index
     @species = Species.find(params[:species_id])
-    @birds = @species.birds.approved
+    @map_url_params = { species_id: @species.id }
+
+    @species_birds = @species.birds.approved
+    #TODO: @species_birds = @species_birds.big_year(params[:big_year].to_i) if params[:big_year]
+    if params[:user_id]
+      @species_birds = @species_birds.by_user(params[:user_id])
+      @map_url_params[:user_id] = params[:user_id]
+    end
 
     respond_to do |format|
       format.html
-      format.json { render json: birds_json_data(@birds) }
+      format.json { render json: birds_json_data(@species_birds) }
     end
   end
 
