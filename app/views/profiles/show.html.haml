@@ -25,16 +25,24 @@
       .row.sub-nav-pils.mtop20.sm-display-none
         -if @user.current?(current_user)
           %a.active.profile-menu{"data-view" => "block1"}
-            %span Профиль
+            .menu-title
+              %span Профиль
         %a.profile-menu{"data-view" => "block2"}
-          %span Виды [#{@species.size}]
+          .menu-title
+            %span Виды [#{@species.size}]
         %a.profile-menu{"data-view" => "block3"}
-          %span Фотографии [#{@birds.total_count}]
+          .menu-title
+            %span Фотографии
+            %span.profile-birds-count [#{@birds.total_count}]
         -if @user.current?(current_user)
           %a.profile-menu{"data-view" => "block4"}
-            %span Черновики [#{@drafts.size}]
+            .menu-title
+              %span Черновики
+              %span.profile-drafts-count [#{@drafts.size}]
         %a.profile-menu{"data-view" => "block5"}
-          %span Комментарии [#{@comments.total_count}]
+          .menu-title
+            %span Комментарии
+            %span.profile-comments-count [#{@comments.total_count}]
 
       .row.blocks-content
         -if @user.current?(current_user)
@@ -54,7 +62,8 @@
         .block-holder
           .mobile-blocks-nav
             %a{"data-view" => "block3"}
-              %span Фотографии [#{@birds.total_count}]
+              %span Фотографии
+              %span.profile-birds-count [#{@birds.total_count}]
           #block3.row.profile-block-container.profile-birds-block.mtop20
             .row
               .row.row-sm.birds-container
@@ -66,7 +75,8 @@
           .block-holder
             .mobile-blocks-nav
               %a{"data-view" => "block4"}
-                %span Черновики [#{@drafts.size}]
+                %span Черновики
+                %span.profile-drafts-count [#{@drafts.size}]
             #block4.row.profile-block-container.profile-drafts-block.mtop20
               .row
                 .row.row-sm.birds-container
@@ -76,7 +86,7 @@
           .mobile-blocks-nav
             %a{"data-view" => "block5"}
               %span Комментарии
-              %span [#{@comments.total_count}]
+              %span.profile-comments-count [#{@comments.total_count}]
           #block5.row.profile-block-container.profile-comments-block.mtop20
             .row
               .comments-container

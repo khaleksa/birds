@@ -39,6 +39,7 @@ $(function() {
             type: 'DELETE',
             success: function(result) {
                 $this.closest('.row .comment-row').remove();
+                $('.profile-comments-count').html('[' + result['count'] + ']');
             }
         });
     });

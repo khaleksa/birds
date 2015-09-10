@@ -18,20 +18,20 @@ $(function() {
             $("a[data-view='" + show_block + "']").addClass("active");
             $(".blocks-content div#" + show_block + "").addClass("active-block");
         }
-    })
+    });
 
     $('.input-group .g-pencil').on('click', function(e) {
         e.preventDefault();
         $(e.target).prev().trigger('click');
-    })
+    });
 
     $('#change-avatar').on('click', function() {
         $('#avatar-file-field').trigger('click');
-    })
+    });
 
     $('#avatar-file-field').on('change', function(event) {
         $(this).closest('form').submit();
-    })
+    });
 
     $('.delete_user_bird').on('click', function(event) {
         event.preventDefault();
@@ -45,8 +45,15 @@ $(function() {
                 type: 'DELETE',
                 success: function(result) {
                     $this.closest('.profile-bird-container').remove();
+                    if (result['published']) {
+                        $('.profile-birds-count').html('[' + result['count'] + ']');
+                    }
+                    else {
+                        $('.profile-drafts-count').html('[' + result['count'] + ']');
+                    }
                 }
             });
         }
-    })
+    });
+
 });

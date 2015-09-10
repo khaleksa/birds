@@ -1946,7 +1946,7 @@ a.delete-comment-lnk:hover {
       font-size:19px;
       margin-right:5px;
     }
-    a span {
+    a .menu-title {
       padding:10px 20px;
       display:block;
     }
@@ -1955,7 +1955,7 @@ a.delete-comment-lnk:hover {
       background: asset-data-url('share/bg_arrow_down.png') no-repeat bottom 0 right 50%;
       text-decoration:none !important;
     }
-    a.active span, a:hover span {
+    a.active .menu-title, a:hover .menu-title {
       background:#f7f7ed;
     }
   }

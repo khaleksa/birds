@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    deleted_comment = Comment.destroy(params[:id])
-    render json: { success: deleted_comment.present? }
+    Comment.destroy(params[:id])
+    render json: { count: current_user.comments.size }
   end
 end

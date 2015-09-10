@@ -75,8 +75,11 @@ class BirdsController < ApplicationController
   end
 
   def destroy
-    deleted_bird = Bird.destroy(params[:id])
-    render json: { success: deleted_bird.present? }
+    bird = Bird.find(params[:id])
+    bird_published = bird.published
+    Bird.destroy(bird.id)
+    birds_count = bird_published ? current_user.birds.published.count : current_user.birds.unpublished.count
+    render json: { published: bird_published, count: birds_count }
   end
 
   def approve
