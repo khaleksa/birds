@@ -7,11 +7,10 @@
       .progrees-bar-container
         / TOP
         .row.progrees-bar-top-icons
-          %a{:href => "#"}
-            .col.col-md-2.step-done
-              .progress-bar-item.progress-top-round.progress-photo-ico
-                %i &nbsp;
-          %a{:href => "#"}
+          .col.col-md-2.step-done
+            .progress-bar-item.progress-top-round.progress-photo-ico
+              %i &nbsp;
+          =link_to edit_date_bird_path(@bird) do
             .col.col-md-4.step-done.acenter
               .progress-bar-item.progress-top-round.progress-calendar-ico
                 %i &nbsp;
@@ -40,15 +39,14 @@
         / BTM
         .row.progrees-bar-bottom-icons
           .col.col-md-2.step-done
-            %a{:href => "#"}
-              .progress-bar-item.progress-btn-round
-                %i
+            .progress-bar-item.progress-btn-round
+              %i
             .progress-bar-item.dash.right-dash.big-dash
               \&nbsp;
           .col.col-md-4.step-done
             .progress-bar-item.dash.left-dash
               \&nbsp;
-            %a{:href => "#"}
+            =link_to edit_date_bird_path(@bird) do
               .progress-bar-item.progress-btn-round
                 %i
             .progress-bar-item.dash.right-dash
@@ -95,16 +93,15 @@
     / Content TOP PROGRESS BAR - SMALLER DISPLAY
     .small-progrees-bar-container
       %p.step-done
-        %a{:href => "#"}
-          %span.progress-bar-item.small-progress-bar-round-num
-            %i 1
-          %span.small-progress-bar-dash
-            %i.progress-bar-item &nbsp;
-          %span.progress-bar-item.progress-top-round.progress-photo-ico.small-progress-bar-round-icon
-            %i &nbsp;
-          %span.small-progress-bar-text Загрузите фотографию
+        %span.progress-bar-item.small-progress-bar-round-num
+          %i 1
+        %span.small-progress-bar-dash
+          %i.progress-bar-item &nbsp;
+        %span.progress-bar-item.progress-top-round.progress-photo-ico.small-progress-bar-round-icon
+          %i &nbsp;
+        %span.small-progress-bar-text Загрузите фотографию
       %p.step-done
-        %a{:href => "#"}
+        =link_to edit_date_bird_path(@bird) do
           %span.progress-bar-item.small-progress-bar-round-num
             %i 2
           %span.small-progress-bar-dash
