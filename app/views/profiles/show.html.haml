@@ -66,7 +66,7 @@
               %span.profile-birds-count [#{@birds.total_count}]
           #block3.row.profile-block-container.profile-birds-block.mtop20
             .row
-              .row.row-sm.birds-container
+              .row.row-sm.profile-birds-container
                 =render partial: 'bird', collection: @birds, as: :bird
               .birds-pagination.pagination-block
                 =paginate @birds, :remote => true, :param_name => 'page_birds'
@@ -79,7 +79,7 @@
                 %span.profile-drafts-count [#{@drafts.size}]
             #block4.row.profile-block-container.profile-drafts-block.mtop20
               .row
-                .row.row-sm.birds-container
+                .row.row-sm.profile-birds-container
                   =render partial: 'bird', collection: @drafts, as: :bird
 
         .block-holder

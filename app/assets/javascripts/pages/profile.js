@@ -33,9 +33,9 @@ $(function() {
         $(this).closest('form').submit();
     });
 
-    $('.delete_user_bird').on('click', function(event) {
+    $('.profile-birds-container').on('click', '.delete_user_bird', function(event) {
         event.preventDefault();
-        var $this = $(this);
+        var $this = $(event.target);
 
         var result = confirm("Вы действительно хотите удалить фотографию?");
         if (result) {

@@ -29,9 +29,9 @@ $(function() {
         );
     });
 
-    $('.delete-comment-lnk').on('click', function(event) {
+    $('.profile-comments-block .comments-container').on('click', '.delete-comment-lnk', function(event) {
         event.preventDefault();
-        var $this = $(this);
+        var $this = $(event.target);
         var comment_id = $this.data('id');
 
         $.ajax({
