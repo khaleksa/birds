@@ -87,7 +87,7 @@ class Stats::Counts
                   b.user_id,
                   count(b.id) AS birds_count
                 FROM birds b
-                WHERE (b.published = 'true') AND (b.expert_id IS NOT NULL)
+                WHERE b.published = 'true'
                 GROUP BY b.user_id
                 ) ub on ub.user_id = u.id
             ORDER BY u.last_name"
