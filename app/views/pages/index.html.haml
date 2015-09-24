@@ -1,6 +1,10 @@
 .bg-container
+  = render 'contests'
+
   .container.content
     = render 'shared/nav_add_photo'
+
+    .for-banner
 
     .mtop40.home-img-container
       - @birds.each_slice(4) do |row|

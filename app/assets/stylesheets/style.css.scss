@@ -342,6 +342,41 @@ a.navbar-brand {
   }
 }
 
+.posters.banner {
+  position: absolute;
+  top: 18em;
+  width: 100%;
+  height: 180px;
+  padding: 0;
+  .banner-image {
+    float: right;
+    padding: 0 50px;
+  }
+  ul.banner-menu {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0 0 0;
+    li {
+      margin-bottom: 10px;
+      p {
+        font-size: 18px;
+      }
+      a {
+        font-size: 18px;
+        text-decoration: underline;
+        color: #94846e;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.container.content .for-banner {
+  margin-bottom: 230px;
+}
+
 .posters {
   background-color: #f7f7ed;
   height: 240px;
