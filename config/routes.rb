@@ -53,6 +53,12 @@ Birds::Application.routes.draw do
     post 'main_species' => 'search#search_main_species'
   end
 
+  resource :contest, only: [] do
+    get 'big_day'
+    get 'best_photo'
+    get 'our_friend'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
