@@ -56,6 +56,7 @@ Birds::Application.routes.draw do
   resource :contest, only: [] do
     get 'big_day'
     get 'best_photo'
+    get 'best_photo_file'
     get 'our_friend'
   end
 
