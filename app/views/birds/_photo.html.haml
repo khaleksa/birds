@@ -6,7 +6,7 @@
       .blck
         =link_to bird.species.name_ru, bird_path(bird)
   .body
-    =link_to bird_path(bird) do
+    =link_to bird_path(bird), target: '_blank' do
       =image_tag bird.photo.small.url
   .foot
     .blck

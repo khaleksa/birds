@@ -1379,16 +1379,12 @@ div.search-btn a.search:hover{
     margin-bottom:5px;
     font-size:11px;
 }
-.add-comment-form-container {
-    position:relative;
-    padding-top: 30px;
-}
+
 .bird-photo-descr {
-    position:relative;
-    padding-left:20px;
-    padding-top:20px;
-}
-.bird-photo-descr .descr-container:before{
+  position:relative;
+  padding-left:20px;
+  padding-top:20px;
+  .descr-container:before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -1397,25 +1393,40 @@ div.search-btn a.search:hover{
     width: 19px;
     height: 58px;
     background: asset-data-url('share/bg_arrow_left.png');
+  }
 }
-.add-comment-form-container .add-comment-form:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 12px;
-    left: 55px;
-    width: 58px;
-    height: 19px;
-    background: asset-data-url('share/bg_arrow_up.png');
-}
-.add-comment-form-container .add-comment-form p {
-    margin-bottom:0;
-}
-.add-comment-form-container .add-comment-form a {
-    text-decoration:underline !important;
-}
-.add-comment-form-container .add-comment-form a:hover {
-    text-decoration:none !important;
+
+.add-comment-form-container {
+  position:relative;
+  padding-top: 30px;
+
+  .add-comment-form {
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 12px;
+      left: 55px;
+      width: 58px;
+      height: 19px;
+      background: asset-data-url('share/bg_arrow_up.png');
+    }
+    p {
+      margin-bottom:0;
+    }
+    a {
+      text-decoration:underline !important;
+      &:hover {
+        text-decoration:none !important;
+      }
+    }
+    textarea {
+      min-height: 56px;
+    }
+    #add-comment {
+      width: 130px;
+    }
+  }
 }
 .bird-photo-social {
     text-align:right;
