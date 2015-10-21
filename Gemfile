@@ -13,6 +13,8 @@ gem 'haml-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
+gem 'momentjs-rails', '>= 2.9.0'
+
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'

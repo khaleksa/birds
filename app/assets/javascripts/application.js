@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require best_in_place
 
+//= require moment
 //= require_tree ./libs
 //= require ./widgets/datetime_picker
 //= require_tree ./pages
