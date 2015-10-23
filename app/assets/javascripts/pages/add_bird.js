@@ -17,9 +17,9 @@ $(function() {
     })
 
     //*** Photo's date ***
-    $('#bird-datetime-group').datetimepicker(function() {
-        pickTime: false;
-    })
+    $('#bird-datetime-group').datetimepicker({
+        locale: 'ru'
+    });
 
     //*** Bird's species ***
     $('.add-photo-container .species-item').on('click', function(event) {
