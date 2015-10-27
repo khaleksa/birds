@@ -6,7 +6,6 @@
       .col.col-md-7.col-sm-12.fcenter
         = form_for :user, url: user_registration_path do |f|
           .reg-form-cntainer
-            = devise_error_messages!
             .row
               .col-md-3.col-sm-3.lbl-container
                 %label{:for => "fname"} Имя:

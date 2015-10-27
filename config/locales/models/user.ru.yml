@@ -26,3 +26,10 @@ ru:
           attributes:
             email:
               incorrect_email: "введен в неверном формате"
+              blank: "обязательна для заполнения"
+            first_name:
+              blank: "обязательно для заполнения"
+            last_name:
+              blank: "обязательна для заполнения"
+            password:
+              blank: "обязателен для заполнения"
