@@ -2,7 +2,11 @@ class ContestsController < ApplicationController
 
   FILE_PATH = File.join(Rails.root, "public", "data")
 
-  def big_day
+  def big_day_in_ecocenter
+
+  end
+
+  def big_day_in_tashkent
 
   end
 
