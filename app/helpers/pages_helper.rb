@@ -12,7 +12,7 @@ module PagesHelper
     if controller_name == 'contests' && action_name == 'big_day_in_tashkent'
       URI.join(root_url, image_path('fb/big-day-2015.png'))
     else
-      ''
+      URI.join(root_url, image_path('fb/birds-fb-share.png'))
     end
   end
 
@@ -28,7 +28,7 @@ module PagesHelper
     if controller_name == 'contests' && action_name == 'big_day_in_tashkent'
       'Любите природу и прогулки по свежему воздуху? Тогда вам наверняка должно понравиться наблюдение за птицами или бердвотчинг. Примите участие в соревновании «Большой День»!'
     else
-      'Сайт для орнитологов и бёрдвотчеров. Здесь вы найдете всю информацию о птицах Узбекистана, описания видов и море фотографий птиц.'
+      'Здесь вы найдете информацию о птицах Узбекистана и море фотографий! Сайт создан людьми, увлеченными птицами и природой, которые готовы помочь каждому в определении птиц.'
     end
   end
 
