@@ -51,6 +51,6 @@ class Species < ActiveRecord::Base
 
   def show_map_for(user)
     return true if show_map
-    return user.expert?
+    return user.try(:expert?)
   end
 end

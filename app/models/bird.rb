@@ -54,7 +54,7 @@ class Bird < ActiveRecord::Base
   end
 
   def owner?(user)
-    user_id == user.id
+    user_id == user.try(:id)
   end
 
   private
