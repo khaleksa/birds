@@ -48,4 +48,9 @@ class Species < ActiveRecord::Base
 
     result
   end
+
+  def show_map_for(user)
+    return true if show_map
+    return user.expert?
+  end
 end

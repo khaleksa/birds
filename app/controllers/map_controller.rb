@@ -2,8 +2,9 @@ class MapController < ApplicationController
   include DateHelper
   layout 'map'
 
+  before_filter :authorize_user!
+
   def index
-    @species = Species.find(params[:species_id])
     @map_url_params = { species_id: @species.id }
 
     @species_birds = @species.birds.approved
@@ -37,5 +38,12 @@ class MapController < ApplicationController
       data<<bird_data
     end
     data.to_json
+  end
+
+  def authorize_user!
+    @species = Species.find(params[:species_id])
+    unless @species.show_map_for(current_user)
+      redirect_to :root
+    end
   end
 end

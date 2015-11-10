@@ -45,12 +45,16 @@ class Bird < ActiveRecord::Base
   end
 
   def show_map_for(user)
-    return true if species.blank? || species.try(:show_map)
-    return (user.try(:expert?) ? true : false)
+    return true if species.blank? || owner?(user)
+    return species.show_map_for(user)
   end
 
   def species_name_ru
     self.species ? self.species.name_ru : 'Вид не определен'
+  end
+
+  def owner?(user)
+    user_id == user.id
   end
 
   private

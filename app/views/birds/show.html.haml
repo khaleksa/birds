@@ -53,7 +53,8 @@
           .row.bird-photo-btns
             -unless @bird.unknown?
               =link_to 'Общая информация о виде', species_path(@bird.species), class: 'btn btn-success'
-              =link_to 'Все встречи с видом', map_index_path(species_id: @bird.species.id), class: 'btn btn-info'
+              -if @bird.species.show_map_for(current_user)
+                =link_to 'Все встречи с видом', map_index_path(species_id: @bird.species.id), class: 'btn btn-info'
             -if @bird.need_approve? && current_user.try(:expert?)
               =link_to 'Подтвердить', '#', class: 'btn btn-success confirm-species', data: { id: @bird.id }
 
