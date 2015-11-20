@@ -15,6 +15,8 @@
               %p= @bird.species.name_en
           .row.bird-photo-img
             =image_tag @bird.photo.url, class: 'img-responsive'
+          .row.bird-publish-date
+            Загружено: #{date_format(@bird.created_at)}
 
         .col.col-md-4.fright.col-sm-12.m-no-float
           .row.bird-photo-social
