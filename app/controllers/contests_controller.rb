@@ -10,6 +10,18 @@ class ContestsController < ApplicationController
 
   end
 
+  def big_day_photo
+
+  end
+
+  def big_day_photo_form
+    send_file(File.join(FILE_PATH, "photo_big_day_form.docx"))
+  end
+
+  def big_day_photo_rules
+    send_file(File.join(FILE_PATH, "photo_big_day_rules.doc"))
+  end
+
   def our_friend
 
   end
@@ -20,5 +32,9 @@ class ContestsController < ApplicationController
 
   def best_photo_file
     send_file(File.join(FILE_PATH, "Best_photo_form.docx"))
+  end
+
+  def past
+
   end
 end

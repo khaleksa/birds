@@ -56,9 +56,13 @@ Birds::Application.routes.draw do
   resource :contest, only: [] do
     get 'big_day_in_ecocenter'
     get 'big_day_in_tashkent'
+    get 'big_day_photo'
+    get 'big_day_photo_form'
+    get 'big_day_photo_rules'
     get 'best_photo'
     get 'best_photo_file'
     get 'our_friend'
+    get 'past'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
