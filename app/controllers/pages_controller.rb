@@ -51,4 +51,8 @@ class PagesController < ApplicationController
   def birding_rules
 
   end
+
+  def help
+    
+  end
 end
