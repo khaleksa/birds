@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   def index
     #TODO: Birds published change from boolean to datetime
     @birds = Bird.published.known.order(created_at: :desc).limit(8)
+    @commented_birds = Bird.published.with_comments.order(created_at: :desc).limit(8)
 
     offset = params[:count]
     @birds = @birds.offset(offset.to_i) if offset

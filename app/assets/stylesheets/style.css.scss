@@ -344,7 +344,7 @@ a.navbar-brand {
 
 .posters.banner {
   position: absolute;
-  top: 18em;
+  top: 254px;
   width: 100%;
   height: 180px;
   padding: 0;
@@ -957,102 +957,6 @@ div.search-btn a.search:hover{
     background-color:#86745b;
     border-bottom:2px solid #94846e;
 }
-
-
-
-
-
-/* homepage and birds_photo_unknown*/
-.home-img-container .col-md-3 {
-  min-width:256px;
-  max-width:256px;
-  padding:0 !important;
-  padding: 0 !important;
-  margin: 0 9px 25px;
-  &:first-child {
-    margin-left: 0;
-  }
-  &:last-child {
-    margin-right: 0;
-  }
-}
-.home-img-block > div, .img-container-blck > div {
-    display:table;
-    overflow:hidden;
-    width:100%;
-}
-.home-img-block > div > div.blck , .img-container-blck > div > div.blck{
-    display:table-cell;
-    vertical-align: middle;
-}
-.home-img-block > div.head {
-    min-height:60px !important;
-    max-height:60px !important;
-    height:60px !important;
-    border-radius: 3px 3px 0 0 !important;
-    background-color:#f7f7ed !important;
-}
-
-.home-img-block > div.foot, .img-container-blck > div.foot {
-    min-height:54px;
-    max-height:60px;
-    height:54px;
-}
-.home-img-block > div.foot p, a {
-    font-size: 12px;
-}
-.home-img-block > div.foot p {
-    margin:0 ;
-    color: #94846e;
-}
-.home-img-block > div.head > div:first-child, .home-img-block > div.foot > div:first-child {
-    padding:0 10px;
-    max-width: 56px;
-    width: 56px;
-}
-.home-img-block > div.head > div:last-child, .home-img-block > div.foot > div:last-child {
-    padding:0 10px 0 0;
-}
-.home-img-block > div.head a {
-    color:#4d4d4d;
-    text-decoration:none;
-    font-size: 16px;
-    line-height: 16px !important;
-    font-weight: 400;
-}
-.home-img-block > div.head a:hover {
-    color:#6bcbca;
-    text-decoration:none;
-}
-
-/* birds comments on home */
-.home-img-block {
-    .comments {
-        font-size: 12px;
-        color: #4d4d4d;
-        .last {
-            border-top: 1px solid #e5e5da;
-            border-bottom: 1px solid #e5e5da;
-            height: 44px;
-            .comment-part {
-                display: table-cell;
-                height: 40px;
-                vertical-align: middle;
-            }
-        }
-        .more {
-          padding-top: 3px;
-          a {
-            color: #4d4d4d;
-            &:hover {
-              text-decoration: none;
-              color: #6bcbca;
-            }
-          }
-        }
-    }
-}
-
 
 
 

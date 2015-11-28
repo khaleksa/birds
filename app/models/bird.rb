@@ -17,6 +17,7 @@ class Bird < ActiveRecord::Base
   scope :unknown, ->() { where('species_id IS NULL') }
   scope :unconfirmed, ->() { where('expert_id IS NULL') }
   scope :approved, ->() { where('expert_id IS NOT NULL') }
+  scope :with_comments, ->() { joins(:comments) }
   scope :by_species, ->(species_id) { where(:species_id => species_id) }
   scope :by_user, ->(user_id) { where(user_id: user_id) }
 

@@ -1,4 +1,4 @@
-.bg-container
+.bg-container.homepage-container
   = render 'shared/contests'
 
   .container.content
@@ -6,12 +6,32 @@
 
     .for-banner
 
-    .mtop40.home-img-container
-      - @birds.each_slice(4) do |row|
-        .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
+    .row.tabs
+      %ul.nav.nav-tabs
+        %li.active
+          %a{"data-toggle" => "tab", :href => "#current"} Определенные
+        %li
+          %a{"data-toggle" => "tab", :href => "#commentable"} Комментируемые
+        %li
+          %a{"data-toggle" => "tab", :href => "#photo-big-day"} Фото Большой День
 
-    .row.acenter
-      =link_to 'Показать еще фотографии', root_path, data: {count: PagesController::PHOTO_COUNT_PER_PAGE}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'
+    .tab-content
+      #current.tab-pane.fade.in.active
+        .mtop40.home-img-container
+          - @birds.each_slice(4) do |row|
+            .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
+        .row.acenter
+          =link_to 'Показать еще фотографии', root_path, data: {count: PagesController::PHOTO_COUNT_PER_PAGE}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'
+
+      #commentable.tab-pane.fade
+        .mtop40.commentable-container
+          - @commented_birds.each_slice(4) do |row|
+            .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
+
+      #photo-big-day.tab-pane.fade
+        .mtop40.photo-big-day-container
+          %p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+
 
   .posters
     .row.container
