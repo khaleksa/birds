@@ -2,9 +2,11 @@
   .head
     .blck
       =image_tag 'share/bird_logo.png'
-    - if bird.species.present?
-      .blck
+    .blck
+      - if bird.species.present?
         =link_to bird.species.name_ru, bird_path(bird)
+      - else
+        Вид не определен
   .body
     =link_to bird_path(bird), target: '_blank' do
       =image_tag bird.photo.small.url
