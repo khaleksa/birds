@@ -26,6 +26,7 @@ Birds::Application.routes.draw do
     get :birding_rules
     get :approve
     get :show_commentable
+    get :help
   end
 
   resources :species, only: [:index, :show] do
