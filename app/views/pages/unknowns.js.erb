@@ -1,4 +1,4 @@
 <% @birds.each_slice(4) do |row| %>
-  $('.home-img-container').append("<div class='row row-sm'><%= j( render partial: 'birds/photo_unknown', collection: row, as: :bird ) %></div>");
+  $('.unknown-container').append("<div class='row row-sm'><%= j( render partial: 'birds/photo_unknown', collection: row, as: :bird ) %></div>");
 <% end %>
 $('#show-more-photo').data('count', <%= @total_count %>);

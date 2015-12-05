@@ -13,4 +13,15 @@ $(function() {
         });
         return false;
     });
+
+    $('#commentable-show-more').on('click', 'a',  function(e) {
+        var btn = this;
+        btn.text = 'Подождите ...'
+        $.ajax({
+            url: btn.href,
+            type: 'GET',
+            dataType: 'script'
+        });
+        return false;
+    });
 });

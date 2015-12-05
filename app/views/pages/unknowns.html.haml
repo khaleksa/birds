@@ -5,7 +5,7 @@
       %h3.m-acenter На определение
 
     / Content BODY
-    .mtop40.home-img-container
+    .mtop40.home-img-container.unknown-container
       - @birds.each_slice(4) do |row|
         .row.row-sm= render partial: 'birds/photo_unknown', collection: row, as: :bird
 

@@ -21,6 +21,11 @@ class Bird < ActiveRecord::Base
   scope :by_species, ->(species_id) { where(:species_id => species_id) }
   scope :by_user, ->(user_id) { where(user_id: user_id) }
 
+  scope :commentable_feed, ->() do
+    comments_relation = Comment.select('bird_id', 'max(updated_at) AS last_date').group('bird_id')
+    joins("INNER JOIN (#{comments_relation.to_sql}) bc ON bc.bird_id = birds.id").order('last_date DESC')
+  end
+
   def unknown?
     species_id.blank?
   end

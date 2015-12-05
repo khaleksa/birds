@@ -17,20 +17,26 @@
 
     .tab-content
       #current.tab-pane.fade.in.active
-        .mtop40.home-img-container
+        .mtop40.home-img-container.current-container
           - @birds.each_slice(4) do |row|
             .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
         .row.acenter
           =link_to 'Показать еще фотографии', root_path, data: {count: PagesController::PHOTO_COUNT_PER_PAGE}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'
 
       #commentable.tab-pane.fade
-        .mtop40.commentable-container
+        .mtop40.home-img-container.commentable-container
           - @commented_birds.each_slice(4) do |row|
             .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
+        - if @commented_birds &&  !@commented_birds.last_page?
+          .row.acenter#commentable-show-more
+            = link_to 'Показать еще фотографии', show_commentable_pages_path(page: @commented_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
 
       #photo-big-day.tab-pane.fade
         .mtop40.photo-big-day-container
-          %p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+          %p
+            Соревнование по фотобердингу «ФОТО Большой День» стартует - 6 декабря 2015!
+          %p
+            = link_to 'Присоединяйтесь!', big_day_photo_contest_path
 
 
   .posters
