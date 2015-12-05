@@ -53,6 +53,14 @@ module PagesHelper
     end
   end
 
+  def nav_bar_slogan
+    if current_user.email == 'marigmaforever@yahoo.com' && Date.parse('5-12-2015') == Date.today
+      'Маша, с Днем Рожденья! Birds.uz :)'
+    else
+      'Birds.uz – давайте наблюдать птиц Узбекистана вместе!'
+    end
+  end
+
   private
   def none_background_pages_options
     [ {controller: 'pages', action: 'index'} ]
