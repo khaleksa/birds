@@ -54,7 +54,7 @@ module PagesHelper
   end
 
   def nav_bar_slogan
-    if current_user.email == 'marigmaforever@yahoo.com' && Date.parse('5-12-2015') == Date.today
+    if current_user && current_user.email == 'marigmaforever@yahoo.com' && Date.parse('5-12-2015') == Date.today
       'Маша, с Днем Рожденья! Birds.uz :)'
     else
       'Birds.uz – давайте наблюдать птиц Узбекистана вместе!'
