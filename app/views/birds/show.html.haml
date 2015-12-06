@@ -57,7 +57,7 @@
               =link_to 'Общая информация о виде', species_path(@bird.species), class: 'btn btn-success'
               -if @bird.species.show_map_for(current_user)
                 =link_to 'Все встречи с видом', map_index_path(species_id: @bird.species.id), class: 'btn btn-info'
-            -if @bird.need_approve? && current_user.try(:expert?)
+            -if @bird.need_approve? && current_user.try(:expert?) && current_user.id != @bird.user_id
               =link_to 'Подтвердить', '#', class: 'btn btn-success confirm-species', data: { id: @bird.id }
 
       .row

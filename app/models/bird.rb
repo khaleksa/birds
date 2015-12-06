@@ -67,6 +67,7 @@ class Bird < ActiveRecord::Base
   #Set expert_id for bird of expert user
   def set_expert
     return unless user.expert?
-    self.expert = user
+    #TODO: turn of set expert_id for expert for PHOTO BIG DAY temporarily
+    # self.expert = user
   end
 end

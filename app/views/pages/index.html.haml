@@ -34,10 +34,29 @@
       #photo-big-day.tab-pane.fade
         .mtop40.photo-big-day-container
           %p
-            Соревнование по фотобердингу «ФОТО Большой День» стартует - 6 декабря 2015!
+            Соревнование по фотобердингу -
+            = link_to '«ФОТО Большой День»', big_day_photo_contest_path
           %p
-            = link_to 'Присоединяйтесь!', big_day_photo_contest_path
-
+            .row.user-block.mbtm15
+              %p
+                .col-md-4
+                  Участники
+                .col-md-3
+                  Виды
+                .col-md-3
+                  Подтвержденные виды
+            - index = 1
+            -@photo_bd_users.each do |user|
+              .row.user-block
+                %p
+                  .col-md-4
+                    ="#{index}."
+                    =link_to "#{user.first_name} #{user.last_name}", profile_path(user.id)
+                    -index += 1
+                  .col-md-3
+                    =user.species_count
+                  .col-md-3
+                    =user.approved_species_count || 0
 
   .posters
     .row.container

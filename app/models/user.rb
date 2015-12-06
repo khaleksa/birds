@@ -45,6 +45,29 @@ class User < ActiveRecord::Base
     end
   end
 
+  #TODO::rating_of_photo_bd
+  def self.rating_of_photo_bd
+    sql = "
+          SELECT users.id, users.first_name, users.last_name, sp.species_count, asp.approved_species_count
+          FROM users
+          INNER JOIN (
+              SELECT user_id, count(id) AS species_count
+              FROM birds
+              WHERE (species_id IS NOT NULL) AND (timestamp::DATE = '2015-12-06') AND (created_at BETWEEN :date_begin AND :date_end )
+              GROUP BY user_id
+              ) sp ON sp.user_id = users.id
+          LEFT JOIN (
+              SELECT user_id, count(id) AS approved_species_count
+              FROM birds
+              WHERE (species_id IS NOT NULL) AND (expert_id IS NOT NULL) AND (timestamp::DATE = '2015-12-06') AND (created_at BETWEEN :date_begin AND :date_end )
+              GROUP BY user_id
+              ) asp ON asp.user_id = sp.user_id
+          ORDER BY sp.species_count DESC
+    "
+    sanitized_sql = ActiveRecord::Base.send :sanitize_sql_array, [sql, date_begin: Time.parse('2015-12-06 02:00'), date_end: Time.parse('2015-12-07 13:00')]
+    Bird.find_by_sql(sanitized_sql)
+  end
+
   private
   # super call contains (!persisted? || password.present? || password_confirmation.present?)
   def password_required?
