@@ -47,7 +47,7 @@ class Bird < ActiveRecord::Base
   end
 
   def need_approve?
-    !user.expert? && expert.blank?
+    expert.blank?
   end
 
   def show_map_for(user)
