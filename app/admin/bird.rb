@@ -9,12 +9,15 @@ ActiveAdmin.register Bird do
 
   index do
     column :id
-    column :timestamp
+    column 'Дата создания' do |bird|
+      bird.created_at.strftime('%d-%m-%Y %H:%M')
+    end
+    column 'Дата встречи', :timestamp
     column :species do |bird|
       link_to(bird.species.name_ru, admin_species_path(bird.species)) if bird.species.present?
     end
     column :user
-    column :published
+    column 'P', :published
     actions
   end
 
