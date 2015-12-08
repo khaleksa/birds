@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
               ) asp ON asp.user_id = sp.user_id
           ORDER BY sp.species_count DESC
     "
-    sanitized_sql = ActiveRecord::Base.send :sanitize_sql_array, [sql, date_begin: Time.parse('2015-12-06 02:00'), date_end: Time.parse('2015-12-08 5:00')]
+    sanitized_sql = ActiveRecord::Base.send :sanitize_sql_array, [sql, date_begin: Time.parse('2015-12-06 02:00'), date_end: Time.parse('2015-12-08 23:00')]
     Bird.find_by_sql(sanitized_sql)
   end
 
