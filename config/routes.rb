@@ -59,6 +59,7 @@ Birds::Application.routes.draw do
     get 'big_day_in_ecocenter'
     get 'big_day_in_tashkent'
     get 'big_day_photo'
+    get 'big_day_photo_species'
     get 'big_day_photo_form'
     get 'big_day_photo_rules'
     get 'best_photo'

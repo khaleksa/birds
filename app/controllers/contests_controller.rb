@@ -14,6 +14,10 @@ class ContestsController < ApplicationController
 
   end
 
+  def big_day_photo_species
+
+  end
+
   def big_day_photo_form
     send_file(File.join(FILE_PATH, "photo_big_day_form.docx"))
   end
