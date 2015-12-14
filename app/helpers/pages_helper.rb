@@ -54,8 +54,8 @@ module PagesHelper
   end
 
   def nav_bar_slogan
-    if current_user && current_user.email == 'marigmaforever@yahoo.com' && Date.parse('5-12-2015') == Date.today
-      'Маша, с Днем Рожденья! Birds.uz :)'
+    if current_user.try(:birthday).try(:yday) == Date.today.yday
+      "#{current_user.first_name}, с Днем Рожденья! Birds.uz :)"
     else
       'Birds.uz – давайте наблюдать птиц Узбекистана вместе!'
     end
