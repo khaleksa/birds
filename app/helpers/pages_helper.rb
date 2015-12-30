@@ -56,6 +56,8 @@ module PagesHelper
   def nav_bar_slogan
     if current_user.try(:birthday).try(:yday) == Date.today.yday
       "#{current_user.first_name}, с Днем Рожденья! Birds.uz :)"
+    elsif ['30.12.2015'.to_date, '31.12.2015'.to_date, '1.01.2016'.to_date].include?(Time.current.to_date) && controller_name == 'pages' && action_name == 'index'
+      'С Новым Годом! С любовью, команда Birds.uz'
     else
       'Birds.uz – давайте наблюдать птиц Узбекистана вместе!'
     end
