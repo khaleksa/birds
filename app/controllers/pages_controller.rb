@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     #TODO: Birds published change from boolean to datetime
     @birds = Bird.published.known.order(created_at: :desc).limit(PHOTO_COUNT_PER_PAGE)
     @commented_birds = Bird.commentable_feed.page(params[:page]).per(PHOTO_COUNT_PER_PAGE)
+    @user_list = Stats::Counts.new.big_year_users_species_count(2015)
 
     offset = params[:count]
     @birds = @birds.offset(offset.to_i) if offset

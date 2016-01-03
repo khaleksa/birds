@@ -20,6 +20,7 @@ class Stats::Counts
                                    (b.published = 'true') AND
                                    (b.species_id IS NOT NULL) AND
                                    (EXTRACT(YEAR FROM b.timestamp) = ?) AND
+                                   (EXTRACT(YEAR FROM b.created_at) = ?) AND
                                    (b.expert_id IS NOT NULL)
               WHERE (u.big_year IS TRUE)
               GROUP BY u.id, b.species_id
@@ -28,6 +29,7 @@ class Stats::Counts
       ) t2 ON t2.user_id = users.id
       ORDER BY t2.species_count DESC
       ",
+      year,
       year
     ])
 
@@ -40,6 +42,7 @@ class Stats::Counts
     Bird.published.known.approved
         .where(user_id: user_id)
         .where("EXTRACT(year FROM timestamp) = ?", year)
+        .where("EXTRACT(year FROM created_at) = ?", year)
         .select(:species_id).distinct(:species_id)
         .size
   end
@@ -61,6 +64,7 @@ class Stats::Counts
       .where("(birds.published = 'true') AND (birds.species_id IS NOT NULL) AND (birds.expert_id IS NOT NULL)")
       .where(users: { :big_year => 'true' })
       .where('EXTRACT(year FROM birds.timestamp) = ?', year)
+      .where('EXTRACT(year FROM birds.created_at) = ?', year)
       .distinct('species.id')
       .order('species.name_ru')
   end
