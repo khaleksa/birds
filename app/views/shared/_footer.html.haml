@@ -6,13 +6,18 @@
         %p
           =link_to root_path do
             =image_tag "navbar/bird_white.png", :align => "left"
-          Все права на опубликованные на сайте материалы принадлежат их авторам
+          =link_to 'Birds.uz', root_path
+          &copy;
+          =Time.zone.now.year
           %br
-            =link_to 'Birds.uz', root_path
-            &copy;
-            =Time.zone.now.year
+          Developed by
+          = succeed ',' do
+            = mail_to 'khaleksa@gmail.com', 'Alexandra Khegay'
+          design by
+          = mail_to '4dinaa@gmail.com', 'Dina Adilova'
       .fright
         %p.aright
-          Обо всех ошибках при работе сайта просьба сообщать на почту:
+          Все права на опубликованные на сайте материалы принадлежат их авторам.
           %br
-            =mail_to 'khalex@bk.ru', 'khalex@bk.ru'
+          Обо всех ошибках при работе сайта просьба сообщать на почту:
+          = mail_to 'khalex@bk.ru', 'khalex@bk.ru'

@@ -66,6 +66,7 @@ Birds::Application.routes.draw do
     get 'best_photo_file'
     get 'our_friend'
     get 'past'
+    get 'winter_bird_watch'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
