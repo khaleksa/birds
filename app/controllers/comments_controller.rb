@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
+  BLACK_EMAILS = %w(mavlonov_83@mail.ru)
+
   def create
     if params[:comment].blank? || params[:bird].blank?
       render json: { success: false }
@@ -16,7 +18,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    Comment.destroy(params[:id])
+    unless BLACK_EMAILS.include?(current_user.email)
+      Comment.destroy(params[:id])
+    end
     render json: { count: current_user.comments.size }
   end
 end
