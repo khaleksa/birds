@@ -38,6 +38,23 @@ class ContestsController < ApplicationController
   def big_year_result
   end
 
+  def big_year_species
+    @species_list = []
+    Categories::Order.all.order(:position).each do |order|
+      Categories::Family.where(parent_id: order.id).order(:position).each do |family|
+        species = Species.joins(birds: :user)
+                      .where("(birds.published = 'true') AND (birds.species_id IS NOT NULL) AND (birds.expert_id IS NOT NULL)")
+                      .where(users: { :big_year => 'true' })
+                      .where('EXTRACT(year FROM birds.timestamp) = ?', 2015)
+                      .where('EXTRACT(year FROM birds.created_at) = ?', 2015)
+                      .where(category_id: family.id)
+                      .distinct('species.id')
+                      .order(:position)
+        @species_list = @species_list + species
+      end
+    end
+  end
+
   def past
   end
 end

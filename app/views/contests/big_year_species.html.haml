@@ -1,0 +1,16 @@
+.bg-btm-container.big-day-photo-contest
+  / Content
+  .container.content
+    / Content BODY
+    .row.about-container.mtop20.content-container
+      .col-sm-12.col.col-md-8.pright15.m-no-float
+        .row.about-text
+          %h4 Результаты Большого Года 2015
+          %p
+            Полный список видов:
+          - @species_list.each_with_index do |sp, index|
+            %p
+              = link_to "#{index + 1}. #{sp.full_name}", species_path(sp.id)
+          %p
+            Вернуться к
+            =link_to "Результатам Большого Года 2015!", big_year_result_contest_path
