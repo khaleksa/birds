@@ -35,6 +35,9 @@ class ContestsController < ApplicationController
   def winter_bird_watch
   end
 
+  def big_year_result
+  end
+
   def past
   end
 end
