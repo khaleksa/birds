@@ -32,6 +32,9 @@ class BirdsController < ApplicationController
 
   def edit_date
     @bird = Bird.find(params[:id])
+    @timetamp = @bird.timestamp ||
+                current_user.birds.where('timestamp IS NOT NULL').order(created_at: :desc).limit(1).pluck(:timestamp).first ||
+                Time.zone.now
   end
 
   def edit_map
