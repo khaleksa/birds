@@ -10,6 +10,8 @@ class Species < ActiveRecord::Base
 
   validates_presence_of :name_lat, :family
 
+  FRIEND_USERS = [1, 4, 5, 11, 58, 130]
+
   scope :main, -> { where('parent_id IS NULL') }
   scope :ordered, -> { order('lower(name_ru)') }
   scope :by_name, -> (name) {
@@ -49,8 +51,9 @@ class Species < ActiveRecord::Base
     result
   end
 
+  #TODO: rewrite
   def show_map_for(user)
     return true if show_map
-    return user.try(:expert?)
+    return user.try(:expert?) || FRIEND_USERS.include?(user.try(:id))
   end
 end
