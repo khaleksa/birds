@@ -71,6 +71,12 @@ Birds::Application.routes.draw do
     get 'big_year_species'
   end
 
+  resource :swift, only: [] do
+    get 'nesting_box'
+    get 'first_aid'
+    get 'about'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

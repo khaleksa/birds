@@ -1,12 +1,11 @@
 .posters.banner
   .row.container
-    .col.col-md-5
+    .col.col-md-6
       %ul.banner-menu
         %li
-          %p Внимание, конкурсы!
-        %li= link_to 'Итоги конкурса на лучшую фотографию птицы', best_photo_contest_path
-        %li= link_to 'Результаты Большого Года 2015', big_year_result_contest_path
-        %li= link_to 'Кто же стал лучшим другом сайта Birds.uz?', our_friend_contest_path
-        %li= link_to 'Архив...', past_contest_path
-    .col.col-md-7
-      .banner-image= image_tag 'banners/contest-bird.jpg'
+          %p Реабилитация диких птиц
+        %li= link_to 'Установи домик для стрижа у себя дома!', nesting_box_swift_path
+        %li= link_to 'Памятка оказания первой помощи диким птицам', first_aid_swift_path
+        %li= link_to 'Куда обратиться за помощью?', about_swift_path
+    .col.col-md-6
+      .banner-image= image_tag 'banners/swift-bird.jpg'

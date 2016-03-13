@@ -350,12 +350,12 @@ a.navbar-brand {
   padding: 0;
   .banner-image {
     float: right;
-    padding: 0 50px;
+    padding: 0 -50px;
   }
   ul.banner-menu {
     list-style: none;
-    padding: 0;
-    margin: 16px 0 0 0;
+    padding-left: 50px;
+    margin: 26px 0 0 0;
     li {
       margin-bottom: 4px;
       p {
@@ -378,7 +378,7 @@ a.navbar-brand {
 }
 
 .posters {
-  background-color: #f7f7ed;
+  background-color: #fafaf4;
   height: 240px;
   padding: 35px 0 30px;
   .row.container {
