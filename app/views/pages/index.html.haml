@@ -89,6 +89,7 @@
             %li= link_to 'На определение', unknowns_pages_path
             -if current_user.try(:expert?)
               %li= link_to 'Одобрить', approve_pages_path
+            %li= link_to 'Мероприятия', past_contest_path
       .col.col-md-4
         .links-list
           %p Инфо
