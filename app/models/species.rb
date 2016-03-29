@@ -10,7 +10,7 @@ class Species < ActiveRecord::Base
 
   validates_presence_of :name_lat, :family
 
-  FRIEND_USERS = [1, 4, 5, 11, 58, 130]
+  FRIEND_USERS = [1, 4, 5, 11, 58, 130, 50]
 
   scope :main, -> { where('parent_id IS NULL') }
   scope :ordered, -> { order('lower(name_ru)') }
