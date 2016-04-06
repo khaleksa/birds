@@ -33,7 +33,7 @@ $(function() {
         $(this).closest('form').submit();
     });
 
-    $('.profile-birds-container').on('click', '.delete_user_bird', function(event) {
+    $('.profile-birds-container, .map-img-container').on('click', '.delete_user_bird', function(event) {
         event.preventDefault();
         var $this = $(event.target);
 

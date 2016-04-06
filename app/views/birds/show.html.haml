@@ -15,6 +15,9 @@
               %p= @bird.species.name_en
           .row.bird-photo-img
             =image_tag @bird.photo.url, class: 'img-responsive'
+            -if @bird.user.current?(current_user)
+              -#=link_to '', '#', class: 'delete_user_bird', data: {id: @bird.id}, title: 'Удалить фотографию'
+              =link_to '', edit_species_bird_path(@bird), class: 'edit_user_bird', data: {id: @bird.id}, title: 'Редактировать фотографию'
           .row.bird-publish-date
             Загружено: #{date_format(@bird.created_at)}
 
