@@ -1,7 +1,7 @@
 after :roles do
   User.seed(:id,
     { :id =>1, :email => 'user@example.com', :password => '111' },
-    { :id =>2, :email => 'admin@example.com', :password => '111', :roles => [Role.find_by_name('admin'), Role.find_by_name('expert')] },
+    { :id =>2, :email => 'admin@example.com', :password => '111', :roles => [Role.find_by_name('admin'), Role.find_by_name('expert'), Role.find_by_name('owner')] },
     { :id =>3, :email => '3@example.com', :password => '111', :big_year => false },
     { :id =>4, :email => '4@example.com', :password => '111' },
     { :id =>5, :email => '5@example.com', :password => '111' },
