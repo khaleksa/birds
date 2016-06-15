@@ -29,7 +29,7 @@ $(function() {
         );
     });
 
-    $('.profile-comments-block .comments-container').on('click', '.delete-comment-lnk', function(event) {
+    $('.comments-container').on('click', '.delete-comment-lnk', function(event) {
         event.preventDefault();
         var $this = $(event.target);
         var comment_id = $this.data('id');

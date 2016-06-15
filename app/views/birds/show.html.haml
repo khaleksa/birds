@@ -79,7 +79,7 @@
                           =link_to comment.user.full_name, profile_path(comment.user)
                         .col-md-3.comment-timestamp
                           =datetime_format(comment.created_at)
-                    %p.row-comment= comment.text
+                    %p.row-comment= comment.text.html_safe
                   -if current_user && (current_user.id == comment.user.id)
                     .col-md-1.delete-comment-container
                       =link_to '', '#', class: 'delete-comment-lnk', data: { id: comment.id }

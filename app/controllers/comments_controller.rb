@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
       return
     end
 
-    comment = Comment.new(text: params[:comment])
+    comment = Comment.new(text: sanitize_url(params[:comment]))
     comment.user = current_user
     comment.bird_id = params[:bird].to_i
     comment.save
@@ -22,5 +22,10 @@ class CommentsController < ApplicationController
       Comment.destroy(params[:id])
     end
     render json: { count: current_user.comments.size }
+  end
+
+  private
+  def sanitize_url(text)
+    text.gsub(/(https?:\/\/birds.uz[\S]*)/, '<a href="\1">\1</a>')
   end
 end

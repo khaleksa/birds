@@ -7,7 +7,7 @@
       =image_tag bird.user.avatar.thumb.url, class: 'img-circle'
     .blck
       =link_to bird.user.full_name, profile_path(bird.user)
-      %p=date_format(bird.timestamp)
+      %p=date_format(bird.created_at)
   .comments
     .last
       .comment-part

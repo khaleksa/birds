@@ -3,6 +3,6 @@
   .comment-text
     = link_to comment.user.full_name, profile_path(comment.user)
     - comment_length = PagesController::COMMENT_MAX_LENGTH - comment.user.full_name.length
-    = short_comment_text(comment, comment_length)
+    = short_comment_text(comment, comment_length).html_safe
     - if comment.text.size > comment_length
       = link_to '...', bird_path(bird)
