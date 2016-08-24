@@ -10,3 +10,6 @@ development:
 test:
   <<: *defaults
   host: localhost
+
+production:
+  <<: *defaults

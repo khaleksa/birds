@@ -17,7 +17,7 @@
   %script{:src => 'https://maps.googleapis.com/maps/api/js', :type => 'text/javascript'}
 
   = csrf_meta_tags
-
+  = render 'shared/ga_code'
 %body
   #wrap
     = render 'shared/navbar'
