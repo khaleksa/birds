@@ -21,5 +21,7 @@ module Birds
     config.i18n.default_locale = :ru
     config.i18n.locale = :ru
     I18n.enforce_available_locales = false
+
+    config.from_file 'settings.yml'
   end
 end

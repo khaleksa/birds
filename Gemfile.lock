@@ -92,6 +92,8 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    choices (0.4.0)
+      hashie (>= 0.4.0)
     closure_tree (5.1.1)
       activerecord (>= 3.2.0)
       with_advisory_lock (>= 3.0.0)
@@ -302,6 +304,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.1.1)
   capistrano-rvm!
   carrierwave
+  choices
   closure_tree
   coffee-rails (~> 4.0.0)
   devise

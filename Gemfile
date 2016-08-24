@@ -31,6 +31,8 @@ gem 'mini_magick'
 gem 'best_in_place'
 gem 'kaminari'
 
+gem 'choices'
+
 group :test, :development do
   gem 'pry'
   gem 'pry-doc'

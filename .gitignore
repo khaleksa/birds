@@ -24,6 +24,8 @@ config/database.yml
 db/schema.rb
 db/structure.sql
 
+config/settings.local.yml
+
 # Ignore logos
 /public/system
 

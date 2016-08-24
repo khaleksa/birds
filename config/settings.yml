@@ -1,0 +1,12 @@
+defaults: &defaults
+  host: birds.uz
+  google_analytics:
+    account_id:  <%= ENV['BIRDS_GOOGLE_ANALYTICS_ID'] %>
+
+development:
+  <<: *defaults
+  host: localhost
+
+test:
+  <<: *defaults
+  host: localhost
