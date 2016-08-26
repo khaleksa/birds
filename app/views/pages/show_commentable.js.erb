@@ -4,5 +4,5 @@
 
 $('#commentable-show-more').empty();
 <% if @commented_birds && !@commented_birds.last_page? %>
-    $('#commentable-show-more').append("<%= j(link_to('Показать еще фотографии', show_commentable_pages_path(page: @commented_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'))%>");
+    $('#commentable-show-more').append("<%= j(link_to('Показать еще фотографии', show_commentable_pages_path(comment_page: @commented_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'))%>");
 <% end %>

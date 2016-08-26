@@ -20,16 +20,17 @@
         .mtop40.home-img-container.current-container
           - @birds.each_slice(4) do |row|
             .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
-        .row.acenter
-          =link_to 'Показать еще фотографии', root_path, data: {count: PagesController::PHOTO_COUNT_PER_PAGE}, class: 'btn btn-success btn-xlg sm-width-max', id: 'show-more-photo'
+        - if @birds && !@birds.last_page?
+          .row.acenter#new-show-more
+            = link_to 'Показать еще фотографии', show_new_pages_path(new_page: @birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
 
       #commentable.tab-pane.fade
         .mtop40.home-img-container.commentable-container
           - @commented_birds.each_slice(4) do |row|
             .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
-        - if @commented_birds &&  !@commented_birds.last_page?
+        - if @commented_birds && !@commented_birds.last_page?
           .row.acenter#commentable-show-more
-            = link_to 'Показать еще фотографии', show_commentable_pages_path(page: @commented_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
+            = link_to 'Показать еще фотографии', show_commentable_pages_path(comment_page: @commented_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
 
       #big_year_2015.tab-pane.fade
         .mtop40.big-year-container

@@ -1,0 +1,8 @@
+<% @birds.each_slice(4) do |row| %>
+  $('.current-container').append("<div class='row row-sm'><%= j( render partial: 'birds/photo', collection: row, as: :bird ) %></div>");
+<% end %>
+
+$('#new-show-more').empty();
+<% if @birds && !@birds.last_page? %>
+  $('#new-show-more').append("<%= j(link_to('Показать еще фотографии', show_new_pages_path(new_page: @birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'))%>");
+<% end %>
