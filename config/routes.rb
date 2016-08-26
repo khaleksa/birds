@@ -27,6 +27,7 @@ Birds::Application.routes.draw do
     get :approve
     get :show_new
     get :show_commentable
+    get :show_unknown
     get :help
   end
 

@@ -1,5 +1,5 @@
 $(function() {
-    $('#new-show-more, #commentable-show-more').on('click', 'a',  function(e) {
+    $('#new-show-more, #commentable-show-more, #unknown-show-more').on('click', 'a',  function(e) {
         var btn = this;
         btn.text = 'Подождите ...'
         $.ajax({

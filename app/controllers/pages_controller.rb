@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   def index
     @birds = Bird.published.known.order(created_at: :desc).page(params[:new_page]).per(PHOTO_COUNT_PER_PAGE)
     @commented_birds = Bird.commentable_feed.page(params[:comment_page]).per(PHOTO_COUNT_PER_PAGE)
+    @unknown_birds = Bird.published.unknown.order(created_at: :desc).page(params[:unknown_page]).per(PHOTO_COUNT_PER_PAGE)
     @user_list = Stats::Counts.new.big_year_users_species_count(2015)
 
     offset = params[:count]
@@ -19,6 +20,10 @@ class PagesController < ApplicationController
 
   def show_commentable
     @commented_birds = Bird.commentable_feed.page(params[:comment_page]).per(PHOTO_COUNT_PER_PAGE)
+  end
+
+  def show_unknown
+    @unknown_birds = Bird.published.unknown.order(created_at: :desc).page(params[:unknown_page]).per(PHOTO_COUNT_PER_PAGE)
   end
 
   def big_year

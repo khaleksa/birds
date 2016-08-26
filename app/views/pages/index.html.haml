@@ -13,6 +13,8 @@
         %li
           %a{"data-toggle" => "tab", :href => "#commentable"} Комментируемые
         %li
+          %a{"data-toggle" => "tab", :href => "#unknown"} На определение
+        %li
           %a{"data-toggle" => "tab", :href => "#big_year_2015"} Итоги Большого Года 2015
 
     .tab-content
@@ -31,6 +33,14 @@
         - if @commented_birds && !@commented_birds.last_page?
           .row.acenter#commentable-show-more
             = link_to 'Показать еще фотографии', show_commentable_pages_path(comment_page: @commented_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
+
+      #unknown.tab-pane.fade
+        .mtop40.home-img-container.unknown-container
+          - @unknown_birds.each_slice(4) do |row|
+            .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
+        - if @unknown_birds && !@unknown_birds.last_page?
+          .row.acenter#unknown-show-more
+            = link_to 'Показать еще фотографии', show_unknown_pages_path(unknown_page: @unknown_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
 
       #big_year_2015.tab-pane.fade
         .mtop40.big-year-container
