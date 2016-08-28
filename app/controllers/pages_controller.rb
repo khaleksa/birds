@@ -32,21 +32,6 @@ class PagesController < ApplicationController
     @species_list = @stat.big_year_species
   end
 
-  #TODO: dry
-  #TODO: rewrite pagination of @birds, use kaminari gem
-  def unknowns
-    @birds = Bird.published.unknown.order(created_at: :desc).limit(PHOTO_COUNT_PER_PAGE)
-
-    offset = params[:count]
-    @birds = @birds.offset(offset.to_i) if offset
-    @total_count = @birds.size + offset.to_i
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
   def approve
     @birds = Bird.published.known.unconfirmed.order(created_at: :desc)
   end

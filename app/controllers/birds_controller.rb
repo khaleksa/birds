@@ -71,10 +71,12 @@ class BirdsController < ApplicationController
     species_id = params['bird-species-id'].to_i
     if species_id > 0
       @bird.update_attributes(species_id: species_id)
-      return redirect_to :root
+      hashtag = 'current'
     else
-      return redirect_to unknowns_pages_path
+      hashtag = 'unknown'
     end
+
+    return redirect_to root_path(anchor: hashtag)
   end
 
   def destroy

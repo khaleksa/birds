@@ -7,7 +7,7 @@
     .for-banner
 
     .row.tabs
-      %ul.nav.nav-tabs
+      %ul.nav.nav-tabs#main-page-birds-tabs
         %li.active
           %a{"data-toggle" => "tab", :href => "#current"} Все новые
         %li
@@ -97,7 +97,7 @@
           %p Участвуй
           %ul
             %li= link_to 'Большой Год', big_year_pages_path
-            %li= link_to 'На определение', unknowns_pages_path
+            %li= link_to 'На определение', root_path(anchor: 'unknown')
             -if current_user.try(:expert?)
               %li= link_to 'Одобрить', approve_pages_path
             %li= link_to 'Мероприятия', past_contest_path

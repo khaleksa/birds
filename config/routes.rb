@@ -22,7 +22,6 @@ Birds::Application.routes.draw do
   resource :pages, path: '', only: [] do
     get :big_year
     get :about
-    get :unknowns
     get :birding_rules
     get :approve
     get :show_new

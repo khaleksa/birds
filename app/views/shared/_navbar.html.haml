@@ -17,8 +17,8 @@
           =nav_link_to 'Список видов', categories_path
         %li
           =nav_link_to 'Большой Год', big_year_pages_path
-        %li
-          =nav_link_to 'На определение', unknowns_pages_path
+        -#%li
+          =nav_link_to 'На определение', root_path(anchor: 'unknown')
         -if current_user.try(:expert?)
           %li
             =nav_link_to 'Одобрить', approve_pages_path
