@@ -94,7 +94,7 @@ class Stats::Counts
                 WHERE b.published = 'true'
                 GROUP BY b.user_id
                 ) ub on ub.user_id = u.id
-            ORDER BY u.last_name"
+            ORDER BY ub.birds_count DESC NULLS LAST, u.last_name"
 
     User.find_by_sql(sql)
   end
