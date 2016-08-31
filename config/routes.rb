@@ -70,6 +70,7 @@ Birds::Application.routes.draw do
     get 'winter_bird_watch'
     get 'big_year_result'
     get 'big_year_species'
+    get 'shorebird_day'
   end
 
   resource :swift, only: [] do

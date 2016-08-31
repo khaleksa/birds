@@ -57,4 +57,7 @@ class ContestsController < ApplicationController
 
   def past
   end
+
+  def shorebird_day
+  end
 end
