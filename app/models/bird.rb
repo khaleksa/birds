@@ -3,13 +3,14 @@ class Bird < ActiveRecord::Base
   belongs_to :species
   belongs_to :expert, class_name: 'User'
 
-  has_many :comments, -> { order "created_at" }, dependent: :destroy
+  has_many :comments, -> { order 'created_at' }, dependent: :destroy
 
   mount_uploader :photo, ImageUploader
 
   validates_presence_of :user_id
 
-  before_create :set_expert
+  after_create :set_big_year
+  after_update :update_big_year
 
   scope :published, ->() { where(:published => true) }
   scope :unpublished, ->() { where(:published => false) }
@@ -18,7 +19,6 @@ class Bird < ActiveRecord::Base
   scope :unconfirmed, ->() { where('expert_id IS NULL') }
   scope :approved, ->() { where('expert_id IS NOT NULL') }
   scope :with_comments, ->() { joins(:comments) }
-  scope :by_species, ->(species_id) { where(:species_id => species_id) }
   scope :by_user, ->(user_id) { where(user_id: user_id) }
 
   scope :commentable_feed, ->() do
@@ -64,10 +64,19 @@ class Bird < ActiveRecord::Base
   end
 
   private
-  #Set expert_id for bird of expert user
-  def set_expert
-    return unless user.expert?
-    #TODO: turn of set expert_id for expert for PHOTO BIG DAY temporarily
-    # self.expert = user
+  # Bird is participant of BigYear if it's user is participant of BY and photo was made during the current year
+  def set_big_year
+    return unless user.big_year
+    current_year = Time.zone.now.year
+    self.big_year = current_year if timestamp.try(:year) == current_year
+  end
+
+  # Bird's big_year attribute can be changed only during the year of it's creating
+  def update_big_year
+    current_year = Time.zone.now.year
+    return unless created_at.year == current_year
+    if user.big_year || big_year == current_year
+      self.big_year = timestamp.try(:year) == current_year ? current_year : 0
+    end
   end
 end
