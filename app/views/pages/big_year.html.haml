@@ -2,8 +2,14 @@
   .container.content
     / Content BODY
     .row.big-year-container.mtop20
-      .row.big-year-text
-        %h4 Большой год
+      .row
+        %h4
+          .big-year-text
+            Большой год
+          -#- @years.each do |year|
+            = link_to year, big_year_pages_path(year: year), class: "year_item #{year == Time.zone.now.year ? 'active' : ''}"
+
+        / Description
         %p
           %i Сайт birds.uz проводит соревнование среди бёрдвотчеров «Большой год».
         %p
@@ -18,9 +24,9 @@
       / Menu
       .row.sub-nav-pils.mtop20.sm-display-none
         %a.big-year-menu.active{"data-view" => "block1"}
-          %span Участники [#{@user_list.size}]
+          %span Участники [#{@participants.size}]
         %a.big-year-menu{"data-view" => "block2"}
-          %span Виды [#{@species_list.size}]
+          %span Виды [#{@species.size}]
         %a.big-year-menu{"data-view" => "block3"}
           %span Правила конкурса
 
@@ -30,10 +36,10 @@
         .block-holder
           .mobile-blocks-nav
             %a{"data-view" => "block1"}
-              %span Участники [#{@user_list.size}]
+              %span Участники [#{@participants.size}]
           #block1.row.big-year-block-container.mtop10.active-block
             - index = 1
-            - @user_list.each do |user|
+            - @participants.each do |user|
               .row.city-participant
                 .participant-left-blck
                   %p
@@ -47,11 +53,11 @@
         .block-holder
           .mobile-blocks-nav
             %a{"data-view" => "block2"}
-              %span Виды [#{@species_list.size}]
+              %span Виды [#{@species.size}]
           #block2.row.big-year-block-container.mtop10
             .row.bird-list.scroll-container
               %ol
-                -@species_list.each do |species|
+                -@species.each do |species|
                   %li=link_to species.full_name, species_path(species)
 
         .block-holder
