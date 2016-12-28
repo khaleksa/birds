@@ -58,17 +58,6 @@ class Stats::Counts
     index ? index + 1 : 0
   end
 
-  # Total amount of species met by users - participants of Big Year during some year
-  def big_year_species(year = Time.zone.now.year)
-    Species.joins(birds: :user)
-      .where("(birds.published = 'true') AND (birds.species_id IS NOT NULL) AND (birds.expert_id IS NOT NULL)")
-      .where(users: { :big_year => 'true' })
-      .where('EXTRACT(year FROM birds.timestamp) = ?', year)
-      .where('EXTRACT(year FROM birds.created_at) = ?', year)
-      .distinct('species.id')
-      .order('species.name_ru')
-  end
-
   # Total amount of species met by all users
   def total_seen_species_count
     Species.joins(:birds).where("(birds.published = 'true') AND (birds.expert_id IS NOT NULL)").select(:id).distinct.count

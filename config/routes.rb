@@ -20,7 +20,6 @@ Birds::Application.routes.draw do
   root to: 'pages#index'
 
   resource :pages, path: '', only: [] do
-    get :big_year
     get :about
     get :birding_rules
     get :approve
@@ -28,6 +27,10 @@ Birds::Application.routes.draw do
     get :show_commentable
     get :show_unknown
     get :help
+  end
+
+  resources :big_year, only: [:index] do
+
   end
 
   resources :species, only: [:index, :show] do

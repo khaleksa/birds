@@ -6,8 +6,8 @@
         %h4
           .big-year-text
             Большой год
-          -#- @years.each do |year|
-            = link_to year, big_year_pages_path(year: year), class: "year_item #{year == Time.zone.now.year ? 'active' : ''}"
+          - @years.each do |year|
+            = link_to year, big_year_index_path(year: year), class: "year_item #{year == Time.zone.now.year ? 'active' : ''}"
 
         / Description
         %p

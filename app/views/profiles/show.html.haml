@@ -12,10 +12,10 @@
           .col-md-3.col-sm-12.profile-stat-data
             %p
               Количество видов в
-              =link_to "Большом Годе - #{@big_year_species_count}", big_year_pages_path
+              =link_to "Большом Годе - #{@big_year_species_count}", big_year_index_path
               %br
                 В рейтинге
-                =link_to "Большого Года - #{@big_year_rating}", big_year_pages_path
+                =link_to "Большого Года - #{@big_year_rating}", big_year_index_path
         .col-md-3.col-sm-12.profile-user-icons
           -if @user.big_year
             =image_tag 'user/icon-2016.png'

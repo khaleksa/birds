@@ -1,5 +1,3 @@
-require 'statistics/big_year'
-
 class PagesController < ApplicationController
   PHOTO_COUNT_PER_PAGE = 8
   COMMENT_MAX_LENGTH = 64
@@ -19,13 +17,6 @@ class PagesController < ApplicationController
   end
 
   def show_unknown
-  end
-
-  def big_year
-    @years = (2015..Time.zone.now.year).to_a.reverse
-    year = params[:year].to_i || Time.zone.now.year
-    @participants = Statistics::BigYear.users_species_count(year)
-    @species = Statistics::BigYear.species(year)
   end
 
   def approve
