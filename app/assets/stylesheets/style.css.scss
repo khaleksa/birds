@@ -1563,6 +1563,7 @@ a.delete-comment-lnk:hover {
 /* big year */
 .big-year-container {
   .big-year-text {
+    display:inline-block;
     i {
       color:#94846e;
     }
@@ -1577,6 +1578,17 @@ a.delete-comment-lnk:hover {
     }
     a:hover{
       text-decoration:none;
+    }
+  }
+
+  .big_year_item {
+    display:inline-block;
+    color: #94846e;
+    margin: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    &.active {
+      color: #4d4d4d;
     }
   }
 

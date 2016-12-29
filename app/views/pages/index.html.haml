@@ -46,7 +46,7 @@
         .mtop40.big-year-container
           %p
             Соревнование по фотобердингу -
-            = link_to '«Большой Год»', big_year_index_path
+            = link_to '«Большой Год»', big_year_path
           %p
             - index = 1
             -@user_list.each do |user|
@@ -81,7 +81,7 @@
           .icon= image_tag "menus/photo.png"
           %p
             Фотографируй и принимай участие в
-            = link_to 'Большом годе!', big_year_index_path
+            = link_to 'Большом годе!', big_year_path
 
   .bottom-links
     .row
@@ -96,7 +96,7 @@
         .links-list
           %p Участвуй
           %ul
-            %li= link_to 'Большой Год', big_year_index_path
+            %li= link_to 'Большой Год', big_year_path
             %li= link_to 'На определение', root_path(anchor: 'unknown')
             -if current_user.try(:expert?)
               %li= link_to 'Одобрить', approve_pages_path

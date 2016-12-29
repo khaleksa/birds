@@ -29,12 +29,8 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def subscribe
-    render
-  end
-
   private
   def editable_params
-    params.require(:user).permit(:avatar, :first_name, :last_name, :big_year)
+    params.require(:user).permit(:avatar, :first_name, :last_name)
   end
 end

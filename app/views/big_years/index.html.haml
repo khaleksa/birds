@@ -7,7 +7,7 @@
           .big-year-text
             Большой год
           - @years.each do |year|
-            = link_to year, big_year_index_path(year: year), class: "year_item #{year == Time.zone.now.year ? 'active' : ''}"
+            = link_to year, big_year_path(year: year), class: "big_year_item #{year == @current_year ? 'active' : ''}"
 
         / Description
         %p

@@ -10,7 +10,9 @@ class UsersController < Devise::RegistrationsController
   end
 
   def create
-    super
+    super do |user|
+      user.subscribe!(Time.zone.now.year) if user.big_year
+    end
   end
 
   def change_password
