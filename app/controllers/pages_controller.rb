@@ -1,3 +1,5 @@
+require 'statistics/big_year'
+
 class PagesController < ApplicationController
   PHOTO_COUNT_PER_PAGE = 8
   COMMENT_MAX_LENGTH = 64

@@ -14,7 +14,7 @@
           %a{"data-toggle" => "tab", :href => "#commentable"} Комментируемые
         %li
           %a{"data-toggle" => "tab", :href => "#unknown"} На определение
-        %li
+        -#%li
           %a{"data-toggle" => "tab", :href => "#big_year_2015"} Итоги Большого Года 2015
 
     .tab-content
@@ -42,7 +42,7 @@
           .row.acenter#unknown-show-more
             = link_to 'Показать еще фотографии', show_unknown_pages_path(unknown_page: @unknown_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
 
-      #big_year_2015.tab-pane.fade
+      -##big_year_2015.tab-pane.fade
         .mtop40.big-year-container
           %p
             Соревнование по фотобердингу -
