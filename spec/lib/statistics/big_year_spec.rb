@@ -29,15 +29,23 @@ describe Statistics::BigYear do
   let!(:user3_subscription) { FactoryGirl.create :subscription, user: user1, year: 2.years.ago.year }
   let!(:user3_bird1) { FactoryGirl.create :bird, user: user3, species: species1, expert_id: expert.id, published: true }
 
+  let!(:user4) { FactoryGirl.create :user }
+  let!(:user4_subscription) { FactoryGirl.create :subscription, user: user4, year: current_year }
+  let!(:user4_bird1) { FactoryGirl.create :bird, user: user4, species: species1, expert_id: expert.id, published: true, big_year: current_year }
+  let!(:user4_bird2) { FactoryGirl.create :bird, user: user4, species: species1, expert_id: expert.id, published: true, big_year: current_year }
+
   describe '.users_species_count' do
 
     subject { described_class.users_species_count }
 
     it 'returns number of species for every participant of BigYear' do
-      expect(subject.size).to eq(1)
-      record = subject.first
-      expect(record.id).to eq(user1.id)
-      expect(record.species_count).to eq(2)
+      expect(subject.size).to eq(2)
+      user1_record = subject.first
+      expect(user1_record.id).to eq(user1.id)
+      expect(user1_record.species_count).to eq(2)
+      user4_record = subject.last
+      expect(user4_record.id).to eq(user4.id)
+      expect(user4_record.species_count).to eq(1)
     end
   end
 

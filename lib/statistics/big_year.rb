@@ -9,8 +9,8 @@ module Statistics
           DROP TABLE IF EXISTS bird_species_tmp;
           CREATE TEMPORARY TABLE bird_species_tmp AS (
             SELECT
-              DISTINCT ON(b.species_id) species_id,
-              u.id user_id
+              u.id user_id,
+              b.species_id
             FROM users u
               INNER JOIN subscriptions s on s.user_id = u.id AND s.year = ?
               INNER JOIN birds b ON (b.user_id = u.id) AND
@@ -18,11 +18,13 @@ module Statistics
                                     (b.species_id IS NOT NULL) AND
                                     (b.expert_id IS NOT NULL) AND
                                     (b.big_year = ?)
+            GROUP BY u.id, b.species_id
           );
           SELECT u.*, COUNT(bs.species_id) as species_count
           FROM users u
             INNER JOIN bird_species_tmp bs ON bs.user_id = u.id
-          GROUP BY u.id;
+          GROUP BY u.id
+          ORDER BY COUNT(bs.species_id) DESC;
           ",
           year,
           year
