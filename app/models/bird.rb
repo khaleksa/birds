@@ -10,7 +10,7 @@ class Bird < ActiveRecord::Base
   validates_presence_of :user_id
 
   after_create :set_big_year
-  after_update :update_big_year
+  before_update :update_big_year
 
   scope :published, ->() { where(:published => true) }
   scope :unpublished, ->() { where(:published => false) }
@@ -66,16 +66,17 @@ class Bird < ActiveRecord::Base
   private
   # Bird is participant of BigYear if it's user is participant of BY and photo was made during the current year
   def set_big_year
-    return unless user.big_year
+    return unless user.subscribed?(Time.zone.now.year)
     current_year = Time.zone.now.year
-    self.big_year = current_year if timestamp.try(:year) == current_year
+    self.update_attributes(big_year: current_year) if timestamp.try(:year) == current_year
   end
 
   # Bird's big_year attribute can be changed only during the year of it's creating
+  # TODO: Optimize updating Bird
   def update_big_year
     current_year = Time.zone.now.year
     return unless created_at.year == current_year
-    if user.big_year || big_year == current_year
+    if user.subscribed?(Time.zone.now.year) || big_year == current_year
       self.big_year = timestamp.try(:year) == current_year ? current_year : 0
     end
   end
