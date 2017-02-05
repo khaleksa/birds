@@ -26,6 +26,6 @@ class CommentsController < ApplicationController
 
   private
   def sanitize_url(text)
-    text.gsub(/(https?:\/\/birds.uz[\S]*)/, '<a href="\1">\1</a>')
+    text.gsub(/(http?:\/\/birds.uz[\S]*)/, '<a href="\1">\1</a>')
   end
 end

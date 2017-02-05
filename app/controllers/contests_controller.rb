@@ -38,6 +38,7 @@ class ContestsController < ApplicationController
   def big_year_result
   end
 
+  #TODO: rewrite & move to lib
   def big_year_species
     @species_list = []
     Categories::Order.all.order(:position).each do |order|

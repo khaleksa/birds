@@ -42,6 +42,32 @@ module Statistics
             .order('species.name_ru')
       end
 
+      #TODO: write specs
+      def big_day_rating(big_day_timestamp, download_start, download_stop )
+        sql = "
+          SELECT users.id, users.first_name, users.last_name, sp.species_count, asp.approved_species_count
+          FROM users
+          INNER JOIN (
+              SELECT user_id, count(DISTINCT species_id) AS species_count
+              FROM birds
+              WHERE (species_id IS NOT NULL) AND (timestamp::DATE = :day) AND (created_at BETWEEN :date_begin AND :date_end )
+              GROUP BY user_id
+              ) sp ON sp.user_id = users.id
+          LEFT JOIN (
+              SELECT user_id, count(DISTINCT species_id) AS approved_species_count
+              FROM birds
+              WHERE (species_id IS NOT NULL) AND (expert_id IS NOT NULL) AND (timestamp::DATE = :day) AND (created_at BETWEEN :date_begin AND :date_end )
+              GROUP BY user_id
+              ) asp ON asp.user_id = sp.user_id
+          ORDER BY sp.species_count DESC
+        "
+        sanitized_sql = ActiveRecord::Base.send :sanitize_sql_array, [sql,
+                                                                      day: big_day_timestamp.strftime('%Y-%m-%d'),
+                                                                      date_begin: download_start,
+                                                                      date_end: download_stop]
+        Bird.find_by_sql(sanitized_sql)
+      end
+
     end
 
   end
