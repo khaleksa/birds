@@ -5,7 +5,7 @@ class UsersController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters, :only => [:create]
 
   def index
-    @users = Stats::Counts.new.users_birds
+    @users = Statistics::Counts.users_birds
     @big_year_users_count = Stats::Counts.new.big_year_users_count
   end
 

@@ -14,8 +14,6 @@
           %a{"data-toggle" => "tab", :href => "#commentable"} Комментируемые
         %li
           %a{"data-toggle" => "tab", :href => "#unknown"} На определение
-        -#%li
-          %a{"data-toggle" => "tab", :href => "#big_year_2015"} Итоги Большого Года 2015
 
     .tab-content
       #current.tab-pane.fade.in.active
@@ -41,25 +39,6 @@
         - if @unknown_birds && !@unknown_birds.last_page?
           .row.acenter#unknown-show-more
             = link_to 'Показать еще фотографии', show_unknown_pages_path(unknown_page: @unknown_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
-
-      -##big_year_2015.tab-pane.fade
-        .mtop40.big-year-container
-          %p
-            Соревнование по фотобердингу -
-            = link_to '«Большой Год»', big_year_path
-          %p
-            - index = 1
-            -@user_list.each do |user|
-              - if user.species_count > 0
-                .row.city-participant
-                  .participant-left-blck
-                    %p
-                      ="#{index}."
-                      %img.img-circle{:align => "right", :src => user.avatar.thumb.url}/
-                      -index += 1
-                  .participant-right-blck
-                    =link_to user.full_name, profile_path(user.id)
-                    %p= "Всего видов: #{user.species_count}"
 
   .posters
     .row.container

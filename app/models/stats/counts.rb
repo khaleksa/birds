@@ -47,6 +47,7 @@ class Stats::Counts
         .size
   end
 
+  #TODO:: rewrite, big_year???
   def big_year_users_count
     User.where(big_year: true).size
   end
@@ -58,11 +59,6 @@ class Stats::Counts
     index ? index + 1 : 0
   end
 
-  # Total amount of species met by all users
-  def total_seen_species_count
-    Species.joins(:birds).where("(birds.published = 'true') AND (birds.expert_id IS NOT NULL)").select(:id).distinct.count
-  end
-
   # Total amount of species met by some user
   def user_species(user_id)
     Species.joins(:birds)
@@ -71,20 +67,4 @@ class Stats::Counts
         .distinct.order(:name_ru)
   end
 
-  #List of all users and the number of their photos(published & confirmed)
-  def users_birds
-    sql = "SELECT u.*, ub.birds_count
-            FROM users u
-            LEFT JOIN (
-                SELECT
-                  b.user_id,
-                  count(b.id) AS birds_count
-                FROM birds b
-                WHERE b.published = 'true'
-                GROUP BY b.user_id
-                ) ub on ub.user_id = u.id
-            ORDER BY ub.birds_count DESC NULLS LAST, u.last_name"
-
-    User.find_by_sql(sql)
-  end
 end

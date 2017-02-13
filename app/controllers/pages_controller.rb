@@ -9,7 +9,6 @@ class PagesController < ApplicationController
   before_action :get_unknown_birds, only: [:index, :show_unknown]
 
   def index
-    @user_list = Statistics::BigYear.users_species_count(Time.zone.now.year - 1)
   end
 
   def show_new
@@ -27,7 +26,7 @@ class PagesController < ApplicationController
 
   def about
     @users_count = User.count
-    @species_count = Stats::Counts.new.total_seen_species_count
+    @species_count = Statistics::Counts.total_users_species_amount
     @birds_count = Bird.count
   end
 
