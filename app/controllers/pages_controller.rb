@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   end
 
   def approve
-    @birds = Bird.published.known.unconfirmed.order(created_at: :desc)
+    @birds = Bird.published.known.unconfirmed.no_hybrid.order(created_at: :desc)
   end
 
   def about

@@ -1,3 +1,5 @@
+require 'statistics/counts'
+
 class UsersController < Devise::RegistrationsController
   before_filter :only => [:change_password, :unregister] do
     authenticate_user!(force: true)

@@ -2,10 +2,24 @@ defaults: &defaults
   host: birds.uz
   google_analytics:
     account_id:  <%= ENV['BIRDS_GOOGLE_ANALYTICS_ID'] %>
+  hybrid:
+    order:
+      id: 95
+    family:
+      id: 96
+    species:
+      id: 772
 
 development:
   <<: *defaults
   host: localhost
+  hybrid:
+    order:
+      id: 12
+    family:
+      id: 13
+    species:
+      id: 395
 
 test:
   <<: *defaults

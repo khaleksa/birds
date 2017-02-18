@@ -20,6 +20,7 @@ class Bird < ActiveRecord::Base
   scope :approved, ->() { where('expert_id IS NOT NULL') }
   scope :with_comments, ->() { joins(:comments) }
   scope :by_user, ->(user_id) { where(user_id: user_id) }
+  scope :no_hybrid, ->() { where('species_id != ?', Rails.configuration.hybrid.species.id) }
 
   scope :commentable_feed, ->() do
     comments_relation = Comment.select('bird_id', 'max(updated_at) AS last_date').group('bird_id')
