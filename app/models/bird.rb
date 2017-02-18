@@ -48,7 +48,7 @@ class Bird < ActiveRecord::Base
   end
 
   def need_approve?
-    expert.blank?
+    expert.blank? && species.present? && species_id != Rails.configuration.hybrid.species.id
   end
 
   def show_map_for(user)
