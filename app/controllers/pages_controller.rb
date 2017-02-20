@@ -42,7 +42,7 @@ class PagesController < ApplicationController
   end
 
   def get_commentable_birds
-    @commented_birds = Bird.commentable_feed.page(params[:comment_page]).per(PHOTO_COUNT_PER_PAGE)
+    @commented_birds = Bird.published.commentable_feed.page(params[:comment_page]).per(PHOTO_COUNT_PER_PAGE)
   end
 
   def get_unknown_birds
