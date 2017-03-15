@@ -1,4 +1,4 @@
-require 'statistics/big_year'
+require 'statistics/counts'
 
 class PagesController < ApplicationController
   PHOTO_COUNT_PER_PAGE = 8
