@@ -17,8 +17,8 @@
                 В рейтинге
                 =link_to "Большого Года - #{@big_year_rating}", big_year_path
         .col-md-3.col-sm-12.profile-user-icons
-          -if @user.big_year
-            =image_tag 'user/icon-2016.png'
+          -if @user.subscribed?(Time.zone.now.year)
+            =image_tag 'user/icon-2017.png'
           -if @user.expert?
             =image_tag 'user/icon-expert.png'
 

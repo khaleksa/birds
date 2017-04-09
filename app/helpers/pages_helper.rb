@@ -70,7 +70,7 @@ module PagesHelper
         controller_name == 'pages' &&
         action_name == 'index'
       'С Новым Годом! С любовью, команда Birds.uz'
-    elsif Time.current.month == 4 && (1..7).include?(Time.current.day)
+    elsif Time.current.month == 4 && (1..5).include?(Time.current.day)
       '1 апреля - День рождения Birds.uz!<br>Благодарим всех за этот увлекательный год и поздравляем вас с Днем Птиц!'
     else
       'Birds.uz – давайте наблюдать птиц Узбекистана вместе!'
