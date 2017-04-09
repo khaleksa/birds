@@ -1,5 +1,3 @@
-require 'statistics/counts'
-
 class UsersController < Devise::RegistrationsController
   before_filter :only => [:change_password, :unregister] do
     authenticate_user!(force: true)
@@ -8,7 +6,7 @@ class UsersController < Devise::RegistrationsController
 
   def index
     @users = Statistics::Counts.users_birds
-    @big_year_users_count = Stats::Counts.new.big_year_users_count
+    @big_year_users_count = Statistics::BigYear.users_count
   end
 
   def create

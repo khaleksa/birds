@@ -1,5 +1,3 @@
-require 'statistics/big_year'
-
 class BigYearsController < ApplicationController
 
   def index

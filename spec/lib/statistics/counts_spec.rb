@@ -53,4 +53,11 @@ describe Statistics::Counts do
     end
   end
 
+  describe '.user_species' do
+    it 'returns total amount of species met by user' do
+      expect(described_class.user_species(user1)).to include(species1, species2)
+      expect(described_class.user_species(user2)).to include(species1)
+    end
+  end
+
 end

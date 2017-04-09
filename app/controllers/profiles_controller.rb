@@ -4,10 +4,9 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    stat = Stats::Counts.new
-    @big_year_species_count = stat.big_year_user_species_count(@user.id, Time.zone.now.year)
-    @big_year_rating = stat.big_year_user_rating(@user.id)
-    @species = stat.user_species(@user.id)
+    @big_year_species_count = Statistics::BigYear.user_species_count(@user.id, Time.zone.now.year)
+    @big_year_rating = Statistics::BigYear.user_rating(@user.id)
+    @species = Statistics::Counts.user_species(@user.id)
 
     #TODO: separate pagination of birds and comments
     @birds = Bird.includes(:species).published.by_user(@user.id).order(created_at: :desc).page(params[:page_birds]).per(18)

@@ -42,7 +42,30 @@ module Statistics
             .order('species.name_ru')
       end
 
-      #TODO: write specs
+      # Total amount of all user who has at least one subscription for BigYear
+      def users_count
+        User.joins(:subscriptions).count
+      end
+
+      # The amount of user's species in BigYear for some year
+      def user_species_count(user_id, year = Time.zone.now.year)
+        return 0 unless (user = User.find(user_id)) && user.subscribed?(year)
+        Bird.published.known.approved
+            .where(user_id: user_id)
+            .where("EXTRACT(year FROM timestamp) = ?", year)
+            .where("EXTRACT(year FROM created_at) = ?", year)
+            .select(:species_id).distinct(:species_id)
+            .size
+      end
+
+      # User's place in BigYear rating
+      def user_rating(user_id, year = Time.zone.now.year)
+        return 0 unless (user = User.find(user_id)) && user.subscribed?(year)
+        index = users_species_count(year).find_index { |user| user.id == user_id }
+        index ? index + 1 : 0
+      end
+
+      # User's amount of downloaded & approved species during BigDay
       def big_day_rating(big_day_timestamp, download_start, download_stop )
         sql = "
           SELECT users.id, users.first_name, users.last_name, sp.species_count, asp.approved_species_count

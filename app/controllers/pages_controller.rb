@@ -1,5 +1,3 @@
-require 'statistics/counts'
-
 class PagesController < ApplicationController
   PHOTO_COUNT_PER_PAGE = 8
   COMMENT_MAX_LENGTH = 64
