@@ -6,7 +6,7 @@ ActiveAdmin.register Species do
 
   menu priority: 3
 
-  filter :family
+  filter :family,  :collection => proc { Categories::Category.families }, :label => 'Семейство'
   filter :name_ru
   filter :name_lat
   filter :name_en
