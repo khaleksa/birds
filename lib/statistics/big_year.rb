@@ -63,7 +63,7 @@ module Statistics
             .where("EXTRACT(year FROM timestamp) = ?", year)
             .where("EXTRACT(year FROM created_at) = ?", year)
             .select(:species_id).distinct(:species_id)
-            .size
+            .count
       end
 
       # User's place in BigYear rating

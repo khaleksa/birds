@@ -27,6 +27,8 @@ ru:
             email:
               incorrect_email: "введен в неверном формате"
               blank: "обязательна для заполнения"
+              taken: "уже существует"
+              invalid: "Неверный адрес e-mail"
             first_name:
               blank: "обязательно для заполнения"
             last_name:

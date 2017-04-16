@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bird do
+describe Bird, type: :model do
   subject { FactoryGirl.create :bird }
 
   it { should belong_to(:user)}
