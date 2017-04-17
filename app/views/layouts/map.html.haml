@@ -14,7 +14,8 @@
     <script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
     <script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
 
-  %script{:src => 'https://maps.googleapis.com/maps/api/js', :type => 'text/javascript'}
+  - google_maps_params = Rails.env.production? ? '' : "?key=#{Rails.configuration.google_maps.api_key}"
+  %script{:src => "https://maps.googleapis.com/maps/api/js#{google_maps_params}", :type => 'text/javascript'}
 
   = csrf_meta_tags
   = render 'shared/ga_code'

@@ -2,6 +2,8 @@ defaults: &defaults
   host: birds.uz
   google_analytics:
     account_id:  <%= ENV['BIRDS_GOOGLE_ANALYTICS_ID'] %>
+  google_maps:
+    api_key: <%= ENV['BIRDS_GOOGLE_MAPS_API_KEY'] %>
   hybrid:
     order:
       id: 95
