@@ -129,9 +129,9 @@
             .action-description
               Нажмите кнопку "Обзор..." чтобы указать путь к фотографии
             %input.form-control.w65.m-w85{:disabled => "", :id => "set-bird-photo-path", :type => "text"}
-            =link_to 'Обзор...', '#', class: 'mleft20 btn btn-success', id: 'set-bird-photo'
+            = form.label :photo, 'Обзор...', id: 'set-bird-photo', class: 'mleft20 btn btn-success'
             .hidden{ style: 'display:none'}
-              = form.file_field :photo, id: 'bird-photo-field'
+              = form.file_field :photo
               = form.hidden_field :photo_cache
             =form.submit 'Продолжить', class: 'mtop4 fright btn btn-info sm-display-none'
             .good-photo-condition

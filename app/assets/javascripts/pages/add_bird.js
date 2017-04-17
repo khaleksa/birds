@@ -1,11 +1,6 @@
 $(function() {
     //*** Add bird's photo ***
-
-    $('#set-bird-photo').on('click', function() {
-        $('#bird-photo-field').trigger('click');
-    })
-
-    $('#bird-photo-field').on('change', function(event) {
+    $('.add-photo-container #bird_photo').on('change', function(event) {
         var reader = new FileReader();
         reader.onload = function(file) {
             img_src = file.target.result;
