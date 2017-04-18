@@ -1,5 +1,5 @@
-# config valid only for Capistrano 3.1
-lock '3.1.0'
+# config valid only for Capistrano 3.6.1
+lock '3.6.1'
 
 set :application, 'birds'
 
@@ -47,4 +47,15 @@ namespace :deploy do
   after :publishing, :restart
   after :finishing, :cleanup
 
+end
+
+namespace :devops do
+  desc "Copy files"
+  task :copy do
+    on roles(:all) do |host|
+      %w[ file.one file.two ].each do |f|
+        upload! '/path/fo/file/' + f , '/remote/path/' + f
+      end
+    end
+  end
 end
