@@ -9,7 +9,7 @@ require 'capistrano/rails'
 
 require 'capistrano/rvm'
 set :rvm_type, :user
-set :rvm_ruby_version, '2.1.3-p242'
+set :rvm_ruby_version, '2.3.1p112'
 
 # Includes tasks from other gems included in your Gemfile
 #
