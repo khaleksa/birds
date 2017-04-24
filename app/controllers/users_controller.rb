@@ -28,7 +28,7 @@ class UsersController < Devise::RegistrationsController
 
   private
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name << :big_year
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :big_year])
   end
 
   def user_params
