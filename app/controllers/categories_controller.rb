@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
-
+  #TODO:: remove this controller!!!
   def index
-    @orders = Categories::Order.no_hybrid.order(:position).all
+    redirect_to :species_index
   end
 end

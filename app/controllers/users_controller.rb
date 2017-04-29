@@ -4,6 +4,7 @@ class UsersController < Devise::RegistrationsController
   end
   before_filter :configure_permitted_parameters, :only => [:create]
 
+  #TODO!!!:: remove to separate controller!!
   def index
     @users = Statistics::Counts.users_birds
     @big_year_users_count = Statistics::BigYear.users_count
