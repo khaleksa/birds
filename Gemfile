@@ -59,3 +59,5 @@ group :development do
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-rvm'
 end
+
+gem 'mini_racer', platforms: :ruby

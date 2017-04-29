@@ -33,3 +33,9 @@ config/settings.local.yml
 /public/spec_results.html
 
 /public/uploads/*
+# React on Rails
+npm-debug.log*
+node_modules
+
+# Generated js bundles
+/app/assets/webpack/*

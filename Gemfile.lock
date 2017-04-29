@@ -186,6 +186,7 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
+    libv8 (5.3.332.38.5)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -196,6 +197,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_magick (4.7.0)
     mini_portile2 (2.1.0)
+    mini_racer (0.1.9)
+      libv8 (~> 5.3)
     minitest (5.10.1)
     momentjs-rails (2.17.1)
       railties (>= 3.1)
@@ -369,6 +372,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mini_magick
+  mini_racer
   momentjs-rails (>= 2.9.0)
   omniauth
   omniauth-facebook (>= 4.0.0)
