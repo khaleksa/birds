@@ -77,6 +77,7 @@ GEM
     bourbon (3.2.4)
       sass (~> 3.2)
       thor
+    bugsnag (5.3.2)
     builder (3.2.3)
     byebug (9.0.6)
     capistrano (3.6.1)
@@ -340,6 +341,7 @@ DEPENDENCIES
   activeadmin!
   best_in_place
   bootstrap3-datetimepicker-rails (~> 4.17.37)
+  bugsnag
   capistrano (= 3.6.1)
   capistrano-bundler (~> 1.2)
   capistrano-rails (~> 1.2)

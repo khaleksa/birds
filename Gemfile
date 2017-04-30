@@ -32,6 +32,7 @@ gem 'best_in_place'
 gem 'kaminari'
 
 gem 'choices'
+gem 'bugsnag'
 
 group :test, :development do
   gem 'pry'
