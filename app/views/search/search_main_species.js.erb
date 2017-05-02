@@ -1,6 +1,6 @@
 $('.search-results').empty().append("<%= escape_javascript( render partial: 'search/result' ) %>");
 
-<% if @species.size > 0 %>
+<% if @species && @species.size > 0 %>
     $('.search-results').empty().append("<%= escape_javascript( render partial: 'search/result' ) %>");
     $('.search-description').empty().append('Чтобы выбрать из найденного списка нужный вид, кликните по нему один раз.');
 <% else %>
