@@ -69,6 +69,7 @@
             %h4 Комментарии
             .row.comments-container
               - @bird.comments.each do |comment|
+                - next if comment.user.blank?
                 .row.comment-row.mbtm15
                   .col-md-1.image-holder
                     =image_tag comment.user.avatar.thumb.url, class: 'img-circle'
