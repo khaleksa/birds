@@ -1,7 +1,7 @@
 $('.search-description').empty();
 $('.search-results').empty();
 
-<% if @species.size > 0 %>
+<% if @species && @species.size > 0 %>
     $('.search-results').append("<%= escape_javascript( render partial: 'search/result' ) %>");
 <% else %>
     $('.search-description').append('К сожалению, по вашему запросу ничего не найдено');
