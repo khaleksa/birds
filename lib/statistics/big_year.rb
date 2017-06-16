@@ -52,7 +52,14 @@ module Statistics
 
       # Total amount of all user who has at least one subscription for BigYear
       def users_count
-        User.joins(:subscriptions).count
+        sql = 'SELECT COUNT(*)
+               FROM users u
+               WHERE EXISTS (SELECT 1
+                             FROM subscriptions s
+                             WHERE s.user_id = u.id);
+              '
+        result = ActiveRecord::Base.connection.execute sql
+        result.first['count'].to_i
       end
 
       # The amount of user's species in BigYear for some year

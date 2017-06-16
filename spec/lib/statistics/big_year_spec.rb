@@ -11,7 +11,8 @@ describe Statistics::BigYear do
   let(:species3) { FactoryGirl.create :species, category_id: family.id }
 
   let!(:user1) { FactoryGirl.create :user }
-  let!(:user1_subscription) { FactoryGirl.create :subscription, user: user1, year: current_year }
+  let!(:user1_subscription1) { FactoryGirl.create :subscription, user: user1, year: current_year - 1 }
+  let!(:user1_subscription2) { FactoryGirl.create :subscription, user: user1, year: current_year }
   let!(:expert) { FactoryGirl.create :user_expert }
 
   let!(:user1_bird1) { FactoryGirl.create :bird, user: user1, species: species1, expert_id: expert.id, published: true, big_year: current_year, timestamp: Time.zone.now }
@@ -26,7 +27,7 @@ describe Statistics::BigYear do
   let!(:user2_bird1) { FactoryGirl.create :bird, user: user2, species: species1, expert_id: expert.id, published: true, timestamp: Time.zone.now }
 
   let!(:user3) { FactoryGirl.create :user }
-  let!(:user3_subscription) { FactoryGirl.create :subscription, user: user1, year: 2.years.ago.year }
+  let!(:user3_subscription) { FactoryGirl.create :subscription, user: user3, year: 2.years.ago.year }
   let!(:user3_bird1) { FactoryGirl.create :bird, user: user3, species: species1, expert_id: expert.id, published: true }
 
   let!(:user4) { FactoryGirl.create :user }
