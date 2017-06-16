@@ -20,6 +20,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook', '>= 4.0.0'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'seed-fu', git: 'https://github.com/mbleigh/seed-fu'
 gem 'seedbank'

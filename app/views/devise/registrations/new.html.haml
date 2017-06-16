@@ -4,7 +4,7 @@
       %h3.acenter.mbtm20 Регистрация
 
       .col.col-md-7.col-sm-12.fcenter
-        = form_for :user, url: user_registration_path do |f|
+        = form_for :user, url: user_registration_path, html: {id: 'invisible-recaptcha-form'} do |f|
           .reg-form-cntainer
             .row
               .col-md-3.col-sm-3.lbl-container
@@ -40,7 +40,6 @@
               .col-md-6.col-sm-6.input-container
                 %label
                   = f.check_box :big_year
-                  -#%input{:name => "participate", :type => "checkbox"}/
                   %span
                 %label{:for => "participate"} Я хочу участвовать в Большом Годе
               .col-md-3.col-sm-3.str-container
@@ -49,7 +48,7 @@
               .col-md-3.col-sm-3.lbl-container
                 \&nbsp;
               .col-md-6.col-sm-6.input-container
-                = f.submit "Зарегистрироваться", class: 'mtop10 w100p btn-lg btn btn-info'
+                = invisible_recaptcha_tags callback: 'submitInvisibleRecaptchaForm', class: 'mtop10 w100p btn-lg btn btn-info', text: 'Зарегистрироваться', hl: 'ru'
                 =link_to 'У меня уже есть аккаунт', new_user_session_path
             .row
               .col-md-3.col-sm-3.lbl-container

@@ -4,6 +4,9 @@ defaults: &defaults
     account_id:  <%= ENV['BIRDS_GOOGLE_ANALYTICS_ID'] %>
   google_maps:
     api_key: <%= ENV['BIRDS_GOOGLE_MAPS_API_KEY'] %>
+  recaptcha:
+    public_key: <%= ENV['BIRDS_RECAPTCHA_KEY'] %>
+    private_key: <%= ENV['BIRDS_RECAPTCHA_SECRET'] %>
   hybrid:
     order:
       id: 95

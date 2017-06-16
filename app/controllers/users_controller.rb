@@ -11,8 +11,12 @@ class UsersController < Devise::RegistrationsController
   end
 
   def create
-    super do |user|
-      user.subscribe!(Time.zone.now.year) if user.big_year
+    if verify_recaptcha
+      super do |user|
+        user.subscribe!(Time.zone.now.year) if user.big_year
+      end
+    else
+      render 'new'
     end
   end
 

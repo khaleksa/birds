@@ -26,3 +26,7 @@
 
 $(".best_in_place").best_in_place();
 
+var submitInvisibleRecaptchaForm = function () {
+    $('#invisible-recaptcha-form').submit();
+};
+
