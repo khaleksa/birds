@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
     has_role?(:friend)
   end
 
+  def restricted?
+    has_role?(:restricted)
+  end
+
   def self.from_omniauth(auth)
     provider = auth[:social_accounts_attributes][:provider]
     uid = auth[:social_accounts_attributes][:uid]

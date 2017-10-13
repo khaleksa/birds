@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :filter_users
 
   BLACK_EMAILS = %w(mavlonov_83@mail.ru)
 
@@ -27,5 +28,9 @@ class CommentsController < ApplicationController
   private
   def sanitize_url(text)
     text.gsub(/(http?:\/\/birds.uz[\S]*)/, '<a href="\1">\1</a>')
+  end
+
+  def filter_users
+    return render json: { success: false } if current_user.try(:restricted?)
   end
 end

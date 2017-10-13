@@ -1,6 +1,7 @@
 #TODO: rewrite, use ajax
 class BirdsController < ApplicationController
-  before_filter :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show]
+  before_action :filter_users, only: [:create]
 
   layout 'map', only: [:edit_map, :show]
 
@@ -106,5 +107,9 @@ class BirdsController < ApplicationController
     else
       return :edit_species
     end
+  end
+
+  def filter_users
+    return redirect_to :back if current_user.try(:restricted?)
   end
 end
