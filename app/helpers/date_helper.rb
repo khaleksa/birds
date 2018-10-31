@@ -10,6 +10,6 @@ module DateHelper
 
   def datetime_format(date)
     return '' unless date.present?
-    date.strftime('%d/%m/%Y %H:%M')
+    date.in_time_zone('Tashkent').strftime('%d/%m/%Y %H:%M')
   end
 end
