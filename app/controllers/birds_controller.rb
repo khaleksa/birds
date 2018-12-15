@@ -1,4 +1,3 @@
-#TODO: rewrite, use ajax
 class BirdsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :filter_users, only: [:create]
