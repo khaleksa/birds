@@ -78,7 +78,6 @@ Birds::Application.routes.draw do
   end
 
   resource :swift, only: [] do
-    get 'nesting_box'
     get 'first_aid'
     get 'about'
   end
