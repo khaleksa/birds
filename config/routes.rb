@@ -31,6 +31,7 @@ Birds::Application.routes.draw do
 
   resource :big_year, only: [] do
     get :index
+    get :prises
     post :change_subscription
   end
 
