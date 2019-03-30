@@ -15,7 +15,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 gem 'activeadmin', github: 'activeadmin', branch: '1-3-stable'
-gem 'devise'
+gem 'devise', '>= 4.6.0'
 gem 'omniauth'
 gem 'omniauth-facebook', '>= 4.0.0'
 gem 'recaptcha', :require => 'recaptcha/rails'
