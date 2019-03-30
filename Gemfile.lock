@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: e044a39f24c758aed78d72ebc9c7885834e4f712
-  branch: 1-3-stable
+  revision: 2038da35462059357f464b294d6695bc5b045ad2
+  branch: 1-4-stable
   specs:
-    activeadmin (1.3.1)
+    activeadmin (1.4.3)
       arbre (>= 1.1.1)
       coffee-rails
       formtastic (~> 3.1)
