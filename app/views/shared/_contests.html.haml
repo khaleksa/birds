@@ -8,4 +8,7 @@
         %li= link_to 'Памятка оказания первой помощи диким птицам', first_aid_swift_path
         %li= link_to 'Куда обратиться за помощью?', about_swift_path
     .col.col-md-6
-      .banner-image= image_tag 'banners/bg_banner.jpg'
+      - banner_image = 'banners/bg_banner.jpg'
+      - if Time.zone.now.month == 4 && (1..5).cover?(Time.zone.now.day)
+        - banner_image = 'banners/1-april.jpg'
+      .banner-image= image_tag banner_image
