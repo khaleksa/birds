@@ -6,7 +6,7 @@ gem 'rails', '4.2'
 
 gem 'pg', '~> 0.20.0'
 
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'haml-rails'
