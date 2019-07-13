@@ -19,9 +19,10 @@
             =@species.sub_species.first.full_name
 
         -if @species.images.any?
-          #media_block.row.bird-photo-img
-            =link_to @default_image.image.url, id: 'fancybox_single_image', title: @default_image.description do
-              =image_tag @default_image.image.small.url, class: 'img-responsive'
+          - if @default_image.present?
+            #media_block.row.bird-photo-img
+              =link_to @default_image.image.url, id: 'fancybox_single_image', title: @default_image.description do
+                =image_tag @default_image.image.small.url, class: 'img-responsive'
           .row.add-comment-form-container
             .row.add-comment-form
               %p
