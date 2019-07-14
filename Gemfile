@@ -53,8 +53,14 @@ group :test do
 end
 
 group :development do
-  gem 'capistrano', '3.6.1'
+  gem 'capistrano', '3.6.1', require: false
   gem 'capistrano-bundler', '~> 1.2'
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-rvm'
+end
+
+group :deploy do
+  # remember to update deploy.rb
+  gem 'bcrypt_pbkdf'
+  gem 'ed25519'
 end
