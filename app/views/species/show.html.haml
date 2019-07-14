@@ -46,17 +46,17 @@
               .row.bird-description
                 %p
                   %h5 Описание
-                %p= @species.description.html_safe
+                %p= @species.description&.html_safe
 
                 - if @species.distribution.present?
                   %p
                     %h5 Распространение
-                  %p= @species.distribution.html_safe
+                  %p= @species.distribution&.html_safe
 
                 - if @species.biology.present?
                   %p
                     %h5 Биология
-                  %p= @species.biology.html_safe
+                  %p= @species.biology&.html_safe
 
                 - if @species.sub_species.present? && !@species.single_subspecies
                   %p.bird-sub-species
@@ -69,7 +69,7 @@
                   %p
                     %h5 Источники информации
                   %p
-                    %i= @species.reference.html_safe
+                    %i= @species.reference&.html_safe
 
       .col-sm-12.col.col-md-4.fright.m-no-float
         .row.bird-photo-btn
