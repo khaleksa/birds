@@ -2,14 +2,14 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'bundler', '>= 1.16.3'
-gem 'rails', '5.0'
+gem 'rails', '5.1'
 
 gem 'pg', '~> 0.20.0'
 
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem 'haml-rails'
+gem "haml-rails", "~> 2.0"
 gem 'turbolinks'
 
 gem 'momentjs-rails', '>= 2.9.0'
