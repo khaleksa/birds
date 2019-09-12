@@ -2,7 +2,7 @@ class MapController < ApplicationController
   include DateHelper
   layout 'map'
 
-  before_filter :set_species, :authorize_user!
+  before_action :set_species, :authorize_user!
 
   def index
     @map_url_params = { species_id: @species.id }

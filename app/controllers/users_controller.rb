@@ -1,8 +1,8 @@
 class UsersController < Devise::RegistrationsController
-  before_filter :only => [:change_password, :unregister] do
+  before_action :only => [:change_password, :unregister] do
     authenticate_user!(force: true)
   end
-  before_filter :configure_permitted_parameters, :only => [:create]
+  before_action :configure_permitted_parameters, :only => [:create]
 
   #TODO!!!:: remove to separate controller!!
   def index
