@@ -1,4 +1,4 @@
-class CreateBirds < ActiveRecord::Migration
+class CreateBirds < ActiveRecord::Migration[5.0]
   def change
     create_table :birds do |t|
       t.datetime :timestamp

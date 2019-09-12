@@ -1,4 +1,4 @@
-class AddDataToImages < ActiveRecord::Migration
+class AddDataToImages < ActiveRecord::Migration[5.0]
   def change
     add_column :images, :description, :string
     add_column :images, :author, :string
