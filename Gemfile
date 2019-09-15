@@ -54,7 +54,7 @@ end
 
 group :development do
   gem 'capistrano', '3.6.1', require: false
-  gem 'capistrano-bundler', '~> 1.2'
+  gem 'capistrano-bundler', '~> 1.6'
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-rvm'
 end

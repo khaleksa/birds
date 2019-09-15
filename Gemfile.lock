@@ -357,7 +357,7 @@ DEPENDENCIES
   bugsnag
   bundler (>= 1.16.3)
   capistrano (= 3.6.1)
-  capistrano-bundler (~> 1.2)
+  capistrano-bundler (~> 1.6)
   capistrano-rails (~> 1.2)
   capistrano-rvm
   carrierwave
