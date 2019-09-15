@@ -37,7 +37,7 @@ ActiveAdmin.register Bird do
         div do
           image_tag(bird.photo.thumb.url)
         end
-      end
+      end if bird.photo.present?
       row :published
       row :created_at
       row :updated_at
@@ -56,7 +56,7 @@ ActiveAdmin.register Bird do
     end
     f.inputs do
       f.input :photo, :hint => f.template.image_tag(f.object.photo.url)
-    end
+    end if f.object.photo.present?
 
     f.actions
   end

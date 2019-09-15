@@ -89,7 +89,9 @@ ActiveAdmin.register Species do
 
     f.inputs 'Фото' do
       f.has_many :images, :allow_destroy => true, :heading => 'Images' do |cf|
-        cf.input :image, :hint => f.template.image_tag(cf.object.image.thumb.url)
+        if cf.object.image.present?
+          cf.input :image, :hint => f.template.image_tag(cf.object.image.thumb.url)
+        end
         cf.input :date, :as => :datepicker
         cf.input :description
         cf.input :author

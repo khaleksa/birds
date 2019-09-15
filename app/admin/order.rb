@@ -34,7 +34,7 @@ ActiveAdmin.register Categories::Order do
         div do
           image_tag(order.image.url)
         end
-      end
+      end if order.image.present?
       row :created_at
       row :updated_at
     end
@@ -49,9 +49,11 @@ ActiveAdmin.register Categories::Order do
       f.input :name_uz
       f.input :description
     end
+
     f.inputs do
+      binding.pry
       f.input :image, :hint => f.template.image_tag(f.object.image.url)
-    end
+    end if f.object.image.present?
 
     f.actions
   end
