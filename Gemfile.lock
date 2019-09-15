@@ -143,7 +143,7 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    haml (5.1.1)
+    haml (5.1.2)
       temple (>= 0.8.0)
       tilt
     haml-rails (2.0.1)
@@ -208,7 +208,7 @@ GEM
       net-ssh (>= 2.6.5, < 6.0.0)
     net-ssh (5.2.0)
     nio4r (2.4.0)
-    nokogiri (1.10.3)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.1)
       faraday (>= 0.8, < 0.16.0)
@@ -255,7 +255,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.0.4)
+    rails-html-sanitizer (1.2.0)
       loofah (~> 2.2, >= 2.2.2)
     railties (5.1.0)
       actionpack (= 5.1.0)
@@ -263,7 +263,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (12.3.2)
+    rake (12.3.3)
     ransack (2.1.1)
       actionpack (>= 5.0)
       activerecord (>= 5.0)
@@ -326,7 +326,7 @@ GEM
     sshkit (1.19.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    temple (0.8.1)
+    temple (0.8.2)
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -368,7 +368,7 @@ DEPENDENCIES
   factory_girl
   factory_girl_rails
   factory_girl_rspec
-  haml-rails (~> 2.0)
+  haml-rails
   jquery-rails
   kaminari
   mini_magick

@@ -9,7 +9,7 @@ gem 'pg', '~> 0.20.0'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem "haml-rails", "~> 2.0"
+gem "haml-rails"
 gem 'turbolinks'
 
 gem 'momentjs-rails', '>= 2.9.0'
