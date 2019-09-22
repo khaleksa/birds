@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'bundler', '>= 1.16.3'
+gem 'bundler', '>= 1.17.1'
 gem 'rails', '5.1'
 
 gem 'pg', '~> 0.20.0'
@@ -15,7 +15,8 @@ gem 'turbolinks'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
-gem 'activeadmin', git: 'git@github.com:activeadmin/activeadmin.git', branch: '1-4-stable'
+gem 'inherited_resources'
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin', branch: '1-4-stable'
 gem 'devise', '>= 4.7.1'
 gem 'omniauth'
 gem 'omniauth-facebook', '>= 4.0.0'

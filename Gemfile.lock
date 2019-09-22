@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:activeadmin/activeadmin.git
+  remote: https://github.com/activeadmin/activeadmin
   revision: 2038da35462059357f464b294d6695bc5b045ad2
   branch: 1-4-stable
   specs:
@@ -358,7 +358,7 @@ DEPENDENCIES
   best_in_place
   bootstrap3-datetimepicker-rails (~> 4.17.37)
   bugsnag
-  bundler (>= 1.16.3)
+  bundler (>= 1.17.1)
   capistrano (= 3.6.1)
   capistrano-bundler (~> 1.6)
   capistrano-rails (~> 1.2)
@@ -372,6 +372,7 @@ DEPENDENCIES
   factory_girl_rails
   factory_girl_rspec
   haml-rails
+  inherited_resources
   jquery-rails
   kaminari
   mini_magick
