@@ -51,9 +51,9 @@ ActiveAdmin.register Categories::Order do
     end
 
     f.inputs do
-      binding.pry
-      f.input :image, :hint => f.template.image_tag(f.object.image.url)
-    end if f.object.image.present?
+      hint_image = f.object.image.present? ? f.template.image_tag(f.object.image.url) : ''
+      f.input :image, :hint => hint_image
+    end
 
     f.actions
   end

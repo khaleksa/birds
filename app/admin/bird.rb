@@ -55,8 +55,8 @@ ActiveAdmin.register Bird do
       f.input :published
     end
     f.inputs do
-      f.input :photo, :hint => f.template.image_tag(f.object.photo.url)
-    end if f.object.photo.present?
+      f.input :photo, :hint => ( f.object.photo.present? ? f.template.image_tag(f.object.photo.url) : '')
+    end
 
     f.actions
   end
