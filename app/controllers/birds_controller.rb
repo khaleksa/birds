@@ -95,7 +95,19 @@ class BirdsController < ApplicationController
 
   private
   def bird_params
-    params.require(:bird).permit(:photo, :photo_cache, :timestamp, :latitude, :longitude, :address, :species_id)
+    result = params.require(:bird).permit(
+      :photo,
+      :photo_cache,
+      :timestamp,
+      :latitude,
+      :longitude,
+      :address,
+      :species_id
+    )
+    if result[:photo].present?
+      result[:photo].original_filename = URI.encode(result[:photo].original_filename)
+    end
+    result
   end
 
   def next_edit_action(bird)
