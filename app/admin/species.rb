@@ -1,6 +1,9 @@
 ActiveAdmin.register Species do
   permit_params :name_ru, :name_en, :name_lat, :name_uz,
-                :description, :distribution, :biology, :reference,
+                :description, :description_uz,
+                :distribution, :distribution_uz,
+                :biology, :biology_uz,
+                :reference, :reference_uz,
                 :category_id, :status, :show_map, :position, :parent_id, :single_subspecies,
                 images_attributes: [:id, :image, :_destroy, :description, :author, :date, :address, :default]
 
@@ -47,13 +50,17 @@ ActiveAdmin.register Species do
       row :name_lat
       row :name_en
       row :name_uz
-      row :status
       row :description
+      row :description_uz
       row :distribution
+      row :distribution_uz
       row :biology
+      row :biology_uz
       row :reference
+      row :reference_uz
       row :single_subspecies
       row :show_map
+      row :status
       row :created_at
       row :updated_at
       row :images do
@@ -73,16 +80,35 @@ ActiveAdmin.register Species do
       f.input :parent, as: :select, collection: Species.main.ordered
     end
 
-    f.inputs 'Описание вида' do
+    f.inputs 'Наименование вида' do
       f.input :name_ru
       f.input :name_lat
       f.input :name_en
       f.input :name_uz
-      f.input :status
+    end
+
+    f.inputs 'Описание вида' do
       f.input :description
+      f.input :description_uz
+    end
+
+    f.inputs 'Распространение вида' do
       f.input :distribution
+      f.input :distribution_uz
+    end
+
+    f.inputs 'Биология вида' do
       f.input :biology
+      f.input :biology_uz
+    end
+
+    f.inputs 'Источники информации' do
       f.input :reference
+      f.input :reference_uz
+    end
+
+    f.inputs 'Разное' do
+      f.input :status
       f.input :single_subspecies
       f.input :show_map
     end
