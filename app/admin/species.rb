@@ -1,9 +1,9 @@
 ActiveAdmin.register Species do
   permit_params :name_ru, :name_en, :name_lat, :name_uz,
-                :description, :description_uz,
-                :distribution, :distribution_uz,
-                :biology, :biology_uz,
-                :reference, :reference_uz,
+                :description, :description_uz, :description_en,
+                :distribution, :distribution_uz, :distribution_en,
+                :biology, :biology_uz, :biology_en,
+                :reference, :reference_uz, :reference_en,
                 :category_id, :status, :show_map, :position, :parent_id, :single_subspecies,
                 images_attributes: [:id, :image, :_destroy, :description, :author, :date, :address, :default]
 
@@ -52,12 +52,16 @@ ActiveAdmin.register Species do
       row :name_uz
       row :description
       row :description_uz
+      row :description_en
       row :distribution
       row :distribution_uz
+      row :distribution_en
       row :biology
       row :biology_uz
+      row :biology_en
       row :reference
       row :reference_uz
+      row :reference_en
       row :single_subspecies
       row :show_map
       row :status
@@ -90,21 +94,25 @@ ActiveAdmin.register Species do
     f.inputs 'Описание вида' do
       f.input :description
       f.input :description_uz
+      f.input :description_en
     end
 
     f.inputs 'Распространение вида' do
       f.input :distribution
       f.input :distribution_uz
+      f.input :distribution_en
     end
 
     f.inputs 'Биология вида' do
       f.input :biology
       f.input :biology_uz
+      f.input :biology_en
     end
 
     f.inputs 'Источники информации' do
       f.input :reference
       f.input :reference_uz
+      f.input :reference_en
     end
 
     f.inputs 'Разное' do
