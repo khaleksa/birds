@@ -1,3 +1,3 @@
 class Foo
-  read_attr id
+  read_attr track
 end;
