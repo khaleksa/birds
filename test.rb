@@ -1,3 +1,3 @@
 class Foo
-  read_attr amount
+  read_attr plane
 end
