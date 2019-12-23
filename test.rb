@@ -1,3 +1,3 @@
 class Foo
-  read_attr name
+  read_attr amount
 end
