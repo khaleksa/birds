@@ -1,3 +1,3 @@
 class Foo
-  read_attr track
+  read_attr car
 end;
