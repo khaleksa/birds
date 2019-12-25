@@ -25,7 +25,9 @@ gem 'seed-fu', git: 'https://github.com/mbleigh/seed-fu'
 gem 'seedbank'
 
 gem 'closure_tree'
+
 gem 'carrierwave'
+gem "fog-google"
 gem 'mini_magick'
 
 gem 'best_in_place'
