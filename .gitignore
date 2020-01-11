@@ -33,3 +33,5 @@ config/settings.local.yml
 /public/spec_results.html
 
 /public/uploads/*
+
+*.*env
