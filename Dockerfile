@@ -22,10 +22,9 @@ RUN bundle install
 COPY . /cloud
 
 ## Add a script to be executed every time the container starts.
-#COPY bin/init.sh /usr/bin/
-RUN chmod +x bin/init.sh
-ENTRYPOINT ["bin/init.sh"]
-#RUN ./entrypoint.sh
+COPY bin/init.sh /usr/bin/
+RUN chmod +x /usr/bin/init.sh
+ENTRYPOINT ["/usr/bin/init.sh"]
 
 EXPOSE 3000
 

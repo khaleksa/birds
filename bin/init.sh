@@ -3,15 +3,15 @@ set -e
 
 echo "This is an init.sh file"
 
-exec $@
+FILE=/usr/conf/cloud.conf
+if [[ -f "$FILE" ]]; then
+  echo "cloud.conf exists."
+  set -a
+  . /usr/conf/cloud.conf
+  set +a
+  printenv
+else
+  echo "cloud.conf NOT exists."
+fi
 
-##!/usr/bin/env bash
-#
-#echo $(pwd)
-#echo '- init.sh -'
-#env_file_location=${1:-'conf/prod.conf'}
-#echo $env_file_location
-#
-#set -a
-#source $env_file_location
-#set +a
+exec $@
