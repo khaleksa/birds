@@ -1,8 +1,17 @@
-echo $(pwd)
+#!/bin/bash
+set -e
 
-env_file_location=${1:-'.env'}
-echo $env_file_location
+echo "This is an init.sh file"
 
-set -a
-source $env_file_location
-set +a
+exec $@
+
+##!/usr/bin/env bash
+#
+#echo $(pwd)
+#echo '- init.sh -'
+#env_file_location=${1:-'conf/prod.conf'}
+#echo $env_file_location
+#
+#set -a
+#source $env_file_location
+#set +a

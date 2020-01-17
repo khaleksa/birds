@@ -1,11 +1,11 @@
 FROM ruby:2.3.1
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 
-RUN mkdir /birds
-WORKDIR /birds
+RUN mkdir /cloud
+WORKDIR /cloud
 
-COPY Gemfile /birds/Gemfile
-COPY Gemfile.lock /birds/Gemfile.lock
+COPY Gemfile /cloud/Gemfile
+COPY Gemfile.lock /cloud/Gemfile.lock
 
 ENV BUNDLE_GEMFILE='./Gemfile'
 ENV GEM_HOME=/bundle
@@ -19,15 +19,16 @@ RUN bundle config --global path "$GEM_HOME" \
 RUN gem install bundler -v 1.17.1
 RUN bundle install
 
-COPY . /birds
+COPY . /cloud
 
 ## Add a script to be executed every time the container starts.
-#COPY entrypoint.sh /usr/bin/
-#RUN chmod +x /usr/bin/entrypoint.sh
-## ENTRYPOINT ["entrypoint.sh"]
+#COPY bin/init.sh /usr/bin/
+RUN chmod +x bin/init.sh
+ENTRYPOINT ["bin/init.sh"]
 #RUN ./entrypoint.sh
 
 EXPOSE 3000
 
 # Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+#CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD exec rails server -b '0.0.0.0'
