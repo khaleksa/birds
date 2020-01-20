@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: 34.89.189.108
+  port: 5432
+  username: birds_user
+  password: mo2vwzxk5cmnc1a1
+  database: birds_production
+
+development: &development
+  <<: *default
+
+test: &test
+  <<: *default
+  database: birds_test
+
+production: &production
+  <<: *default
