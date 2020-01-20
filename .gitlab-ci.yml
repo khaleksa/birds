@@ -27,9 +27,12 @@ build-push-docker-job:
   services:
     - docker:dind
   before_script:
-    - echo "${CI_JOB_TOKEN}"
-    - echo $GCP_CRED > ${HOME}/service_key.json
-    - cat ${HOME}/service_key.json | docker login -u _json_key --password-stdin https://gcr.io
+    - pwd
+    - echo $GCP_CRED
+    - echo $GCP_CRED > service_key.json
+    - ls
+    - cat service_key.json
+    - cat service_key.json | docker login -u _json_key --password-stdin https://gcr.io
   script:
     - docker build -t gcr.io/$projectid/$image_name:latest .
     - docker push gcr.io/$projectid/$image_name:latest
