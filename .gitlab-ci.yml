@@ -4,9 +4,10 @@ stages:
 
 variables:
     projectid: "sonorous-mix-245813"
-    service: "cloudrun-cicd"
-    region: "us-central1"
-    image_name: "cloudrun-cicd"
+    service: "birdsuzb-serverless"
+    region: "europe-west1"
+    image_name: "birdsuzb"
+    ram: "512Mb"
 
 build-push-docker-job:
   stage: build
@@ -14,28 +15,19 @@ build-push-docker-job:
   services:
     - docker:dind
   before_script:
-    - pwd
-    - echo $GCP_CRED
+    #authentificate docker to be able to push images
     - echo $GCP_CRED > service_key.json
-    - ls
-    - cat service_key.json
     - cat service_key.json | docker login -u _json_key --password-stdin https://gcr.io
   script:
     - docker build -t gcr.io/$projectid/$image_name:latest .
     - docker push gcr.io/$projectid/$image_name:latest
 
-deploy-new-service-job:
+deploy-service-job:
   stage: deploy
+  image: google/cloud-sdk  #use docker image with gcp sdk for this job
   before_script:
-    # Download and install Google Cloud SDK. Source it so you can use it from any where
-    - mkdir /software
-    - cd /software
-    - wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
-    - tar zxvf google-cloud-sdk.tar.gz && ./google-cloud-sdk/install.sh --usage-reporting=false --path-update=true
-    - source /root/.bashrc
-    - gcloud components install beta
     # Write our GCP service account private key into a file
     - echo $GCP_CRED > service_key.json
   script:
     - gcloud auth activate-service-account --key-file service_key.json
-    - gcloud run deploy $service --project $projectid --image gcr.io/$projectid/$image_name:latest --region $region --platform=managed --allow-unauthenticated
+    - gcloud run deploy $service --project $projectid --image gcr.io/$projectid/$image_name:latest --region $region --platform=managed --memory $ram --allow-unauthenticated
