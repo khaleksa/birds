@@ -1,11 +1,12 @@
 FROM ruby:2.3.1
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client \
+  && mkdir /cloud
 
-RUN mkdir /cloud
 WORKDIR /cloud
 
-COPY Gemfile /cloud/Gemfile
-COPY Gemfile.lock /cloud/Gemfile.lock
+COPY . /cloud
+#COPY Gemfile /cloud/Gemfile
+#COPY Gemfile.lock /cloud/Gemfile.lock
 
 ENV BUNDLE_GEMFILE='./Gemfile'
 ENV GEM_HOME=/bundle
@@ -14,12 +15,9 @@ ENV BUNDLE_PATH=$GEM_HOME
 ENV BUNDLE_BIN=$GEM_HOME/bin
 
 RUN bundle config --global path "$GEM_HOME" \
-  && bundle config --global bin "$GEM_HOME/bin"
-
-RUN gem install bundler -v 1.17.1
-RUN bundle install
-
-COPY . /cloud
+  && bundle config --global bin "$GEM_HOME/bin" \
+  && gem install bundler -v 1.17.1 \
+  && bundle install
 
 ## Add a script to be executed every time the container starts.
 #COPY bin/init.sh /usr/bin/
