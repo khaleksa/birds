@@ -15,7 +15,7 @@ CarrierWave.configure do |config|
   config.fog_credentials = {
       provider: 'Google',
       google_project: 'sonorous-mix-245813',
-      google_json_key_location: 'config/google_cred.json'
+      google_json_key_location: 'config/gcp_image_key.json'
   }
-  config.fog_directory = 'birdsuzb_images'
+  config.fog_directory = 'birdsuzb_images_eu_w1'
 end

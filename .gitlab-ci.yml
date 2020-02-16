@@ -19,6 +19,7 @@ build-push-docker-job:
     - echo $GCP_CRED > service_key.json
     - cat service_key.json | docker login -u _json_key --password-stdin https://gcr.io
   script:
+    - - echo $GCP_IMAGE_CRED > config/gcp_image_key.json
     - docker build -t gcr.io/$projectid/$image_name:latest .
     - docker push gcr.io/$projectid/$image_name:latest
 
