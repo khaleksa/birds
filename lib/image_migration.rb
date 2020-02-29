@@ -11,7 +11,7 @@ class ImageMigration
         thumb_file_path = File.realdirpath(user.avatar.versions[:thumb].file.file)
 
         new_file_name = filename(file_path)
-        new_file_dir = store_dir(user, 'avatar')
+        new_file_dir = store_dir(file_path, user, 'avatar')
         FileUtils.mkdir_p(File.dirname(new_file_dir))
 
         puts "******* Old file: #{file_path} - new: #{new_file_dir + '/' + new_file_name}"
@@ -37,9 +37,9 @@ class ImageMigration
     SecureRandom.hex(length/2)
   end
 
-  def store_dir(model, mounted_as)
-    dir = "images/#{model.class.to_s.underscore}/#{mounted_as}/#{salted_reproducible_id(model.id)}"
-    File.join(Rails.root, "public", dir)
+  def store_dir(file_path, model, mounted_as)
+    base_path = file_path.gsub(/uploads\/user\/avatar(.)*/, '')
+    base_path + "images/#{model.class.to_s.underscore}/#{mounted_as}/#{salted_reproducible_id(model.id)}"
   end
 
   def salted_reproducible_id(model_id)
