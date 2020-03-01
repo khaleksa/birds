@@ -10,10 +10,14 @@ class ImageMigration
         file_path = File.realdirpath(uploader.file.file)
         thumb_file_path = File.realdirpath(user.avatar.versions[:thumb].file.file)
 
-        new_file_name = filename(file_path)
         new_file_dir = store_dir(file_path, user, 'avatar')
-        FileUtils.mkdir_p(File.dirname(new_file_dir))
+        if File.directory? new_file_dir
+          FileUtils.rm_f new_file_dir
+        else
+          FileUtils.mkdir_p new_file_dir
+        end
 
+        new_file_name = filename(file_path)
         puts "******* Old file: #{file_path} - new: #{new_file_dir + '/' + new_file_name}"
         FileUtils.cp file_path, new_file_dir + '/' + new_file_name
 
