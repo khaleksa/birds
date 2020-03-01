@@ -11,11 +11,7 @@ class ImageMigration
         thumb_file_path = File.realdirpath(user.avatar.versions[:thumb].file.file)
 
         new_file_dir = store_dir(file_path, user, 'avatar')
-        if File.directory? new_file_dir
-          FileUtils.rm_f new_file_dir
-        else
-          FileUtils.mkdir_p new_file_dir
-        end
+        FileUtils.mkdir_p new_file_dir
 
         new_file_name = filename(file_path)
         puts "******* Old file: #{file_path} - new: #{new_file_dir + '/' + new_file_name}"
@@ -24,8 +20,8 @@ class ImageMigration
         puts "******* Old thumb: #{thumb_file_path} - new: #{new_file_dir + '/thumb_' + new_file_name}"
         FileUtils.cp thumb_file_path, new_file_dir + '/thumb_' + new_file_name
 
-        # sql = "update users set avatar = '#{new_file_name}' where id = #{user.id}"
-        # ActiveRecord::Base.connection.execute sql
+        sql = "update users set avatar = '#{new_file_name}' where id = #{user.id}"
+        ActiveRecord::Base.connection.execute sql
       rescue => e
         puts "ImageMigration#update_users_avatar failed with message = #{e.message}"
       end
