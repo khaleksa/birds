@@ -54,6 +54,39 @@ class ImageMigration
     end
   end
 
+  def update_species_image
+    images = Image.where.not(image: nil)
+    puts "******* Count of species images = #{images.count}"
+
+    images.each do |image|
+      begin
+        puts "******* Image id=#{image.id}"
+        uploader =  image.image
+        file_path = File.realdirpath(uploader.file.file)
+        small_file_path = File.realdirpath(uploader.versions[:small].file.file)
+        thumb_file_path = File.realdirpath(uploader.versions[:thumb].file.file)
+
+        new_file_dir = store_dir_species(file_path, image)
+        FileUtils.mkdir_p new_file_dir
+
+        new_file_name = filename(file_path)
+        puts "******* Old file: #{file_path} - new: #{new_file_dir + '/' + new_file_name}"
+        FileUtils.cp file_path, new_file_dir + '/' + new_file_name
+
+        puts "******* Old small: #{small_file_path} - new: #{new_file_dir + '/small_' + new_file_name}"
+        FileUtils.cp small_file_path, new_file_dir + '/small_' + new_file_name
+
+        puts "******* Old thumb: #{thumb_file_path} - new: #{new_file_dir + '/thumb_' + new_file_name}"
+        FileUtils.cp thumb_file_path, new_file_dir + '/thumb_' + new_file_name
+
+        sql = "update images set image = '#{new_file_name}' where id = #{image.id}"
+        ActiveRecord::Base.connection.execute sql
+      rescue => e
+        puts "ImageMigration#update_species_image failed with message = #{e.message}"
+      end
+    end
+  end
+
   private
 
   def filename(file_path)
@@ -63,6 +96,11 @@ class ImageMigration
 
   def secure_token(length=16)
     SecureRandom.hex(length/2)
+  end
+
+  def store_dir_species(file_path, model)
+    base_path = file_path.gsub(/uploads\/image\/image(.)*/, '')
+    base_path + "images/species/image/#{salted_reproducible_id(model.id)}"
   end
 
   def store_dir_order(file_path, model, mounted_as)
