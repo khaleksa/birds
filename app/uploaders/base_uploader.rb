@@ -14,6 +14,7 @@ class BaseUploader < CarrierWave::Uploader::Base
   end
 
   protected
+
   def secure_token(length=16)
     var = :"@#{mounted_as}_secure_token"
     model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.hex(length/2))
@@ -21,7 +22,12 @@ class BaseUploader < CarrierWave::Uploader::Base
 
   # ENV['CARRIERWAVE_SALT'] = nil on prod server (DigitalOcean)
   def salted_reproducible_id
-    secret = [ENV['CARRIERWAVE_SALT'], model.id].join('/')
+    secret = [salt, model.id].join('/')
     Digest::SHA256.hexdigest(secret)
+  end
+
+  def salt
+    # add some salt :)
+    return nil
   end
 end
