@@ -13,55 +13,55 @@ class BirdsController < ApplicationController
   end
 
   def create
-    # permit_params = bird_params
-    # if permit_params[:photo].blank?
-    #   redirect_to :back
-    #   return
-    # end
-    #
-    # bird = Bird.new(permit_params)
-    # bird.user = current_user
-    # bird.save!
-    #
-    # if bird.persisted?
-    #   redirect_to action: :edit_date, id: bird.id
-    # else
-    #   redirect_to :back
-    # end
+    permit_params = bird_params
+    if permit_params[:photo].blank?
+      redirect_to :back
+      return
+    end
+
+    bird = Bird.new(permit_params)
+    bird.user = current_user
+    bird.save!
+
+    if bird.persisted?
+      redirect_to action: :edit_date, id: bird.id
+    else
+      redirect_to :back
+    end
   end
 
   def edit_date
-    # @bird = Bird.find(params[:id])
-    # @timetamp = @bird.timestamp ||
-    #             current_user.birds.where('timestamp IS NOT NULL').order(created_at: :desc).limit(1).pluck(:timestamp).first ||
-    #             Time.zone.now
+    @bird = Bird.find(params[:id])
+    @timetamp = @bird.timestamp ||
+                current_user.birds.where('timestamp IS NOT NULL').order(created_at: :desc).limit(1).pluck(:timestamp).first ||
+                Time.zone.now
   end
 
   def edit_map
-    # @bird = Bird.find(params[:id])
+    @bird = Bird.find(params[:id])
   end
 
   def edit_species
-    # @bird = Bird.find(params[:id])
-    # @families = Categories::Family.all.order(:position)
+    @bird = Bird.find(params[:id])
+    @families = Categories::Family.all.order(:position)
   end
 
   def update
-    # @bird = Bird.find(params[:id])
-    #
-    # respond_to do |format|
-    #   if @bird.update_attributes(bird_params)
-    #     format.html do
-    #       redirect_to action: next_edit_action(@bird), id: @bird.id
-    #     end
-    #
-    #     format.js   {}
-    #     format.json { render json: @bird, status: :accepted, location: @bird }
-    #   else
-    #     format.html { redirect_to action: :edit, id: @bird.id }
-    #     format.json { render json: @bird.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    @bird = Bird.find(params[:id])
+
+    respond_to do |format|
+      if @bird.update_attributes(bird_params)
+        format.html do
+          redirect_to action: next_edit_action(@bird), id: @bird.id
+        end
+
+        format.js   {}
+        format.json { render json: @bird, status: :accepted, location: @bird }
+      else
+        format.html { redirect_to action: :edit, id: @bird.id }
+        format.json { render json: @bird.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def publish
