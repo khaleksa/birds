@@ -87,6 +87,39 @@ class ImageMigration
     end
   end
 
+  def update_birds_photo
+    birds = Bird.where.not(photo: nil)
+    puts "******* Count of bird photos = #{birds.count}"
+
+    birds.each do |bird|
+      begin
+        puts "******* Image id=#{bird.id}"
+        uploader =  bird.photo
+        file_path = File.realdirpath(uploader.file.file)
+        small_file_path = File.realdirpath(uploader.versions[:small].file.file)
+        thumb_file_path = File.realdirpath(uploader.versions[:thumb].file.file)
+
+        new_file_dir = store_dir_bird(file_path, bird, 'photo')
+        FileUtils.mkdir_p new_file_dir
+
+        new_file_name = filename(file_path)
+        FileUtils.cp file_path, new_file_dir + '/' + new_file_name
+        puts "******* Old file: #{file_path} - new: #{new_file_dir + '/' + new_file_name}"
+
+        FileUtils.cp small_file_path, new_file_dir + '/small_' + new_file_name
+        puts "******* Old small: #{small_file_path} - new: #{new_file_dir + '/small_' + new_file_name}"
+
+        FileUtils.cp thumb_file_path, new_file_dir + '/thumb_' + new_file_name
+        puts "******* Old thumb: #{thumb_file_path} - new: #{new_file_dir + '/thumb_' + new_file_name}"
+
+        sql = "update birds set photo = '#{new_file_name}' where id = #{bird.id}"
+        ActiveRecord::Base.connection.execute sql
+      rescue => e
+        puts "ImageMigration#update_birds_photo failed with message = #{e.message}"
+      end
+    end
+  end
+
   private
 
   def filename(file_path)
@@ -109,12 +142,17 @@ class ImageMigration
   end
 
   def store_dir_user(file_path, model, mounted_as)
-    base_path = file_path.gsub(/uploads\/categories\/order(.)*/, '')
+    base_path = file_path.gsub(/uploads\/user\/avatar(.)*/, '')
+    base_path + "images/#{model.class.to_s.underscore}/#{mounted_as}/#{salted_reproducible_id(model.id)}"
+  end
+
+  def store_dir_bird(file_path, model, mounted_as)
+    base_path = file_path.gsub(/uploads\/bird\/photo(.)*/, '')
     base_path + "images/#{model.class.to_s.underscore}/#{mounted_as}/#{salted_reproducible_id(model.id)}"
   end
 
   def salted_reproducible_id(model_id)
-    secret = [ENV['CARRIERWAVE_SALT'], model_id].join('/')
+    secret = [ENV['BIRDS_CARRIERWAVE_SALT'], model_id].join('/')
     Digest::SHA256.hexdigest(secret)
   end
 end
