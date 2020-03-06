@@ -9,7 +9,7 @@ class BirdsController < ApplicationController
   end
 
   def new
-    # @bird = Bird.new
+    @bird = Bird.new
   end
 
   def create
