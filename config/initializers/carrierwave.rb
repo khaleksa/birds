@@ -1,5 +1,7 @@
 require 'carrier_wave/mini_magick'
 
+puts "********************** #{ENV['GCP_IMAGE_CREDS']} "
+
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/google'
   config.fog_credentials = {
