@@ -1,15 +1,6 @@
 # encoding: utf-8
 
-class ImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::MiniMagick
-
-  storage :fog
-
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
-
-  # Process files as they are uploaded:
+class ImageUploader < BaseUploader
   process :resize_to_fill => [700, 524]
   process :quality => 80
 
@@ -21,14 +12,18 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [154, 116]
   end
 
-  # Add a white list of extensions which are allowed to be uploaded.
+  def store_dir
+    "images/bird/#{mounted_as}/#{salted_reproducible_id}"
+  end
+
   def extension_white_list
     %w(jpg jpeg png)
   end
 
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  private
+
+  def salt
+    ENV['BIRDS_CARRIERWAVE_SALT']
+  end
 end
+
