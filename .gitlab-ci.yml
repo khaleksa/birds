@@ -28,6 +28,9 @@ deploy-service-job:
   before_script:
     # Write our GCP service account private key into a file
     - echo $GCP_CRED > service_key.json
+    - echo $GCP_IMAGE_CRED > image_key.json
   script:
     - gcloud auth activate-service-account --key-file service_key.json
-    - gcloud run deploy $service --project $projectid --image gcr.io/$projectid/$image_name:latest --region $region --platform=managed --memory $ram --allow-unauthenticated --set-env-vars="GCP_IMAGE_CREDS=$GCP_IMAGE_CRED"
+    - gcloud run deploy $service --project $projectid \
+      --image gcr.io/$projectid/$image_name:latest --region $region \
+      --platform=managed --memory $ram --allow-unauthenticated --set-env-vars GCP_IMAGE_CREDS='@image_key.json'
