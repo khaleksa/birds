@@ -33,5 +33,6 @@ deploy-service-job:
     - gcloud auth activate-service-account --key-file service_key.json
     - |
       gcloud run deploy $service --project $projectid \
-      --image gcr.io/$projectid/$image_name:latest --region $region \
-      --platform=managed --memory $ram --allow-unauthenticated --set-env-vars GCP_IMAGE_CREDS="@google_cred.json"
+      --image gcr.io/$projectid/$image_name:latest \
+      --region $region --platform=managed --memory $ram --allow-unauthenticated \
+      --set-env-vars GCP_IMAGE_CREDS="$(cat image_key.json | base64)"

@@ -1,13 +1,15 @@
 require 'carrier_wave/mini_magick'
+require "base64"
 
 puts "********************** #{ENV['GCP_IMAGE_CREDS']} "
+puts "********************** #{Base64.decode64(ENV['GCP_IMAGE_CREDS'])} "
 
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/google'
   config.fog_credentials = {
     provider: 'Google',
     google_project: 'sonorous-mix-245813',
-    google_json_key_string: ENV['GCP_IMAGE_CREDS']
+    google_json_key_string: Base64.decode64(ENV['GCP_IMAGE_CREDS'])
   }
   config.fog_directory = 'birdsuzb_images_eu_w1'
 end
@@ -40,27 +42,5 @@ end
 #       "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/images%40sonorous-mix-245813.iam.gserviceaccount.com"
 #     }
 #   }'
-#   config.fog_directory = 'birdsuzb_images_eu_w1'
-# end
-#
-# require 'carrier_wave/mini_magick'
-#
-# # CarrierWave.configure do |config|
-# #   config.fog_provider = 'fog/google'
-# #   config.fog_credentials = {
-# #       provider: 'Google',
-# #       google_project: ENV['GC_BIRDS_PROJECT_ID'],
-# #       google_json_key_location: ENV['GC_BIRDS_CRED_FILE_PATH']
-# #   }
-# #   config.fog_directory = ENV['GC_BIRDS_IMAGE_BUCKET_ID']
-# # end
-#
-# CarrierWave.configure do |config|
-#   config.fog_provider = 'fog/google'
-#   config.fog_credentials = {
-#     provider: 'Google',
-#     google_project: 'sonorous-mix-245813',
-#     google_json_key_string: ENV['GCP_IMAGE_CREDS']
-#   }
 #   config.fog_directory = 'birdsuzb_images_eu_w1'
 # end
