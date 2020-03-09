@@ -4,6 +4,8 @@ require "base64"
 puts "********************** #{ENV['GCP_IMAGE_CREDS']} "
 puts "********************** #{Base64.decode64(ENV['GCP_IMAGE_CREDS'])} "
 
+puts "********************** #{ENV['BIRDS_CARRIERWAVE_SALT']} "
+
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/google'
   config.fog_credentials = {

@@ -35,4 +35,4 @@ deploy-service-job:
       gcloud run deploy $service --project $projectid \
       --image gcr.io/$projectid/$image_name:latest \
       --region $region --platform=managed --memory $ram --allow-unauthenticated \
-      --set-env-vars GCP_IMAGE_CREDS="$(cat image_key.json | base64)",BIRDS_CARRIERWAVE_SALT=($BIRDS_CARRIERWAVE_SALT)
+      --set-env-vars GCP_IMAGE_CREDS="$(cat image_key.json | base64)",BIRDS_CARRIERWAVE_SALT="$CARRIERWAVE_SALT"
