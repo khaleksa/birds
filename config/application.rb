@@ -18,9 +18,10 @@ module Birds
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.i18n.available_locales = [:ru, :en, :uz]
     config.i18n.default_locale = :ru
     config.i18n.locale = :ru
-    I18n.enforce_available_locales = false
+    I18n.enforce_available_locales = true
 
     config.from_file 'settings.yml'
   end

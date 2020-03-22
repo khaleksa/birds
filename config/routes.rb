@@ -19,6 +19,8 @@ Birds::Application.routes.draw do
 
   root to: 'pages#index'
 
+  get 'switch_locale' => 'application#switch_locale'
+
   resource :pages, path: '', only: [] do
     get :about
     get :birding_rules
