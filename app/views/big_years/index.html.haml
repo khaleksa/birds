@@ -1,37 +1,40 @@
 .bg-btm-container
   .container.content
     / Content BODY
+    - bg_scope = 'big_years.index'
     .row.big-year-container.mtop20
       .row
         %h4
           .big-year-text
-            Большой год
+            = I18n.t('.title', scope: bg_scope)
           - @years.each do |year|
             = link_to year, big_year_path(year: year), class: "big_year_item #{year == @current_year ? 'active' : ''}"
 
         / Description
         %p
-          %i Сайт birds.uz проводит соревнование среди бёрдвотчеров «Большой год».
+          %i
+            = I18n.t('.description.part_1', scope: bg_scope)
         %p
-          Если вы любите птиц и путешествия, то «Большой год» для вас! Основная цель этого уникального соревнования – сфотографировать как можно большее количество видов птиц в течение календарного года на территории нашей страны. Подобные соревнования имеют многолетнюю историю и обширную географию, и проводятся во многих странах мира с 30-х годов прошлого столетия. В Узбекистане «Большой год» впервые прошел в 2014 году.
+          = I18n.t('.description.part_2', scope: bg_scope)
         %p
-          Наш сайт проводит это соревнование с целью заинтересовать натуралистов-любителей начать путешествие по Узбекистану в поисках новых для себя видов птиц. Большой год дает много преимуществ и начинающему бёрдвотчеру, ведь соревнуясь легче запоминать новые виды, а команда экспертов поможет с определением птиц. Помните, сайт основан на краудсорсинге, а это означает, что благодаря нашему общему участию на birds.uz пополнится информация о распространении птиц, которая крайне важна для специалистов–орнитологов.
+          = I18n.t('.description.part_3', scope: bg_scope)
         %p
-          Большой год – соревнование, которому наиболее подходит известная фраза «главное – не победа, а участие». Здесь нет проигравших, обещаем, каждый из участников получит много ярких впечатлений, откроет для себя новые виды птиц и ранее неизвестные места.
+          = I18n.t('.description.part_4', scope: bg_scope)
         %p
-          Если вы хотите принять участие в «Большом годе», ознакомьтесь с правилами, зарегистрируйтесь и загружайте свои находки на наш сайт.
-          %br
-            Присоединяйтесь, Большой год #{Time.zone.now.year} уже идет!
+          = I18n.t('.description.part_5', scope: bg_scope)
+        %p
+          %i
+            = I18n.t('.description.part_6', year:Time.zone.now.year, scope: bg_scope)
 
 
       / Menu
       .row.sub-nav-pils.mtop20.sm-display-none
         %a.big-year-menu.active{"data-view" => "block1"}
-          %span Участники [#{@participants.size}]
+          %span #{I18n.t('tabs.participants', scope: bg_scope)} [#{@participants.size}]
         %a.big-year-menu{"data-view" => "block2"}
-          %span Виды [#{@species.size}]
+          %span #{I18n.t('tabs.species', scope: bg_scope)} [#{@species.size}]
         %a.big-year-menu{"data-view" => "block3"}
-          %span Правила конкурса
+          %span #{I18n.t('tabs.rules', scope: bg_scope)}
 
       / Menu's blocks
       .row.blocks-content
@@ -39,7 +42,8 @@
         .block-holder
           .mobile-blocks-nav
             %a{"data-view" => "block1"}
-              %span Участники [#{@participants.size}]
+              %span
+                #{I18n.t('tabs.participants', scope: bg_scope)} [#{@participants.size}]
           #block1.row.big-year-block-container.mtop10.active-block
             - index = 1
             - @participants.each do |user|
@@ -56,7 +60,7 @@
         .block-holder
           .mobile-blocks-nav
             %a{"data-view" => "block2"}
-              %span Виды [#{@species.size}]
+              %span #{I18n.t('tabs.species', scope: bg_scope)} [#{@species.size}]
           #block2.row.big-year-block-container.mtop10
             .row.bird-list.scroll-container
               %ol
@@ -66,18 +70,18 @@
         .block-holder
           .mobile-blocks-nav
             %a{"data-view" => "block3"}
-              %span Правила конкурса
+              %span #{I18n.t('tabs.rules', scope: bg_scope)}
           #block3.row.big-year-block-container.mtop10
             %ol
               .mbtm15
-                Конкурс ограничен территорией Республики Узбекистан.
+                = I18n.t('.rules.title', scope: bg_scope)
               %li
-                Сроки проведения с 1 января по 31 декабря #{@current_year} года. Фотографии, загруженные после окончания календарного года соревнования, в общий рейтинг участника игры не входят, но пополняют базу данных сайта и личный видовой список пользователя.
+                = I18n.t('.rules.part_1', year: @current_year, scope: bg_scope)
               %li
-                Все желающие могут подключиться к игре в любой момент.
+                = I18n.t('.rules.part_2', scope: bg_scope)
               %li
-                Каждая встреча должна быть подтверждена фотографией, по которой можно четко определить видовую принадлежность птицы.
+                = I18n.t('.rules.part_3', scope: bg_scope)
               %li
-                Вид засчитывается в рейтинге участника соревнования только после подтверждения одним из экспертов сайта.
+                = I18n.t('.rules.part_4', scope: bg_scope)
               %li
-                В соревновании не учитываются птицы, разводимые и содержащиеся в неволе, а также гибриды.
+                = I18n.t('.rules.part_5', scope: bg_scope)
