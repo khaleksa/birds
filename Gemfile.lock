@@ -366,7 +366,7 @@ DEPENDENCIES
   best_in_place
   bootstrap3-datetimepicker-rails (~> 4.17.37)
   bugsnag
-  bundler (>= 1.16.3)
+  bundler (= 1.17.1)
   capistrano (= 3.6.1)
   capistrano-bundler (~> 1.6)
   capistrano-rails (~> 1.2)
