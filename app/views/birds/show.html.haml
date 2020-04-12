@@ -2,13 +2,16 @@
   .container.content
     / Content BODY
     .row.bird-photo-container.mtop20.content-container
+      - birds_scope = 'birds.show'
       .row
         .col-sm-12.col.col-md-8
           .row.bird-photo-title
             -if @bird.unknown?
               %h3.mbtm15
-                На определение
+                = I18n.t('.unknown', scope: birds_scope)
             -else
+              // TODO: localize the bird species name
+              // !!! START FROM HERE !!!
               %h3= @bird.species.name_ru
               %p
                 %i= @bird.species.name_lat
@@ -17,9 +20,9 @@
             =image_tag @bird.photo.url, class: 'img-responsive'
             -if @bird.user.current?(current_user)
               -#=link_to '', '#', class: 'delete_user_bird', data: {id: @bird.id}, title: 'Удалить фотографию'
-              =link_to '', edit_species_bird_path(@bird), class: 'edit_user_bird', data: {id: @bird.id}, title: 'Редактировать фотографию'
+              =link_to '', edit_species_bird_path(@bird), class: 'edit_user_bird', data: {id: @bird.id}, title: "#{I18n.t('.edit', scope: birds_scope)}"
           .row.bird-publish-date
-            Загружено: #{date_format(@bird.created_at)}
+            #{I18n.t('.created_at', scope: birds_scope)} #{date_format(@bird.created_at)}
 
         .col.col-md-4.fright.col-sm-12.m-no-float
           .row.bird-photo-social
@@ -36,18 +39,21 @@
             -else
               =image_tag 'map/empty_map.jpg'
               .empty_map_description
-                Вид имеет охранный статус,
+                = I18n.t('.protected_species', scope: birds_scope)
                 %br
-                карта доступна только экспертам
+                  = I18n.t('.protected_map', scope: birds_scope)
           .row.bird-photo-descr
             .row.descr-container
               .col.col-md-3.aright
                 %p
-                  %span.lbl Автор:
+                  %span.lbl
+                    = I18n.t('author', scope: birds_scope)
                 %p
-                  %span.lbl Дата:
+                  %span.lbl
+                    = I18n.t('date', scope: birds_scope)
                 %p
-                  %span.lbl Место:
+                  %span.lbl
+                    = I18n.t('place', scope: birds_scope)
               .col.col-md-9
                 %p
                   =link_to @bird.user.full_name, profile_path(@bird.user)
@@ -57,16 +63,17 @@
 
           .row.bird-photo-btns
             -unless @bird.unknown?
-              =link_to 'Общая информация о виде', species_path(@bird.species), class: 'btn btn-success'
+              =link_to "#{I18n.t('species_info', scope: birds_scope)}", species_path(@bird.species), class: 'btn btn-success'
               -if @bird.species.show_map_for(current_user)
-                =link_to 'Все встречи с видом', map_index_path(species_id: @bird.species.id), class: 'btn btn-info'
+                =link_to "#{I18n.t('all_birds', scope: birds_scope)}", map_index_path(species_id: @bird.species.id), class: 'btn btn-info'
             -if @bird.need_approve? && current_user.try(:expert?) && current_user.id != @bird.user_id
-              =link_to 'Подтвердить', '#', class: 'btn btn-success confirm-species', data: { id: @bird.id }
+              =link_to "#{I18n.t('confirm', scope: birds_scope)}", '#', class: 'btn btn-success confirm-species', data: { id: @bird.id }
 
       .row
         .col.col-md-8.col-sm-12
           .row.bird-photo-comments
-            %h4 Комментарии
+            %h4
+              = I18n.t('comments', scope: birds_scope)
             .row.comments-container
               - @bird.comments.each do |comment|
                 - next if comment.user.blank?
@@ -93,12 +100,12 @@
                                                                                                   user_profile: profile_path(current_user),
                                                                                                   user_avatar: current_user.avatar.thumb.url } } do |form|
                     = form.text_area :text, class: 'form-control w80 sm-width-max comment-text'
-                    = form.submit 'Добавить', id: 'add-comment', class: 'btn btn-success fright sm-center sm-mtop10'
+                    = form.submit "#{I18n.t('add_comment', scope: birds_scope)}", id: 'add-comment', class: 'btn btn-success fright sm-center sm-mtop10'
                 -else
                   %p
-                    Только зарегистрированные пользователи могут оставлять комментарии.
+                    = I18n.t('only_users', scope: birds_scope)
                     %br
-                      =link_to 'Зарегистрируйтесь', new_user_registration_path
-                      или
+                      =link_to "#{I18n.t('sign_up', scope: birds_scope)}", new_user_registration_path
+                      = I18n.t('or', scope: birds_scope)
                       = succeed '.' do
-                        =link_to 'войдите', new_user_session_path, class: 'lnk-success'
+                        =link_to "#{I18n.t('sign_in', scope: birds_scope)}", new_user_session_path, class: 'lnk-success'

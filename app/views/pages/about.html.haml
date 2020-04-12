@@ -3,50 +3,57 @@
   .container.content
     / Content BODY
     .row.about-container.mtop20.content-container
+      - about_scope = 'pages.about'
       .col-sm-12.col.col-md-8.pright15.m-no-float
         .row.about-text
-          %h4 О проекте
+          %h4
+            = I18n.t('.title', scope: about_scope)
           %p
-            %i.pre-text Сайт birds.uz создан командой бёрдвотчеров для просвещения и вовлечения населения нашей страны в охрану природы.
+            %i.pre-text
+              = I18n.t('.goal', scope: about_scope)
           %p
-            Задачами сайта являются:
+            = I18n.t('.tasks', scope: about_scope)
             %ul
               %li
-                Создание общедоступной информации о птицах Узбекистана;
+                = I18n.t('.task_1', scope: about_scope)
               %li
-                Создание базы данных распространения птиц через краудсорсинг;
+                = I18n.t('.task_2', scope: about_scope)
               %li
-                Источник информации для орнитологов;
+                = I18n.t('.task_3', scope: about_scope)
               %li
-                Пропаганда бёрдвотчинга как экологичного, безопасного и полезного времяпровождения;
+                = I18n.t('.task_4', scope: about_scope)
               %li
-                Платформа для проведения конкурса «Большой год в Узбекистане».
+                = I18n.t('.task_5', scope: about_scope)
           %p
-            Наши партнеры:
+            = I18n.t('.partners', scope: about_scope)
             %ul
               %li
-                Институт Генофонда растительного и животного мира Академии наук Республики Узбекистана;
+                = I18n.t('.partner_1', scope: about_scope)
               %li
-                Госбиоконтроль Госкомприроды Республики Узбекистана.
+                = I18n.t('.partner_2', scope: about_scope)
           %p
-            На сайте вы можете поделиться фото встреченной вами птицы, попросить помощи экспертов в определении или узнать больше об орнитофауне Узбекистана.
+            = I18n.t('.text_1', scope: about_scope)
           %p
-            Мы открыты для сотрудничества и будем признательны за ваши предложения и комментарии. Поскольку сайт еще находится в разработке, мы также будем рады вашей помощи в дополнении информации о видах птиц, со ссылками на компетентные источники.
+            = I18n.t('.text_2', scope: about_scope)
           %p
-            Мы также просим на сайте проявлять взаимное уважение ко всем пользователям и не допускать применение нецензурной лексики.
+            = I18n.t('.text_3', scope: about_scope)
 
       .col-sm-12.m-no-float.col.col-md-4.fright
         .row.site-stat-info-blck.mtop50
           .row.info-block-head
-            %p На сайте зарегистрировано
+            %p
+              = I18n.t('.statistics.title', scope: about_scope)
           .row.info-block-body.m-pleft30p
             %p
-              %span.lbl> Пользователей:
+              %span.lbl>
+                = I18n.t('.statistics.users', scope: about_scope)
               =@users_count
               %br
-                %span.lbl> Видов птиц:
+                %span.lbl>
+                  = I18n.t('.statistics.species', scope: about_scope)
                 =@species_count
                 %br
-                  %span.lbl> Фотографий:
+                  %span.lbl>
+                    = I18n.t('.statistics.photos', scope: about_scope)
                   =@birds_count
                   %br

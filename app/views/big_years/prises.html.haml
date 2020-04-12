@@ -4,16 +4,29 @@
     / Content BODY
     .row.about-container.mtop20.content-container
       .col-sm-12.col.col-md-8.pright15.m-no-float
+        - bg_scope = 'big_years.prises'
         .row.about-text
-          %h4 Большой год 2020
+          %h4
+            = I18n.t('.title', scope: bg_scope)
           %p
-            Мы рады сообщить, что и  в этом году на нашем сайте будет много конкурсов с призами. Помимо уже традиционного соревнования «Большой год», будут призы и за самую интересную встречу, дебют года и многое другое! Следите за анонсами и уже начинайте свой личный Большой год!
-
+            = I18n.t('.text_1', scope: bg_scope)
             %p
             = image_tag 'contests/bg_2020.jpg', class: 'img-responsive image-center mbtm15'
           %p
-            Удачной фотоохоты!
+            = I18n.t('.text_2', scope: bg_scope)
+          %p
+            = I18n.t('.text_3', scope: bg_scope)
+          %p
+            = I18n.t('.text_4', scope: bg_scope)
+          %p
+            = I18n.t('.text_5', scope: bg_scope)
+          %p
+            = I18n.t('.text_6', scope: bg_scope)
+          %p
+            = I18n.t('.text_7', scope: bg_scope)
+          %p
+            = I18n.t('.text_8', scope: bg_scope)
           %p
             %i
-              О правилах соревнования вы можете узнать тут:
-              = link_to 'Соревнование «Большой год»', big_year_path
+              = I18n.t('.rules', scope: bg_scope)
+              = link_to "#{I18n.t('.big_year', scope: bg_scope)}", big_year_path
