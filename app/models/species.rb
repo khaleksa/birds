@@ -1,4 +1,7 @@
 class Species < ActiveRecord::Base
+  translates :name, :descriptions, :biology, :reference
+  globalize_accessors :locales => [:ru, :en, :uz], :attributes => [:name, :descriptions, :biology, :reference]
+  
   belongs_to :family, class_name: 'Categories::Family', foreign_key: 'category_id'
   belongs_to :parent, class_name: 'Species'
   has_many :children, class_name: 'Species', foreign_key: 'parent_id'

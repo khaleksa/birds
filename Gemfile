@@ -6,44 +6,40 @@ gem 'rails', '5.1'
 
 gem 'pg', '~> 0.20.0'
 
-gem 'sass-rails'
-gem 'uglifier', '>= 1.3.0'
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin', branch: '1-4-stable'
+gem 'best_in_place'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+gem 'bugsnag'
+gem 'carrierwave'
+gem 'choices'
+gem 'closure_tree'
+gem 'devise', '>= 4.7.1'
+gem 'globalize'
+gem 'globalize-accessors'
 gem 'jquery-rails'
 gem "haml-rails"
-gem 'turbolinks'
-
+gem 'kaminari'
+gem 'mini_magick'
 gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
-
-gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin', branch: '1-4-stable'
-
-gem 'devise', '>= 4.7.1'
 gem 'omniauth'
 gem 'omniauth-facebook', '>= 4.0.0'
 gem 'recaptcha', :require => 'recaptcha/rails'
-
+gem 'sass-rails'
 gem 'seed-fu', git: 'https://github.com/mbleigh/seed-fu'
 gem 'seedbank'
+gem 'turbolinks'
+gem 'uglifier', '>= 1.3.0'
 
-gem 'closure_tree'
-gem 'carrierwave'
-gem 'mini_magick'
-
-gem 'best_in_place'
-gem 'kaminari'
-
-gem 'choices'
-gem 'bugsnag'
 
 group :test, :development do
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'factory_girl_rspec'
+
   gem 'pry'
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'pry-byebug'
-
-  gem 'factory_girl'
-  gem 'factory_girl_rails'
-  gem 'factory_girl_rspec'
 
   gem 'rspec'
   gem 'rspec-rails'
