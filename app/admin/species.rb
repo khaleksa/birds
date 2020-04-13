@@ -83,37 +83,37 @@ ActiveAdmin.register Species do
       f.input :position
       f.input :parent, as: :select, collection: Species.main.ordered
     end
-
-    f.inputs 'Наименование вида' do
-      f.input :name_ru
-      f.input :name_lat
-      f.input :name_en
-      f.input :name_uz
-    end
-
-    f.inputs 'Описание вида' do
-      f.input :description
-      f.input :description_uz
-      f.input :description_en
-    end
-
-    f.inputs 'Распространение вида' do
-      f.input :distribution
-      f.input :distribution_uz
-      f.input :distribution_en
-    end
-
-    f.inputs 'Биология вида' do
-      f.input :biology
-      f.input :biology_uz
-      f.input :biology_en
-    end
-
-    f.inputs 'Источники информации' do
-      f.input :reference
-      f.input :reference_uz
-      f.input :reference_en
-    end
+    #
+    # f.inputs 'Наименование вида' do
+    #   f.input :name_ru
+    #   f.input :name_lat
+    #   f.input :name_en
+    #   f.input :name_uz
+    # end
+    #
+    # f.inputs 'Описание вида' do
+    #   f.input :description
+    #   f.input :description_uz
+    #   f.input :description_en
+    # end
+    #
+    # f.inputs 'Распространение вида' do
+    #   f.input :distribution
+    #   f.input :distribution_uz
+    #   f.input :distribution_en
+    # end
+    #
+    # f.inputs 'Биология вида' do
+    #   f.input :biology
+    #   f.input :biology_uz
+    #   f.input :biology_en
+    # end
+    #
+    # f.inputs 'Источники информации' do
+    #   f.input :reference
+    #   f.input :reference_uz
+    #   f.input :reference_en
+    # end
 
     f.inputs 'Разное' do
       f.input :status
