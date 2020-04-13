@@ -1,6 +1,7 @@
 class Species < ActiveRecord::Base
-  translates :name, :descriptions, :biology, :reference
-  globalize_accessors :locales => [:ru, :en, :uz], :attributes => [:name, :descriptions, :biology, :reference]
+  translates :name, :description, :distribution, :biology, :reference
+  globalize_accessors :locales => [:ru, :en, :uz],
+    :attributes => [:name, :description, :distribution, :biology, :reference]
   
   belongs_to :family, class_name: 'Categories::Family', foreign_key: 'category_id'
   belongs_to :parent, class_name: 'Species'
@@ -16,7 +17,7 @@ class Species < ActiveRecord::Base
   scope :main, -> { where('parent_id IS NULL') }
   scope :ordered, -> { order('lower(name_ru)') }
   scope :by_name, -> (name) {
-    where("(lower(name_ru) like ?) OR
+    where("(lower(name_ru) like ?) OR11
            (lower(name_en) like ?) OR
            (lower(name_lat) like ?) OR
            (lower(name_uz) like ?)", name, name, name, name)
