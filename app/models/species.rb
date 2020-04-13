@@ -17,7 +17,7 @@ class Species < ActiveRecord::Base
   scope :main, -> { where('parent_id IS NULL') }
   scope :ordered, -> { order('lower(name_ru)') }
   scope :by_name, -> (name) {
-    where("(lower(name_ru) like ?) OR11
+    where("(lower(name_ru) like ?) OR
            (lower(name_en) like ?) OR
            (lower(name_lat) like ?) OR
            (lower(name_uz) like ?)", name, name, name, name)
