@@ -1,4 +1,7 @@
 class Categories::Category < ActiveRecord::Base
+  translates :name, :description
+  globalize_accessors :locales => [:ru, :en, :uz], :attributes => [:name, :description]
+  
   validates_presence_of :name_ru, :name_lat, :name_en, :name_uz
 
   acts_as_tree :order => 'name_ru'
