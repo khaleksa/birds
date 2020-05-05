@@ -1,7 +1,7 @@
 .col-sm-6.col-md-2.map-img-block.xs-align-center.img-container-blck.profile-bird-container
   .head
     .blck
-      = bird.species_name_ru
+      = bird.species_name
   .body
     =link_to bird_path(bird) do
       = image_tag bird.photo.thumb.url, class: 'img-responsive'

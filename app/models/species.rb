@@ -15,13 +15,7 @@ class Species < ActiveRecord::Base
   validates_presence_of :name_lat, :family
 
   scope :main, -> { where('parent_id IS NULL') }
-  scope :ordered, -> { order('lower(name_ru)') }
-  scope :by_name, -> (name) {
-    where("(lower(name_ru) like ?) OR
-           (lower(name_en) like ?) OR
-           (lower(name_lat) like ?) OR
-           (lower(name_uz) like ?)", name, name, name, name)
-  }
+  scope :ordered_by_name_ru, -> { with_translations([:ru]).order("species_translations.name ASC") }
 
   def active_link?
     description.present? || images.any?
@@ -36,7 +30,7 @@ class Species < ActiveRecord::Base
   end
 
   def default_name
-    name_ru.present? ? name_ru : name_lat
+    name || name_lat
   end
 
   def full_name

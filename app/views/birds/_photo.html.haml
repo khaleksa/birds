@@ -4,7 +4,7 @@
       =image_tag 'share/bird_logo.png'
     .blck
       - if bird.species.present?
-        =link_to bird.species.name_ru, bird_path(bird)
+        =link_to bird.species.name, bird_path(bird)
       - else
         Вид не определен
   .body

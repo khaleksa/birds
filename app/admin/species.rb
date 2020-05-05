@@ -81,7 +81,7 @@ ActiveAdmin.register Species do
     f.inputs 'Классификация' do
       f.input :family, as: :select, collection: Categories::Category.families
       f.input :position
-      f.input :parent, as: :select, collection: Species.main.ordered
+      f.input :parent, as: :select, collection: Species.main.ordered_by_name_ru
     end
 
     f.inputs 'Наименование вида' do

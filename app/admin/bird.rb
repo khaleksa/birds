@@ -4,7 +4,7 @@ ActiveAdmin.register Bird do
   menu priority: 4
 
   filter :id
-  filter :species, :collection => proc { Species.order(:name_ru) }, :label => 'Вид'
+  filter :species, :collection => proc { Species.ordered_by_name_ru }, :label => 'Вид'
   filter :user, :collection => proc { User.order(:last_name) }, :label => 'Бёрдвотчеров'
 
   index do
@@ -14,7 +14,7 @@ ActiveAdmin.register Bird do
     end
     column 'Дата встречи', :timestamp
     column :species do |bird|
-      link_to(bird.species.name_ru, admin_species_path(bird.species)) if bird.species.present?
+      link_to(bird.species.name, admin_species_path(bird.species)) if bird.species.present?
     end
     column :user
     column 'P', :published
@@ -47,7 +47,7 @@ ActiveAdmin.register Bird do
   form do |f|
     f.inputs do
       f.input :timestamp, as: :datepicker
-      f.input :species, as: :select, collection: Species.all.order(:name_ru)
+      f.input :species, as: :select, collection: Species.all.ordered_by_name_ru
       f.input :user, as: :select, collection: User.all.order(:last_name)
       f.input :latitude
       f.input :longitude

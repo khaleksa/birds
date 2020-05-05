@@ -56,8 +56,8 @@ class Bird < ActiveRecord::Base
     return species.show_map_for(user)
   end
 
-  def species_name_ru
-    self.species ? self.species.name_ru : 'Вид не определен'
+  def species_name
+    self.species ? self.species.name : 'Вид не определен'
   end
 
   def owner?(user)
