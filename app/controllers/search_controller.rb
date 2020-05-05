@@ -19,12 +19,12 @@ class SearchController < ApplicationController
       format.js
     end
   end
-
+  
   private
   def species_by_name(only_main = false)
     @species = Species
                 .with_translations([I18n.available_locales])
-                .where("species_translations.name LIKE ?", sanitize_text(params[:text]))
+                .where("lower(species_translations.name) LIKE :name", name: sanitize_text(params[:text]))
     @species = @species.main if only_main
     @species
   end
