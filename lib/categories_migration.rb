@@ -4,7 +4,7 @@ class CategoriesMigration
       insert into category_translations (category_id, locale, name, description, created_at, updated_at)
       select
         id, 'ru', name_ru, description, now(), now()
-      from species
+      from categories
     "
     prev_size = category_translations_size
     res = ActiveRecord::Base.connection.execute(sql)
@@ -19,7 +19,7 @@ class CategoriesMigration
       insert into category_translations (category_id, locale, name, description, created_at, updated_at)
       select
         id, 'en', name_en, null, now(), now()
-      from species
+      from categories
     "
     prev_size = category_translations_size
     res = ActiveRecord::Base.connection.execute(sql)
@@ -34,7 +34,7 @@ class CategoriesMigration
       insert into category_translations (category_id, locale, name, description, created_at, updated_at)
       select
         id, 'uz', name_uz, null, now(), now()
-      from species
+      from categories
     "
     prev_size = category_translations_size
     res = ActiveRecord::Base.connection.execute(sql)
