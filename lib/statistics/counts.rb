@@ -30,10 +30,12 @@ module Statistics
 
       # Total amount of species met by some user
       def user_species(user_id)
-        Species.joins(:birds)
+        list = Species.joins(:birds)
+            .with_translations([I18n.locale])
             .where(birds: {published: true, user_id: user_id})
             .where("birds.expert_id IS NOT NULL")
-            .distinct.order(:name_ru)
+            .distinct
+        list.sort_by { |s| s.name } #TODO:: user sql order
       end
     end
 

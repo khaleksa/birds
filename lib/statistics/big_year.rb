@@ -43,12 +43,12 @@ module Statistics
       # All species met by participants of Big Year during the year
       def species(year = Time.zone.now.year)
         bg_species = Species.joins(birds: {user: :subscriptions})
-            .with_translations([I18n.available_locales])
+            .with_translations([I18n.locale])
             .where("(birds.published = 'true') AND (birds.species_id IS NOT NULL) AND (birds.expert_id IS NOT NULL) ")
             .where('birds.big_year = ?', year)
             .where('subscriptions.year = ?', year)
             .distinct('species.id')
-        bg_species.sort_by { |s| s.name }
+        bg_species.sort_by { |s| s.name }  #TODO:: user sql order
       end
 
       # Total amount of all user who has at least one subscription for BigYear

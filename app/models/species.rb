@@ -16,6 +16,7 @@ class Species < ActiveRecord::Base
 
   scope :main, -> { where('parent_id IS NULL') }
   scope :ordered_by_name_ru, -> { with_translations([:ru]).order("species_translations.name ASC") }
+  scope :ordered, -> { with_translations([I18n.locale]).order("species_translations.name ASC") }
 
   def active_link?
     description.present? || images.any?
