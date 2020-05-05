@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       # current_user.update_attributes(locale: locale.to_s) if current_user
     end
 
-    redirect_to request.referer ? :back : root_path
+    redirect_back(fallback_location: '/', allow_other_host: false)
   end
 
   private

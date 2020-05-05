@@ -16,8 +16,13 @@
           design by
           = mail_to '4dinaa@gmail.com', 'Dina Adilova'
       .fright
-        %p.aright
-          Все права на опубликованные на сайте материалы принадлежат их авторам.
-          %br
-          Обо всех ошибках при работе сайта просьба сообщать на почту:
-          = mail_to 'khalex@bk.ru', 'khalex@bk.ru'
+        -if Rails.env.development? || [1, 9].include?(current_user.try(:id))
+          =link_to 'ru', switch_locale_path(locale: :ru)
+          =link_to 'en', switch_locale_path(locale: :en)
+          =link_to 'uz', switch_locale_path(locale: :uz)
+        -else
+          %p.aright
+            Все права на опубликованные на сайте материалы принадлежат их авторам.
+            %br
+            Обо всех ошибках при работе сайта просьба сообщать на почту:
+            = mail_to 'khalex@bk.ru', 'khalex@bk.ru'
