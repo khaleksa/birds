@@ -4,12 +4,12 @@ class Categories::Category < ActiveRecord::Base
   
   validates_presence_of :name_ru, :name_lat, :name_en, :name_uz
 
-  acts_as_tree :order => 'name_ru'
+  acts_as_tree :order => 'name_lat'
 
   mount_uploader :image, CategoryUploader
 
-  scope :orders, -> { where(type: 'Categories::Order').order(:name_ru) }
-  scope :families, -> { where(type: 'Categories::Family').order(:name_ru) }
+  scope :orders, -> { with_translations([[I18n.locale]]).where(type: 'Categories::Order').order("category_translations.name ASC") }
+  scope :families, -> { with_translations([I18n.locale]).where(type: 'Categories::Family').order("category_translations.name ASC") }
 
   def full_name
     result = ''
