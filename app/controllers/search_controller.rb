@@ -24,7 +24,7 @@ class SearchController < ApplicationController
   def species_by_name(only_main = false)
     @species = Species
                 .with_translations([I18n.available_locales])
-                .where("lower(species_translations.name) LIKE :name", name: sanitize_text(params[:text]))
+                .where("(lower(species_translations.name) LIKE :name) OR (lower(name_lat) LIKE :name) ", name: sanitize_text(params[:text]))
     @species = @species.main if only_main
     @species
   end
