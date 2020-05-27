@@ -1,9 +1,11 @@
 .bg-btm-container
   / Content
   .container.content
+    - edit_scope = 'birds.edit'
     / Content TOP  PROGRESS BAR
     .row.top-row
-      %h3 Добавить фотографию
+      %h3
+        = I18n.t('.title', scope: edit_scope)
       .progrees-bar-container
         / TOP
         .row.progrees-bar-top-icons
@@ -69,24 +71,28 @@
           .col.col-md-2.step-done
             .descr
               %p
-                Загрузите
-                %br фотографию
+                = I18n.t('.download_photo_1', scope: edit_scope)
+                %br
+                  = I18n.t('.download_photo_2', scope: edit_scope)
           .col.col-md-4.step-done
             .descr
               =link_to edit_date_bird_path(@bird) do
                 %p
-                  Укажите
-                  %br дату встречи
+                  = I18n.t('.set_date_1', scope: edit_scope)
+                  %br
+                    = I18n.t('.set_date_2', scope: edit_scope)
           .col.col-md-4.step-active
             .descr
               %p
-                Укажите
-                %br место встречи
+                = I18n.t('.set_place_1', scope: edit_scope)
+                %br
+                  = I18n.t('.set_place_2', scope: edit_scope)
           .col.col-md-2
             .descr
               %p
-                Определите
-                %br вид птицы
+                = I18n.t('.set_species_1', scope: edit_scope)
+                %br
+                  = I18n.t('.set_species_2', scope: edit_scope)
     / DESCR
 
     / Content TOP PROGRESS BAR
@@ -99,7 +105,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-photo-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Загрузите фотографию
+        %span.small-progress-bar-text #{I18n.t('.download_photo_1', scope: edit_scope)} #{I18n.t('.download_photo_2', scope: edit_scope)}
       %p.step-done
         =link_to edit_date_bird_path(@bird) do
           %span.progress-bar-item.small-progress-bar-round-num
@@ -108,7 +114,7 @@
             %i.progress-bar-item &nbsp;
           %span.progress-bar-item.progress-top-round.progress-calendar-ico.small-progress-bar-round-icon
             %i &nbsp;
-          %span.small-progress-bar-text Укажите дату встречи
+          %span.small-progress-bar-text #{I18n.t('.set_date_1', scope: edit_scope)} #{I18n.t('.set_date_2', scope: edit_scope)}
       %p.step-active
         %span.progress-bar-item.small-progress-bar-round-num
           %i 3
@@ -116,7 +122,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-tag-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Укажите место встречи
+        %span.small-progress-bar-text #{I18n.t('.set_place_1', scope: edit_scope)} #{I18n.t('.set_place_2', scope: edit_scope)}
       %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 4
@@ -124,7 +130,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-check-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Определите вид птицы
+        %span.small-progress-bar-text #{I18n.t('.set_species_1', scope: edit_scope)} #{I18n.t('.set_species_2', scope: edit_scope)}
     / Content TOP PROGRESS BAR - SMALLER DISPLAY
 
     / Content BODY
@@ -132,21 +138,22 @@
       .col-sm-12.col-md-9
         = form_for @bird do |form|
           .row.form-container.m-acenter
-            %p Введите координаты места встречи или щелчком мыши укажите место на карте:
+            %p
+              = I18n.t('.set_coordinates', scope: edit_scope)
             %span.m-d-block
-              Широта:
+              = I18n.t('.latitude', scope: edit_scope)
               =form.text_field :latitude, class: 'form-control w20 mleft10'
             %span.m-d-block.m-mleft0.m-mtop10.mleft20
-              Долгота:
+              = I18n.t('.longitude', scope: edit_scope)
               =form.text_field :longitude, class: 'form-control w20 mleft10'
           .row.map-container
             #map_canvas{ :style => "width:100%; height:350px", :data => { edit: 'true' } }
           .row.form-container.mtop20
             %span
-              Название места встречи:
+              = I18n.t('.place_name', scope: edit_scope)
               =form.text_field :address, class: 'form-control w50 mleft10 m-w73'
-            =form.submit 'Продолжить', class: 'fright btn btn-info sm-display-none'
-          =form.submit 'Продолжить', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
+            =form.submit "#{I18n.t('.continue', scope: edit_scope)}", class: 'fright btn btn-info sm-display-none'
+          =form.submit "#{I18n.t('.continue', scope: edit_scope)}", class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
 
       .sm-display-none.col-md-3.acenter
         =render 'birds/photo_info', bird: @bird
