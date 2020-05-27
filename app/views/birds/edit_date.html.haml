@@ -1,9 +1,10 @@
 .bg-btm-container
   .container.content
-
+    - edit_scope = 'birds.edit'
     / Content TOP  PROGRESS BAR
     .row.top-row
-      %h3 Добавить фотографию
+      %h3
+        = I18n.t('.title', scope: edit_scope)
       .progrees-bar-container
         / TOP
         .row.progrees-bar-top-icons
@@ -64,23 +65,27 @@
           .col.col-md-2.step-done
             .descr
               %p
-                Загрузите
-                %br фотографию
+                = I18n.t('.download_photo_1', scope: edit_scope)
+                %br
+                  = I18n.t('.download_photo_2', scope: edit_scope)
           .col.col-md-4.step-active
             .descr
               %p
-                Укажите
-                %br дату встречи
+                = I18n.t('.set_date_1', scope: edit_scope)
+                %br
+                  = I18n.t('.set_date_2', scope: edit_scope)
           .col.col-md-4
             .descr
               %p
-                Укажите
-                %br место встречи
+                = I18n.t('.set_place_1', scope: edit_scope)
+                %br
+                  = I18n.t('.set_place_2', scope: edit_scope)
           .col.col-md-2
             .descr
               %p
-                Определите
-                %br вид птицы
+                = I18n.t('.set_species_1', scope: edit_scope)
+                %br
+                  = I18n.t('.set_species_2', scope: edit_scope)
 
     / Content TOP PROGRESS BAR - SMALLER DISPLAY
     .small-progrees-bar-container
@@ -91,7 +96,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-photo-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Загрузите фотографию
+        %span.small-progress-bar-text #{I18n.t('.download_photo_1', scope: edit_scope)} #{I18n.t('.download_photo_2', scope: edit_scope)}
       %p.step-active
         %span.progress-bar-item.small-progress-bar-round-num
           %i 2
@@ -99,7 +104,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-calendar-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Укажите дату встречи
+        %span.small-progress-bar-text #{I18n.t('.set_date_1', scope: edit_scope)} #{I18n.t('.set_date_2', scope: edit_scope)}
       %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 3
@@ -107,7 +112,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-tag-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Укажите место встречи
+        %span.small-progress-bar-text #{I18n.t('.set_place_1', scope: edit_scope)} #{I18n.t('.set_place_2', scope: edit_scope)}
       %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 4
@@ -115,7 +120,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-check-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Определите вид птицы
+        %span.small-progress-bar-text #{I18n.t('.set_species_1', scope: edit_scope)} #{I18n.t('.set_species_2', scope: edit_scope)}
 
     / Content BODY
     .row.mtop40.add-photo-container
@@ -123,14 +128,14 @@
         = form_for @bird do |form|
           .form-container
             .action-description
-              Укажите дату встречи птицы
+              = I18n.t('.set_photo_date', scope: edit_scope)
             #bird-datetime-group.input-group.date.w80.sm-width-max
               = form.text_field :timestamp, 'value' => date_format(@timetamp), 'data-date-format' => 'DD/MM/YYYY', 'class' => 'form-control photo-date-input', placeholder: 'DD/MM/YYYY'
               %span.input-group-addon
                 %span.glyphicon.glyphicon-calendar
 
-            =form.submit 'Продолжить', class: 'fright btn btn-info mtop-30 sm-display-none'
-          =form.submit 'Продолжить', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
+            =form.submit "#{I18n.t('.continue', scope: edit_scope)}", class: 'fright btn btn-info mtop-30 sm-display-none'
+          =form.submit "#{I18n.t('.continue', scope: edit_scope)}", class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
 
       .col-md-3.acenter.sm-display-none
         =render 'birds/photo_info', bird: @bird

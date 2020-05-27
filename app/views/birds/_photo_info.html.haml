@@ -1,10 +1,10 @@
 .row
   =image_tag bird.photo.small, class: 'img-responsive sm-centered mbtm15'
-
   .row.add-photo-info
     .col.col-md-4.aright
       %p
-        %span.lbl Автор:
+        %span.lbl
+          = I18n.t('.birds.show.author')
     .col.col-md-8.aleft
       %p
         =link_to bird.user.full_name, profile_path(bird.user)
@@ -13,16 +13,18 @@
     .row.add-photo-info
       .col.col-md-4.aright
         %p
-          %span.lbl Дата:
+          %span.lbl
+            = I18n.t('.birds.show.date')
       .col.col-md-8.aleft
         %p
-          =date_format(bird.timestamp)
+          = date_format(bird.timestamp)
 
   -if bird.address_valid?
     .row.add-photo-info
       .col.col-md-4.aright
         %p
-          %span.lbl Место:
+          %span.lbl
+            = I18n.t('.birds.show.place')
       .col.col-md-8.aleft
         %p
           =bird.address_string

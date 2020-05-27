@@ -1,8 +1,10 @@
 .bg-btm-container
   .container.content
+    - edit_scope = 'birds.edit'
     / Content TOP  PROGRESS BAR
     .row.top-row
-      %h3 Добавить фотографию
+      %h3
+        = I18n.t('.title', scope: edit_scope)
       .progrees-bar-container
         / TOP
         .row.progrees-bar-top-icons
@@ -65,23 +67,27 @@
           .col.col-md-2.step-active
             .descr
               %p
-                Загрузите
-                %br фотографию
+                = I18n.t('.download_photo_1', scope: edit_scope)
+                %br
+                  = I18n.t('.download_photo_2', scope: edit_scope)
           .col.col-md-4
             .descr
               %p
-                Укажите
-                %br дату встречи
+                = I18n.t('.set_date_1', scope: edit_scope)
+                %br
+                  = I18n.t('.set_date_2', scope: edit_scope)
           .col.col-md-4
             .descr
               %p
-                Укажите
-                %br место встречи
+                = I18n.t('.set_place_1', scope: edit_scope)
+                %br
+                  = I18n.t('.set_place_2', scope: edit_scope)
           .col.col-md-2
             .descr
               %p
-                Определите
-                %br вид птицы
+                = I18n.t('.set_species_1', scope: edit_scope)
+                %br
+                  = I18n.t('.set_species_2', scope: edit_scope)
     / DESCR
 
     / Content TOP PROGRESS BAR
@@ -94,7 +100,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-photo-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Загрузите фотографию
+        %span.small-progress-bar-text #{I18n.t('.download_photo_1', scope: edit_scope)} #{I18n.t('.download_photo_2', scope: edit_scope)}
       %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 2
@@ -102,7 +108,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-calendar-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Укажите дату встречи
+        %span.small-progress-bar-text #{I18n.t('.set_date_1', scope: edit_scope)} #{I18n.t('.set_date_2', scope: edit_scope)}
       %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 3
@@ -110,7 +116,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-tag-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Укажите место встречи
+        %span.small-progress-bar-text #{I18n.t('.set_place_1', scope: edit_scope)} #{I18n.t('.set_place_2', scope: edit_scope)}
       %p
         %span.progress-bar-item.small-progress-bar-round-num
           %i 4
@@ -118,7 +124,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-check-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Определите вид птицы
+        %span.small-progress-bar-text #{I18n.t('.set_species_1', scope: edit_scope)} #{I18n.t('.set_species_2', scope: edit_scope)}
     / Content TOP PROGRESS BAR - SMALLER DISPLAY
 
     / Content BODY
@@ -127,15 +133,15 @@
         = form_for @bird, url: birds_path(@bird) do |form|
           .form-container
             .action-description
-              Нажмите кнопку "Обзор..." чтобы указать путь к фотографии
+              = I18n.t('.howto_load_photo', scope: edit_scope)
             %input.form-control.w65.m-w85{:disabled => "", :id => "set-bird-photo-path", :type => "text"}
-            = form.label :photo, 'Обзор...', id: 'set-bird-photo', class: 'mleft20 btn btn-success'
+            = form.label :photo, "#{I18n.t('.browse', scope: edit_scope)}", id: 'set-bird-photo', class: 'mleft20 btn btn-success'
             .hidden{ style: 'display:none'}
               = form.file_field :photo
               = form.hidden_field :photo_cache
-            =form.submit 'Продолжить', class: 'mtop4 fright btn btn-info sm-display-none'
+            =form.submit "#{I18n.t('.continue', scope: edit_scope)}", class: 'mtop4 fright btn btn-info sm-display-none'
             .good-photo-condition
-              * Чтобы ваша фотография правильно отображалась на сайте, ее стороны должны быть пропорциальны 700x524
-          = form.submit 'Продолжить', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
+              = I18n.t('.photo_recommendations', scope: edit_scope)
+          = form.submit "#{I18n.t('.continue', scope: edit_scope)}", class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only w'
           = image_tag @bird.photo_url, class: 'img-responsive', id: 'set-bird-photo-preview' if @bird.photo.present?
       .col-md-3.sm-display-none
