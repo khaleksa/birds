@@ -6,5 +6,5 @@
     =link_to bird_path(bird) do
       = image_tag bird.photo.thumb.url, class: 'img-responsive'
     -if @user.current?(current_user)
-      =link_to '', '#', class: 'delete_user_bird', data: {id: bird.id}, title: 'Удалить фотографию'
-      =link_to '', edit_species_bird_path(bird), class: 'edit_user_bird', data: {id: bird.id}, title: 'Редактировать фотографию'
+      =link_to '', '#', class: 'delete_user_bird', data: {id: bird.id}, title: "#{I18n.t('profile.photo.delete')}"
+      =link_to '', edit_species_bird_path(bird), class: 'edit_user_bird', data: {id: bird.id}, title: "#{I18n.t('profile.photo.edit')}"
