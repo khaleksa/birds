@@ -1,95 +1,98 @@
 .bg-btm-container.help-container
   / Content
   .container.content
+    - help_scope = 'pages.help'
     / Content BODY
     .row.about-container.mtop20.content-container
       .col-sm-12.col.col-md-8.pright15.m-no-float
         .row.about-text
-          %h3 Помощь
+          %h3
+            = I18n.t('.title', scope: help_scope)
           %p
-            %i.pre-text Этот раздел находится в разработке и будет постоянно дополнятся.
+            %i.pre-text
+              = I18n.t('.text', scope: help_scope)
           %p
             %h4
-              Как загрузить фотографию птицы на сайт?
+              = I18n.t('.add_photo.title', scope: help_scope)
             %ul
               %li
-                ШАГ 1. ЗАРЕГИСТРИРУЙТЕСЬ на сайте
+                = I18n.t('.add_photo.step_1', scope: help_scope)
               %li
-                ШАГ 2. ОТКРОЙТЕ СТРАНИЦУ ЗАГРУЗКИ
+                = I18n.t('.add_photo.step_2.title', scope: help_scope)
                 %p
-                  для этого вам нужно только кликнуть по кнопке
+                  = I18n.t('.add_photo.step_2.text_1', scope: help_scope)
                   %br
                   = image_tag 'help/add_photo/add-photo-button.png'
                   %br
-                  После чего появится страница "Добавить фотографию"
+                  = I18n.t('.add_photo.step_2.text_2', scope: help_scope)
               %li
-                ШАГ 3. ЗАГРУЗИТЕ ФОТОГРАФИЮ
+                = I18n.t('.add_photo.step_3.title', scope: help_scope)
                 %p
-                  Кликнув по кнопке
+                  = I18n.t('.add_photo.step_3.text_1', scope: help_scope)
                   = succeed ', ' do
                     = image_tag 'help/add_photo/choose-file-button.png'
-                  выберите фотографию для загрузки из папки на вашем компьютере. После чего фотография появится на странице.
+                  = I18n.t('.add_photo.step_3.text_2', scope: help_scope)
                 %p
                   = image_tag 'help/add_photo/step-3.png', class: 'd-border'
                 %i
                   %p
-                    * Помните, если вы загрузите фотографию так, как она есть, то фотография автоматически будет масштабирована под размер 700х524 и обрезана.
+                    = I18n.t('.add_photo.step_3.note_1', scope: help_scope)
                   %p
-                    * Вес фотографии не должен превышать 5 Мб.
+                    = I18n.t('.add_photo.step_3.note_2', scope: help_scope)
                   %p
-                    * Если вы хотите, чтобы ваша фотография отображалась на сайте правильно, то ее стороны должны быть альбомной ориентации и примерно пропорциональны 700х524.  Обрезку фотографии можно сделать в любом фоторедакторе.
+                    = I18n.t('.add_photo.step_3.note_3', scope: help_scope)
                 %p
-                  Далее кликаем по кнопке
+                  = I18n.t('.add_photo.step_3.text_3', scope: help_scope)
                   = image_tag 'help/add_photo/next-button.png'
-                  чтобы перейти на следующий шаг.
+                  = I18n.t('.add_photo.step_3.text_4', scope: help_scope)
                 %p
-                  Подождите, пока ваша фотография загрузится на сайт, после чего вы автоматически перейдете к следующему шагу.
+                  = I18n.t('.add_photo.step_3.text_5', scope: help_scope)
               %li
-                ШАГ 4. УКАЖИТЕ ДАТУ ВСТРЕЧИ
+                = I18n.t('.add_photo.step_4.title', scope: help_scope)
                 %p
-                  Кликнув по кнопке
+                  = I18n.t('.add_photo.step_4.text_1', scope: help_scope)
                   = image_tag 'help/add_photo/calendar-button.png'
-                  в предлагаемом окне, получаем календарь, в котором выбираем дату встречи птицы, иначе говоря дату съемки фотографии.
+                  = I18n.t('.add_photo.step_4.text_2', scope: help_scope)
                   %br
-                  Далее кликаем по кнопке
+                  = I18n.t('.add_photo.step_4.text_3', scope: help_scope)
                   = image_tag 'help/add_photo/next-button.png'
-                  и идем дальше.
+                  = I18n.t('.add_photo.step_4.text_4', scope: help_scope)
               %li
-                ШАГ 5 УКАЖИТЕ МЕСТО ВСТРЕЧИ
+                = I18n.t('.add_photo.step_5.title', scope: help_scope)
                 %p
-                  Есть 2 способа, указать место встречи:
+                  = I18n.t('.add_photo.step_5.text_1', scope: help_scope)
                 %ul
                   %li
-                    Способ 1. Добавить координаты в формате десятичные градусы (decimal degree).
+                    = I18n.t('.add_photo.step_5.text_2', scope: help_scope)
                   %li
-                    Способ 2. Карта Google Map. Вы можете выбрать место наблюдения, используя весь имеющийся у карты Google Map функционал – приближения, перемещения и пр. Найдя место наблюдения, вам нужно только кликнуть на карту в определенной точке. После чего на карте появится маркер       , а в верхнем окне - координаты.
+                    = I18n.t('.add_photo.step_5.text_3', scope: help_scope)
                 %br
                 %p
                   = image_tag 'help/add_photo/step-5.png', class: 'd-border'
                 %p
                   %i
-                    * Помните, что указание точного места встречи имеет научное значение, в дальнейшем ваши данные помогут уточнить ареал распространения вида.
+                    = I18n.t('.add_photo.step_5.text_4', scope: help_scope)
                 %p
-                  Все что нужно сделать дальше, это написать название места встречи в нижнем окне, и кликнуть
+                  = I18n.t('.add_photo.step_5.text_5', scope: help_scope)
                   = image_tag 'help/add_photo/next-button.png'
               %li
-                ШАГ 6. УКАЖИТЕ ВИД ПТИЦЫ
+                = I18n.t('.add_photo.step_6.title', scope: help_scope)
                 %p
-                  Если вы не знаете вид или сомневаетесь, что правильно определили, то просто кликните по кнопке
+                  = I18n.t('.add_photo.step_6.text_1', scope: help_scope)
                   = image_tag 'help/add_photo/publish-button.png'
-                  и ваша фотография автоматически попадет на определение к экспертам в раздел
+                  = I18n.t('.add_photo.step_6.text_2', scope: help_scope)
                   =link_to "\"На определение\"", root_path(anchor: 'unknown')
                 %p
-                  Если вид вам известен, то нужно ввести ключевое слово или начальные буквы из его названия, нажать кнопку                     , а затем выбрать из списка нужное вам название. Если вы все сделали правильно, то в окне возле надписи «Вид:», появится его название.
+                  = I18n.t('.add_photo.step_6.text_3', scope: help_scope)
                 %p
                   = image_tag 'help/add_photo/step-6.png', class: 'd-border'
                 %p
-                  После чего вам останется только нажать по кнопке
+                  = I18n.t('.add_photo.step_6.text_4', scope: help_scope)
                   = image_tag 'help/add_photo/publish-button.png'
-                  и фотография автоматически загрузится на
+                  = I18n.t('.add_photo.step_6.text_5', scope: help_scope)
                   = link_to 'главную страницу', root_path
                 %p
                   %i
-                    * Знайте, на правой стороне окна при любом этапе загрузки, отображается ваша фотография с текущей информацией. Она позволит вам еще раз проверить загружаемые данные.
+                    = I18n.t('.add_photo.step_6.text_6', scope: help_scope)
                 %p
-                  Поздравляем вы загрузили свою первую фотографию!
+                  = I18n.t('.add_photo.step_6.text_7', scope: help_scope)
