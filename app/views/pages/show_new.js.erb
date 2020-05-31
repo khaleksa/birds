@@ -4,5 +4,5 @@
 
 $('#new-show-more').empty();
 <% if @birds && !@birds.last_page? %>
-  $('#new-show-more').append("<%= j(link_to('Показать еще фотографии', show_new_pages_path(new_page: @birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'))%>");
+  $('#new-show-more').append("<%= j(link_to("#{I18n.t('.pages.index.show_more')}", show_new_pages_path(new_page: @birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'))%>");
 <% end %>

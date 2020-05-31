@@ -1,5 +1,6 @@
 .bg-container.homepage-container
   = render 'shared/contests'
+  - index_scope = 'pages.index'
 
   .container.content
     = render 'shared/nav_add_photo'
@@ -9,11 +10,14 @@
     .row.tabs
       %ul.nav.nav-tabs#main-page-birds-tabs
         %li.active
-          %a{"data-toggle" => "tab", :href => "#current"} Все новые
+          %a{"data-toggle" => "tab", :href => "#current"}
+            = I18n.t('.tab_new', scope: index_scope)
         %li
-          %a{"data-toggle" => "tab", :href => "#commentable"} Комментируемые
+          %a{"data-toggle" => "tab", :href => "#commentable"}
+            = I18n.t('.tab_comments', scope: index_scope)
         %li
-          %a{"data-toggle" => "tab", :href => "#unknown"} На определение
+          %a{"data-toggle" => "tab", :href => "#unknown"}
+            = I18n.t('.tab_unknown', scope: index_scope)
 
     .tab-content
       #current.tab-pane.fade.in.active
@@ -22,7 +26,7 @@
             .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
         - if @birds && !@birds.last_page?
           .row.acenter#new-show-more
-            = link_to 'Показать еще фотографии', show_new_pages_path(new_page: @birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
+            = link_to "#{I18n.t('.show_more', scope: index_scope)}", show_new_pages_path(new_page: @birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
 
       #commentable.tab-pane.fade
         .mtop40.home-img-container.commentable-container
@@ -30,7 +34,7 @@
             .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
         - if @commented_birds && !@commented_birds.last_page?
           .row.acenter#commentable-show-more
-            = link_to 'Показать еще фотографии', show_commentable_pages_path(comment_page: @commented_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
+            = link_to "#{I18n.t('.show_more', scope: index_scope)}", show_commentable_pages_path(comment_page: @commented_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
 
       #unknown.tab-pane.fade
         .mtop40.home-img-container.unknown-container
@@ -38,7 +42,7 @@
             .row.row-sm= render partial: 'birds/photo', collection: row, as: :bird
         - if @unknown_birds && !@unknown_birds.last_page?
           .row.acenter#unknown-show-more
-            = link_to 'Показать еще фотографии', show_unknown_pages_path(unknown_page: @unknown_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
+            = link_to "#{I18n.t('.show_more', scope: index_scope)}", show_unknown_pages_path(unknown_page: @unknown_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'
 
   .posters
     .row.container
@@ -46,45 +50,48 @@
         .help-menu-item
           .icon= image_tag "menus/birdwatch.png"
           %p
-            Стань
+            = I18n.t('.promo.birdwatcher_1', scope: index_scope)
             = link_to 'бёрдвотчером', birding_rules_pages_path
-            и открой для себя мир птиц!
+            = I18n.t('.promo.birdwatcher_2', scope: index_scope)
       .col.col-md-4
         .help-menu-item
           .icon= image_tag "menus/tracks.png"
           %p
-            = link_to 'Внеси свой вклад', about_pages_path
-            в изучение и сохранение птиц Узбекистана!
+            = link_to "#{I18n.t('.promo.science_1', scope: index_scope)}", about_pages_path
+            = I18n.t('.promo.science_2', scope: index_scope)
       .col.col-md-4
         .help-menu-item
           .icon= image_tag "menus/photo.png"
           %p
-            Фотографируй и принимай участие в
-            = link_to 'Большом годе!', big_year_path
+            = I18n.t('.promo.bg_1', scope: index_scope)
+            = link_to "#{I18n.t('.promo.bg_2', scope: index_scope)}", big_year_path
 
   .bottom-links
     .row
       .col.col-md-4
         .links-list
-          %p Птицы
+          %p
+            = I18n.t('.menu.birds.title', scope: index_scope)
           %ul
-            %li= link_to 'Список видов', species_index_path
-            %li= link_to 'Поиск', search_search_path
-            %li= link_to 'Правила наблюдения', birding_rules_pages_path
+            %li= link_to "#{I18n.t('.menu.birds.menu_1', scope: index_scope)}", species_index_path
+            %li= link_to "#{I18n.t('.menu.birds.menu_2', scope: index_scope)}", search_search_path
+            %li= link_to "#{I18n.t('.menu.birds.menu_3', scope: index_scope)}", birding_rules_pages_path
       .col.col-md-4
         .links-list
-          %p Участвуй
+          %p
+            = I18n.t('.menu.action.title', scope: index_scope)
           %ul
-            %li= link_to 'Большой Год', big_year_path
-            %li= link_to 'На определение', root_path(anchor: 'unknown')
+            %li= link_to "#{I18n.t('.menu.action.menu_1', scope: index_scope)}", big_year_path
+            %li= link_to "#{I18n.t('.menu.action.menu_2', scope: index_scope)}", root_path(anchor: 'unknown')
             -if current_user.try(:expert?)
-              %li= link_to 'Одобрить', approve_pages_path
-            %li= link_to 'Мероприятия', past_contest_path
+              %li= link_to "#{I18n.t('.menu.action.menu_3', scope: index_scope)}", approve_pages_path
+            %li= link_to "#{I18n.t('.menu.action.menu_4', scope: index_scope)}", past_contest_path
       .col.col-md-4
         .links-list
-          %p Инфо
+          %p
+            = I18n.t('.menu.info.title', scope: index_scope)
           %ul
-            %li= link_to 'О проекте', about_pages_path
-            %li= link_to 'Наши пользователи', users_path
-            %li= link_to 'Помощь', help_pages_path
-            %li= mail_to 'khalex@bk.ru', 'Написать нам'
+            %li= link_to "#{I18n.t('.menu.info.menu_1', scope: index_scope)}", about_pages_path
+            %li= link_to "#{I18n.t('.menu.info.menu_2', scope: index_scope)}", users_path
+            %li= link_to "#{I18n.t('.menu.info.menu_3', scope: index_scope)}", help_pages_path
+            %li= mail_to 'khalex@bk.ru', "#{I18n.t('.menu.info.menu_4', scope: index_scope)}"
