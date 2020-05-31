@@ -4,7 +4,7 @@ $('.search-results').empty();
 <% if @species && @species.size > 0 %>
     $('.search-results').append("<%= escape_javascript( render partial: 'search/result' ) %>");
 <% else %>
-    $('.search-description').append('К сожалению, по вашему запросу ничего не найдено');
+    $('.search-description').append("<%= I18n.t('search.not_found')%>");
 <% end %>
 
 //*** Bird's species: set species id from search result to form ***
