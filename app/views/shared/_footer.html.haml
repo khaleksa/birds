@@ -1,6 +1,7 @@
 .footer
   = render 'shared/nav_add_photo'
   .footer-inner
+    - footer_scope = 'shared.footer'
     .container
       .fleft
         %p
@@ -22,7 +23,7 @@
           =link_to 'uz', switch_locale_path(locale: :uz)
         -else
           %p.aright
-            Все права на опубликованные на сайте материалы принадлежат их авторам.
+            = I18n.t('rights', scope: footer_scope)
             %br
-            Обо всех ошибках при работе сайта просьба сообщать на почту:
+            = I18n.t('contacts', scope: footer_scope)
             = mail_to 'khalex@bk.ru', 'khalex@bk.ru'

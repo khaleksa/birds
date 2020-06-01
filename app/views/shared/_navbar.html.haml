@@ -1,9 +1,11 @@
 %nav.navbar.birds-nav.navbar-fixed-top
   .container
+    - navbar_scope = 'shared.navbar'
     .navbar-header
       / Navigation mobile
       %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Меню
+        %span.sr-only
+          = I18n.t('title', scope: navbar_scope)
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
@@ -14,14 +16,14 @@
       / Menu Left
       %ul.nav.navbar-nav
         %li
-          =nav_link_to 'Список видов', species_index_path
+          =nav_link_to "#{I18n.t('species', scope: navbar_scope)}", species_index_path
         %li
-          =nav_link_to 'Большой Год', big_year_path
+          =nav_link_to "#{I18n.t('bg', scope: navbar_scope)}", big_year_path
         %li
-          =nav_link_to 'Бердвотчеры', users_path
+          =nav_link_to "#{I18n.t('birders', scope: navbar_scope)}", users_path
         -if current_user.try(:expert?)
           %li
-            =nav_link_to 'Одобрить', approve_pages_path
+            =nav_link_to "#{I18n.t('approve', scope: navbar_scope)}", approve_pages_path
       / Menu Right
       .navbar-right
         %ul.nav.navbar-nav.fright.mleft10
@@ -32,10 +34,10 @@
                   =image_tag current_user.avatar.thumb.url, class: 'img-circle'
                   %span= current_user.full_name.slice(0, 20)
             %li
-              =link_to 'Выход', destroy_user_session_path, :method => :delete
+              =link_to "#{I18n.t('exit', scope: navbar_scope)}", destroy_user_session_path, :method => :delete
           -else
             %li
               .btn-signup
-                =link_to 'Зарегистрироваться', new_user_registration_path, class: 'btn btn-success'
+                =link_to "#{I18n.t('sign-up', scope: navbar_scope)}", new_user_registration_path, class: 'btn btn-success'
             %li
-              =link_to 'Вход', new_user_session_path
+              =link_to "#{I18n.t('sign-in', scope: navbar_scope)}", new_user_session_path
