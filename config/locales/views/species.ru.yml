@@ -1,0 +1,20 @@
+ru:
+  species:
+    index:
+      title: Список видов птиц Узбекистана
+    show:
+      sub_species: 'В Узбекистане обитает подвид -'
+      author: 'Автор:'
+      date: 'Дата:'
+      place: 'Место:'
+      description: Описание
+      distributation: Распространение
+      biology: Биология
+      sub_species_list: Подвиды
+      reference: Источники информации
+      species_map: Все встречи с видом
+      classification: Научная классификация
+      order: 'Отряд:'
+      family: 'Семейство:'
+      species: 'Вид:'
+      status: Охранный статус
