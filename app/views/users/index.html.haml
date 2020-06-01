@@ -1,17 +1,18 @@
 .bg-btm-container
   .container.content
+    - users_scope = 'users.index'
     .row.users-container.mtop20
       .row.users-text.mbtm20
-        %h4 Бердвотчеры
+        %h4
+          = I18n.t('title', scope: users_scope)
         %p
           %i
-            На нашем сайте зарегистрировано бердвотчеров - #{@users.size},
-            из них участников
-            =link_to 'Большого Года -', big_year_path
+            #{I18n.t('text_1', scope: users_scope)} - #{@users.size}, #{I18n.t('text_2', scope: users_scope)}
+            =link_to "#{I18n.t('bg', scope: users_scope)}", big_year_path
             #{@big_year_users_count}
       .row
         .users-list-title.mbtm15
-          Список бердвотчеров
+          = I18n.t('birders', scope: users_scope)
 
         - index = 1
         - @users.each do |user|
@@ -23,7 +24,7 @@
                 -index += 1
             .col-md-3.user-right-blck
               =link_to user.full_name, profile_path(user.id)
-              %p= "Всего фотографий #{user['birds_count'] || 0}"
+              %p= "#{I18n.t('photo_count', scope: users_scope)} #{user['birds_count'] || 0}"
             -#.col-md-2.user-right-blck1
               -if user.big_year
                 =image_tag 'user/icon-2016.png'
