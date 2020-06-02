@@ -2,7 +2,7 @@ $('.search-results').empty().append("<%= escape_javascript( render partial: 'sea
 
 <% if @species && @species.size > 0 %>
     $('.search-results').empty().append("<%= escape_javascript( render partial: 'search/result' ) %>");
-    $('.search-description').empty().append(<%= I18n.t('search.help')%>);
+    $('.search-description').empty().append("<%= I18n.t('search.help')%>");
 <% else %>
     $('.search-description').empty().append("<%= I18n.t('search.not_found')%>");
 <% end %>
