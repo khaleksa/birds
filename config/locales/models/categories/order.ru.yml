@@ -1,30 +1,31 @@
+---
 ru:
   activerecord:
-    models:
-      categories/order:
-        one: "Отряд"
-        few: "Отрядов"
-        many: "Отрядов"
-        other: "Отряды"
     attributes:
       categories/order:
-        children: "Семейства"
-        name_ru: "Русское имя"
-        name_lat: "Латинское имя"
-        name_en: "Английское имя"
-        name_uz: "Узбекское имя"
-        description: "Описание"
-        created_at: "Дата создания"
-        updated_at: "Дата изменения"
+        children: Семейства
+        created_at: Дата создания
+        description: Описание
+        name_en: Английское имя
+        name_lat: Латинское имя
+        name_ru: Русское имя
+        name_uz: Узбекское имя
+        updated_at: Дата изменения
     errors:
       models:
         categories/order:
           attributes:
-            name_ru:
-              blank: "- Введите русское название отряда"
-            name_lat:
-              blank: "- Введите латинское название отряда"
             name_en:
               blank: "- Введите английское название отряда"
+            name_lat:
+              blank: "- Введите латинское название отряда"
+            name_ru:
+              blank: "- Введите русское название отряда"
             name_uz:
               blank: "- Введите узбекское название отряда"
+    models:
+      categories/order:
+        few: Отрядов
+        many: Отрядов
+        one: Отряд
+        other: Отряды
