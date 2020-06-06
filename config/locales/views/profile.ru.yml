@@ -1,30 +1,27 @@
----
 ru:
   profile:
-    comments:
-      delete: 
     photo:
       delete: Удалить фотографию
       edit: Редактировать фотографию
-    settings:
-      bg: Большой Год
-      change: Изменить
-      change_photo: Изменить фотографию
-      change_psw: Изменить пароль
-      edit: Редактировать
-      first_name: 'Имя:'
-      in_bg: Большом Годе
-      last_name: 'Фамилия:'
-      new_psw: 'Новый пароль:'
-      psw: Пароль
-      repeat_psw: 'Пароль еще раз:'
     show:
       bg_amount_1: Количество видов в
       bg_amount_2: Большом Годе
       rating_1: В рейтинге
       rating_2: Большого Года
-      tab_comments: Комментарии
-      tab_drafts: Черновики
-      tab_photo: Фотографии
       tab_profile: Профиль
       tab_species: Виды
+      tab_photo: Фотографии
+      tab_drafts: Черновики
+      tab_comments: Комментарии
+    settings:
+      change_photo: Изменить фотографию
+      edit: Редактировать
+      first_name: 'Имя:'
+      last_name: 'Фамилия:'
+      psw: Пароль
+      change_psw: Изменить пароль
+      new_psw: 'Новый пароль:'
+      repeat_psw: 'Пароль еще раз:'
+      bg: Большой Год
+      in_bg: Большом Годе
+      change: Изменить

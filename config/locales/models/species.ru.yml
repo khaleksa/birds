@@ -1,51 +1,50 @@
----
 ru:
   activerecord:
+    models:
+      species:
+        one: "Вид"
+        few: "Видов"
+        many: "Видов"
+        other: "Виды"
     attributes:
       species:
-        biology: Биология на русском
-        biology_en: Биология на английском
-        biology_uz: Биология на узбекском
-        children: Подвиды
-        created_at: Дата создания
-        description: Русское описание
-        description_en: Английское описание
-        description_uz: Узбекское описание
-        distribution: Распространение на русском
-        distribution_en: Распространение на английском
-        distribution_uz: Распространение на узбекском
-        family: Семейство
-        image: Фото
-        name_en: Английское имя
-        name_lat: Латинское имя
-        name_ru: Русское имя
-        name_uz: Узбекское имя
-        parent: Родительский вид
-        position: Порядковый номер
-        reference: Источники информации на русском
-        reference_en: Источники информации на английском
-        reference_uz: Источники информации на узбекском
-        show_map: Публичная карта
-        single_subspecies: Представлен единственным подвидом
-        status: Статус
-        updated_at: Дата изменения
+        family: "Семейство"
+        position: "Порядковый номер"
+        parent: "Родительский вид"
+        children: "Подвиды"
+        name_ru: "Русское имя"
+        name_lat: "Латинское имя"
+        name_en: "Английское имя"
+        name_uz: "Узбекское имя"
+        status: "Статус"
+        description: "Русское описание"
+        description_uz: "Узбекское описание"
+        description_en: "Английское описание"
+        distribution: "Распространение на русском"
+        distribution_uz: "Распространение на узбекском"
+        distribution_en: "Распространение на английском"
+        biology: "Биология на русском"
+        biology_uz: "Биология на узбекском"
+        biology_en: "Биология на английском"
+        reference: "Источники информации на русском"
+        reference_uz: "Источники информации на узбекском"
+        reference_en: "Источники информации на английском"
+        image: "Фото"
+        show_map: "Публичная карта"
+        single_subspecies: "Представлен единственным подвидом"
+        created_at: "Дата создания"
+        updated_at: "Дата изменения"
     errors:
       models:
         species:
           attributes:
-            family:
-              blank: "- Укажите семейство"
-            name_en:
-              blank: "- Введите английское название вида"
-            name_lat:
-              blank: "- Введите латинское название вида"
             name_ru:
               blank: "- Введите русское название вида"
+            name_lat:
+              blank: "- Введите латинское название вида"
+            name_en:
+              blank: "- Введите английское название вида"
             name_uz:
               blank: "- Введите узбекское название вида"
-    models:
-      species:
-        few: Видов
-        many: Видов
-        one: Вид
-        other: Виды
+            family:
+              blank: "- Укажите семейство"

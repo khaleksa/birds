@@ -16,7 +16,6 @@ gem 'closure_tree'
 gem 'devise', '>= 4.7.1'
 gem 'globalize'
 gem 'globalize-accessors'
-gem 'i18n_yaml_editor'
 gem 'jquery-rails'
 gem "haml-rails"
 gem 'kaminari'

@@ -1,41 +1,40 @@
----
 ru:
-  actions: Действия
-  site_name: Birds.uz
-  soon: скоро
+  site_name: "Birds.uz"
+  actions: "Действия"
+  soon: "скоро"
   time:
     formats:
       default: "%d.%m.%Y"
       long: "%d.%m.%Y"
     periods:
-      days:
-        few: "%{count} дня"
-        many: "%{count} дней"
-        one: "%{count} день"
-        other: "%{count} дней"
-      hours:
-        few: "%{count} часа"
-        many: "%{count} часов"
-        one: "%{count} час"
-        other: "%{count} часов"
       immediately: немедленно
-      minutes:
-        few: "%{count} минуты"
-        many: "%{count} минут"
-        one: "%{count} минута"
-        other: "%{count} минут"
-      months:
-        few: "%{count} месяца"
-        many: "%{count} месяцев"
-        one: "%{count} месяц"
-        other: "%{count} месяцев"
-      seconds:
-        few: "%{count} секунды"
-        many: "%{count} секунд"
-        one: "%{count} секунда"
-        other: "%{count} секунд"
       years:
-        few: "%{count} года"
-        many: "%{count} лет"
-        one: "%{count} год"
-        other: "%{count} года"
+        one: '%{count} год'
+        few: '%{count} года'
+        many: '%{count} лет'
+        other: '%{count} года'
+      months:
+        one: '%{count} месяц'
+        few: '%{count} месяца'
+        many: '%{count} месяцев'
+        other: '%{count} месяцев'
+      days:
+        one: '%{count} день'
+        few: '%{count} дня'
+        many: '%{count} дней'
+        other: '%{count} дней'
+      hours:
+        one: '%{count} час'
+        few: '%{count} часа'
+        many: '%{count} часов'
+        other: '%{count} часов'
+      minutes:
+        one: '%{count} минута'
+        few: '%{count} минуты'
+        many: '%{count} минут'
+        other: '%{count} минут'
+      seconds:
+        one: '%{count} секунда'
+        few: '%{count} секунды'
+        many: '%{count} секунд'
+        other: '%{count} секунд'

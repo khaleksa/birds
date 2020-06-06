@@ -1,33 +1,32 @@
----
 ru:
   activerecord:
+    models:
+      categories/family:
+        one: "Семейство"
+        few: "Семейств"
+        many: "Семейств"
+        other: "Семейства"
     attributes:
       categories/family:
-        created_at: Дата создания
-        description: Описание
-        name_en: Английское имя
-        name_lat: Латинское имя
-        name_ru: Русское имя
-        name_uz: Узбекское имя
-        parent: Отряд
-        updated_at: Дата изменения
+        parent: "Отряд"
+        name_ru: "Русское имя"
+        name_lat: "Латинское имя"
+        name_en: "Английское имя"
+        name_uz: "Узбекское имя"
+        description: "Описание"
+        created_at: "Дата создания"
+        updated_at: "Дата изменения"
     errors:
       models:
         categories/family:
           attributes:
-            name_en:
-              blank: "- Введите английское название семейства"
-            name_lat:
-              blank: "- Введите латинское название семейства"
-            name_ru:
-              blank: "- Введите русское название семейства"
-            name_uz:
-              blank: "- Введите узбекское название семейства"
             parent:
               blank: "- Укажите отряд для данного семейства"
-    models:
-      categories/family:
-        few: Семейств
-        many: Семейств
-        one: Семейство
-        other: Семейства
+            name_ru:
+              blank: "- Введите русское название семейства"
+            name_lat:
+              blank: "- Введите латинское название семейства"
+            name_en:
+              blank: "- Введите английское название семейства"
+            name_uz:
+              blank: "- Введите узбекское название семейства"

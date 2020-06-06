@@ -1,27 +1,26 @@
----
 ru:
   activerecord:
+    models:
+      bird:
+        one: "Птица"
+        few: "Птиц"
+        many: "Птиц"
+        other: "Птицы"
     attributes:
       bird:
-        address: Адрес
-        created_at: Дата создания
-        latitude: Широта
-        longitude: Долгота
-        photo: Фото
-        published: Опубликована
-        species: Вид
-        timestamp: Дата
-        updated_at: Дата изменения
-        user: Бедвочер
+        timestamp: "Дата"
+        latitude: "Широта"
+        longitude: "Долгота"
+        address: "Адрес"
+        photo: "Фото"
+        published: "Опубликована"
+        created_at: "Дата создания"
+        updated_at: "Дата изменения"
+        species: "Вид"
+        user: "Бедвочер"
     errors:
       models:
         bird:
           attributes:
             user:
               blank: "- Укажите бедвочера"
-    models:
-      bird:
-        few: Птиц
-        many: Птиц
-        one: Птица
-        other: Птицы

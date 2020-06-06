@@ -1,41 +1,37 @@
----
 ru:
   activerecord:
+    models:
+      user: &user_model
+        one: "Пользователя"
+        few: "Пользователя"
+        many: "Пользователи"
+        other: "Пользователи"
+      admin_user:
+        <<: *user_model
     attributes:
       user:
-        created_at: Дата регистрации
-        email: Эл.почта
-        first_name: Имя
-        last_name: Фамилия
-        last_sign_in_at: Последний вход
-        password: Пароль
-        password_confirmation: Подтверждение пароля
-        roles: Роли
-        sign_in_count: Количество входов
-        updated_at: Дата изменения
+        first_name: "Имя"
+        last_name: "Фамилия"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        email: "Эл.почта"
+        roles: "Роли"
+        sign_in_count: "Количество входов"
+        last_sign_in_at: "Последний вход"
+        created_at: "Дата регистрации"
+        updated_at: "Дата изменения"
     errors:
       models:
         user:
           attributes:
             email:
-              blank: обязательна для заполнения
-              incorrect_email: введен в неверном формате
-              invalid: Неверный адрес e-mail
-              taken: уже существует
+              incorrect_email: "введен в неверном формате"
+              blank: "обязательна для заполнения"
+              taken: "уже существует"
+              invalid: "Неверный адрес e-mail"
             first_name:
-              blank: обязательно для заполнения
+              blank: "обязательно для заполнения"
             last_name:
-              blank: обязательна для заполнения
+              blank: "обязательна для заполнения"
             password:
-              blank: обязателен для заполнения
-    models:
-      admin_user:
-        few: Пользователя
-        many: Пользователи
-        one: Пользователя
-        other: Пользователи
-      user:
-        few: Пользователя
-        many: Пользователи
-        one: Пользователя
-        other: Пользователи
+              blank: "обязателен для заполнения"
