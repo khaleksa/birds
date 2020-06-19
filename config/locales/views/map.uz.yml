@@ -1,8 +1,8 @@
 uz:
   map:
     index:
-      title: Все встречи с видом
-      species_info: Общая информация о виде
+      title: Турнинг барча кузатувлари
+      species_info: Тур ҳақида умумий маълумот
     bird:
-      delete_photo: Удалить фотографию
-      edit_photo: Редактировать фотографию
+      delete_photo: Суратни ўчириш
+      edit_photo: Суратни таҳрирлаш

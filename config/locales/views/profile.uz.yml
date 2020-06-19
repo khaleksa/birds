@@ -1,29 +1,29 @@
 uz:
   profile:
     photo:
-      delete: Удалить фотографию
-      edit: Редактировать фотографию
+      delete: Суратни ўчириш
+      edit: Суратни таҳрирлаш
     show:
-      bg_amount_1: Количество видов в
-      bg_amount_2: Большом Годе
-      rating_1: В рейтинге
-      rating_2: Большого Года
+      bg_amount_1: Катта йилдаги
+      bg_amount_2: турлар сони
+      rating_1: Катта йил
+      rating_2: рейтингида
       tab_profile: Профиль
-      tab_species: Виды
-      tab_photo: Фотографии
-      tab_drafts: Черновики
-      tab_comments: Комментарии
+      tab_species: Турлар
+      tab_photo: Суратлар
+      tab_drafts: Қораламалар
+      tab_comments: Шарҳлар
     settings:
-      change_photo: Изменить фотографию
+      change_photo: Суратни таҳрирлаш
       edit: Редактировать
       first_name: 'Имя:'
       last_name: 'Фамилия:'
       psw: Пароль
-      change_psw: Изменить пароль
-      new_psw: 'Новый пароль:'
-      repeat_psw: 'Пароль еще раз:'
-      bg: Большой Год
-      in_bg: Большом Годе
-      change: Изменить
+      change_psw: Парольни ўзгартириш
+      new_psw: 'Янги пароль:'
+      repeat_psw: 'Парольни такрорлаш:'
+      bg: Катта йил
+      in_bg: 'Ҳа, мен Катта йил танловида иштирок этмоқчиман'
+      change: Ўзгартириш
     comments:
-      delete: Удалить комментарий
+      delete: Шаҳни ўчириш

@@ -1,29 +1,29 @@
 en:
   profile:
     photo:
-      delete: Удалить фотографию
-      edit: Редактировать фотографию
+      delete: Delete photo
+      edit: Edit photo
     show:
-      bg_amount_1: Количество видов в
-      bg_amount_2: Большом Годе
-      rating_1: В рейтинге
-      rating_2: Большого Года
-      tab_profile: Профиль
-      tab_species: Виды
-      tab_photo: Фотографии
-      tab_drafts: Черновики
-      tab_comments: Комментарии
+      bg_amount_1: Number of species in
+      bg_amount_2: the Big Year
+      rating_1: In the Big Year
+      rating_2: standings
+      tab_profile: Profile
+      tab_species: Species
+      tab_photo: Photos
+      tab_drafts: Drafts
+      tab_comments: Comments
     settings:
-      change_photo: Изменить фотографию
-      edit: Редактировать
-      first_name: 'Имя:'
-      last_name: 'Фамилия:'
-      psw: Пароль
-      change_psw: Изменить пароль
-      new_psw: 'Новый пароль:'
-      repeat_psw: 'Пароль еще раз:'
-      bg: Большой Год
-      in_bg: Большом Годе
-      change: Изменить
+      change_photo: Edit photo
+      edit: Edit
+      first_name: 'Name:'
+      last_name: 'Surname:'
+      psw: Password
+      change_psw: Change password
+      new_psw: 'New password:'
+      repeat_psw: 'Repeat the password:'
+      bg: Big Year
+      in_bg: Yes, I want to join the Big Year
+      change: Change
     comments:
-      delete: Удалить комментарий
+      delete: Delete comment

@@ -1,18 +1,20 @@
 en:
   shared:
     footer:
-      rights: Все права на опубликованные на сайте материалы принадлежат их авторам.
-      contacts: 'Обо всех ошибках при работе сайта просьба сообщать на почту:'
+      rights: Any material displayed on this website is the property of its creators.
+      contacts: >-
+        If you detect an error, please, report by sending a message to this
+        email:
     navbar:
-      title: Меню
-      species: Список видов
-      bg: Большой Год
-      birders: Бердвотчеры
-      approve: Одобрить
-      exit: Выход
-      sign-up: Зарегистрироваться
-      sign-in: Вход
+      title: Menu
+      species: List of species
+      bg: Big Year
+      birders: Birdwatchers
+      approve: Approve
+      exit: Exit
+      sign-up: Register
+      sign-in: Log in
     nav_add_photo:
-      button: Добавить фотографию
+      button: Add a photo
     search:
-      title: Поиск
+      title: Find

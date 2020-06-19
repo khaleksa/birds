@@ -1,20 +1,20 @@
 uz:
   species:
     index:
-      title: Список видов птиц Узбекистана
+      title: Ўзбекистонда қуш турлари рўйхати
     show:
-      sub_species: 'В Узбекистане обитает подвид -'
-      author: 'Автор:'
-      date: 'Дата:'
-      place: 'Место:'
-      description: Описание
-      distributation: Распространение
+      sub_species: Ўзбекистонда кичик тури яшайди
+      author: 'Муаллиф:'
+      date: 'Сана:'
+      place: 'Жойлашув:'
+      description: Тафсилот
+      distributation: Тарқалиши
       biology: Биология
-      sub_species_list: Подвиды
-      reference: Источники информации
-      species_map: Все встречи с видом
-      classification: Научная классификация
-      order: 'Отряд:'
-      family: 'Семейство:'
-      species: 'Вид:'
-      status: Охранный статус
+      sub_species_list: Кичик турлари
+      reference: Маълумот манбаси
+      species_map: Турнинг барча кузатувлари
+      classification: Илмий классификация
+      order: 'Туркум:'
+      family: 'Оила:'
+      species: 'Тур:'
+      status: Хавфсизлик ҳолати

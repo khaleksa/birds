@@ -1,20 +1,20 @@
 en:
   species:
     index:
-      title: Список видов птиц Узбекистана
+      title: List of bird species of Uzbekistan
     show:
-      sub_species: 'В Узбекистане обитает подвид -'
-      author: 'Автор:'
-      date: 'Дата:'
-      place: 'Место:'
-      description: Описание
-      distributation: Распространение
-      biology: Биология
-      sub_species_list: Подвиды
-      reference: Источники информации
-      species_map: Все встречи с видом
-      classification: Научная классификация
-      order: 'Отряд:'
-      family: 'Семейство:'
-      species: 'Вид:'
-      status: Охранный статус
+      sub_species: Native subspecies to Uzbekistan is
+      author: 'Photo by:'
+      date: 'Date:'
+      place: 'Location:'
+      description: Description
+      distributation: Range
+      biology: Biology
+      sub_species_list: Subspecies
+      reference: Sources of information
+      species_map: All records of the species
+      classification: Taxonomy
+      order: 'Order:'
+      family: 'Family:'
+      species: 'Species:'
+      status: Protection status

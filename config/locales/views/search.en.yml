@@ -1,7 +1,7 @@
-en:
+uz:
   search:
-    title: Поиск
-    species: название вида
-    find: Найти
-    not_found: К сожалению, по вашему запросу ничего не найдено
-    help: Чтобы выбрать из найденного списка нужный вид, кликните по нему один раз.
+    title: Search
+    species: Species name
+    find: Search
+    not_found: 'Unfortunately, your search returned no results'
+    help: Single-click the species to select it from the list.

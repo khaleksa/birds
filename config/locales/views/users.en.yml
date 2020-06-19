@@ -1,9 +1,9 @@
-en:
+ru:
   users:
     index:
-      title: Бердвотчеры
-      text_1: На нашем сайте зарегистрировано бердвотчеров
-      text_2: из них участников
-      bg: 'Большого Года - '
-      birders: Список бердвотчеров
-      photo_count: Всего фотографий
+      title: Birdwatchers
+      text_1: Birdwatchers registered on our website
+      text_2: among them
+      bg: Big Year participants
+      birders: List of birdwatchers
+      photo_count: Photos total

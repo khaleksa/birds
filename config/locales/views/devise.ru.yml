@@ -1,23 +1,23 @@
-ru:
+en:
   devise:
     registrations:
       new:
-        title: Регистрация
-        name: 'Имя:'
-        surname: 'Фамилия:'
-        email: 'E-mail:'
-        password: 'Пароль:'
-        big_year: Я хочу участвовать в Большом Годе
-        have_account: У меня уже есть аккаунт
-        sign_up: Зарегистрироваться
-        sign_in: У меня уже есть аккаунт
-        fb_sign_up: Регистрация через Facebook
-        data_confidentiality: Мы гарантируем конфиденциальность данных, которые вы предоставляете нам при регистрации
+        title: Registration
+        name: 'Name:'
+        surname: 'Surname:'
+        email: 'Email:'
+        password: 'Password:'
+        big_year: I want to take part in the Big Year
+        have_account: I already have an account
+        sign_up: Register
+        sign_in: I already have an account
+        fb_sign_up: Register with Facebook
+        data_confidentiality: We guarantee confidentiality of the data you provide to log in.
     sessions:
       new:
-        title: Вход
-        email: 'E-mail:'
-        password: 'Пароль:'
-        login: Войти
-        no_account: У меня нет аккаунта
-        fb_login: Вход через Facebook
+        title: Log in
+        email: 'Email:'
+        password: 'Password:'
+        login: Log in
+        no_account: I have no account
+        fb_login: Log in with Facebook

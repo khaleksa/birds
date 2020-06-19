@@ -1,8 +1,8 @@
 en:
   map:
     index:
-      title: Все встречи с видом
-      species_info: Общая информация о виде
+      title: All records of the species
+      species_info: General information on the species
     bird:
-      delete_photo: Удалить фотографию
-      edit_photo: Редактировать фотографию
+      delete_photo: Delete photo
+      edit_photo: Edit photo
