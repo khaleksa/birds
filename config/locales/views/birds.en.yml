@@ -6,7 +6,7 @@ en:
       created_at: 'Uploaded:'
       protected_species: This species is under threat;
       protected_map: the map is available only to experts.
-      author: 'Photo by:'
+      author: 'Photo:'
       date: 'Date:'
       place: 'Location:'
       species_info: General information on the species
