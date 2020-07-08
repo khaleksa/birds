@@ -3,8 +3,8 @@ stages:
   - deploy
 
 variables:
-    projectid: "sonorous-mix-245813"
-    service: "birdsuzb-serverless"
+    projectid: "silken-elevator-280713"
+    service: "my-service"
     region: "europe-west1"
     image_name: "birdsuzb"
     ram: "512M"
