@@ -1,0 +1,9 @@
+ru:
+  users:
+    index:
+      title: Birdwatchers
+      text_1: Birdwatchers registered on our website
+      text_2: among them
+      bg: Big Year participants
+      birders: List of birdwatchers
+      photo_count: Photos total

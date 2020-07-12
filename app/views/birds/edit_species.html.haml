@@ -1,9 +1,11 @@
 .bg-btm-container
   / Content
   .container.content
+    - edit_scope = 'birds.edit'
     / Content TOP  PROGRESS BAR
     .row.top-row
-      %h3 Добавить фотографию
+      %h3
+        = I18n.t('.title', scope: edit_scope)
       .progrees-bar-container
         / TOP
         .row.progrees-bar-top-icons
@@ -71,25 +73,29 @@
           .col.col-md-2.step-done
             .descr
               %p
-                Загрузите
-                %br фотографию
+                = I18n.t('.download_photo_1', scope: edit_scope)
+                %br
+                  = I18n.t('.download_photo_2', scope: edit_scope)
           .col.col-md-4.step-active
             .descr
               =link_to edit_date_bird_path(@bird) do
                 %p
-                  Укажите
-                  %br дату встречи
+                  = I18n.t('.set_date_1', scope: edit_scope)
+                  %br
+                    = I18n.t('.set_date_2', scope: edit_scope)
           .col.col-md-4
             .descr
               =link_to edit_map_bird_path(@bird) do
                 %p
-                  Укажите
-                  %br место встречи
+                  = I18n.t('.set_place_1', scope: edit_scope)
+                  %br
+                    = I18n.t('.set_place_2', scope: edit_scope)
           .col.col-md-2
             .descr
               %p
-                Определите
-                %br вид птицы
+                = I18n.t('.set_species_1', scope: edit_scope)
+                %br
+                  = I18n.t('.set_species_2', scope: edit_scope)
     / DESCR
     / Content TOP PROGRESS BAR
     / Content TOP PROGRESS BAR - SMALLER DISPLAY
@@ -101,7 +107,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-photo-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Загрузите фотографию
+        %span.small-progress-bar-text #{I18n.t('.download_photo_1', scope: edit_scope)} #{I18n.t('.download_photo_2', scope: edit_scope)}
       %p.step-done
         =link_to edit_date_bird_path(@bird) do
           %span.progress-bar-item.small-progress-bar-round-num
@@ -110,7 +116,7 @@
             %i.progress-bar-item &nbsp;
           %span.progress-bar-item.progress-top-round.progress-calendar-ico.small-progress-bar-round-icon
             %i &nbsp;
-          %span.small-progress-bar-text Укажите дату встречи
+          %span.small-progress-bar-text #{I18n.t('.set_date_1', scope: edit_scope)} #{I18n.t('.set_date_2', scope: edit_scope)}
       %p.step-done
         =link_to edit_map_bird_path(@bird) do
           %span.progress-bar-item.small-progress-bar-round-num
@@ -119,7 +125,7 @@
             %i.progress-bar-item &nbsp;
           %span.progress-bar-item.progress-top-round.progress-tag-ico.small-progress-bar-round-icon
             %i &nbsp;
-          %span.small-progress-bar-text Укажите место встречи
+          %span.small-progress-bar-text #{I18n.t('.set_place_1', scope: edit_scope)} #{I18n.t('.set_place_2', scope: edit_scope)}
       %p.step-active
         %span.progress-bar-item.small-progress-bar-round-num
           %i 4
@@ -127,7 +133,7 @@
           %i.progress-bar-item &nbsp;
         %span.progress-bar-item.progress-top-round.progress-check-ico.small-progress-bar-round-icon
           %i &nbsp;
-        %span.small-progress-bar-text Определите вид птицы
+        %span.small-progress-bar-text #{I18n.t('.set_species_1', scope: edit_scope)} #{I18n.t('.set_species_2', scope: edit_scope)}
     / Content TOP PROGRESS BAR - SMALLER DISPLAY
 
     .row.mtop40.add-photo-container
@@ -136,21 +142,21 @@
           .row.mbtm20
             .col-md-9.col-sm-12
               %span
-                Вид:
+                = I18n.t('.species', scope: edit_scope)
               %span.selected-species
-                не определен
+                = I18n.t('.unknown', scope: edit_scope)
             .col-md-3
               =form_tag publish_bird_path, method: :get do
                 .hidden{ style: 'display:none'}
                   =text_field_tag 'bird-species-id'
-                =submit_tag 'Опубликовать', class: 'fright btn btn-info sm-display-none'
-                =submit_tag 'Опубликовать', class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only'
+                =submit_tag "#{I18n.t('.publish', scope: edit_scope)}", class: 'fright btn btn-info sm-display-none'
+                =submit_tag "#{I18n.t('.publish', scope: edit_scope)}", class: 'mtop3 m-h35 mbtm20 sm-width-max btn btn-info display-sm-only'
 
           =form_tag '/main_species', method: :post, remote: :true do
-            = text_field_tag :text, nil, class: 'form-control w80 sm-width-max', autofocus: true, placeholder: 'Название вида'
+            = text_field_tag :text, nil, class: 'form-control w80 sm-width-max', autofocus: true, placeholder: "#{I18n.t('.species_name', scope: edit_scope)}"
             = submit_tag 'Найти', class: 'btn btn-success fright sm-center sm-mtop10 w15 m-mtop20'
             .search-description
-              * Если Вам известен вид, введите ключевые слова из его названия и нажмите по кнопке "Найти"
+              = I18n.t('.howto_find_species', scope: edit_scope)
 
           .row.search-results.mtop20.m-mbtm20.pleft20
 

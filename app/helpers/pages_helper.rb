@@ -64,16 +64,16 @@ module PagesHelper
 
   def nav_bar_slogan
     if current_user.try(:birthday).try(:yday) == Date.today.yday
-      "#{current_user.first_name}, с Днем Рожденья! Birds.uz :)"
+      "#{current_user.first_name}, #{I18n.t('shared.nav_bar_slogan.birth_day')}"
     elsif (Time.current.month == 12 && (30..31).include?(Time.current.day)) &&
         (Time.current.month == 1 && (1..2).include?(Time.current.day))
         controller_name == 'pages' &&
         action_name == 'index'
-      'С Новым Годом! С любовью, команда Birds.uz'
+        I18n.t('shared.nav_bar_slogan.new_year')
     elsif Time.current.month == 4 && (1..5).include?(Time.current.day)
-      '1 апреля - День рождения Birds.uz!<br>Благодарим всех за этот увлекательный год и поздравляем вас с Днем Птиц!'
+      I18n.t('shared.nav_bar_slogan.birds_uz_birth_day')
     else
-      'Birds.uz – давайте наблюдать птиц Узбекистана вместе!'
+      I18n.t('shared.nav_bar_slogan.slogan')
     end
   end
 

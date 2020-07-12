@@ -1,0 +1,20 @@
+en:
+  species:
+    index:
+      title: List of bird species of Uzbekistan
+    show:
+      sub_species: Native subspecies to Uzbekistan is
+      author: 'Photo:'
+      date: 'Date:'
+      place: 'Location:'
+      description: Description
+      distributation: Range
+      biology: Biology
+      sub_species_list: Subspecies
+      reference: Sources of information
+      species_map: All records of the species
+      classification: Taxonomy
+      order: 'Order:'
+      family: 'Family:'
+      species: 'Species:'
+      status: Protection status

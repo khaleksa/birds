@@ -1,4 +1,8 @@
 class Species < ActiveRecord::Base
+  translates :name, :description, :distribution, :biology, :reference
+  globalize_accessors :locales => [:ru, :en, :uz],
+    :attributes => [:name, :description, :distribution, :biology, :reference]
+  
   belongs_to :family, class_name: 'Categories::Family', foreign_key: 'category_id'
   belongs_to :parent, class_name: 'Species'
   has_many :children, class_name: 'Species', foreign_key: 'parent_id'
@@ -11,13 +15,8 @@ class Species < ActiveRecord::Base
   validates_presence_of :name_lat, :family
 
   scope :main, -> { where('parent_id IS NULL') }
-  scope :ordered, -> { order('lower(name_ru)') }
-  scope :by_name, -> (name) {
-    where("(lower(name_ru) like ?) OR
-           (lower(name_en) like ?) OR
-           (lower(name_lat) like ?) OR
-           (lower(name_uz) like ?)", name, name, name, name)
-  }
+  scope :ordered_by_name_ru, -> { with_translations([:ru]).order("species_translations.name ASC") }
+  scope :ordered, -> { with_translations([I18n.locale]).order("species_translations.name ASC") }
 
   def active_link?
     description.present? || images.any?
@@ -32,7 +31,7 @@ class Species < ActiveRecord::Base
   end
 
   def default_name
-    name_ru.present? ? name_ru : name_lat
+    name || name_lat
   end
 
   def full_name

@@ -1,9 +1,9 @@
 ActiveAdmin.register Species do
   permit_params :name_ru, :name_en, :name_lat, :name_uz,
-                :description, :description_uz, :description_en,
-                :distribution, :distribution_uz, :distribution_en,
-                :biology, :biology_uz, :biology_en,
-                :reference, :reference_uz, :reference_en,
+                :description_ru, :description_uz, :description_en,
+                :distribution_ru, :distribution_uz, :distribution_en,
+                :biology_ru, :biology_uz, :biology_en,
+                :reference_ru, :reference_uz, :reference_en,
                 :category_id, :status, :show_map, :position, :parent_id, :single_subspecies,
                 images_attributes: [:id, :image, :_destroy, :description, :author, :date, :address, :default]
 
@@ -50,16 +50,16 @@ ActiveAdmin.register Species do
       row :name_lat
       row :name_en
       row :name_uz
-      row :description
+      row :description_ru
       row :description_uz
       row :description_en
-      row :distribution
+      row :distribution_ru
       row :distribution_uz
       row :distribution_en
-      row :biology
+      row :biology_ru
       row :biology_uz
       row :biology_en
-      row :reference
+      row :reference_ru
       row :reference_uz
       row :reference_en
       row :single_subspecies
@@ -81,7 +81,7 @@ ActiveAdmin.register Species do
     f.inputs 'Классификация' do
       f.input :family, as: :select, collection: Categories::Category.families
       f.input :position
-      f.input :parent, as: :select, collection: Species.main.ordered
+      f.input :parent, as: :select, collection: Species.main.ordered_by_name_ru
     end
 
     f.inputs 'Наименование вида' do
@@ -92,25 +92,25 @@ ActiveAdmin.register Species do
     end
 
     f.inputs 'Описание вида' do
-      f.input :description
+      f.input :description_ru
       f.input :description_uz
       f.input :description_en
     end
 
     f.inputs 'Распространение вида' do
-      f.input :distribution
+      f.input :distribution_ru
       f.input :distribution_uz
       f.input :distribution_en
     end
 
     f.inputs 'Биология вида' do
-      f.input :biology
+      f.input :biology_ru
       f.input :biology_uz
       f.input :biology_en
     end
 
     f.inputs 'Источники информации' do
-      f.input :reference
+      f.input :reference_ru
       f.input :reference_uz
       f.input :reference_en
     end

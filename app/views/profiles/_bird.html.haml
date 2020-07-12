@@ -1,10 +1,10 @@
 .col-sm-6.col-md-2.map-img-block.xs-align-center.img-container-blck.profile-bird-container
   .head
     .blck
-      = bird.species_name_ru
+      = bird.species_name
   .body
     =link_to bird_path(bird) do
       = image_tag bird.photo.thumb.url, class: 'img-responsive'
     -if @user.current?(current_user)
-      =link_to '', '#', class: 'delete_user_bird', data: {id: bird.id}, title: 'Удалить фотографию'
-      =link_to '', edit_species_bird_path(bird), class: 'edit_user_bird', data: {id: bird.id}, title: 'Редактировать фотографию'
+      =link_to '', '#', class: 'delete_user_bird', data: {id: bird.id}, title: "#{I18n.t('profile.photo.delete')}"
+      =link_to '', edit_species_bird_path(bird), class: 'edit_user_bird', data: {id: bird.id}, title: "#{I18n.t('profile.photo.edit')}"

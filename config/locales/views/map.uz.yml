@@ -1,0 +1,8 @@
+uz:
+  map:
+    index:
+      title: Турнинг барча кузатувлари
+      species_info: Тур ҳақида умумий маълумот
+    bird:
+      delete_photo: Суратни ўчириш
+      edit_photo: Суратни таҳрирлаш

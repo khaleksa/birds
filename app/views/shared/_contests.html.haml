@@ -1,12 +1,14 @@
 .posters.banner
   .row.container
+    - contest_scope = 'pages.index.contests'
     .col.col-md-6
       %ul.banner-menu
         %li
-          %p Участвуй
-        %li= link_to 'Большой год 2020', prises_big_year_path
-        %li= link_to 'Памятка оказания первой помощи диким птицам', first_aid_swift_path
-        %li= link_to 'Куда обратиться за помощью?', about_swift_path
+          %p
+            = I18n.t('title', scope: contest_scope)
+        %li= link_to "#{I18n.t('item_1', scope: contest_scope)}", prises_big_year_path
+        %li= link_to "#{I18n.t('item_2', scope: contest_scope)}", first_aid_swift_path
+        %li= link_to "#{I18n.t('item_3', scope: contest_scope)}", about_swift_path
     .col.col-md-6
       - banner_image = 'banners/bg_banner.jpg'
       - if Time.zone.now.month == 4 && (1..5).cover?(Time.zone.now.day)

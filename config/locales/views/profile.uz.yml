@@ -1,0 +1,29 @@
+uz:
+  profile:
+    photo:
+      delete: Суратни ўчириш
+      edit: Суратни таҳрирлаш
+    show:
+      bg_amount_1: Катта йилдаги
+      bg_amount_2: турлар сони
+      rating_1: Катта йил
+      rating_2: рейтингида
+      tab_profile: Профиль
+      tab_species: Турлар
+      tab_photo: Суратлар
+      tab_drafts: Қораламалар
+      tab_comments: Шарҳлар
+    settings:
+      change_photo: Суратни таҳрирлаш
+      edit: Редактировать
+      first_name: 'Имя:'
+      last_name: 'Фамилия:'
+      psw: Пароль
+      change_psw: Парольни ўзгартириш
+      new_psw: 'Янги пароль:'
+      repeat_psw: 'Парольни такрорлаш:'
+      bg: Катта йил
+      in_bg: 'Ҳа, мен Катта йил танловида иштирок этмоқчиман'
+      change: Ўзгартириш
+    comments:
+      delete: Шаҳни ўчириш

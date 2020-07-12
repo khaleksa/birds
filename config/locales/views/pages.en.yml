@@ -1,0 +1,184 @@
+en:
+  pages:
+    index:
+      tab_new: All new
+      tab_comments: Commented
+      tab_unknown: To be identified
+      show_more: Show more photos
+      promo:
+        birdwatcher_1: Watch birds to discover
+        birdwatcher_2: the avian world!
+        science_1: Contribute to the study and conservation
+        science_2: of birds in Uzbekistan!
+        bg_1: Take pictures and join
+        bg_2: the Big Year competition!
+      menu:
+        birds:
+          title: Birds
+          menu_1: List of species
+          menu_2: Search
+          menu_3: Birdwatching rules
+        action:
+          title: Join in
+          menu_1: Big Year
+          menu_2: To be identified
+          menu_3: Approve
+          menu_4: Events
+        info:
+          title: Info
+          menu_1: About the project
+          menu_2: Our users
+          menu_3: Support
+          menu_4: Contact us
+      contests:
+        title: Join in
+        item_1: Big Year 2020
+        item_2: Instructions on the first aid to wild birds
+        item_3: Where to ask for help?
+    about:
+      title: About
+      goal: >-
+        Birds.uz was created by a team of birdwatchers to let the people of
+        Uzbekistan learn more about wildlife and involve them in nature
+        conservation.
+      tasks: 'Goals of the website:'
+      task_1: providing accessible information on the birds of Uzbekistan;
+      task_2: creating birds distribution database through crowdsourcing;
+      task_3: providing a source of information for ornithologists;
+      task_4: >-
+        promoting birdwatching as en environment friendly, safe and useful
+        activity;
+      task_5: creating a platform for holding the Big Year competition in Uzbekistan.
+      partners: 'Our partners:'
+      partner_1: 'Institute of Zoology, Academy of Sciences of Uzbekistan;'
+      partner_2: >-
+        Institute of Wildlife Conservation and Conservation Technologies, State
+        Committee of the Republic of Uzbekistan on Ecology and Environmental
+        Protection.
+      text_1: >-
+        On this website you can share a photo of a bird you happen to observe,
+        ask for help from experts in the identification of its species and learn
+        more about the ornithofauna of Uzbekistan.
+      text_2: >-
+        We are open to cooperation and happy to consider your proposals and
+        comments. As the website is only being developed, we will also be glad
+        if you provide more information on birds in Uzbekistan using and citing
+        credible sources.
+      text_3: >-
+        Please, be respectul to the other users of the website and do not use
+        any offensive or vulgar language.
+      statistics:
+        title: Registered on the website
+        users: 'Users:'
+        species: 'Bird species:'
+        photos: 'Photos:'
+    approve:
+      title: Approve
+    rules:
+      title: Birdwatching rules
+      text_1: >-
+        We are often asked why we love watching birds so much. In fact, we love
+        wildlife in its entirety, but birdwatching is the easiest of nature
+        observation activities, particularly in urban environment. Moreover,
+        birds are excellent ecosystem condition indicators and information on
+        their numbers and distribution can be very useful for specialists.
+      text_2: Birdwatching is a widespread hobby worldwide.
+      text_3: >-
+        Tools essential for birdwatching are a pair of binoculars or an
+        ultruzoom camera. Other helpful things include a birds field guide,
+        field journal and telescope.
+      principels:
+        title: 'A birdwatcher’s principles:'
+        p1: be careful with birds;
+        p2: avoid situations that may cause danger or stress to birds;
+        p3: keep away from nests and night sites;
+        p4: >-
+          in case you discover a breeding site for a rare and endangered
+          species, please, do not make this fact public but make it known to
+          ornithologists or nature conservation authorities;
+        p5: keep to existing roads and paths;
+        p6: >-
+          in case of team birdwatching, do not make noise and do not hamper
+          other birdwatchers’ work;
+        p7: share your knowledge and experience with other birdwatchers;
+        p8: share your observations to facilitate birds conservation.
+      reference: >-
+        Based on material from “How to Watch Birds”, ACBK. A full version of the
+        brochure can be downloaded from the website of the
+      uzspb: Uzbekistan Society for the Protection of Birds.
+    help:
+      title: Support
+      text: This section is under development and will be regularly updated.
+      add_photo:
+        title: How to upload a bird's photo onto the website
+        step_1: STEP 1. LOG IN to the website
+        step_2:
+          title: STEP 2. OPEN THE UPLOAD PAGE
+          text_1: for which you need just to click on the button
+          text_2: After that the “Add a photo” page will open.
+        step_3:
+          title: STEP 3. UPLOAD A PHOTO
+          text_1: By clicking
+          text_2: >-
+            button choose a photo you want to upload from your computer. After
+            that the photo will be displayed on the page.
+          note_1: >-
+            * Keep in mind that when you upload an original photo it will
+            automatically be cut and reduced to the size 700х524.
+          note_2: '* The photo may not be more than 5 Mb.'
+          note_3: >-
+            * If you want your photo to be displayed in the way you like, it
+            must be landscape orientation and roughly proportional to 700х524.
+            Any image editor can manage to cut a photo.
+          text_3: Then click the
+          text_4: button to go to the next step.
+          text_5: >-
+            Wait until your photo is uploaded onto the website, after which you
+            will automatically be brought to the next step.
+        step_4:
+          title: STEP 4. SPECIFY THE RECORD DATE
+          text_1: By clicking the
+          text_2: >-
+            button in the emerging window open the calendar and choose the
+            record date or the date you took the photo of the bird.
+          text_3: Click the
+          text_4: button to continue.
+        step_5:
+          title: STEP 5. SPECIFY THE BIRD’S LOCATION
+          text_1: >-
+            You can opt for one of the two ways to specify the location you
+            observed the bird:
+          text_2: Option 1. Provide coordinates in decimal degrees.
+          text_3: >-
+            Option 2. Google Map. You can mark the bird’s location using
+            available Google Map instruments, such as zooming, drag-and-drop and
+            others. As soon as you find the location of your observations, you
+            need just to click on this point on the map. After that you will see
+            a mark and coordinates in a window on the top.
+          text_4: >-
+            * Remember that to provide an accurate location is scienctifically
+            important, since it would help us specify the species’ range in
+            future.
+          text_5: >-
+            All you are to do now is type the name of the location in a bottom
+            window and click the button
+        step_6:
+          title: STEP 6. SPECIFY THE BIRD’S SPECIES
+          text_1: >-
+            If you cannot identify the bird or are uncertain about its species,
+            just click the button
+          text_2: >-
+            and your photo will automatically be forwarded to the “To be
+            identified” section, where our experts will identify the species.
+          text_3: >-
+            If you know the species, you need enter a key word or the first
+            letters of its name, press the button and choose the right name from
+            a list. If you have done everything correctly, you will see the name
+            in a window next to the word “Species:”.
+          text_4: All you have to do now is click the button
+          text_5: to complete the uploading of the photograph onto the main page.
+          text_6: >-
+            * Keep in mind that throughout the uploading you can see your photo
+            with current information displayed on the right side of the window.
+            This enables you to re-check the data you are uploading.
+          text_7: Congratulations! You have uploaded your first photo!

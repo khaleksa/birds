@@ -1,9 +1,11 @@
 .bg-btm-container
   / Content
   .container.content
+    - devise_scope = 'devise.sessions.new'
     / Content BODY
     .row.login-registration-container.mtop20.content-container
-      %h3.acenter.mbtm20 Вход
+      %h3.acenter.mbtm20
+        = I18n.t('.title', scope: devise_scope)
 
       .col.col-md-7.col-sm-12.fcenter
         = form_for :user, url: new_user_session_path do |f|
@@ -11,14 +13,16 @@
             = devise_error_messages!
             .row
               .col-md-2.col-sm-2.lbl-container
-                %label{:for => "email"} E-mail:
+                %label{:for => "email"}
+                  = I18n.t('.email', scope: devise_scope)
               .col-md-8.col-sm-8.input-container
                 = f.text_field :email, autofocus: true, class: 'form-control'
               .col-md-2.col-sm-2.str-container
                 %span.req *
             .row
               .col-md-2.col-sm-2.lbl-container
-                %label{:for => "pwrd"} Пароль:
+                %label{:for => "pwrd"}
+                  = I18n.t('.password', scope: devise_scope)
               .col-md-8.col-sm-8.input-container
                 = f.password_field :password, autocomplete: "off", class: 'form-control'
               .col-md-2.col-sm-2.str-container
@@ -27,13 +31,13 @@
               .col-md-2.col-sm-2.lbl-container
                 \&nbsp;
               .col-md-8.col-sm-8.input-container.acenter
-                = f.submit 'Войти', class: 'mtop10 mm-mtop0 w100p btn-lg btn btn-info'
-                =link_to 'У меня нет аккаунта', new_user_registration_path
+                = f.submit "#{I18n.t('.login', scope: devise_scope)}", class: 'mtop10 mm-mtop0 w100p btn-lg btn btn-info'
+                =link_to "#{I18n.t('.no_account', scope: devise_scope)}", new_user_registration_path
 
             .row.mtop10.mm-mtop0
               .col-md-2.col-sm-2.lbl-container
                 \&nbsp;
               .col-md-8.col-sm-8.input-container
-                =link_to 'Вход через Facebook', user_facebook_omniauth_authorize_path, class: 'fb-login'
+                =link_to "#{I18n.t('.fb_login', scope: devise_scope)}", user_facebook_omniauth_authorize_path, class: 'fb-login'
               .col-md-2.col-sm-2.str-container
                 \&nbsp;

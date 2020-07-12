@@ -1,6 +1,7 @@
 .bg-btm-container
   / Content
   .container.content
+    - profile_scope = 'profile.show'
     / Content BODY
     .row.profile-container.mtop20.mbtm40.content-container
       .row.profile-info-block
@@ -11,11 +12,11 @@
         -if @user.subscribed?(Time.zone.now.year)
           .col-md-3.col-sm-12.profile-stat-data
             %p
-              Количество видов в
-              =link_to "Большом Годе - #{@big_year_species_count}", big_year_path
+              = I18n.t('.bg_amount_1', scope: profile_scope)
+              =link_to "#{I18n.t('.bg_amount_2', scope: profile_scope)} - #{@big_year_species_count}", big_year_path
               %br
-                В рейтинге
-                =link_to "Большого Года - #{@big_year_rating}", big_year_path
+                = I18n.t('.rating_1', scope: profile_scope)
+                =link_to "#{I18n.t('.rating_2', scope: profile_scope)} - #{@big_year_rating}", big_year_path
         .col-md-3.col-sm-12.profile-user-icons
           -if @user.subscribed?(Time.zone.now.year)
             =image_tag 'user/icon-2020.png'
@@ -26,22 +27,27 @@
         -if @user.current?(current_user)
           %a.active.profile-menu{"data-view" => "block1"}
             .menu-title
-              %span Профиль
+              %span
+                = I18n.t('.tab_profile', scope: profile_scope)
         %a.profile-menu{"data-view" => "block2"}
           .menu-title
-            %span Виды [#{@species.size}]
+            %span
+              #{I18n.t('.tab_species', scope: profile_scope)} [#{@species.size}]
         %a.profile-menu{"data-view" => "block3"}
           .menu-title
-            %span Фотографии
+            %span
+              = I18n.t('.tab_photo', scope: profile_scope)
             %span.profile-birds-count [#{@birds.total_count}]
         -if @user.current?(current_user)
           %a.profile-menu{"data-view" => "block4"}
             .menu-title
-              %span Черновики
+              %span
+                = I18n.t('.tab_drafts', scope: profile_scope)
               %span.profile-drafts-count [#{@drafts.size}]
         %a.profile-menu{"data-view" => "block5"}
           .menu-title
-            %span Комментарии
+            %span
+              = I18n.t('.tab_comments', scope: profile_scope)
             %span.profile-comments-count [#{@comments.total_count}]
 
       .row.blocks-content
@@ -49,20 +55,23 @@
           .block-holder
             .mobile-blocks-nav
               %a.active{"data-view" => "block1"}
-                %span Профиль
+                %span
+                  = I18n.t('.tab_profile', scope: profile_scope)
             =render 'profile'
 
         .block-holder
           .mobile-blocks-nav
             %a{"data-view" => "block2"}
-              %span Виды [#{@species.size}]
+              %span
+                #{I18n.t('.tab_species', scope: profile_scope)} [#{@species.size}]
           #block2.row.profile-block-container.profile-species-block.mtop20{ :class => ('active-block' unless @user.current?(current_user)) }
             =render 'species', user_id: @user.id
 
         .block-holder
           .mobile-blocks-nav
             %a{"data-view" => "block3"}
-              %span Фотографии
+              %span
+                = I18n.t('.tab_photo', scope: profile_scope)
               %span.profile-birds-count [#{@birds.total_count}]
           #block3.row.profile-block-container.profile-birds-block.mtop20
             .row
@@ -75,7 +84,8 @@
           .block-holder
             .mobile-blocks-nav
               %a{"data-view" => "block4"}
-                %span Черновики
+                %span
+                  = I18n.t('.tab_drafts', scope: profile_scope)
                 %span.profile-drafts-count [#{@drafts.size}]
             #block4.row.profile-block-container.profile-drafts-block.mtop20
               .row
@@ -85,7 +95,8 @@
         .block-holder
           .mobile-blocks-nav
             %a{"data-view" => "block5"}
-              %span Комментарии
+              %span
+                = I18n.t('.tab_comments', scope: profile_scope)
               %span.profile-comments-count [#{@comments.total_count}]
           #block5.row.profile-block-container.profile-comments-block.mtop20
             .row

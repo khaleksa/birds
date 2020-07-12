@@ -1,6 +1,7 @@
 .footer
   = render 'shared/nav_add_photo'
   .footer-inner
+    - footer_scope = 'shared.footer'
     .container
       .fleft
         %p
@@ -16,8 +17,13 @@
           design by
           = mail_to '4dinaa@gmail.com', 'Dina Adilova'
       .fright
-        %p.aright
-          Все права на опубликованные на сайте материалы принадлежат их авторам.
-          %br
-          Обо всех ошибках при работе сайта просьба сообщать на почту:
-          = mail_to 'khalex@bk.ru', 'khalex@bk.ru'
+        -if Rails.env.development? || [1, 9, 4, 5].include?(current_user.try(:id))
+          =link_to 'ru', switch_locale_path(locale: :ru)
+          =link_to 'en', switch_locale_path(locale: :en)
+          =link_to 'uz', switch_locale_path(locale: :uz)
+        -else
+          %p.aright
+            = I18n.t('rights', scope: footer_scope)
+            %br
+            = I18n.t('contacts', scope: footer_scope)
+            = mail_to 'khalex@bk.ru', 'khalex@bk.ru'

@@ -1,0 +1,53 @@
+en:
+  birds:
+    show:
+      unknown: To be identified
+      edit: Edit photo
+      created_at: 'Uploaded:'
+      protected_species: This species is under threat;
+      protected_map: the map is available only to experts.
+      author: 'Photo:'
+      date: 'Date:'
+      place: 'Location:'
+      species_info: General information on the species
+      all_birds: All records of the species
+      confirm: Confirm
+      comments: Comments
+      add_comment: Add
+      only_users: Only authorised users can leave comments.
+      sign_up: Register
+      sign_in: log in
+      or: or
+    photo:
+      title: Species not identified
+      leave_comment: Add comment
+      more_comments: More comments
+      comments: Comments
+    edit:
+      title: Add a photo
+      download_photo_1: Upload
+      download_photo_2: a photo
+      set_date_1: Specify
+      set_date_2: the record date
+      set_place_1: Specify
+      set_place_2: the bird's location
+      set_species_1: Identify
+      set_species_2: the bird species
+      set_photo_date: Specify the bird observation date
+      continue: Continue
+      set_coordinates: 'Enter the location''s coordinates or click it on the map:'
+      latitude: 'Latitude:'
+      longitude: 'Longitude:'
+      place_name: 'Location name:'
+      species: 'Species:'
+      unknown: unidentified
+      publish: Publish
+      species_name: Species name
+      howto_find_species: >-
+        * If you know the species, enter key words from its name and click the
+        ‘Find’ button.
+      howto_load_photo: Click the ‘Browse...’ button to show the path to your photo.
+      browse: Browse...
+      photo_recommendations: >-
+        * Your photo must be proportional to 700x524 to be displayed correctly
+        on the page

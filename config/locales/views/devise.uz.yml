@@ -1,0 +1,25 @@
+uz:
+  devise:
+    registrations:
+      new:
+        title: Рўйхатдан ўтиш
+        name: 'Исм:'
+        surname: 'Фамилия:'
+        email: 'Email:'
+        password: 'Пароль:'
+        big_year: Катта йилда қатнашмоқчиман
+        have_account: Аккаунтим олдиндан бор
+        sign_up: Рўйхатдан ўтиш
+        sign_in: Аккаунтим олдиндан бор
+        fb_sign_up: Facebook орқали рўйхатдан ўтиш
+        data_confidentiality: >-
+          Сиз рўйхатдан ўтишда бизга тақдим этган маълумотларнинг
+          конфидециаллигини кафолатлаймиз.
+    sessions:
+      new:
+        title: Кириш
+        email: 'Email:'
+        password: 'Пароль:'
+        login: Кириш
+        no_account: Аккаунтим йўқ
+        fb_login: Facebook орқали кириш

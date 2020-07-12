@@ -4,5 +4,5 @@
 
 $('#unknown-show-more').empty();
 <% if @unknown_birds && !@unknown_birds.last_page? %>
-  $('#unknown-show-more').append("<%= j(link_to('Показать еще фотографии', show_unknown_pages_path(unknown_page: @unknown_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'))%>");
+  $('#unknown-show-more').append("<%= j(link_to("#{I18n.t('.pages.index.show_more')}", show_unknown_pages_path(unknown_page: @unknown_birds.current_page + 1), class: 'btn btn-success btn-xlg sm-width-max'))%>");
 <% end %>

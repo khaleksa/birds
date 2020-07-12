@@ -4,13 +4,14 @@
     / Content BODY
     .row.big-year-container.mtop20.mbtm20.content-container
       .col-sm-12.col.col-md-12
-        %h3 Список видов птиц Узбекистана
+        %h3
+          = I18n.t('species.index.title')
         .row.birds-list-container.mtop20
           %ol
             .row
               .col.col-md-12.col-sm-12
                 -@orders.each do |order|
-                  .row.birds-class-title-container= order.name_ru
+                  .row.birds-class-title-container= order.name
                   .row.birds-class-list-container
                     .col.col-md-2.col-sm-3.birds-class-img
                       - if order.image.url.present?
@@ -18,6 +19,6 @@
                     .col.col-md-10.col-sm-9.birds-class-list
                       -order.families.each do |family|
                         %span.birds-class-subtitle
-                          %i= family.name_ru
+                          %i= family.name
                         - family.main_species.each do |species|
                           %li= species.active_link? ? link_to(species.full_name, species_path(species)) : species.full_name

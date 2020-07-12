@@ -1,0 +1,23 @@
+en:
+  devise:
+    registrations:
+      new:
+        title: Registration
+        name: 'Name:'
+        surname: 'Surname:'
+        email: 'Email:'
+        password: 'Password:'
+        big_year: I want to take part in the Big Year
+        have_account: I already have an account
+        sign_up: Register
+        sign_in: I already have an account
+        fb_sign_up: Register with Facebook
+        data_confidentiality: We guarantee confidentiality of the data you provide to log in.
+    sessions:
+      new:
+        title: Log in
+        email: 'Email:'
+        password: 'Password:'
+        login: Log in
+        no_account: I have no account
+        fb_login: Log in with Facebook

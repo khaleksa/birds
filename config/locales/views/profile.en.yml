@@ -1,0 +1,29 @@
+en:
+  profile:
+    photo:
+      delete: Delete photo
+      edit: Edit photo
+    show:
+      bg_amount_1: Number of species in
+      bg_amount_2: the Big Year
+      rating_1: In the Big Year
+      rating_2: standings
+      tab_profile: Profile
+      tab_species: Species
+      tab_photo: Photos
+      tab_drafts: Drafts
+      tab_comments: Comments
+    settings:
+      change_photo: Edit photo
+      edit: Edit
+      first_name: 'Name:'
+      last_name: 'Surname:'
+      psw: Password
+      change_psw: Change password
+      new_psw: 'New password:'
+      repeat_psw: 'Repeat the password:'
+      bg: Big Year
+      in_bg: Yes, I want to join the Big Year
+      change: Change
+    comments:
+      delete: Delete comment

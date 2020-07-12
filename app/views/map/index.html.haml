@@ -1,8 +1,10 @@
 .container.content
+  - map_scope = 'map.index'
   / Content TOP
   .row.top-row
     .col-md-7.col-sm-12.map-bird-info.m-pleft30p
-      %h4 Все встречи с видом
+      %h4
+        = I18n.t('.title', scope: map_scope)
       %p= @species.name_ru
       %p
         %i= @species.name_lat
@@ -10,7 +12,7 @@
       %p
         %i= @species.name_uz
     .col-md-5.col-sm-12.aright
-      =link_to 'Общая информация о виде', species_path(@species), class: 'btn btn-success btn-xlg sm-width-max mtop50 m-mtop20'
+      =link_to "#{I18n.t('.species_info', scope: map_scope)}", species_path(@species), class: 'btn btn-success btn-xlg sm-width-max mtop50 m-mtop20'
 
   / Content BODY MAP
   #map_canvas.row.top-row.gmap-big.mtop20{ :data => { markers: 'true', url: "#{map_index_url(@map_url_params)}"} }

@@ -7,4 +7,4 @@
       = date_format(comment.created_at)
     -if @user.id == current_user.id
       .delete-comment-container
-        =link_to '', '#', class: 'delete-comment-lnk', data: {id: comment.id}, title: 'Удалить комментарий'
+        =link_to '', '#', class: 'delete-comment-lnk', data: {id: comment.id}, title: "#{I18n.t('profile.settings.delete')}"

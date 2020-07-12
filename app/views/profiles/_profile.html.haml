@@ -1,10 +1,11 @@
 #block1.active-block.row.profile-block-container.profile-info-block
   .col-md-7.col-sm-12.mtop20
+    - profile_scope = 'profile.settings'
     .row
       .col-md-4.col-sm-12.m-acenter
         = form_for current_user, url: profile_path(current_user.id), id: 'profile_data'  do |form|
           =image_tag current_user.avatar.url, class: 'img img-circle'
-          = label_tag :avatar, 'Изменить фотографию', class: 'link d-block change-image', id: 'change-avatar'
+          = label_tag :avatar, "#{I18n.t('.change_photo', scope: profile_scope)}", class: 'link d-block change-image', id: 'change-avatar'
           .hidden{ style: 'display:none'}
             = form.file_field :avatar, role: 'aprofile_pathvatar', id: 'avatar-file-field'
             = form.hidden_field :avatar_cache
@@ -12,16 +13,18 @@
       .col-md-8.col-sm-12
         .form-container.m-mtop20.m-acenter
           .row.mbtm15.user-info-section
-            %label.w70p.aright{:for => 'fname'} Имя:
+            %label.w70p.aright{:for => 'fname'}
+              = I18n.t('.first_name', scope: profile_scope)
             .input-group.d-inline-table.w220
               = best_in_place current_user, :first_name, as: :input, url: profile_path(current_user.id)
-              %span.input-group-addon.g-pencil{ title: 'Редактировать' }
+              %span.input-group-addon.g-pencil{ title: "#{I18n.t('.edit', scope: profile_scope)}" }
                 %span.glyphicon &nbsp;
           .row.mbtm15
-            %label.w70p.aright{:for => 'lname'} Фамилия:
+            %label.w70p.aright{:for => 'lname'}
+              = I18n.t('.last_name', scope: profile_scope)
             .input-group.d-inline-table.w220
               = best_in_place current_user, :last_name, as: :input, url: profile_path(current_user.id)
-              %span.input-group-addon.g-pencil{ title: 'Редактировать' }
+              %span.input-group-addon.g-pencil{ title: "#{I18n.t('.edit', scope: profile_scope)}" }
                 %span.glyphicon &nbsp;
           .row
             %label.w70p.aright{:for => 'email'} E-mail:
@@ -29,22 +32,26 @@
               = current_user.email
 
     .row
-      %h4.m-acenter Изменить пароль
+      %h4.m-acenter
+        = I18n.t('.change_psw', scope: profile_scope)
       -#TODO:: make request by ajax
       =form_for current_user, url: user_change_password_path, id: 'password_data', method: :put do |form|
         .form-container.m-mtop20.m-acenter
           .row.mbtm15
-            %label.w130.aright Новый пароль:
-            = form.password_field :password, class: 'form-control w190 d-inline-block', placeholder: 'Пароль'
+            %label.w130.aright
+              = I18n.t('.new_psw', scope: profile_scope)
+            = form.password_field :password, class: 'form-control w190 d-inline-block', placeholder: "#{I18n.t('.psw', scope: profile_scope)}"
             %span.req *
           .row
-            %label.w130.aright Пароль еще раз:
-            = form.password_field :password_confirmation, class: 'form-control w190 d-inline-block', placeholder: 'Пароль'
+            %label.w130.aright
+              = I18n.t('.repeat_psw', scope: profile_scope)
+            = form.password_field :password_confirmation, class: 'form-control w190 d-inline-block', placeholder: "#{I18n.t('.psw', scope: profile_scope)}"
             %span.req *
-        %input.btn.btn-info.w345.btn-lg-spec.sm-width-max{:type => 'submit', :value => 'Изменить пароль'}/
+        %input.btn.btn-info.w345.btn-lg-spec.sm-width-max{:type => 'submit', :value => "#{I18n.t('.change_psw', scope: profile_scope)}"}/
 
     .row.mtop20
-      %h4.m-acenter Большой Год
+      %h4.m-acenter
+        = I18n.t('.bg', scope: profile_scope)
       = form_tag change_subscription_big_year_path, method: :post, remote: true, id: 'subscribe_data' do
         .form-container.m-mtop20.pleft30.m-pleft90
           .row.mbtm15
@@ -52,5 +59,5 @@
             = check_box_tag :big_year, 1, current_user.subscribed?(Time.zone.now.year)
             = label_tag :big_year do
               Да, Я хочу участвовать в
-              =link_to 'Большом Годе', big_year_path
-        = submit_tag 'Изменить', class: 'btn btn-info w345 btn-lg-spec sm-width-max'
+              =link_to "#{I18n.t('.in_bg', scope: profile_scope)}", big_year_path
+        = submit_tag "#{I18n.t('.change', scope: profile_scope)}", class: 'btn btn-info w345 btn-lg-spec sm-width-max'

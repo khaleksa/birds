@@ -1,0 +1,7 @@
+en:
+  search:
+    title: Search
+    species: Species name
+    find: Search
+    not_found: 'Unfortunately, your search returned no results'
+    help: Single-click the species to select it from the list.

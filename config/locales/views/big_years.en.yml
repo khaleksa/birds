@@ -1,0 +1,73 @@
+en:
+  big_years:
+    index:
+      title: Big Year
+      tabs:
+        participants: Participants
+        species: Species
+        rules: Participation rules
+      description:
+        part_1: >-
+          Birds.uz is the organiser of the Big Year bird watching competition in
+          Uzbekistan.
+        part_2: >-
+          If you are a fan of birds and travelling, the Big Year is just for
+          you! The main goal of the competition is to photograph as many bird
+          species as possible within Uzbekistan during one calendar year. Events
+          like this have a long history and broad geography and have been held
+          in many countries across the world since the 1930s. In Uzbekistan the
+          Big Year was for the first time organised in 2014.
+        part_3: >-
+          Our aim is to inspire amateur naturalists to travel Uzbekistan in
+          search of new species. The Big Year is also a very useful activity for
+          a beginning birdwatcher, who can find it easier to remember new
+          species in a competitive atmosphere and rely on the assistance of a
+          team of specialists in identifying birds. Keep in mind that the work
+          of the website is based on crowdsourcing, which means that
+          participating in birds.uz we all contribute to the accumulation of
+          information highly valuable for ornithologists.
+        part_4: >-
+          The Big Year is a type of contest where participation is more
+          important than winning. There are no losers, and we promise that each
+          participant will gain many bright impressions,  discover new species
+          and visit places they have never been to.
+        part_5: >-
+          If you wish to take part in the Big Year, read the rules, log in and
+          upload your discoveries onto our website.
+        part_6: 'Join us, the Big Year %{year} is already running!'
+      rules:
+        title: >-
+          The competition is limited to the territory of the Republic of
+          Uzbekistan.
+        part_1: >-
+          The Big Year will last from 1 January to 31 December %{year}. Photos
+          uploaded after the calendar year is over will not be counted but will
+          be included in the website's database and the user's personal list of
+          species.
+        part_2: New participants can join in at any time.
+        part_3: >-
+          Each record must be confirmed by a photograph on which the species can
+          be confidently identified.
+        part_4: >-
+          The species is added to the participant's score only after it is
+          confirmed by one of the experts from our team.
+        part_5: Species bred in captivity and hybrid species are not counted.
+    prises:
+      title: Big Year 2020
+      text_1: >-
+        We are happy to inform you that in this year you have a chance to win
+        prizes essential for birdwatching field activities.
+      text_2: The Big Year winner will be awarded a tent.
+      text_3: 'Runner-up: sleeping bag.'
+      text_4: 'Third place: sleeping pad.'
+      text_5: 'Best debut: Birds of Central Asia field guide.'
+      text_6: Most interesting record — outdoor tableware set.
+      text_7: >-
+        Special award from <a href="https://cadi.uni-greifswald.de/ru/start-2/">Central Asian Desert Initiative (CADI)</a> — «Best photo of a desert bird.»
+
+      text_8: >-
+        But this is not all! There will be more interesting contests and useful
+        prizes! Follow our news and start your own Big Year!
+      good_luck: We wish you a successful photo hunting!
+      rules: 'Competition rules can be found here:'
+      big_year: Big Year competition

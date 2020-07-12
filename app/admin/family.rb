@@ -1,5 +1,7 @@
 ActiveAdmin.register Categories::Family do
-  permit_params :name_ru, :name_en, :name_lat, :name_uz, :description, :parent_id, :position
+  permit_params :name_ru, :name_en, :name_lat, :name_uz,
+                :description_ru, :description_uz, :description_en,
+                :parent_id, :position
 
   menu priority: 2
 
@@ -28,7 +30,9 @@ ActiveAdmin.register Categories::Family do
       row :name_lat
       row :name_en
       row :name_uz
-      row :description
+      row :description_ru
+      row :description_uz
+      row :description_en
       row :created_at
       row :updated_at
     end
@@ -41,11 +45,18 @@ ActiveAdmin.register Categories::Family do
     end
 
     f.inputs do
-      f.input :name_ru
-      f.input :name_lat
-      f.input :name_en
-      f.input :name_uz
-      f.input :description
+      f.inputs 'Наименование' do
+        f.input :name_ru
+        f.input :name_lat
+        f.input :name_en
+        f.input :name_uz
+      end
+
+      f.inputs 'Описание' do
+        f.input :description_ru
+        f.input :description_en
+        f.input :description_uz
+      end
     end
 
     f.actions
