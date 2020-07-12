@@ -14,10 +14,11 @@ gem 'carrierwave'
 gem 'choices'
 gem 'closure_tree'
 gem 'devise', '>= 4.7.1'
+gem 'fog-google'
 gem 'globalize'
 gem 'globalize-accessors'
 gem 'jquery-rails'
-gem "haml-rails"
+gem 'haml-rails'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'momentjs-rails', '>= 2.9.0'
@@ -27,11 +28,6 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'sass-rails'
 gem 'seed-fu', git: 'https://github.com/mbleigh/seed-fu'
 gem 'seedbank'
-
-gem 'closure_tree'
-gem 'carrierwave'
-gem 'mini_magick'
-
 
 group :test, :development do
   gem 'factory_girl'
