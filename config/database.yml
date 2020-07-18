@@ -2,10 +2,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  host: 34.89.189.108
+  host: 34.107.93.146
   port: 5432
-  username: birds_user
-  password: mo2vwzxk5cmnc1a1
+  username: postgres
+  password: postgres
   database: birds_production
 
 development: &development

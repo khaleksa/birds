@@ -3,9 +3,9 @@ stages:
   - deploy
 
 variables:
-    projectid: "silken-elevator-280713"
-    service: "my-service"
-    region: "europe-west1"
+    projectid: "birds-stage"
+    service: "gitlab-ci-cd"
+    region: "europe-west4"
     image_name: "birdsuzb"
     ram: "512M"
 

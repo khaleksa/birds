@@ -1,29 +1,29 @@
 require 'carrier_wave/mini_magick'
 require "base64"
 
-puts "********************** #{ENV['GCP_IMAGE_CREDS']} "
-puts "********************** #{Base64.decode64(ENV['GCP_IMAGE_CREDS'])} "
-
-puts "********************** #{ENV['BIRDS_CARRIERWAVE_SALT']} "
+# puts "********************** GCP_IMAGE_CREDS = #{ENV['GCP_IMAGE_CREDS']} "
+# # puts "********************** #{Base64.decode64(ENV['GCP_IMAGE_CREDS'])} "
+# puts "********************** BIRDS_CARRIERWAVE_SALT = #{ENV['BIRDS_CARRIERWAVE_SALT']} "
 
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/google'
   config.fog_credentials = {
     provider: 'Google',
-    google_project: 'sonorous-mix-245813',
-    google_json_key_string: Base64.decode64(ENV['GCP_IMAGE_CREDS'])
+    google_project: 'birds-stage',
+    google_json_key_string: Rails.env.production? ? Base64.decode64(ENV['GCP_IMAGE_CREDS']) : ENV['GCP_IMAGE_CREDS']
   }
-  config.fog_directory = 'birdsuzb_images_eu_w1'
+  config.fog_directory = 'birds-files/images_eu_w4'
 end
 
+# # !_WORKING CONF FOR birds-stage_ with cred file located locally!
 # CarrierWave.configure do |config|
 #   config.fog_provider = 'fog/google'
 #   config.fog_credentials = {
 #       provider: 'Google',
-#       google_project: 'sonorous-mix-245813',
-#       google_json_key_location: 'google_cred.json'
+#       google_project: 'birds-stage',
+#       google_json_key_location: 'birds-stage-sa-images-key.json'
 #   }
-#   config.fog_directory = 'birdsuzb_images_eu_w1'
+#   config.fog_directory = 'birds-files/images_eu_w4'
 # end
 
 # CarrierWave.configure do |config|
