@@ -28,6 +28,8 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'sass-rails'
 gem 'seed-fu', git: 'https://github.com/mbleigh/seed-fu'
 gem 'seedbank'
+gem 'turbolinks'
+gem 'uglifier', '>= 1.3.0'
 
 group :test, :development do
   gem 'factory_girl'
