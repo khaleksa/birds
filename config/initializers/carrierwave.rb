@@ -10,10 +10,21 @@ CarrierWave.configure do |config|
   config.fog_credentials = {
     provider: 'Google',
     google_project: 'birds-stage',
-    google_json_key_string: Rails.env.production? ? Base64.decode64(ENV['GCP_IMAGE_CREDS']) : ENV['GCP_IMAGE_CREDS']
+    google_json_key_string: Base64.decode64(ENV['GCP_IMAGE_CREDS'])
   }
   config.fog_directory = 'birds-files/images_eu_w4'
 end
+
+# # Working for Dev env, doesn't work on prod
+# CarrierWave.configure do |config|
+#   config.fog_provider = 'fog/google'
+#   config.fog_credentials = {
+#     provider: 'Google',
+#     google_project: 'birds-stage',
+#     google_json_key_string: Rails.env.production? ? Base64.decode64(ENV['GCP_IMAGE_CREDS']) : ENV['GCP_IMAGE_CREDS']
+#   }
+#   config.fog_directory = 'birds-files/images_eu_w4'
+# end
 
 # # !_WORKING CONF FOR birds-stage_ with cred file located locally!
 # CarrierWave.configure do |config|

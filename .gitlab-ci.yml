@@ -29,7 +29,9 @@ deploy-service-job:
     # Write our GCP service account private key into a file
     - echo $GCP_CRED > service_key.json
     - echo $GCP_IMAGE_CRED > image_key.json
+    - cat image_key.json
   script:
+    - cat image_key.json | base64
     - gcloud auth activate-service-account --key-file service_key.json
     - |
       gcloud run deploy $service --project $projectid \
