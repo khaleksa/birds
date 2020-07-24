@@ -17,3 +17,6 @@ test: &test
 
 production: &production
   <<: *default
+  database: birds_production
+  # If connecting via unix domain socket, specify the socket path as host
+  host:  "https://34.107.93.146/cloudsql/birds-stage:europe-west3:birds-production"
