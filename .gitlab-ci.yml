@@ -8,6 +8,7 @@ variables:
     region: "europe-west1"
     image_name: "birdsuzb"
     ram: "512M"
+    connector_name: "belgium-sql-instance"
 
 build-push-docker-job:
   stage: build
@@ -37,4 +38,5 @@ deploy-service-job:
       gcloud run deploy $service --project $projectid \
       --image gcr.io/$projectid/$image_name:latest \
       --region $region --platform=managed --memory $ram --allow-unauthenticated \
-      --set-env-vars GCP_IMAGE_CREDS="$(cat image_key.json | base64)",BIRDS_CARRIERWAVE_SALT="$CARRIERWAVE_SALT"
+      --set-env-vars GCP_IMAGE_CREDS="$(cat image_key.json | base64)",BIRDS_CARRIERWAVE_SALT="$CARRIERWAVE_SALT" \
+      --vpc-connector $connector_name

@@ -5,7 +5,7 @@ default: &default
   host: 172.31.17.3
   port: 5432
   username: postgres
-  password: postgres
+  password: nNfMb4H0AncpIpDa
   database: birds_production
 
 development: &development
