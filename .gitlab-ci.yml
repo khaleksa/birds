@@ -4,8 +4,8 @@ stages:
 
 variables:
     projectid: "birds-stage"
-    service: "gitlab-ci-cd"
-    region: "europe-west4"
+    service: "run-birds-stage"
+    region: "europe-west1"
     image_name: "birdsuzb"
     ram: "512M"
 
