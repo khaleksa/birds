@@ -1,8 +1,9 @@
 require 'carrier_wave/mini_magick'
 require "base64"
 
-# puts "********************** GCP_IMAGE_CREDS = #{ENV['GCP_IMAGE_CREDS']} "
-# # puts "********************** #{Base64.decode64(ENV['GCP_IMAGE_CREDS'])} "
+puts "********************** GCP_IMAGE_CREDS = #{ENV['GCP_IMAGE_CREDS']} "
+puts "********************** RAILS_ENV = #{ENV['RAILS_ENV']} "
+# puts "********************** #{Base64.decode64(ENV['GCP_IMAGE_CREDS'])} "
 # puts "********************** BIRDS_CARRIERWAVE_SALT = #{ENV['BIRDS_CARRIERWAVE_SALT']} "
 
 CarrierWave.configure do |config|
@@ -23,7 +24,8 @@ end
 #     google_project: 'birds-stage',
 #     google_json_key_string: Rails.env.production? ? Base64.decode64(ENV['GCP_IMAGE_CREDS']) : ENV['GCP_IMAGE_CREDS']
 #   }
-#   config.fog_directory = 'birds-files/images_eu_w4'
+#   config.fog_directory = 'birds-files'
+#   # config.fog_directory = 'birds-files/images_eu_w4'
 # end
 
 # # !_WORKING CONF FOR birds-stage_ with cred file located locally!
