@@ -2,11 +2,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  host: 172.31.17.3
-  port: 5432
-  username: postgres
-  password: nNfMb4H0AncpIpDa
-  database: birds_production
+  port: 3100
+  host: localhost
+  username: alexandra
+  database: birds_development
 
 development: &development
   <<: *default
@@ -17,6 +16,8 @@ test: &test
 
 production: &production
   <<: *default
+  host: <%= ENV["DATABASE_HOST"] %>
+  port: 5432
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
   database: birds_production
-  # If connecting via unix domain socket, specify the socket path as host
-  # host: "https://34.107.93.146/cloudsql/birds-stage:europe-west3:birds-production"

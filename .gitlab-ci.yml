@@ -39,4 +39,7 @@ deploy-service-job:
       --image gcr.io/$projectid/$image_name:latest \
       --region $region --platform=managed --memory $ram --allow-unauthenticated \
       --set-env-vars GCP_IMAGE_CREDS="$(cat image_key.json | base64)",BIRDS_CARRIERWAVE_SALT="$CARRIERWAVE_SALT" \
+      --set-env-vars DATABASE_HOST=$GCP_DB_HOST \
+      --set-env-vars DATABASE_USERNAME=$GCP_DB_USERNAME \
+      --set-env-vars DATABASE_PASSWORD=$GCP_DB_PASSWORD \
       --vpc-connector $connector_name
