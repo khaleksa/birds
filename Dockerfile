@@ -1,6 +1,10 @@
 FROM ruby:2.3.1
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client \
-  && mkdir /cloud
+#RUN apt-get update -qq && apt-get install -y nodejs postgresql-client \
+#  && mkdir /cloud
+
+RUN apt-get update -qq
+RUN apt-get install -y nodejs postgresql-client
+RUN mkdir /cloud
 
 WORKDIR /cloud
 
