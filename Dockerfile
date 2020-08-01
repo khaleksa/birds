@@ -13,7 +13,7 @@ ENV GEM_HOME=/bundle
 ENV PATH=$GEM_HOME/bin:$PATH
 ENV BUNDLE_PATH=$GEM_HOME
 ENV BUNDLE_BIN=$GEM_HOME/bin
-ENV RAILS_ENV='production'
+ENV RAILS_ENV='development'
 
 RUN bundle config --global path "$GEM_HOME" \
   && bundle config --global bin "$GEM_HOME/bin" \
