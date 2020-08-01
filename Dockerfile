@@ -19,6 +19,8 @@ RUN bundle config --global path "$GEM_HOME" \
   && gem install bundler -v 1.17.1 \
   && bundle install
 
+RUN RAILS_ENV=production bundle exec rails assets:precompile
+
 ## Add a script to be executed every time the container starts.
 #COPY bin/init.sh /usr/bin/
 #RUN chmod +x /usr/bin/init.sh
