@@ -48,4 +48,5 @@ deploy-service-job:
       --set-env-vars DATABASE_USERNAME=$GCP_DB_USERNAME \
       --set-env-vars DATABASE_PASSWORD=$GCP_DB_PASSWORD \
       --set-env-vars RAILS_ENV=production \
+      --set-env-vars DB_ADAPTER=postgresql \
       --vpc-connector $connector_name

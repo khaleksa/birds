@@ -7,19 +7,8 @@ puts "********************** BIRDS_CARRIERWAVE_SALT = #{ENV['BIRDS_CARRIERWAVE_S
 puts "********************** DATABASE_HOST = #{ENV['DATABASE_HOST']} "
 puts "********************** DATABASE_USERNAME = #{ENV['DATABASE_USERNAME']} "
 puts "********************** DATABASE_PASSWORD = #{ENV['DATABASE_PASSWORD']} "
+puts "********************** DB_ADAPTER = #{ENV['DB_ADAPTER']} "
 
-# Working on production
-# CarrierWave.configure do |config|
-#   config.fog_provider = 'fog/google'
-#   config.fog_credentials = {
-#     provider: 'Google',
-#     google_project: 'birds-stage',
-#     google_json_key_string: Base64.decode64(ENV['GCP_IMAGE_CREDS'])
-#   }
-#   config.fog_directory = 'birds-files/images_eu_w4'
-# end
-
-# Working for Dev env, doesn't work on prod
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/google'
   config.fog_credentials = {
@@ -30,13 +19,13 @@ CarrierWave.configure do |config|
   config.fog_directory = 'birds-files/images_eu_w4'
 end
 
-# # !_WORKING CONF FOR birds-stage_ with cred file located locally!
+# !_WORKING CONF FOR birds-stage_ with cred file located locally!
 # CarrierWave.configure do |config|
 #   config.fog_provider = 'fog/google'
 #   config.fog_credentials = {
 #       provider: 'Google',
+#       google_json_key_location: 'image_key.json',
 #       google_project: 'birds-stage',
-#       google_json_key_location: 'birds-stage-sa-images-key.json'
 #   }
 #   config.fog_directory = 'birds-files/images_eu_w4'
 # end
