@@ -1,5 +1,5 @@
 default: &default
-  adapter: postgresql
+  adapter: <%= ENV['DB_ADAPTER'] || 'postgresql' %>
   encoding: unicode
   pool: 5
   port: 3100
