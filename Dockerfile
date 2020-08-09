@@ -1,19 +1,24 @@
 FROM ruby:2.3.1
+
+ARG GCP_IMAGE_BUCKET_CREDS
+ARG CARRIERWAVE_SALT
+
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client \
   && mkdir /cloud
 
 WORKDIR /cloud
 
 COPY . /cloud
-#COPY Gemfile /cloud/Gemfile
-#COPY Gemfile.lock /cloud/Gemfile.lock
 
 ENV BUNDLE_GEMFILE='./Gemfile'
 ENV GEM_HOME=/bundle
 ENV PATH=$GEM_HOME/bin:$PATH
 ENV BUNDLE_PATH=$GEM_HOME
 ENV BUNDLE_BIN=$GEM_HOME/bin
-ENV RAILS_ENV='development'
+ENV RAILS_ENV='production'
+ENV DB_ADAPTER='nulldb'
+ENV GCP_IMAGE_CREDS=$GCP_IMAGE_BUCKET_CREDS
+ENV BIRDS_CARRIERWAVE_SALT=$CARRIERWAVE_SALT
 
 RUN bundle config --global path "$GEM_HOME" \
   && bundle config --global bin "$GEM_HOME/bin" \

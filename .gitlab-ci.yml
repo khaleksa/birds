@@ -22,13 +22,10 @@ build-push-docker-job:
     - cat service_key.json | docker login -u _json_key --password-stdin https://gcr.io
   script:
     - RAILS_ENV=production bundle exec rails assets:precompile
-#    - docker build --cache-from MMMMMMM -t gcr.io/$projectid/$image_name:latest .
     - |
       docker build \
-      --build-arg GCP_IMAGE_CREDS="$(cat image_key.json | base64)",BIRDS_CARRIERWAVE_SALT="$CARRIERWAVE_SALT" \
-      --build-arg DATABASE_HOST=$GCP_DB_HOST \
-      --build-arg DATABASE_USERNAME=$GCP_DB_USERNAME \
-      --build-arg DATABASE_PASSWORD=$GCP_DB_PASSWORD \
+      --build-arg GCP_IMAGE_BUCKET_CREDS="$(cat image_key.json | base64)" \
+      --build-arg CARRIERWAVE_SALT="$BIRDS_CARRIERWAVE_SALT" \
       --cache-from MMMMMMM -t gcr.io/$projectid/$image_name:latest .
     - docker push gcr.io/$projectid/$image_name:latest
 
