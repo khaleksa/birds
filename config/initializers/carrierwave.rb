@@ -1,10 +1,12 @@
 require 'carrier_wave/mini_magick'
 require "base64"
 
-puts "********************** GCP_IMAGE_CREDS = #{ENV['GCP_IMAGE_CREDS']} "
 puts "********************** RAILS_ENV = #{ENV['RAILS_ENV']} "
-# puts "********************** #{Base64.decode64(ENV['GCP_IMAGE_CREDS'])} "
-# puts "********************** BIRDS_CARRIERWAVE_SALT = #{ENV['BIRDS_CARRIERWAVE_SALT']} "
+puts "********************** GCP_IMAGE_CREDS = #{ENV['GCP_IMAGE_CREDS']} "
+puts "********************** BIRDS_CARRIERWAVE_SALT = #{ENV['BIRDS_CARRIERWAVE_SALT']} "
+puts "********************** DATABASE_HOST = #{ENV['DATABASE_HOST']} "
+puts "********************** DATABASE_USERNAME = #{ENV['DATABASE_USERNAME']} "
+puts "********************** DATABASE_PASSWORD = #{ENV['DATABASE_PASSWORD']} "
 
 # Working on production
 # CarrierWave.configure do |config|
