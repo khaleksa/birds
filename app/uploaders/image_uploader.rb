@@ -13,7 +13,7 @@ class ImageUploader < BaseUploader
   end
 
   def store_dir
-    "images/bird/#{mounted_as}/#{salted_reproducible_id}"
+    "images_eu_w4/images/bird/#{mounted_as}/#{salted_reproducible_id}"
   end
 
   def extension_white_list
