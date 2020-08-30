@@ -8,6 +8,7 @@ puts "********************** DATABASE_HOST = #{ENV['DATABASE_HOST']} "
 puts "********************** DATABASE_USERNAME = #{ENV['DATABASE_USERNAME']} "
 puts "********************** DATABASE_PASSWORD = #{ENV['DATABASE_PASSWORD']} "
 puts "********************** DB_ADAPTER = #{ENV['DB_ADAPTER']} "
+puts "********************** BIRDS_GOOGLE_MAPS_API_KEY = #{ENV['BIRDS_GOOGLE_MAPS_API_KEY']} "
 
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/google'

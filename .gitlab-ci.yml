@@ -39,6 +39,7 @@ deploy-service-job:
   script:
     - cat image_key.json | base64
     - gcloud auth activate-service-account --key-file service_key.json
+    - echo $GCP_API_MAPS_KEY
     - |
       gcloud run deploy $service --project $projectid \
       --image gcr.io/$projectid/$image_name:latest \
