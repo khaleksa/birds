@@ -40,6 +40,7 @@ deploy-service-job:
     - cat image_key.json | base64
     - gcloud auth activate-service-account --key-file service_key.json
     - echo $GCP_API_MAPS_KEY
+    - echo $GA_TRACKING_ID
     - |
       gcloud run deploy $service --project $projectid \
       --image gcr.io/$projectid/$image_name:latest \
@@ -51,4 +52,5 @@ deploy-service-job:
       --set-env-vars RAILS_ENV=production \
       --set-env-vars DB_ADAPTER=postgresql \
       --set-env-vars BIRDS_GOOGLE_MAPS_API_KEY=$GCP_API_MAPS_KEY \
+      --set-env-vars BIRDS_GOOGLE_ANALYTICS_ID=$GA_TRACKING_ID \
       --vpc-connector $connector_name
