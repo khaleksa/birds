@@ -9,8 +9,8 @@ ActiveAdmin.register Species do
 
   menu priority: 3
 
-  filter :family,  :collection => proc { Categories::Category.families }, :label => 'Семейство'
-  filter :name_ru
+  filter :family, :collection => proc { Categories::Category.families }, :label => 'Семейство'
+  filter :name
   filter :name_lat
   filter :name_en
 
@@ -92,27 +92,27 @@ ActiveAdmin.register Species do
     end
 
     f.inputs 'Описание вида' do
-      f.input :description_ru
-      f.input :description_uz
-      f.input :description_en
+      f.input :description_ru, as: :text
+      f.input :description_uz, as: :text
+      f.input :description_en, as: :text
     end
 
     f.inputs 'Распространение вида' do
-      f.input :distribution_ru
-      f.input :distribution_uz
-      f.input :distribution_en
+      f.input :distribution_ru, as: :text
+      f.input :distribution_uz, as: :text
+      f.input :distribution_en, as: :text
     end
 
     f.inputs 'Биология вида' do
-      f.input :biology_ru
-      f.input :biology_uz
-      f.input :biology_en
+      f.input :biology_ru, as: :text
+      f.input :biology_uz, as: :text
+      f.input :biology_en, as: :text
     end
 
     f.inputs 'Источники информации' do
-      f.input :reference_ru
-      f.input :reference_uz
-      f.input :reference_en
+      f.input :reference_ru, as: :text
+      f.input :reference_uz, as: :text
+      f.input :reference_en, as: :text
     end
 
     f.inputs 'Разное' do
