@@ -4,6 +4,7 @@ ARG GCP_IMAGE_BUCKET_CREDS
 ARG CARRIERWAVE_SALT
 
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client \
+  && rm -rf /var/lib/apt/lists/* \
   && mkdir /cloud
 
 WORKDIR /cloud
@@ -23,9 +24,8 @@ ENV BIRDS_CARRIERWAVE_SALT=$CARRIERWAVE_SALT
 RUN bundle config --global path "$GEM_HOME" \
   && bundle config --global bin "$GEM_HOME/bin" \
   && gem install bundler -v 1.17.1 \
-  && bundle install
-
-RUN bundle exec rails assets:precompile
+  && bundle install \ 
+  && bundle exec rails assets:precompile
 
 ## Add a script to be executed every time the container starts.
 #COPY bin/init.sh /usr/bin/
