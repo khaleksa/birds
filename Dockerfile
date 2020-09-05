@@ -3,7 +3,7 @@ FROM ruby:2.3.1
 ARG GCP_IMAGE_BUCKET_CREDS
 ARG CARRIERWAVE_SALT
 
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client \
+RUN apt-get update -qq && apt-get install -y postgresql-client \
   && rm -rf /var/lib/apt/lists/* \
   && mkdir /cloud
 
