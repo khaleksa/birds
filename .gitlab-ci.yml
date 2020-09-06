@@ -1,24 +1,56 @@
 stages:
   - build
-  - deploy-new-service
+  - deploy
 
 variables:
-    projectid: "sonorous-mix-245813"
-    service: "cloudrun-cicd"
-    region: "us-central1"
-    image_name: "cloudrun-cicd"
-    
+    projectid: "birds-stage"
+    service: "run-birds-stage"
+    region: "europe-west1"
+    image_name: "birdsuzb"
+    ram: "512M"
+    connector_name: "belgium-sql-instance"
+
 build-push-docker-job:
   stage: build
-#  image: docker:latest
-#  services:
-#    - docker:dind
-#  before_script:
-#    - echo $GCP_CRED > ${HOME}/service_key.json
-#    - cat ${HOME}/service_key.json | docker login -u _json_key --password-stdin https://gcr.io
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    #authentificate docker to be able to push images
+    - echo $GCP_CRED > service_key.json
+    - echo $GCP_IMAGE_CRED > image_key.json
+    - cat service_key.json | docker login -u _json_key --password-stdin https://gcr.io
   script:
-    - pwd
-    - ls -la
-#    - cd helloworld-ruby
-#    - docker build -t gcr.io/$projectid/$image_name:latest .
-#    - docker push gcr.io/$projectid/$image_name:latest
+    - |
+      docker build \
+      --build-arg GCP_IMAGE_BUCKET_CREDS="$(cat image_key.json | base64)" \
+      --build-arg CARRIERWAVE_SALT="$BIRDS_CARRIERWAVE_SALT" \
+      --cache-from MMMMMMM -t gcr.io/$projectid/$image_name:latest .
+    - docker push gcr.io/$projectid/$image_name:latest
+
+deploy-service-job:
+  stage: deploy
+  image: google/cloud-sdk  #use docker image with gcp sdk for this job
+  before_script:
+    # Write our GCP service account private key into a file
+    - echo $GCP_CRED > service_key.json
+    - echo $GCP_IMAGE_CRED > image_key.json
+    - cat image_key.json
+  script:
+    - cat image_key.json | base64
+    - gcloud auth activate-service-account --key-file service_key.json
+    - echo $GCP_API_MAPS_KEY
+    - echo $GA_TRACKING_ID
+    - |
+      gcloud run deploy $service --project $projectid \
+      --image gcr.io/$projectid/$image_name:latest \
+      --region $region --platform=managed --memory $ram --allow-unauthenticated \
+      --set-env-vars GCP_IMAGE_CREDS="$(cat image_key.json | base64)",BIRDS_CARRIERWAVE_SALT="$CARRIERWAVE_SALT" \
+      --set-env-vars DATABASE_HOST=$GCP_DB_HOST \
+      --set-env-vars DATABASE_USERNAME=$GCP_DB_USERNAME \
+      --set-env-vars DATABASE_PASSWORD=$GCP_DB_PASSWORD \
+      --set-env-vars RAILS_ENV=production \
+      --set-env-vars DB_ADAPTER=postgresql \
+      --set-env-vars BIRDS_GOOGLE_MAPS_API_KEY=$GCP_API_MAPS_KEY \
+      --set-env-vars BIRDS_GOOGLE_ANALYTICS_ID=$GA_TRACKING_ID \
+      --vpc-connector $connector_name
