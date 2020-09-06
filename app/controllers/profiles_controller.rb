@@ -30,7 +30,6 @@ class ProfilesController < ApplicationController
 
   private
   def editable_params
-    # TODO: check if the param 'avatar_cache' is used?
-    params.require(:user).permit(:avatar, :first_name, :last_name, :avatar_cache)
+    params.require(:user).permit(:avatar, :first_name, :last_name)
   end
 end
