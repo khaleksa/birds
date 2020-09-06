@@ -17,7 +17,7 @@ CarrierWave.configure do |config|
     google_project: 'birds-stage',
     google_json_key_string: ENV['RAILS_ENV']=='production' ? Base64.decode64(ENV['GCP_IMAGE_CREDS']) : ENV['GCP_IMAGE_CREDS']
   }
-  config.fog_directory = 'birds-files'
+  config.fog_directory = Rails.configuration.carrierwave.gcp_store.bucket
 end
 
 # !_WORKING CONF FOR birds-stage_ with cred file located locally!
