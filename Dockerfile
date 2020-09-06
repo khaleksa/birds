@@ -27,13 +27,7 @@ RUN bundle config --global path "$GEM_HOME" \
   && bundle install \ 
   && bundle exec rails assets:precompile
 
-## Add a script to be executed every time the container starts.
-#COPY bin/init.sh /usr/bin/
-#RUN chmod +x /usr/bin/init.sh
-#ENTRYPOINT ["/usr/bin/init.sh"]
-
 EXPOSE 3000
 
 # Start the main process.
-#CMD ["rails", "server", "-b", "0.0.0.0"]
 CMD exec rails server -b '0.0.0.0' -p $PORT
