@@ -53,9 +53,9 @@ ActiveAdmin.register Categories::Family do
       end
 
       f.inputs 'Описание' do
-        f.input :description_ru
-        f.input :description_en
-        f.input :description_uz
+        f.input :description_ru, as: :text
+        f.input :description_en, as: :text
+        f.input :description_uz, as: :text
       end
     end
 
