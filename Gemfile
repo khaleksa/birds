@@ -7,6 +7,7 @@ gem 'rails', '5.1'
 gem 'pg', '~> 0.20.0'
 
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin', branch: '1-4-stable'
+gem 'activerecord-nulldb-adapter'
 gem 'best_in_place'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'bugsnag'
@@ -14,10 +15,11 @@ gem 'carrierwave'
 gem 'choices'
 gem 'closure_tree'
 gem 'devise', '>= 4.7.1'
+gem 'fog-google'
 gem 'globalize'
 gem 'globalize-accessors'
 gem 'jquery-rails'
-gem "haml-rails"
+gem 'haml-rails'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'momentjs-rails', '>= 2.9.0'
@@ -29,7 +31,6 @@ gem 'seed-fu', git: 'https://github.com/mbleigh/seed-fu'
 gem 'seedbank'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-
 
 group :test, :development do
   gem 'factory_girl'

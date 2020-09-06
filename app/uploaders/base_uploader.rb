@@ -3,10 +3,11 @@
 class BaseUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  storage :file
+  storage :fog
 
   def store_dir
-    "images/#{model.class.to_s.underscore}/#{mounted_as}/#{salted_reproducible_id}"
+    gcp_bucket_dir = Rails.configuration.carrierwave.gcp_store.dir
+    "#{gcp_bucket_dir}/#{model.class.to_s.underscore}/#{mounted_as}/#{salted_reproducible_id}"
   end
 
   def filename

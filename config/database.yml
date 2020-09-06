@@ -1,0 +1,23 @@
+default: &default
+  adapter: <%= ENV['DB_ADAPTER'] || 'postgresql' %>
+  encoding: unicode
+  pool: 5
+  port: 3100
+  host: localhost
+  username: alexandra
+  database: birds_development
+
+development: &development
+  <<: *default
+
+test: &test
+  <<: *default
+  database: birds_test
+
+production: &production
+  <<: *default
+  host: <%= ENV["DATABASE_HOST"] %>
+  port: 5432
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  database: birds_production
