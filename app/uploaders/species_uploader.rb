@@ -13,7 +13,8 @@ class SpeciesUploader < BaseUploader
   end
 
   def store_dir
-    "images/species/#{mounted_as}/#{salted_reproducible_id}"
+    gcp_bucket_dir = Rails.configuration.carrierwave.gcp_store.dir
+    "#{gcp_bucket_dir}/species/#{mounted_as}/#{salted_reproducible_id}"
   end
 
   def extension_white_list

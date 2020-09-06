@@ -7,6 +7,10 @@ defaults: &defaults
   recaptcha:
     public_key: <%= ENV['BIRDS_RECAPTCHA_KEY'] %>
     private_key: <%= ENV['BIRDS_RECAPTCHA_SECRET'] %>
+  carrierwave:
+    gcp_store:
+      bucket: 'birds-files'
+      dir: 'images_eu_w4/images'
   hybrid:
     order:
       id: 95
